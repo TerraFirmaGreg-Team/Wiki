@@ -1,0 +1,40 @@
+[
+  {
+    "text": "升级指南",
+    "collapsed": false,
+    "items": [
+      { "text": "0.7 → 0.9", "link": "/upgrade-guides/from-0.7-to-0.9" },
+      { "text": "0.9 → 0.10", "link": "/upgrade-guides/from-0.9-to-0.10" },
+      { "text": "0.10 → 0.11", "link": "/upgrade-guides/from-0.10-to-0.11" },
+      { "text": "0.11 → 0.12", "link": "/upgrade-guides/from-0.11-to-0.12" }
+    ]
+  },
+  {
+    "text": "主版本更新日志",
+    "collapsed": false,
+    "items": [
+      { "text": "0.10 更新", "link": "/major-changelogs/0.10" },
+      { "text": "0.11 更新", "link": "/major-changelogs/0.11" },
+      { "text": "0.12 更新", "link": "/major-changelogs/0.12" }
+    ]
+  },
+  {
+    "text": "开发者文档",
+    "collapsed": false,
+    "items": [
+      { "text": "开发速查表", "link": "/developer/cheat-sheet" },
+      { "text": "Pixel Composer 基础入门", "link": "/developer/pixel-composer" },
+      { "text": "KubeJS 脚本", "link": "/developer/kubejs-scripts" },
+      { "text": "Phoenixvine 多方块脚本", "link": "/developer/multiblock-script" },
+      { "text": "Java Datagen", "link": "/developer/datagen" },
+      { "text": "世界生成说明", "link": "/developer/worldgen" }
+    ]
+  },
+  {
+    "text": "整合包信息",
+    "collapsed": false,
+    "items": [
+      { "text": "推荐附加模组", "link": "/modpack/optional-mods" }
+    ]
+  }
+]

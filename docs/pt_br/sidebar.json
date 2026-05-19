@@ -1,0 +1,40 @@
+[
+  {
+    "text": "Guias de Atualização",
+    "collapsed": false,
+    "items": [
+      { "text": "0.7 → 0.9", "link": "/upgrade-guides/from-0.7-to-0.9" },
+      { "text": "0.9 → 0.10", "link": "/upgrade-guides/from-0.9-to-0.10" },
+      { "text": "0.10 → 0.11", "link": "/upgrade-guides/from-0.10-to-0.11" },
+      { "text": "0.11 → 0.12", "link": "/upgrade-guides/from-0.11-to-0.12" }
+    ]
+  },
+  {
+    "text": "Changelogs de Grande Release",
+    "collapsed": false,
+    "items": [
+      { "text": "Update 0.10", "link": "/major-changelogs/0.10" },
+      { "text": "Update 0.11", "link": "/major-changelogs/0.11" },
+      { "text": "Update 0.12", "link": "/major-changelogs/0.12" }
+    ]
+  },
+  {
+    "text": "Informações para Desenvolvedores",
+    "collapsed": false,
+    "items": [
+      { "text": "Guia de Dicas", "link": "/developer/cheat-sheet" },
+      { "text": "Básico do Pixel Composer", "link": "/developer/pixel-composer" },
+      { "text": "Scripts KubeJS", "link": "/developer/kubejs-scripts" },
+      { "text": "Script Multibloco do Phoenixvine", "link": "/developer/multiblock-script" },
+      { "text": "Geração de Dados Java", "link": "/developer/datagen" },
+      { "text": "Notas de Geração de Mundo", "link": "/developer/worldgen" }
+    ]
+  },
+  {
+    "text": "Informações do Modpack",
+    "collapsed": false,
+    "items": [
+      { "text": "Mods Adicionais Sugeridos", "link": "/modpack/optional-mods" }
+    ]
+  }
+]
