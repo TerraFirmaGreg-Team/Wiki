@@ -9,14 +9,11 @@ hero:
       text: Baixar no CurseForge
       link: https://www.curseforge.com/members/terrafirmagreg/projects
     - theme: alt
-      text: Baixar no Modrinth
-      link: https://modrinth.com/organization/terrafirmagreg
-    - theme: alt
-      text: Changelog mais recente
-      link: /modern/pt_br/major-changelogs/0.12
-    - theme: alt
       text: Site Oficial
       link: https://terrafirmagreg.team
+    - theme: alt
+      text: Livro de Receitas
+      link: https://terrafirmagreg-team.github.io/RecipeBook-Modern
 
 features:
   - title: Guias de atualização

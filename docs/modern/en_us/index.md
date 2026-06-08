@@ -9,14 +9,11 @@ hero:
       text: Download on CurseForge
       link: https://www.curseforge.com/members/terrafirmagreg/projects
     - theme: alt
-      text: Download on Modrinth
-      link: https://modrinth.com/organization/terrafirmagreg
-    - theme: alt
-      text: Latest Changelog
-      link: /modern/en_us/major-changelogs/0.12
-    - theme: alt
       text: Official Site
       link: https://terrafirmagreg.team
+    - theme: alt
+      text: Recipe Book
+      link: https://terrafirmagreg-team.github.io/RecipeBook-Modern
 
 features:
   - title: Upgrade Guides
