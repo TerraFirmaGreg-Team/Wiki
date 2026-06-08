@@ -1,4 +1,5 @@
 import { defineConfig, type DefaultTheme } from 'vitepress'
+import { withSidebar, type VitePressSidebarOptions } from 'vitepress-sidebar'
 import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
@@ -32,26 +33,20 @@ function localeBase(locale: Locale) {
   return `/${NAMESPACE}/${locale}`
 }
 
-function loadSidebar(locale: Locale): DefaultTheme.SidebarItem[] {
-  const path = resolve(__dirname, '..', 'docs', NAMESPACE, locale, 'sidebar.json')
-  const raw = JSON.parse(readFileSync(path, 'utf8')) as DefaultTheme.SidebarItem[]
-  return prefixLinks(raw, localeBase(locale))
-}
-
-function prefixLinks(
-  items: DefaultTheme.SidebarItem[],
-  prefix: string,
-): DefaultTheme.SidebarItem[] {
-  return items.map((item) => {
-    const next: DefaultTheme.SidebarItem = { ...item }
-    if (typeof item.link === 'string' && item.link.startsWith('/')) {
-      next.link = prefix + item.link
-    }
-    if (Array.isArray(item.items)) {
-      next.items = prefixLinks(item.items, prefix)
-    }
-    return next
-  })
+function sidebarOptions(locale: Locale): VitePressSidebarOptions {
+  return {
+    documentRootPath: '/docs',
+    scanStartPath: `${NAMESPACE}/${locale}`,
+    resolvePath: `${localeBase(locale)}/`,
+    collapsed: false,
+    useTitleFromFrontmatter: true,
+    useTitleFromFileHeading: true,
+    useFolderTitleFromIndexFile: true,
+    sortMenusByFrontmatterOrder: true,
+    hyphenToSpace: true,
+    capitalizeEachWords: true,
+    excludeByGlobPattern: ['**/sidebar.json'],
+  }
 }
 
 type NavLabels = {
@@ -100,7 +95,6 @@ const localeThemeConfigs: Record<
         projects: 'Projects',
         discord: 'Discord',
       }),
-      sidebar: { [`${localeBase('en_us')}/`]: loadSidebar('en_us') },
       editLink: {
         pattern: `https://github.com/${GITHUB_REPO}/edit/main/docs/:path`,
         text: 'Edit this page on GitHub',
@@ -128,7 +122,6 @@ const localeThemeConfigs: Record<
         projects: '项目',
         discord: 'Discord',
       }),
-      sidebar: { [`${localeBase('zh_cn')}/`]: loadSidebar('zh_cn') },
       editLink: {
         pattern: `https://github.com/${GITHUB_REPO}/edit/main/docs/:path`,
         text: '在 GitHub 上编辑此页',
@@ -156,7 +149,6 @@ const localeThemeConfigs: Record<
         projects: 'Projetos',
         discord: 'Discord',
       }),
-      sidebar: { [`${localeBase('pt_br')}/`]: loadSidebar('pt_br') },
       editLink: {
         pattern: `https://github.com/${GITHUB_REPO}/edit/main/docs/:path`,
         text: 'Edite esta página no GitHub',
@@ -177,64 +169,70 @@ const localeThemeConfigs: Record<
 
 const rootEntry = localeThemeConfigs[DEFAULT_LOCALE]
 
-export default defineConfig({
-  srcDir: 'docs',
-  vite: {
-    publicDir: resolve(__dirname, '..', 'public'),
-  },
-  title: 'TFG Wiki',
-  description: 'Official TerraFirmaGreg wiki — modpack info, upgrade guides, and developer references.',
-  lang: rootEntry.lang,
-  base: SITE_BASE,
-  cleanUrls: true,
-  lastUpdated: true,
-  ignoreDeadLinks: 'localhostLinks',
-
-  head: [
-    ['link', { rel: 'icon', type: 'image/png', href: `${SITE_BASE}favicon.png` }],
-    ['meta', { name: 'theme-color', content: '#ff0e0b' }],
-    ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:site_name', content: 'TFG Wiki' }],
-    ['meta', { property: 'og:image', content: `${SITE_URL}favicon.png` }],
-  ],
-
-  sitemap: {
-    hostname: SITE_URL,
-  },
-
-  themeConfig: {
-    logo: { src: '/logo.png', alt: 'TFG', height: 32 },
-    search: { provider: 'local' },
-    socialLinks: [
-      { icon: 'github', link: `https://github.com/${GITHUB_REPO}` },
-      { icon: 'discord', link: DISCORD_URL },
-    ],
-    externalLinkIcon: true,
-  },
-
-  locales: {
-    root: {
-      label: rootEntry.label,
+export default defineConfig(
+  withSidebar(
+    {
+      srcDir: 'docs',
+      vite: {
+        publicDir: resolve(__dirname, '..', 'public'),
+      },
+      title: 'TFG Wiki',
+      description:
+        'Official TerraFirmaGreg wiki — modpack info, upgrade guides, and developer references.',
       lang: rootEntry.lang,
-      link: `${localeBase(DEFAULT_LOCALE)}/`,
+      base: SITE_BASE,
+      cleanUrls: true,
+      lastUpdated: true,
+      ignoreDeadLinks: 'localhostLinks',
+
+      head: [
+        ['link', { rel: 'icon', type: 'image/png', href: `${SITE_BASE}favicon.png` }],
+        ['meta', { name: 'theme-color', content: '#ff0e0b' }],
+        ['meta', { property: 'og:type', content: 'website' }],
+        ['meta', { property: 'og:site_name', content: 'TFG Wiki' }],
+        ['meta', { property: 'og:image', content: `${SITE_URL}favicon.png` }],
+      ],
+
+      sitemap: {
+        hostname: SITE_URL,
+      },
+
       themeConfig: {
-        nav: rootEntry.themeConfig.nav,
-        footer: rootEntry.themeConfig.footer,
+        logo: { src: '/logo.png', alt: 'TFG', height: 32 },
+        search: { provider: 'local' },
+        socialLinks: [
+          { icon: 'github', link: `https://github.com/${GITHUB_REPO}` },
+          { icon: 'discord', link: DISCORD_URL },
+        ],
+        externalLinkIcon: true,
+      },
+
+      locales: {
+        root: {
+          label: rootEntry.label,
+          lang: rootEntry.lang,
+          link: `${localeBase(DEFAULT_LOCALE)}/`,
+          themeConfig: {
+            nav: rootEntry.themeConfig.nav,
+            footer: rootEntry.themeConfig.footer,
+          },
+        },
+        ...Object.fromEntries(
+          LOCALES.map((locale) => {
+            const entry = localeThemeConfigs[locale]
+            return [
+              `${NAMESPACE}/${locale}`,
+              {
+                label: entry.label,
+                lang: entry.lang,
+                link: `${localeBase(locale)}/`,
+                themeConfig: entry.themeConfig,
+              },
+            ]
+          }),
+        ),
       },
     },
-    ...Object.fromEntries(
-      LOCALES.map((locale) => {
-        const entry = localeThemeConfigs[locale]
-        return [
-          `${NAMESPACE}/${locale}`,
-          {
-            label: entry.label,
-            lang: entry.lang,
-            link: `${localeBase(locale)}/`,
-            themeConfig: entry.themeConfig,
-          },
-        ]
-      }),
-    ),
-  },
-})
+    LOCALES.map((locale) => sidebarOptions(locale)),
+  ),
+)

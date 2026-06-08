@@ -1,3 +1,7 @@
+---
+title: Cheat Sheet
+order: 1
+---
 ## Cheat Sheet
 The purpose of this page is for developers to document helpful functions for future use. If you have any JavaScript or java code that would be nice to share please put it here.
 

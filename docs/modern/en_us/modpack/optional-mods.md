@@ -1,3 +1,7 @@
+---
+title: Optional Mods
+order: 1
+---
 Here's some more mods that are compatible with TFG but aren't included by default. Feel free to add them to your own instance of the modpack!
 
 * TFC Caelum ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) - a realistic sky mod that shows planets, accurate constellations, moon phases, and so on. Also adds rainbows! Not included by default because it crashes MacOS clients.

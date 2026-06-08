@@ -1,3 +1,7 @@
+---
+title: 世界生成说明
+order: 6
+---
 ## 噪声设置
 **Ore veins（矿脉）**：这是指原版中[巨大的面条状矿脉](https://minecraft.wiki/w/Ore_vein)。请关闭它们！您还需要将 `vein_gap`、`vein_ridged` 和 `vein_toggle` 设置为 `0`。
 

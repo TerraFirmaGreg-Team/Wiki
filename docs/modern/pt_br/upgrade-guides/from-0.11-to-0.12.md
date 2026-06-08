@@ -1,3 +1,7 @@
+---
+title: 0.11 → 0.12
+order: 4
+---
 **Por favor, lembre-se de criar uma nova instância do TFG e copiar seu mundo para ela, ao invés de atualizá-lo diretamente!** Isso é mais seguro e também permite que você visualize seu mundo atualizado, caso queira voltar e prepará-lo melhor.
 
 Se você está atualizando a partir da 0.10, por favor siga primeiro as [instruções de atualização para a 0.11](/modern/pt_br/upgrade-guides/from-0.10-to-0.11).

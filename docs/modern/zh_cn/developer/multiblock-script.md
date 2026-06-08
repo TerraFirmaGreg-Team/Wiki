@@ -1,3 +1,7 @@
+---
+title: Phoenixvine 多方块脚本
+order: 4
+---
 > 特别感谢来自 [PFT](https://github.com/Phoenixvine32908/Phoenix-Forge-Technologies) 的 [Phoenixvine](https://github.com/Phoenixvine32908) 分享这些脚本
 # 步骤 1)
 下载以下两个文件并将其放在您电脑上任意位置的同一文件夹中。

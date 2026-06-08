@@ -1,3 +1,7 @@
+---
+title: Notas de Geração de Mundo
+order: 6
+---
 ## Configurações de Ruído
 **Veios de minério**: Refere-se aos [grandes veios sinuosos](https://minecraft.wiki/w/Ore_vein) do vanilla. Desative-os! Você também desejará definir `vein_gap`, `vein_ridged` e `vein_toggle` como `0`.
 

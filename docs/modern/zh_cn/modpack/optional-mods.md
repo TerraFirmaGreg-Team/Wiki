@@ -1,3 +1,7 @@
+---
+title: 推荐附加模组
+order: 1
+---
 以下模组与 TerraFirmaGreg 兼容但未包含在默认整合包中，欢迎您将其添加到自己的游戏实例中！
 
 * TFC Caelum ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) - 一款逼真的天空模组，可显示行星、精确的星座、月相等等。还会添加彩虹！未默认包含是因为它会导致 macOS 客户端崩溃。

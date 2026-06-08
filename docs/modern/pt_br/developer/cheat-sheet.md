@@ -1,3 +1,7 @@
+---
+title: Guia de Dicas
+order: 1
+---
 ## Guia Rápido
 O objetivo desta página é permitir que desenvolvedores documentem funções úteis para uso futuro. Se você tiver qualquer código JavaScript ou Java que valha a pena compartilhar, coloque-o aqui.
 

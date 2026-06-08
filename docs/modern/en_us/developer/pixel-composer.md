@@ -1,3 +1,7 @@
+---
+title: Pixel Composer Basics
+order: 2
+---
 [Pixel Composer](https://pixel-composer.com) is a 2D and 3D art tool which is used in the pack to make various animated textures, including the new logo! Since there isn't much documentation online, I am creating this article to share what I know.
 
 <h1 align="center">  Basics </h1>

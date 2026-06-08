@@ -1,4 +1,8 @@
- # Scripts de Inicialização
+---
+title: Scripts KubeJS
+order: 3
+---
+# Scripts de Inicialização
 
  ## Informações Gerais
 

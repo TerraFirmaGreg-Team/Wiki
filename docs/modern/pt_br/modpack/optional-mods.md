@@ -1,3 +1,7 @@
+---
+title: Mods Adicionais Sugeridos
+order: 1
+---
 Abaixo estão mais alguns mods compatíveis com o TFG, mas que não vêm incluídos por padrão. Sinta-se à vontade para adicioná-los à sua própria instância do modpack!
 
 * TFC Caelum ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) - um mod de céu realista que mostra planetas, constelações precisas, fases da lua e afins. Também adiciona arco-íris! Não incluído por padrão porque trava clientes no MacOS.

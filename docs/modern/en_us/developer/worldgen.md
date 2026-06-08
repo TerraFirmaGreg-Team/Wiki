@@ -1,3 +1,7 @@
+---
+title: Worldgen Notes
+order: 6
+---
 ## Noise settings
 **Ore veins**: This refers to the [large noodley veins](https://minecraft.wiki/w/Ore_vein) in vanilla. Turn them off! You will also want to set the `vein_gap`, `vein_ridged`, and `vein_toggle` to `0`.
 

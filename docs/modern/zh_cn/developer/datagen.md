@@ -1,3 +1,7 @@
+---
+title: Java Datagen
+order: 5
+---
 #### 配置
 
 创建文件 `gradle-local.properties`，并写入如下内容：

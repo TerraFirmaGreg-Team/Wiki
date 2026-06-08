@@ -1,3 +1,7 @@
+---
+title: Phoenixvine's Multiblock Script
+order: 4
+---
 > Special thanks to [Phoenixvine](https://github.com/Phoenixvine32908) from [PFT](https://github.com/Phoenixvine32908/Phoenix-Forge-Technologies) for sharing these scripts
 # Step 1)
 Download these two files and place them in the same folder anywhere on your PC.

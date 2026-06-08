@@ -1,3 +1,7 @@
+---
+title: KubeJS Scripts
+order: 3
+---
 # Startup Scripts
 
 ## General Info

@@ -1,3 +1,7 @@
+---
+title: Pixel Composer 基础入门
+order: 2
+---
 [Pixel Composer](https://pixel-composer.com) 是一款用于制作2D和3D美术素材的工具，本整合包使用它制作了各种动画纹理，包括新Logo！由于网上文档资料有限，我特此编写本文分享相关知识。
 
 <h1 align="center">基础入门</h1>
