@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 permissions:
   contents: read
@@ -36,6 +38,28 @@ jobs:
 
       - name: Build VitePress site
         run: pnpm build
+
+      - name: Resolve upstream static site versions
+        id: static_sites
+        run: node ci/scripts/resolve-static-sites.mjs
+
+      - name: Restore recipe-book-modern static site cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .vitepress/dist/recipe-book-modern
+          key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
+          fail-on-cache-miss: false
+
+      - name: Install aggregated static sites
+        id: mirror
+        run: bash ci/mirror-static-sites.sh
+
+      - name: Save recipe-book-modern static site cache
+        if: steps.mirror.outputs.recipe_book_modern_downloaded == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .vitepress/dist/recipe-book-modern
+          key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
 
       - uses: actions/configure-pages@v5
 

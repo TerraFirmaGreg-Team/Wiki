@@ -13,7 +13,7 @@ hero:
       link: https://terrafirmagreg.team
     - theme: alt
       text: Recipe Book
-      link: https://terrafirmagreg-team.github.io/RecipeBook-Modern
+      link: /recipe-book-modern/
 
 features:
   - title: Upgrade Guides

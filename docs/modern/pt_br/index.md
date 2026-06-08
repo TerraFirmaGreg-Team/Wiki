@@ -13,7 +13,7 @@ hero:
       link: https://terrafirmagreg.team
     - theme: alt
       text: Livro de Receitas
-      link: https://terrafirmagreg-team.github.io/RecipeBook-Modern
+      link: /recipe-book-modern/
 
 features:
   - title: Guias de atualização

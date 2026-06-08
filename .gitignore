@@ -2,6 +2,7 @@ node_modules
 .DS_Store
 .vitepress/cache
 .vitepress/dist
+ci/static-sites-resolved.json
 *.log
 .idea
 .vscode
