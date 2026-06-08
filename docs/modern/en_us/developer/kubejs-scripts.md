@@ -339,7 +339,9 @@ StartupEvents.registry('block', event => {
 
 We have several types of decorative plants.
 
-The basic `tfg:decorative_plant` will create a block with typical plant block attributes like random offset, instant break, non placeable on unsupported faces, and smaller box size. By default the builder will automatically make loot tables for harvesting the plant with knives, hoes, and scythes. If you want to replace this item with something else, use the `lootItem()` method, which will mean you can only use shears to pick up the 'original' block. It also supports waterlogging with water, sea water, spring water, and mars water. (More fluids can be added via Core)
+The basic `tfg:decorative_plant` will create a block with typical plant block attributes like random offset, instant break, non placeable on unsupported faces, and smaller box size. It also supports waterlogging with water, sea water, spring water, and mars water. (More fluids can be added via Core)
+* By default the builder will automatically make loot tables for harvesting the plant with knives, hoes, and scythes. If you want to replace this item with something else, use the `lootItem()` method, which will mean you can only use shears to pick up the 'original' block. 
+* If you want to give the player (and only the player) an effect while walking through this plant, use the `effect()` method, which takes a mob effect ID string as its argument. While the player is within the plant's space, 50 ticks of the given effect will constantly be applied.
 
 The `tfg:tall_decorative_plant` does the same thing but as an n-block tall plant. Use the `height()` method to set the maximum height of the tall block, up to a maximum of 5.
 
@@ -365,6 +367,9 @@ StartupEvents.registry('block', event => {
   .soundType('nether_wart')        
   .tagItem('tfg:venus_plants')
   .box(3, 0, 3, 13, 14, 13)
+  .speedFactor(0.85)
+  .effect('minecraft:darkness')
+  .lootItem('tfc:straw')
 })
 ```
 
