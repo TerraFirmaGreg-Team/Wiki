@@ -3,7 +3,7 @@ import { withSidebar, type VitePressSidebarOptions } from 'vitepress-sidebar'
 import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
-import { assertUiLocales, buildThemeConfig, loadUiLocales } from './i18n/index.ts'
+import { assertUiLocales, buildSearchOptions, buildThemeConfig, loadUiLocales } from './i18n/index.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -91,7 +91,7 @@ export default defineConfig(
 
       themeConfig: {
         logo: { src: '/logo.png', alt: 'TFG', height: 32 },
-        search: { provider: 'local' },
+        search: buildSearchOptions(UI, LOCALES, NAMESPACE, DEFAULT_LOCALE),
         socialLinks: [
           { icon: 'github', link: `https://github.com/${GITHUB_REPO}` },
           { icon: 'discord', link: 'https://discord.com/invite/AEaCzCTUwQ' },

@@ -18,5 +18,26 @@
   "darkModeSwitchLabel": "Theme",
   "sidebarMenuLabel": "Menu",
   "returnToTopLabel": "Back to top",
-  "langMenuLabel": "Change language"
+  "langMenuLabel": "Change language",
+  "search": {
+    "button": {
+      "buttonText": "Search",
+      "buttonAriaLabel": "Search"
+    },
+    "modal": {
+      "displayDetails": "Display detailed list",
+      "resetButtonTitle": "Reset search",
+      "backButtonTitle": "Close search",
+      "noResultsText": "No results for",
+      "footer": {
+        "selectText": "to select",
+        "selectKeyAriaLabel": "enter",
+        "navigateText": "to navigate",
+        "navigateUpKeyAriaLabel": "up arrow",
+        "navigateDownKeyAriaLabel": "down arrow",
+        "closeText": "to close",
+        "closeKeyAriaLabel": "escape"
+      }
+    }
+  }
 }

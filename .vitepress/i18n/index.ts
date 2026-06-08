@@ -13,6 +13,28 @@ export type UiNavLabels = {
   discord: string
 }
 
+export type UiSearchTranslations = {
+  button: {
+    buttonText: string
+    buttonAriaLabel: string
+  }
+  modal: {
+    displayDetails: string
+    resetButtonTitle: string
+    backButtonTitle: string
+    noResultsText: string
+    footer: {
+      selectText: string
+      selectKeyAriaLabel: string
+      navigateText: string
+      navigateUpKeyAriaLabel: string
+      navigateDownKeyAriaLabel: string
+      closeText: string
+      closeKeyAriaLabel: string
+    }
+  }
+}
+
 export type UiLocale = {
   label: string
   lang: string
@@ -25,6 +47,7 @@ export type UiLocale = {
   sidebarMenuLabel: string
   returnToTopLabel: string
   langMenuLabel: string
+  search: UiSearchTranslations
 }
 
 export function loadUiLocales(): Record<string, UiLocale> {
@@ -80,6 +103,25 @@ export function buildThemeConfig(
     sidebarMenuLabel: ui.sidebarMenuLabel,
     returnToTopLabel: ui.returnToTopLabel,
     langMenuLabel: ui.langMenuLabel,
+  }
+}
+
+export function buildSearchOptions(
+  ui: Record<string, UiLocale>,
+  locales: readonly string[],
+  namespace: string,
+  defaultLocale: string,
+): DefaultTheme.Config['search'] {
+  return {
+    provider: 'local',
+    options: {
+      locales: Object.fromEntries(
+        locales.map((locale) => [
+          locale === defaultLocale ? 'root' : `${namespace}/${locale}`,
+          { translations: ui[locale].search },
+        ]),
+      ),
+    },
   }
 }
 
