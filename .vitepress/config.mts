@@ -179,6 +179,9 @@ const rootEntry = localeThemeConfigs[DEFAULT_LOCALE]
 
 export default defineConfig({
   srcDir: 'docs',
+  vite: {
+    publicDir: resolve(__dirname, '..', 'public'),
+  },
   title: 'TFG Wiki',
   description: 'Official TerraFirmaGreg wiki — modpack info, upgrade guides, and developer references.',
   lang: rootEntry.lang,
@@ -200,7 +203,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: { src: '/favicon.png', alt: 'TFG', width: 24, height: 24 },
+    logo: { src: '/logo.png', alt: 'TFG', height: 32 },
     search: { provider: 'local' },
     socialLinks: [
       { icon: 'github', link: `https://github.com/${GITHUB_REPO}` },
