@@ -1,4 +1,4 @@
 ---
 title: Modpack Information
-order: 4
+order: 3
 ---
