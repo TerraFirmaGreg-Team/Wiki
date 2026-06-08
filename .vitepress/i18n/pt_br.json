@@ -1,0 +1,22 @@
+{
+  "label": "Português (BR)",
+  "lang": "pt-BR",
+  "nav": {
+    "home": "Início",
+    "download": "Download",
+    "officialSite": "Site Oficial",
+    "projects": "Projetos",
+    "discord": "Discord"
+  },
+  "editLink": "Edite esta página no GitHub",
+  "docFooter": {
+    "prev": "Página anterior",
+    "next": "Próxima página"
+  },
+  "outline": "Nesta página",
+  "lastUpdated": "Última atualização",
+  "darkModeSwitchLabel": "Tema",
+  "sidebarMenuLabel": "Menu",
+  "returnToTopLabel": "Voltar ao topo",
+  "langMenuLabel": "Mudar idioma"
+}

@@ -1,0 +1,22 @@
+{
+  "label": "English",
+  "lang": "en-US",
+  "nav": {
+    "home": "Home",
+    "download": "Download",
+    "officialSite": "Official Site",
+    "projects": "Projects",
+    "discord": "Discord"
+  },
+  "editLink": "Edit this page on GitHub",
+  "docFooter": {
+    "prev": "Previous page",
+    "next": "Next page"
+  },
+  "outline": "On this page",
+  "lastUpdated": "Last updated",
+  "darkModeSwitchLabel": "Theme",
+  "sidebarMenuLabel": "Menu",
+  "returnToTopLabel": "Back to top",
+  "langMenuLabel": "Change language"
+}
