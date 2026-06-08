@@ -1,5 +1,5 @@
 ---
-title: TFG Wiki
+title: TerraFirmaGreg Wiki
 description: Redirecting to your preferred language…
 layout: page
 sidebar: false
@@ -29,7 +29,7 @@ onMounted(() => {
 })
 </script>
 
-# TFG Wiki
+# TerraFirmaGreg Wiki
 
 Redirecting to your preferred language…
 

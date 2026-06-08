@@ -1,23 +1,34 @@
-# TFG Wiki
+# TerraFirmaGreg Wiki
 
 Source for the [TerraFirmaGreg](https://github.com/TerraFirmaGreg-Team) team wiki. Built with [VitePress](https://vitepress.dev).
 
-- GitHub Pages: <https://terrafirmagreg-team.github.io/Wiki/>
-- Custom domain (planned): <https://wiki.terrafirmagreg.team/>
+- https://wiki.terrafirmagreg.team
 
 > **Source of truth.** Edit pages here — the old `Modpack-Modern` wiki is no longer maintained.
 
 ## Layout
 
 ```
-docs/
-├── .vitepress/config.mts   # Site config (i18n, nav, theme)
-├── public/                 # CNAME, favicon, static assets
-├── index.md                # Root; auto-redirects to visitor's locale
-├── en_us/                  # English  (each locale has its own sidebar.json)
-├── zh_cn/                  # Simplified Chinese
-└── pt_br/                  # Brazilian Portuguese
+/
+├── .vitepress/
+│   ├── config.mts          # Site config (locales, sidebar plugin, search)
+│   └── i18n/               # UI strings per locale (nav, footer, search, …)
+│       ├── en_us.json
+│       ├── zh_cn.json
+│       └── pt_br.json
+├── public/                 # CNAME, favicon, logo
+├── docs/
+│   ├── index.md            # Root; auto-redirects to visitor's locale
+│   └── modern/             # Modpack-Modern namespace
+│       ├── en_us/
+│       ├── zh_cn/
+│       └── pt_br/
+├── dev.sh / dev.bat
+└── package.json
 ```
+
+Content paths: `docs/modern/<locale>/<section>/<slug>.md`  
+Public URLs: `/modern/<locale>/<section>/<slug>` (e.g. `/modern/en_us/upgrade-guides/from-0.11-to-0.12`).
 
 ## Local Development
 
@@ -39,30 +50,22 @@ dev.bat preview
 
 ## Adding a Page
 
-Create the `.md` file at the **same relative path in every locale** (e.g. `docs/<locale>/<section>/<slug>.md`), then add an entry to each `docs/<locale>/sidebar.json`:
+Create the `.md` file at the **same relative path in every locale** (e.g. `docs/modern/en_us/<section>/<slug>.md`). Add frontmatter:
 
-```json
-{ "text": "...", "link": "/<section>/<slug>" }
+```yaml
+---
+title: Page title in sidebar
+order: 1
+---
 ```
 
-`link` is **locale-relative** — do not include the locale prefix; the build adds it. Open a PR; merging to `main` deploys.
+The sidebar is generated automatically from the folder structure. Use `order` to control sort position within a section. For a new section, add an `index.md` in that folder with `title` and `order` for the group heading.
 
 ## Adding a Language
 
-Copy an existing locale directory (e.g. `en_us/`) to `docs/<new-locale>/`, translate the content, then register the locale in `docs/.vitepress/config.mts`.
-
-## Deployment
-
-`.github/workflows/deploy.yml` runs on every push to `main`. One-time setup: Repo Settings → Pages → **Source**: *GitHub Actions*.
-
-### Switching to a custom domain
-
-The site auto-detects which URL to build for based on whether `docs/public/CNAME` exists:
-
-- **CNAME absent** (current) → `base: '/Wiki/'`, served at `terrafirmagreg-team.github.io/Wiki/`.
-- **CNAME present** → `base: '/'`, served at the custom domain. GitHub Pages will 301-redirect `github.io/Wiki/*` to it.
-
-To switch, create `docs/public/CNAME` containing the domain (e.g. `wiki.terrafirmagreg.team`), add a DNS CNAME record for that subdomain pointing to `terrafirmagreg-team.github.io`, and push. **Set up DNS first** — a CNAME file pointing at a non-resolving domain breaks the github.io URL too (it gets 301'd to a broken host).
+1. Copy `docs/modern/en_us/` to `docs/modern/<new-locale>/` and translate the content.
+2. Add `.vitepress/i18n/<new-locale>.json` (copy `en_us.json` and translate UI strings).
+3. Register the locale in `LOCALES` inside `.vitepress/config.mts`.
 
 ## Contributing
 

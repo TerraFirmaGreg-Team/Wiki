@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withSidebar, type VitePressSidebarOptions } from 'vitepress-sidebar'
-import { existsSync, readFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 import { assertUiLocales, buildSearchOptions, buildThemeConfig, loadUiLocales } from './i18n/index.ts'
@@ -8,19 +8,10 @@ import { assertUiLocales, buildSearchOptions, buildThemeConfig, loadUiLocales } 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const GITHUB_ORG = 'TerraFirmaGreg-Team'
-const GITHUB_REPO_NAME = 'Wiki'
-const GITHUB_REPO = `${GITHUB_ORG}/${GITHUB_REPO_NAME}`
+const GITHUB_REPO = `${GITHUB_ORG}/Wiki`
 const NAMESPACE = 'modern'
-
-const CNAME_PATH = resolve(__dirname, '..', 'public', 'CNAME')
-const CUSTOM_DOMAIN = existsSync(CNAME_PATH)
-  ? readFileSync(CNAME_PATH, 'utf8').trim()
-  : null
-const SITE_BASE = CUSTOM_DOMAIN ? '/' : `/${GITHUB_REPO_NAME}/`
-const SITE_ORIGIN = CUSTOM_DOMAIN
-  ? `https://${CUSTOM_DOMAIN}`
-  : `https://${GITHUB_ORG.toLowerCase()}.github.io`
-const SITE_URL = `${SITE_ORIGIN}${SITE_BASE}`
+const SITE_DOMAIN = readFileSync(resolve(__dirname, '..', 'public', 'CNAME'), 'utf8').trim()
+const SITE_URL = `https://${SITE_DOMAIN}`
 
 const LOCALES = ['en_us', 'zh_cn', 'pt_br'] as const
 type Locale = (typeof LOCALES)[number]
@@ -68,20 +59,20 @@ export default defineConfig(
       vite: {
         publicDir: resolve(__dirname, '..', 'public'),
       },
-      title: 'TFG Wiki',
+      title: 'TerraFirmaGreg Wiki',
       description:
         'Official TerraFirmaGreg wiki — modpack info, upgrade guides, and developer references.',
       lang: rootEntry.lang,
-      base: SITE_BASE,
+      base: '/',
       cleanUrls: true,
       lastUpdated: true,
       ignoreDeadLinks: 'localhostLinks',
 
       head: [
-        ['link', { rel: 'icon', type: 'image/png', href: `${SITE_BASE}favicon.png` }],
+        ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
         ['meta', { name: 'theme-color', content: '#ff0e0b' }],
         ['meta', { property: 'og:type', content: 'website' }],
-        ['meta', { property: 'og:site_name', content: 'TFG Wiki' }],
+        ['meta', { property: 'og:site_name', content: 'TerraFirmaGreg Wiki' }],
         ['meta', { property: 'og:image', content: `${SITE_URL}favicon.png` }],
       ],
 
