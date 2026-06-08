@@ -1,0 +1,43 @@
+{
+  "label": "English",
+  "lang": "en-US",
+  "nav": {
+    "home": "Home",
+    "download": "Download",
+    "officialSite": "Official Site",
+    "projects": "Projects",
+    "discord": "Discord"
+  },
+  "editLink": "Edit this page on GitHub",
+  "docFooter": {
+    "prev": "Previous page",
+    "next": "Next page"
+  },
+  "outline": "On this page",
+  "lastUpdated": "Last updated",
+  "darkModeSwitchLabel": "Theme",
+  "sidebarMenuLabel": "Menu",
+  "returnToTopLabel": "Back to top",
+  "langMenuLabel": "Change language",
+  "search": {
+    "button": {
+      "buttonText": "Search",
+      "buttonAriaLabel": "Search"
+    },
+    "modal": {
+      "displayDetails": "Display detailed list",
+      "resetButtonTitle": "Reset search",
+      "backButtonTitle": "Close search",
+      "noResultsText": "No results for",
+      "footer": {
+        "selectText": "to select",
+        "selectKeyAriaLabel": "enter",
+        "navigateText": "to navigate",
+        "navigateUpKeyAriaLabel": "up arrow",
+        "navigateDownKeyAriaLabel": "down arrow",
+        "closeText": "to close",
+        "closeKeyAriaLabel": "escape"
+      }
+    }
+  }
+}
