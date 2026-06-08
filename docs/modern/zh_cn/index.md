@@ -9,14 +9,11 @@ hero:
       text: CurseForge 下载
       link: https://www.curseforge.com/members/terrafirmagreg/projects
     - theme: alt
-      text: Modrinth 下载
-      link: https://modrinth.com/organization/terrafirmagreg
-    - theme: alt
-      text: 最新更新日志
-      link: /modern/zh_cn/major-changelogs/0.12
-    - theme: alt
       text: 访问官网
       link: https://terrafirmagreg.team
+    - theme: alt
+      text: 配方书
+      link: https://terrafirmagreg-team.github.io/RecipeBook-Modern
 
 features:
   - title: 升级指南

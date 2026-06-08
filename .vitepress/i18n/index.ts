@@ -76,8 +76,6 @@ export function buildThemeConfig(
         text: nav.download,
         items: [
           { text: 'CurseForge', link: 'https://www.curseforge.com/members/terrafirmagreg/projects' },
-          { text: 'Modrinth', link: 'https://modrinth.com/organization/terrafirmagreg' },
-          { text: nav.officialSite, link: 'https://terrafirmagreg.team' },
         ],
       },
       {
