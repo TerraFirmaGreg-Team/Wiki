@@ -46,7 +46,7 @@ function localeEntry(locale: Locale) {
     label: ui.label,
     lang: ui.lang,
     link: `${localeBase(locale)}/`,
-    themeConfig: buildThemeConfig(ui, localeBase(locale), GITHUB_REPO),
+    themeConfig: buildThemeConfig(ui, localeBase(locale), locale, GITHUB_REPO, SITE_URL),
   }
 }
 

@@ -3,6 +3,8 @@
     {
       "id": "recipe-book-modern",
       "enabled": true,
+      "navLabelKey": "recipeBook",
+      "entry": "lang-query",
       "buildJsonUrl": "https://terrafirmagreg-team.github.io/RecipeBook-Modern/build.json",
       "releaseRepo": "TerraFirmaGreg-Team/RecipeBook-Modern",
       "releaseAssetName": "recipe-book-site.tar.gz"
@@ -10,6 +12,8 @@
     {
       "id": "field-guide-modern",
       "enabled": true,
+      "navLabelKey": "fieldGuide",
+      "entry": "locale-path",
       "buildJsonUrl": "https://terrafirmagreg-team.github.io/Field-Guide-Modern/build.json",
       "releaseRepo": "TerraFirmaGreg-Team/Field-Guide-Modern",
       "releaseAssetName": "field-guide-site.tar.gz"
@@ -17,6 +21,8 @@
     {
       "id": "quest-book-modern",
       "enabled": false,
+      "navLabelKey": "questBook",
+      "entry": "locale-path",
       "buildJsonUrl": "https://terrafirmagreg-team.github.io/QuestBook-Modern/build.json",
       "releaseRepo": "TerraFirmaGreg-Team/QuestBook-Modern",
       "releaseAssetName": "quest-book-site.tar.gz"

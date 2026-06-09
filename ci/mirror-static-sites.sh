@@ -52,10 +52,7 @@ while IFS=$'\t' read -r id content_hash release_tag download_url; do
   rm -f "$tmp"
   trap - RETURN
 
-  if [[ ! -f "$dest/index.html" ]]; then
-    echo "::error::Release extract for ${id} is missing index.html under ${dest}" >&2
-    exit 1
-  fi
+  node "${ROOT}/ci/scripts/ensure-static-site-root.mjs" "$DIST" "$id"
 
   printf '%s\n' "$content_hash" > "$marker"
   echo "Installed ${id} → ${dest} (${content_hash})"

@@ -4,10 +4,48 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+/** @typedef {'locale-path' | 'lang-query' | 'root'} StaticSiteEntryKind */
+
+const DEFAULT_WIKI_LOCALE = 'en_us';
+
+/**
+ * @param {string} configPath
+ * @returns {Array<Record<string, unknown> & { id: string; enabled?: boolean; navLabelKey?: string; entry?: StaticSiteEntryKind }>}
+ */
 export function loadStaticSitesConfig(configPath = join(__dirname, '../static-sites.json')) {
   const config = JSON.parse(readFileSync(configPath, 'utf8'));
   const sites = (config.sites ?? []).filter((site) => site.enabled);
   return sites;
+}
+
+/**
+ * @param {{ id: string; entry?: StaticSiteEntryKind }} site
+ * @param {string} [wikiLocale]
+ */
+export function buildStaticSitePath(site, wikiLocale = DEFAULT_WIKI_LOCALE) {
+  const id = String(site.id);
+  const entry = site.entry ?? 'root';
+
+  switch (entry) {
+    case 'locale-path':
+      return `/${id}/${wikiLocale}/`;
+    case 'lang-query':
+      return `/${id}/?lang=${wikiLocale}`;
+    default:
+      return `/${id}/`;
+  }
+}
+
+/**
+ * Absolute URL so VitePress treats the link as external and performs a full navigation.
+ *
+ * @param {{ id: string; entry?: StaticSiteEntryKind }} site
+ * @param {string} siteUrl
+ * @param {string} [wikiLocale]
+ */
+export function buildStaticSiteUrl(site, siteUrl, wikiLocale = DEFAULT_WIKI_LOCALE) {
+  const base = String(siteUrl).replace(/\/$/, '');
+  return `${base}${buildStaticSitePath(site, wikiLocale)}`;
 }
 
 export function githubOutputName(siteId, suffix) {

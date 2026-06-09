@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { DefaultTheme } from 'vitepress'
+import { buildStaticSiteUrl, loadStaticSitesConfig } from '../../ci/lib/static-site.mjs'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
@@ -66,10 +67,33 @@ export function loadUiLocales(): Record<string, UiLocale> {
   )
 }
 
+function buildStaticSiteNavItems(
+  nav: UiNavLabels,
+  wikiLocale: string,
+  siteUrl: string,
+): DefaultTheme.NavItem[] {
+  const configPath = resolve(__dirname, '../../ci/static-sites.json')
+  return loadStaticSitesConfig(configPath)
+    .filter((site) => site.navLabelKey)
+    .map((site) => {
+      const labelKey = site.navLabelKey as keyof UiNavLabels
+      const text = nav[labelKey]
+      if (!text) {
+        throw new Error(`Missing nav label for static site ${site.id}: nav.${site.navLabelKey}`)
+      }
+      return {
+        text,
+        link: buildStaticSiteUrl(site, siteUrl, wikiLocale),
+      }
+    })
+}
+
 export function buildThemeConfig(
   ui: UiLocale,
   localeBase: string,
+  wikiLocale: string,
   githubRepo: string,
+  siteUrl: string,
 ): DefaultTheme.Config {
   const nav = ui.nav
   return {
@@ -86,8 +110,7 @@ export function buildThemeConfig(
         items: [
           { text: 'Modpack-Modern', link: 'https://github.com/TerraFirmaGreg-Team/Modpack-Modern' },
           { text: 'Core-Modern', link: 'https://github.com/TerraFirmaGreg-Team/Core-Modern' },
-          { text: nav.fieldGuide, link: '/field-guide-modern/' },
-          { text: nav.recipeBook, link: '/recipe-book-modern/' }
+          ...buildStaticSiteNavItems(nav, wikiLocale, siteUrl),
         ],
       },
       { text: nav.discord, link: 'https://discord.com/invite/AEaCzCTUwQ' },
