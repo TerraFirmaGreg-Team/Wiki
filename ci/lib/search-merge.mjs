@@ -1,7 +1,11 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { basename, join } from 'node:path';
 
 import MiniSearch from 'minisearch';
+
+/**
+ * @typedef {{ id: string; title: string; titles: string[]; text: string }} SearchDocument
+ */
 
 export const WIKI_LOCALES = ['en_us', 'zh_cn', 'pt_br'];
 
@@ -21,36 +25,48 @@ export const MINI_SEARCH_OPTIONS = {
   storeFields: ['title', 'titles'],
 };
 
+const LOCAL_SEARCH_CHUNK_RE = /^const e=(.+);export\{e as default\};?$/s;
+
+/**
+ * @param {string} literal
+ */
+function decodeChunkLiteral(literal) {
+  if (literal.startsWith("'")) {
+    return literal.slice(1, -1).replace(/\\'/g, "'").replace(/\\\\/g, '\\');
+  }
+  if (literal.startsWith('"')) {
+    return JSON.parse(literal);
+  }
+  throw new Error('Invalid local search chunk string literal');
+}
+
+/**
+ * @param {string} chunksDir
+ * @param {string} prefix
+ */
+function findJsChunk(chunksDir, prefix) {
+  const name = readdirSync(chunksDir).find(
+    (file) => file.startsWith(prefix) && file.endsWith('.js'),
+  );
+  return name ? join(chunksDir, name) : undefined;
+}
+
 /**
  * @param {string} source
  */
 export function parseLocalSearchChunk(source) {
-  const trimmed = source.trim();
-  const match = trimmed.match(/^const e=(.+);export\{e as default\};?$/s);
+  const match = source.trim().match(LOCAL_SEARCH_CHUNK_RE);
   if (!match) {
     throw new Error('Invalid local search chunk format');
   }
-
-  const literal = match[1].trim();
-  let inner;
-
-  if (literal.startsWith("'")) {
-    inner = literal.slice(1, -1).replace(/\\'/g, "'").replace(/\\\\/g, '\\');
-  } else if (literal.startsWith('"')) {
-    inner = JSON.parse(literal);
-  } else {
-    throw new Error('Invalid local search chunk string literal');
-  }
-
-  return JSON.parse(inner);
+  return JSON.parse(decodeChunkLiteral(match[1].trim()));
 }
 
 /**
  * @param {unknown} indexData
  */
 export function serializeLocalSearchChunk(indexData) {
-  const inner = JSON.stringify(indexData);
-  return `const e=${JSON.stringify(inner)};export{e as default};\n`;
+  return `const e=${JSON.stringify(JSON.stringify(indexData))};export{e as default};\n`;
 }
 
 /**
@@ -58,6 +74,7 @@ export function serializeLocalSearchChunk(indexData) {
  * @param {string} locale
  * @param {{ entry?: string; content?: string; url?: string }} record
  * @param {string} [sourceLabel]
+ * @returns {SearchDocument}
  */
 export function fieldGuideEntryToSearchDocument(
   siteId,
@@ -79,12 +96,39 @@ export function fieldGuideEntryToSearchDocument(
 }
 
 /**
+ * Field guide emits multiple search rows per page (one per content block) with the same url.
+ * MiniSearch requires unique ids, so merge their text into a single document per url.
+ *
+ * @param {SearchDocument[]} documents
+ * @returns {SearchDocument[]}
+ */
+export function dedupeSearchDocumentsById(documents) {
+  /** @type {Map<string, SearchDocument>} */
+  const byId = new Map();
+
+  for (const document of documents) {
+    const existing = byId.get(document.id);
+    if (!existing) {
+      byId.set(document.id, { ...document });
+      continue;
+    }
+
+    const mergedText = [existing.text, document.text].filter(Boolean).join(' ');
+    if (mergedText) {
+      existing.text = mergedText;
+    }
+  }
+
+  return [...byId.values()];
+}
+
+/**
  * @param {unknown} indexData
- * @param {Array<{ id: string; title: string; titles: string[]; text: string }>} documents
+ * @param {SearchDocument[]} documents
  */
 export function mergeDocumentsIntoMiniSearchIndex(indexData, documents) {
   const search = MiniSearch.loadJSON(JSON.stringify(indexData), MINI_SEARCH_OPTIONS);
-  for (const document of documents) {
+  for (const document of dedupeSearchDocumentsById(documents)) {
     search.add(document);
   }
   return search.toJSON();
@@ -92,6 +136,7 @@ export function mergeDocumentsIntoMiniSearchIndex(indexData, documents) {
 
 /**
  * @param {string} distDir
+ * @returns {Map<string, string>}
  */
 export function findLocalSearchIndexChunkPaths(distDir) {
   const chunksDir = join(distDir, 'assets/chunks');
@@ -99,27 +144,32 @@ export function findLocalSearchIndexChunkPaths(distDir) {
     throw new Error(`Missing VitePress chunks directory: ${chunksDir}`);
   }
 
-  const boxFile = readdirSync(chunksDir).find(
-    (file) => file.startsWith('VPLocalSearchBox') && file.endsWith('.js'),
-  );
-  if (!boxFile) {
+  const boxPath = findJsChunk(chunksDir, 'VPLocalSearchBox');
+  if (!boxPath) {
     throw new Error('VPLocalSearchBox chunk not found');
   }
 
-  const source = readFileSync(join(chunksDir, boxFile), 'utf8');
-  const importRe = /"([^"]+)":\(\)=>\w+\(\(\)=>import\("\.\/([^"]+)"\)/g;
+  const source = readFileSync(boxPath, 'utf8');
+  // VitePress minifies `root` without quotes; other locales stay quoted (`"modern/zh_cn"`).
+  const importRe = /(?:"([^"]+)"|(root)):\(\)=>\w+\(\(\)=>import\("\.\/([^"]+)"\)/g;
   /** @type {Map<string, string>} */
   const paths = new Map();
 
-  for (const match of source.matchAll(importRe)) {
-    const vpLocale = match[1];
-    const chunkFile = match[2];
+  for (const [, quotedLocale, rootLocale, chunkFile] of source.matchAll(importRe)) {
+    const vpLocale = quotedLocale ?? rootLocale;
     const wikiLocale = VP_LOCALE_TO_WIKI_LOCALE[vpLocale] ?? vpLocale;
     paths.set(wikiLocale, join(chunksDir, chunkFile));
   }
 
+  if (!paths.has('en_us')) {
+    const rootChunk = findJsChunk(chunksDir, '@localSearchIndexroot');
+    if (rootChunk) {
+      paths.set('en_us', rootChunk);
+    }
+  }
+
   if (paths.size === 0) {
-    throw new Error(`Could not resolve local search index chunks from ${boxFile}`);
+    throw new Error(`Could not resolve local search index chunks from ${basename(boxPath)}`);
   }
 
   return paths;
@@ -137,12 +187,10 @@ export function mergeFieldGuideRecordsIntoChunk(
   siteId = FIELD_GUIDE_SITE_ID,
   locale,
 ) {
-  const source = readFileSync(chunkPath, 'utf8');
-  const indexData = parseLocalSearchChunk(source);
-  const documents = records.map((record) =>
-    fieldGuideEntryToSearchDocument(siteId, locale, record),
-  );
-  const merged = mergeDocumentsIntoMiniSearchIndex(indexData, documents);
+  const indexData = parseLocalSearchChunk(readFileSync(chunkPath, 'utf8'));
+  const documents = records.map((record) => fieldGuideEntryToSearchDocument(siteId, locale, record));
+  const uniqueDocuments = dedupeSearchDocumentsById(documents);
+  const merged = mergeDocumentsIntoMiniSearchIndex(indexData, uniqueDocuments);
   writeFileSync(chunkPath, serializeLocalSearchChunk(merged), 'utf8');
-  return documents.length;
+  return uniqueDocuments.length;
 }

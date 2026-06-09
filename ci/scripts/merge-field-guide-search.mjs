@@ -45,7 +45,8 @@ for (const locale of WIKI_LOCALES) {
   const records = JSON.parse(readFileSync(searchIndexPath, 'utf8'));
   const mergedCount = mergeFieldGuideRecordsIntoChunk(chunkPath, records, FIELD_GUIDE_SITE_ID, locale);
   totalMerged += mergedCount;
-  console.log(`Merged ${mergedCount} field guide record(s) into ${locale} search index`);
+  const dedupedFrom = records.length !== mergedCount ? ` (${records.length} raw rows)` : '';
+  console.log(`Merged ${mergedCount} field guide document(s) into ${locale} search index${dedupedFrom}`);
 }
 
 if (totalMerged === 0) {
