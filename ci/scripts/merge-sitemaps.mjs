@@ -3,7 +3,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { buildMergedSitemap, parseSitemapLocs } from '../../.vitepress/seo.mts';
+import { buildMergedSitemap, parseSitemapLocs } from '../lib/seo.mjs';
 import { buildStaticSiteUrl, loadStaticSitesConfig } from '../lib/static-site.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));

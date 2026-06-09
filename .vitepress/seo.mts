@@ -1,7 +1,11 @@
 import type { HeadConfig } from 'vitepress'
 
-export const LOCALES = ['en_us', 'zh_cn', 'pt_br'] as const
+import { LOCALES as WIKI_LOCALES, pageToCanonical } from '../ci/lib/seo.mjs'
+
+export const LOCALES = WIKI_LOCALES as readonly ['en_us', 'zh_cn', 'pt_br']
 export type WikiLocale = (typeof LOCALES)[number]
+
+export { pageToCanonical, parseSitemapLocs, buildMergedSitemap } from '../ci/lib/seo.mjs'
 
 type SitemapLink = {
   lang: string
@@ -23,20 +27,6 @@ const HREFLANG: Record<WikiLocale, string> = {
 
 const LOCALE_INDEX_RE = /^modern\/(en_us|zh_cn|pt_br)\/index\.md$/
 
-/** Map a docs-relative path to the public URL (cleanUrls). */
-export function pageToCanonical(siteUrl: string, page: string): string {
-  const base = siteUrl.replace(/\/$/, '')
-  if (page === 'index.md') {
-    return `${base}/modern/en_us/`
-  }
-  const indexMatch = page.match(/^modern\/(en_us|zh_cn|pt_br)\/index\.md$/)
-  if (indexMatch) {
-    return `${base}/modern/${indexMatch[1]}/`
-  }
-  const path = page.replace(/\.md$/, '')
-  return `${base}/${path}`
-}
-
 function localePageSuffix(page: string): string | null {
   const match = page.match(/^modern\/(en_us|zh_cn|pt_br)\/(.+\.md)$/)
   if (!match || match[2] === 'index.md') {
@@ -50,20 +40,20 @@ export function buildHreflangHead(siteUrl: string, page: string): HeadConfig[] {
   const suffix = localePageSuffix(page)
   if (!suffix) {
     if (LOCALE_INDEX_RE.test(page) || page === 'index.md') {
-      return hreflangLinks(base, LOCALES.map((locale) => `${base}/modern/${locale}/`))
+      return hreflangLinks(LOCALES.map((locale) => `${base}/modern/${locale}/`))
     }
     return []
   }
   const urls = LOCALES.map((locale) => `${base}/modern/${locale}/${suffix}`)
-  return hreflangLinks(base, urls)
+  return hreflangLinks(urls)
 }
 
-function hreflangLinks(_base: string, urls: string[]): HeadConfig[] {
+function hreflangLinks(urls: string[]): HeadConfig[] {
   const links: HeadConfig[] = LOCALES.map((locale, index) => [
     'link',
-    { rel: 'alternate', hreflang: HREFLANG[locale], href: urls[index] },
+    { rel: 'alternate', hreflang: HREFLANG[locale], href: urls[index]! },
   ])
-  links.push(['link', { rel: 'alternate', hreflang: 'x-default', href: urls[0] }])
+  links.push(['link', { rel: 'alternate', hreflang: 'x-default', href: urls[0]! }])
   return links
 }
 
@@ -147,35 +137,4 @@ function hreflangSitemapLinks(urlForLocale: (locale: WikiLocale) => string): Wik
   }))
   links.push({ lang: 'x-default', hreflang: 'x-default', url: urlForLocale('en_us') })
   return links
-}
-
-export function parseSitemapLocs(xml: string): string[] {
-  const locs: string[] = []
-  const re = /<loc>([^<]+)<\/loc>/g
-  let match: RegExpExecArray | null
-  while ((match = re.exec(xml)) !== null) {
-    locs.push(match[1]!)
-  }
-  return locs
-}
-
-export function buildMergedSitemap(urls: Iterable<string>): string {
-  const unique = [...new Set([...urls].filter(Boolean))]
-  const body = unique.map((url) => `  <url><loc>${escapeXml(url)}</loc></url>`).join('\n')
-  return [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    body,
-    '</urlset>',
-    '',
-  ].join('\n')
-}
-
-function escapeXml(value: string): string {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;')
 }

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { buildMergedSitemap, pageToCanonical, parseSitemapLocs } from '../../.vitepress/seo.mts';
+import { buildMergedSitemap, pageToCanonical, parseSitemapLocs } from '../lib/seo.mjs';
 
 test('pageToCanonical uses trailing slash for locale index', () => {
   assert.equal(
