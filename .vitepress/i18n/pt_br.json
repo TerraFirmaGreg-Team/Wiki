@@ -6,7 +6,10 @@
     "download": "Download",
     "officialSite": "Official Site",
     "projects": "Projects",
-    "discord": "Discord"
+    "discord": "Discord",
+    "fieldGuide": "Field Guide",
+    "recipeBook": "Recipe Book",
+    "questBook": "Quest Book"
   },
   "editLink": "Edit this page on GitHub",
   "docFooter": {

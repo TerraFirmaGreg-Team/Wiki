@@ -11,6 +11,9 @@ export type UiNavLabels = {
   officialSite: string
   projects: string
   discord: string
+  fieldGuide: string
+  recipeBook: string
+  questBook: string
 }
 
 export type UiSearchTranslations = {
@@ -83,6 +86,8 @@ export function buildThemeConfig(
         items: [
           { text: 'Modpack-Modern', link: 'https://github.com/TerraFirmaGreg-Team/Modpack-Modern' },
           { text: 'Core-Modern', link: 'https://github.com/TerraFirmaGreg-Team/Core-Modern' },
+          { text: nav.fieldGuide, link: '/field-guide-modern/' },
+          { text: nav.recipeBook, link: '/recipe-book-modern/' }
         ],
       },
       { text: nav.discord, link: 'https://discord.com/invite/AEaCzCTUwQ' },

@@ -11,9 +11,6 @@ hero:
     - theme: alt
       text: Official Site
       link: https://terrafirmagreg.team
-    - theme: alt
-      text: Recipe Book
-      link: /recipe-book-modern/
 
 features:
   - title: Upgrade Guides

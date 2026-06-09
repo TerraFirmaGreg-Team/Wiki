@@ -11,9 +11,6 @@ hero:
     - theme: alt
       text: Site Oficial
       link: https://terrafirmagreg.team
-    - theme: alt
-      text: Livro de Receitas
-      link: /recipe-book-modern/
 
 features:
   - title: Guias de atualização

@@ -6,7 +6,10 @@
     "download": "下载",
     "officialSite": "官网",
     "projects": "项目",
-    "discord": "Discord"
+    "discord": "Discord",
+    "fieldGuide": "野外指南",
+    "recipeBook": "配方书",
+    "questBook": "任务书"
   },
   "editLink": "在 GitHub 上编辑此页",
   "docFooter": {

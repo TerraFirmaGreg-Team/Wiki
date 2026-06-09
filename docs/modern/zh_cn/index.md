@@ -11,9 +11,6 @@ hero:
     - theme: alt
       text: 访问官网
       link: https://terrafirmagreg.team
-    - theme: alt
-      text: 配方书
-      link: /recipe-book-modern/
 
 features:
   - title: 升级指南

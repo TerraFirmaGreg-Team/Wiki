@@ -16,11 +16,14 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0 # needed for lastUpdated git timestamps
 
@@ -28,7 +31,7 @@ jobs:
         with:
           version: 9
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: pnpm
@@ -44,7 +47,7 @@ jobs:
         run: node ci/scripts/resolve-static-sites.mjs
 
       - name: Restore recipe-book-modern static site cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: .vitepress/dist/recipe-book-modern
           key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
@@ -56,7 +59,7 @@ jobs:
 
       - name: Save recipe-book-modern static site cache
         if: steps.mirror.outputs.recipe_book_modern_downloaded == 'true'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: .vitepress/dist/recipe-book-modern
           key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
