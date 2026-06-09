@@ -66,8 +66,12 @@ export default defineConfig(
   withSidebar(
     {
       srcDir: 'docs',
+      theme: resolve(__dirname, 'theme/index.ts'),
       vite: {
         publicDir: resolve(__dirname, '..', 'public'),
+        define: {
+          'import.meta.env.VITE_EXTRA_EXTENSIONS': JSON.stringify('html'),
+        },
       },
       title: SITE_TITLE,
       description: SITE_DESCRIPTION,

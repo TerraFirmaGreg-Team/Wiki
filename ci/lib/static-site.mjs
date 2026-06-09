@@ -18,6 +18,11 @@ export function loadStaticSitesConfig(configPath = join(__dirname, '../static-si
   return sites;
 }
 
+/** @param {string} [configPath] */
+export function getEnabledStaticSitePathPrefixes(configPath) {
+  return loadStaticSitesConfig(configPath).map((site) => `/${site.id}/`);
+}
+
 /**
  * @param {{ id: string; entry?: StaticSiteEntryKind }} site
  * @param {string} [wikiLocale]

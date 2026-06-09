@@ -60,6 +60,9 @@ jobs:
       - name: Merge static site sitemaps
         run: node ci/scripts/merge-sitemaps.mjs
 
+      - name: Merge field guide into wiki search index
+        run: node ci/scripts/merge-field-guide-search.mjs
+
       - name: Save recipe-book-modern static site cache
         if: steps.mirror.outputs.recipe_book_modern_downloaded == 'true'
         uses: actions/cache/save@v5
