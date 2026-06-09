@@ -1,15 +1,18 @@
 ---
 title: TerraFirmaGreg Wiki
-description: Redirecting to your preferred language…
+description: Official TerraFirmaGreg wiki — choose your language to continue.
 layout: page
 sidebar: false
 aside: false
 prev: false
 next: false
 head:
+  - - link
+    - rel: canonical
+      href: https://wiki.terrafirmagreg.team/modern/en_us/
   - - meta
     - http-equiv: refresh
-      content: 0; url=modern/en_us/
+      content: 0; url=/modern/en_us/
 ---
 
 <script setup>

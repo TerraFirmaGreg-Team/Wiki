@@ -3,7 +3,13 @@ import { withSidebar, type VitePressSidebarOptions } from 'vitepress-sidebar'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
+import { buildVitePressBootstrapScript } from '../ci/lib/tfg-theme.mjs'
 import { assertUiLocales, buildSearchOptions, buildThemeConfig, loadUiLocales } from './i18n/index.ts'
+import {
+  buildPageSeoHead,
+  buildWebSiteJsonLd,
+  transformWikiSitemapItems,
+} from './seo.mts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -12,6 +18,10 @@ const GITHUB_REPO = `${GITHUB_ORG}/Wiki`
 const NAMESPACE = 'modern'
 const SITE_DOMAIN = readFileSync(resolve(__dirname, '..', 'public', 'CNAME'), 'utf8').trim()
 const SITE_URL = `https://${SITE_DOMAIN}`
+const OG_IMAGE = `${SITE_URL}/logo.png`
+const SITE_TITLE = 'TerraFirmaGreg Wiki'
+const SITE_DESCRIPTION =
+  'Official TerraFirmaGreg wiki — modpack info, upgrade guides, field guide, recipe book, and developer references.'
 
 const LOCALES = ['en_us', 'zh_cn', 'pt_br'] as const
 type Locale = (typeof LOCALES)[number]
@@ -59,25 +69,40 @@ export default defineConfig(
       vite: {
         publicDir: resolve(__dirname, '..', 'public'),
       },
-      title: 'TerraFirmaGreg Wiki',
-      description:
-        'Official TerraFirmaGreg wiki — modpack info, upgrade guides, and developer references.',
+      title: SITE_TITLE,
+      description: SITE_DESCRIPTION,
       lang: rootEntry.lang,
       base: '/',
       cleanUrls: true,
       lastUpdated: true,
       ignoreDeadLinks: 'localhostLinks',
+      appearance: {
+        storageKey: 'tfg-theme',
+      },
 
       head: [
+        ['script', {}, buildVitePressBootstrapScript()],
         ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
         ['meta', { name: 'theme-color', content: '#ff0e0b' }],
+        ['meta', { name: 'robots', content: 'index, follow' }],
         ['meta', { property: 'og:type', content: 'website' }],
-        ['meta', { property: 'og:site_name', content: 'TerraFirmaGreg Wiki' }],
-        ['meta', { property: 'og:image', content: `${SITE_URL}favicon.png` }],
+        ['meta', { property: 'og:site_name', content: SITE_TITLE }],
+        ['meta', { property: 'og:description', content: SITE_DESCRIPTION }],
+        ['meta', { property: 'og:image', content: OG_IMAGE }],
+        ['meta', { name: 'twitter:card', content: 'summary' }],
+        ['meta', { name: 'twitter:site', content: '@TerraFirmaGreg' }],
+        ['script', { type: 'application/ld+json' }, buildWebSiteJsonLd(SITE_URL)],
       ],
+
+      transformHead({ page, title, description }) {
+        return buildPageSeoHead(SITE_URL, page, title, description, OG_IMAGE)
+      },
 
       sitemap: {
         hostname: SITE_URL,
+        transformItems(items) {
+          return transformWikiSitemapItems(SITE_URL, items)
+        },
       },
 
       themeConfig: {

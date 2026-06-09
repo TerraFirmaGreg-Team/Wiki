@@ -57,6 +57,9 @@ jobs:
         id: mirror
         run: bash ci/mirror-static-sites.sh
 
+      - name: Merge static site sitemaps
+        run: node ci/scripts/merge-sitemaps.mjs
+
       - name: Save recipe-book-modern static site cache
         if: steps.mirror.outputs.recipe_book_modern_downloaded == 'true'
         uses: actions/cache/save@v5
