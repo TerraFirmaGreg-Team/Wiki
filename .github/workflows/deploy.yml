@@ -53,6 +53,13 @@ jobs:
           key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
           fail-on-cache-miss: false
 
+      - name: Restore quest-book-modern static site cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .vitepress/dist/quest-book-modern
+          key: wiki-static-quest-book-modern-${{ steps.static_sites.outputs.quest_book_modern_content_hash }}
+          fail-on-cache-miss: false
+
       - name: Install aggregated static sites
         id: mirror
         run: bash ci/mirror-static-sites.sh
@@ -63,12 +70,22 @@ jobs:
       - name: Merge field guide into wiki search index
         run: node ci/scripts/merge-field-guide-search.mjs
 
+      - name: Merge quest book into wiki search index
+        run: node ci/scripts/merge-quest-book-search.mjs
+
       - name: Save recipe-book-modern static site cache
         if: steps.mirror.outputs.recipe_book_modern_downloaded == 'true'
         uses: actions/cache/save@v5
         with:
           path: .vitepress/dist/recipe-book-modern
           key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
+
+      - name: Save quest-book-modern static site cache
+        if: steps.mirror.outputs.quest_book_modern_downloaded == 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: .vitepress/dist/quest-book-modern
+          key: wiki-static-quest-book-modern-${{ steps.static_sites.outputs.quest_book_modern_content_hash }}
 
       - uses: actions/configure-pages@v5
 

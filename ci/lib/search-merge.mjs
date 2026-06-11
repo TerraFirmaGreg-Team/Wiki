@@ -13,6 +13,10 @@ export const FIELD_GUIDE_SITE_ID = 'field-guide-modern';
 
 export const FIELD_GUIDE_SOURCE_LABEL = 'Field Guide';
 
+export const QUEST_BOOK_SITE_ID = 'quest-book-modern';
+
+export const QUEST_BOOK_SOURCE_LABEL = 'Quest Book';
+
 /** @type {Readonly<Record<string, string>>} */
 export const VP_LOCALE_TO_WIKI_LOCALE = {
   root: 'en_us',
@@ -189,6 +193,57 @@ export function mergeFieldGuideRecordsIntoChunk(
 ) {
   const indexData = parseLocalSearchChunk(readFileSync(chunkPath, 'utf8'));
   const documents = records.map((record) => fieldGuideEntryToSearchDocument(siteId, locale, record));
+  const uniqueDocuments = dedupeSearchDocumentsById(documents);
+  const merged = mergeDocumentsIntoMiniSearchIndex(indexData, uniqueDocuments);
+  writeFileSync(chunkPath, serializeLocalSearchChunk(merged), 'utf8');
+  return uniqueDocuments.length;
+}
+
+/**
+ * @param {string} siteId
+ * @param {string} locale
+ * @param {{ id?: string; chapter?: string; chapterTitle?: string; title?: string; content?: string }} row
+ * @param {string} [sourceLabel]
+ * @returns {SearchDocument}
+ */
+export function questBookRowToSearchDocument(
+  siteId,
+  locale,
+  row,
+  sourceLabel = QUEST_BOOK_SOURCE_LABEL,
+) {
+  const chapter = String(row.chapter ?? '');
+  const questId = String(row.id ?? '');
+  if (!chapter || !questId) {
+    throw new Error(`Invalid quest book search row: ${JSON.stringify(row)}`);
+  }
+
+  const params = new URLSearchParams({ lang: locale, chapter });
+  const id = `/${siteId}/?${params.toString()}#quest=${encodeURIComponent(questId)}`;
+  const chapterTitle = row.chapterTitle ? String(row.chapterTitle) : chapter;
+
+  return {
+    id,
+    title: String(row.title || questId),
+    titles: [sourceLabel, chapterTitle],
+    text: String(row.content ?? ''),
+  };
+}
+
+/**
+ * @param {string} chunkPath
+ * @param {Array<{ id?: string; chapter?: string; chapterTitle?: string; title?: string; content?: string }>} rows
+ * @param {string} siteId
+ * @param {string} locale
+ */
+export function mergeQuestBookRecordsIntoChunk(
+  chunkPath,
+  rows,
+  siteId = QUEST_BOOK_SITE_ID,
+  locale,
+) {
+  const indexData = parseLocalSearchChunk(readFileSync(chunkPath, 'utf8'));
+  const documents = rows.map((row) => questBookRowToSearchDocument(siteId, locale, row));
   const uniqueDocuments = dedupeSearchDocumentsById(documents);
   const merged = mergeDocumentsIntoMiniSearchIndex(indexData, uniqueDocuments);
   writeFileSync(chunkPath, serializeLocalSearchChunk(merged), 'utf8');

@@ -20,9 +20,9 @@
     },
     {
       "id": "quest-book-modern",
-      "enabled": false,
+      "enabled": true,
       "navLabelKey": "questBook",
-      "entry": "locale-path",
+      "entry": "lang-query",
       "buildJsonUrl": "https://terrafirmagreg-team.github.io/QuestBook-Modern/build.json",
       "releaseRepo": "TerraFirmaGreg-Team/QuestBook-Modern",
       "releaseAssetName": "quest-book-site.tar.gz"
