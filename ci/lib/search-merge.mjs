@@ -218,8 +218,8 @@ export function questBookRowToSearchDocument(
     throw new Error(`Invalid quest book search row: ${JSON.stringify(row)}`);
   }
 
-  const params = new URLSearchParams({ lang: locale, chapter });
-  const id = `/${siteId}/?${params.toString()}#quest=${encodeURIComponent(questId)}`;
+  const params = new URLSearchParams({ lang: locale, chapter, quest: questId });
+  const id = `/${siteId}/?${params.toString()}`;
   const chapterTitle = row.chapterTitle ? String(row.chapterTitle) : chapter;
 
   return {

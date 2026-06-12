@@ -46,6 +46,14 @@ jobs:
         id: static_sites
         run: node ci/scripts/resolve-static-sites.mjs
 
+      # Restore cached static site trees (skipped when contentHash changes).
+      - name: Restore field-guide-modern static site cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .vitepress/dist/field-guide-modern
+          key: wiki-static-field-guide-modern-${{ steps.static_sites.outputs.field_guide_modern_content_hash }}
+          fail-on-cache-miss: false
+
       - name: Restore recipe-book-modern static site cache
         uses: actions/cache/restore@v5
         with:
@@ -64,14 +72,23 @@ jobs:
         id: mirror
         run: bash ci/mirror-static-sites.sh
 
+      # Per-site sitemap.xml (field-guide, quest-book when published) is merged into wiki sitemap.
       - name: Merge static site sitemaps
         run: node ci/scripts/merge-sitemaps.mjs
 
       - name: Merge field guide into wiki search index
         run: node ci/scripts/merge-field-guide-search.mjs
 
+      # Quest book search links use ?lang=&chapter=&quest= (not #quest=).
       - name: Merge quest book into wiki search index
         run: node ci/scripts/merge-quest-book-search.mjs
+
+      - name: Save field-guide-modern static site cache
+        if: steps.mirror.outputs.field_guide_modern_downloaded == 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: .vitepress/dist/field-guide-modern
+          key: wiki-static-field-guide-modern-${{ steps.static_sites.outputs.field_guide_modern_content_hash }}
 
       - name: Save recipe-book-modern static site cache
         if: steps.mirror.outputs.recipe_book_modern_downloaded == 'true'
