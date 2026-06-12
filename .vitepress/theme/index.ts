@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { inBrowser, type EnhanceAppContext } from 'vitepress'
 import staticSitesConfig from '../../ci/static-sites.json'
+import { persistLocaleFromPath } from './locale'
 
 const STATIC_SITE_PREFIXES = (staticSitesConfig.sites ?? []).map((site) => {
   const path = String(site.publicPath).replace(/\/$/, '')
@@ -12,7 +13,12 @@ function isStaticSitePath(pathname: string): boolean {
 }
 
 function installStaticSiteRouter(router: EnhanceAppContext['router']) {
+  const previousOnBeforeRouteChange = router.onBeforeRouteChange
   router.onBeforeRouteChange = (href) => {
+    if (previousOnBeforeRouteChange?.(href) === false) {
+      return false
+    }
+
     if (!inBrowser) {
       return
     }
@@ -25,9 +31,25 @@ function installStaticSiteRouter(router: EnhanceAppContext['router']) {
   }
 }
 
+function installLocalePersistence(router: EnhanceAppContext['router']) {
+  if (!inBrowser) {
+    return
+  }
+
+  persistLocaleFromPath(window.location.pathname)
+
+  const previousOnAfterRouteChange = router.onAfterRouteChange
+  router.onAfterRouteChange = (to) => {
+    previousOnAfterRouteChange?.(to)
+    const { pathname } = new URL(to, window.location.origin)
+    persistLocaleFromPath(pathname)
+  }
+}
+
 export default {
   extends: DefaultTheme,
   enhanceApp({ router }) {
     installStaticSiteRouter(router)
+    installLocalePersistence(router)
   },
 }

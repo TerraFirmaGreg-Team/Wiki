@@ -3,6 +3,7 @@ import { withSidebar, type VitePressSidebarOptions } from 'vitepress-sidebar'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
+import { buildLocaleRedirectScript } from '../ci/lib/tfg-locale.mjs'
 import { buildVitePressBootstrapScript } from '../ci/lib/tfg-theme.mjs'
 import { assertUiLocales, buildSearchOptions, buildThemeConfig, loadUiLocales } from './i18n/index.ts'
 import {
@@ -99,7 +100,11 @@ export default defineConfig(
       ],
 
       transformHead({ page, title, description }) {
-        return buildPageSeoHead(SITE_URL, page, title, description, OG_IMAGE)
+        const head = buildPageSeoHead(SITE_URL, page, title, description, OG_IMAGE)
+        if (page === 'index.md') {
+          head.push(['script', {}, buildLocaleRedirectScript()])
+        }
+        return head
       },
 
       sitemap: {
