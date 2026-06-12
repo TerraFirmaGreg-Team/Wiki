@@ -50,21 +50,21 @@ jobs:
       - name: Restore field-guide-modern static site cache
         uses: actions/cache/restore@v5
         with:
-          path: .vitepress/dist/field-guide-modern
+          path: .vitepress/dist/modern/field-guide
           key: wiki-static-field-guide-modern-${{ steps.static_sites.outputs.field_guide_modern_content_hash }}
           fail-on-cache-miss: false
 
       - name: Restore recipe-book-modern static site cache
         uses: actions/cache/restore@v5
         with:
-          path: .vitepress/dist/recipe-book-modern
+          path: .vitepress/dist/modern/recipe-book
           key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
           fail-on-cache-miss: false
 
       - name: Restore quest-book-modern static site cache
         uses: actions/cache/restore@v5
         with:
-          path: .vitepress/dist/quest-book-modern
+          path: .vitepress/dist/modern/quest-book
           key: wiki-static-quest-book-modern-${{ steps.static_sites.outputs.quest_book_modern_content_hash }}
           fail-on-cache-miss: false
 
@@ -87,21 +87,21 @@ jobs:
         if: steps.mirror.outputs.field_guide_modern_downloaded == 'true'
         uses: actions/cache/save@v5
         with:
-          path: .vitepress/dist/field-guide-modern
+          path: .vitepress/dist/modern/field-guide
           key: wiki-static-field-guide-modern-${{ steps.static_sites.outputs.field_guide_modern_content_hash }}
 
       - name: Save recipe-book-modern static site cache
         if: steps.mirror.outputs.recipe_book_modern_downloaded == 'true'
         uses: actions/cache/save@v5
         with:
-          path: .vitepress/dist/recipe-book-modern
+          path: .vitepress/dist/modern/recipe-book
           key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
 
       - name: Save quest-book-modern static site cache
         if: steps.mirror.outputs.quest_book_modern_downloaded == 'true'
         uses: actions/cache/save@v5
         with:
-          path: .vitepress/dist/quest-book-modern
+          path: .vitepress/dist/modern/quest-book
           key: wiki-static-quest-book-modern-${{ steps.static_sites.outputs.quest_book_modern_content_hash }}
 
       - uses: actions/configure-pages@v5

@@ -9,11 +9,15 @@ import {
   QUEST_BOOK_SITE_ID,
   WIKI_LOCALES,
 } from '../lib/search-merge.mjs';
+import { getSiteDistPath, getSitePublicPathPrefix, getStaticSiteById } from '../lib/static-site.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '../..');
 const distDir = process.argv[2] ?? join(root, '.vitepress/dist');
-const questBookRoot = join(distDir, QUEST_BOOK_SITE_ID);
+const configPath = join(root, 'ci/static-sites.json');
+const site = getStaticSiteById(QUEST_BOOK_SITE_ID, configPath);
+const questBookRoot = join(distDir, getSiteDistPath(site));
+const publicPathPrefix = getSitePublicPathPrefix(site);
 const searchIndexDir = join(questBookRoot, 'data/quest-export/search-index');
 
 if (!existsSync(distDir)) {
@@ -55,7 +59,7 @@ for (const locale of WIKI_LOCALES) {
     continue;
   }
 
-  const mergedCount = mergeQuestBookRecordsIntoChunk(chunkPath, rows, QUEST_BOOK_SITE_ID, locale);
+  const mergedCount = mergeQuestBookRecordsIntoChunk(chunkPath, rows, publicPathPrefix, locale);
   totalMerged += mergedCount;
   console.log(`Merged ${mergedCount} quest book record(s) into ${locale} search index`);
 }

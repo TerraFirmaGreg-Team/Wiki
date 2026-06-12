@@ -10,7 +10,7 @@ const DEFAULT_WIKI_LOCALE = 'en_us';
 
 /**
  * @param {string} configPath
- * @returns {Array<Record<string, unknown> & { id: string; enabled?: boolean; navLabelKey?: string; entry?: StaticSiteEntryKind }>}
+ * @returns {Array<Record<string, unknown> & { id: string; enabled?: boolean; navLabelKey?: string; entry?: StaticSiteEntryKind; publicPath?: string; distPath?: string }>}
  */
 export function loadStaticSitesConfig(configPath = join(__dirname, '../static-sites.json')) {
   const config = JSON.parse(readFileSync(configPath, 'utf8'));
@@ -18,33 +18,59 @@ export function loadStaticSitesConfig(configPath = join(__dirname, '../static-si
   return sites;
 }
 
-/** @param {string} [configPath] */
-export function getEnabledStaticSitePathPrefixes(configPath) {
-  return loadStaticSitesConfig(configPath).map((site) => `/${site.id}/`);
+/**
+ * @param {string} siteId
+ * @param {string} [configPath]
+ */
+export function getStaticSiteById(siteId, configPath) {
+  const site = loadStaticSitesConfig(configPath).find((entry) => entry.id === siteId);
+  if (!site) {
+    throw new Error(`Unknown or disabled static site: ${siteId}`);
+  }
+  return site;
 }
 
 /**
- * @param {{ id: string; entry?: StaticSiteEntryKind }} site
+ * Filesystem path under VitePress dist (no leading slash).
+ *
+ * @param {{ id: string; distPath?: string }} site
+ */
+export function getSiteDistPath(site) {
+  return String(site.distPath ?? site.id).replace(/^\/+|\/+$/g, '');
+}
+
+/**
+ * URL path prefix (leading slash, no trailing slash).
+ *
+ * @param {{ id: string; publicPath?: string }} site
+ */
+export function getSitePublicPathPrefix(site) {
+  const raw = site.publicPath ?? `/${site.id}`;
+  return `/${String(raw).replace(/^\/+|\/+$/g, '')}`;
+}
+
+/**
+ * @param {{ id: string; publicPath?: string; entry?: StaticSiteEntryKind }} site
  * @param {string} [wikiLocale]
  */
 export function buildStaticSitePath(site, wikiLocale = DEFAULT_WIKI_LOCALE) {
-  const id = String(site.id);
+  const prefix = getSitePublicPathPrefix(site);
   const entry = site.entry ?? 'root';
 
   switch (entry) {
     case 'locale-path':
-      return `/${id}/${wikiLocale}/`;
+      return `${prefix}/${wikiLocale}/`;
     case 'lang-query':
-      return `/${id}/?lang=${wikiLocale}`;
+      return `${prefix}/?lang=${wikiLocale}`;
     default:
-      return `/${id}/`;
+      return `${prefix}/`;
   }
 }
 
 /**
  * Absolute URL so VitePress treats the link as external and performs a full navigation.
  *
- * @param {{ id: string; entry?: StaticSiteEntryKind }} site
+ * @param {{ id: string; publicPath?: string; entry?: StaticSiteEntryKind }} site
  * @param {string} siteUrl
  * @param {string} [wikiLocale]
  */

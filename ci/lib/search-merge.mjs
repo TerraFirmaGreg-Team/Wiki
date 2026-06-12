@@ -74,14 +74,14 @@ export function serializeLocalSearchChunk(indexData) {
 }
 
 /**
- * @param {string} siteId
+ * @param {string} publicPathPrefix URL prefix without trailing slash (e.g. `/modern/field-guide`)
  * @param {string} locale
  * @param {{ entry?: string; content?: string; url?: string }} record
  * @param {string} [sourceLabel]
  * @returns {SearchDocument}
  */
 export function fieldGuideEntryToSearchDocument(
-  siteId,
+  publicPathPrefix,
   locale,
   record,
   sourceLabel = FIELD_GUIDE_SOURCE_LABEL,
@@ -92,7 +92,7 @@ export function fieldGuideEntryToSearchDocument(
   }
 
   return {
-    id: `/${siteId}/${locale}/${relative}`,
+    id: `${publicPathPrefix}/${locale}/${relative}`,
     title: String(record.entry),
     titles: [sourceLabel],
     text: String(record.content ?? ''),
@@ -188,11 +188,11 @@ export function findLocalSearchIndexChunkPaths(distDir) {
 export function mergeFieldGuideRecordsIntoChunk(
   chunkPath,
   records,
-  siteId = FIELD_GUIDE_SITE_ID,
+  publicPathPrefix,
   locale,
 ) {
   const indexData = parseLocalSearchChunk(readFileSync(chunkPath, 'utf8'));
-  const documents = records.map((record) => fieldGuideEntryToSearchDocument(siteId, locale, record));
+  const documents = records.map((record) => fieldGuideEntryToSearchDocument(publicPathPrefix, locale, record));
   const uniqueDocuments = dedupeSearchDocumentsById(documents);
   const merged = mergeDocumentsIntoMiniSearchIndex(indexData, uniqueDocuments);
   writeFileSync(chunkPath, serializeLocalSearchChunk(merged), 'utf8');
@@ -207,7 +207,7 @@ export function mergeFieldGuideRecordsIntoChunk(
  * @returns {SearchDocument}
  */
 export function questBookRowToSearchDocument(
-  siteId,
+  publicPathPrefix,
   locale,
   row,
   sourceLabel = QUEST_BOOK_SOURCE_LABEL,
@@ -218,8 +218,9 @@ export function questBookRowToSearchDocument(
     throw new Error(`Invalid quest book search row: ${JSON.stringify(row)}`);
   }
 
+  const prefix = String(publicPathPrefix).replace(/\/$/, '');
   const params = new URLSearchParams({ lang: locale, chapter, quest: questId });
-  const id = `/${siteId}/?${params.toString()}`;
+  const id = `${prefix}/?${params.toString()}`;
   const chapterTitle = row.chapterTitle ? String(row.chapterTitle) : chapter;
 
   return {
@@ -239,11 +240,11 @@ export function questBookRowToSearchDocument(
 export function mergeQuestBookRecordsIntoChunk(
   chunkPath,
   rows,
-  siteId = QUEST_BOOK_SITE_ID,
+  publicPathPrefix,
   locale,
 ) {
   const indexData = parseLocalSearchChunk(readFileSync(chunkPath, 'utf8'));
-  const documents = rows.map((row) => questBookRowToSearchDocument(siteId, locale, row));
+  const documents = rows.map((row) => questBookRowToSearchDocument(publicPathPrefix, locale, row));
   const uniqueDocuments = dedupeSearchDocumentsById(documents);
   const merged = mergeDocumentsIntoMiniSearchIndex(indexData, uniqueDocuments);
   writeFileSync(chunkPath, serializeLocalSearchChunk(merged), 'utf8');

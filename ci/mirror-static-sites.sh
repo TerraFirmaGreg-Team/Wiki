@@ -26,20 +26,20 @@ fi
 site_count=0
 mkdir -p "$DIST"
 
-while IFS=$'\t' read -r id content_hash release_tag download_url; do
-  [[ -n "$id" && -n "$content_hash" && -n "$download_url" ]] || continue
+while IFS=$'\t' read -r id dist_path content_hash release_tag download_url; do
+  [[ -n "$id" && -n "$dist_path" && -n "$content_hash" && -n "$download_url" ]] || continue
   site_count=$((site_count + 1))
 
-  dest="$DIST/$id"
+  dest="$DIST/$dist_path"
   marker="$dest/$MARKER_NAME"
   output_name="${id//-/_}_downloaded"
 
   if [[ -f "$dest/index.html" && -f "$marker" && "$(tr -d '[:space:]' < "$marker")" == "$content_hash" ]]; then
-    echo "Static site ${id} already present (${content_hash}) — skipping download"
+    echo "Static site ${id} already present at ${dist_path} (${content_hash}) — skipping download"
     continue
   fi
 
-  echo "::group::Install ${id} from release ${release_tag}"
+  echo "::group::Install ${id} → ${dist_path} from release ${release_tag}"
   tmp="$(mktemp)"
   trap 'rm -f "$tmp"' RETURN
 
@@ -67,14 +67,15 @@ import { readFileSync } from 'node:fs';
 const data = JSON.parse(readFileSync('${RESOLVED}', 'utf8'));
 for (const site of data.sites ?? []) {
   const id = String(site.id ?? '');
+  const distPath = String(site.distPath ?? site.id ?? '');
   const contentHash = String(site.contentHash ?? '');
   const releaseTag = String(site.releaseTag ?? '');
   const downloadUrl = String(site.downloadUrl ?? '');
-  if (!id || !contentHash || !downloadUrl) {
+  if (!id || !distPath || !contentHash || !downloadUrl) {
     console.error('::error::Invalid resolved static site entry:', JSON.stringify(site));
     process.exit(1);
   }
-  process.stdout.write([id, contentHash, releaseTag, downloadUrl].join('\t') + '\n');
+  process.stdout.write([id, distPath, contentHash, releaseTag, downloadUrl].join('\t') + '\n');
 }
 "
 )

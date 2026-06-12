@@ -3,7 +3,7 @@ import { existsSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { loadStaticSitesConfig } from '../lib/static-site.mjs';
+import { getSiteDistPath, getStaticSiteById } from '../lib/static-site.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '../..');
@@ -36,12 +36,8 @@ function writeLocalePathRootRedirect(target) {
  */
 export function ensureStaticSiteRoot(distDir, siteId) {
   const configPath = join(root, 'ci/static-sites.json');
-  const site = loadStaticSitesConfig(configPath).find((entry) => entry.id === siteId);
-  if (!site) {
-    throw new Error(`Unknown or disabled static site: ${siteId}`);
-  }
-
-  const dest = join(distDir, siteId);
+  const site = getStaticSiteById(siteId, configPath);
+  const dest = join(distDir, getSiteDistPath(site));
   const entry = site.entry ?? 'root';
 
   if (entry === 'locale-path') {

@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { buildMergedSitemap, parseSitemapLocs } from '../lib/seo.mjs';
-import { buildStaticSiteUrl, loadStaticSitesConfig } from '../lib/static-site.mjs';
+import { buildStaticSiteUrl, getSiteDistPath, loadStaticSitesConfig } from '../lib/static-site.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '../..');
@@ -24,15 +24,16 @@ let urls = parseSitemapLocs(readFileSync(wikiSitemap, 'utf8')).filter(
 );
 
 for (const site of loadStaticSitesConfig()) {
-  const siteSitemap = join(distDir, site.id, 'sitemap.xml');
+  const distPath = getSiteDistPath(site);
+  const siteSitemap = join(distDir, distPath, 'sitemap.xml');
   if (existsSync(siteSitemap)) {
     const locs = parseSitemapLocs(readFileSync(siteSitemap, 'utf8'));
-    console.log(`Merging ${locs.length} URL(s) from ${site.id}`);
+    console.log(`Merging ${locs.length} URL(s) from ${site.id} (${distPath})`);
     urls.push(...locs);
     continue;
   }
 
-  const siteRoot = join(distDir, site.id);
+  const siteRoot = join(distDir, distPath);
   if (!existsSync(siteRoot)) {
     console.warn(`Skipping ${site.id}: not installed under ${siteRoot}`);
     continue;

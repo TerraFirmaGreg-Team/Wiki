@@ -2,9 +2,10 @@ import DefaultTheme from 'vitepress/theme'
 import { inBrowser, type EnhanceAppContext } from 'vitepress'
 import staticSitesConfig from '../../ci/static-sites.json'
 
-const STATIC_SITE_PREFIXES = (staticSitesConfig.sites ?? [])
-  .filter((site) => site.enabled)
-  .map((site) => `/${site.id}/`)
+const STATIC_SITE_PREFIXES = (staticSitesConfig.sites ?? []).map((site) => {
+  const path = String(site.publicPath).replace(/\/$/, '')
+  return `${path}/`
+})
 
 function isStaticSitePath(pathname: string): boolean {
   return STATIC_SITE_PREFIXES.some((prefix) => pathname.startsWith(prefix))

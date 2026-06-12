@@ -2,6 +2,8 @@
   "sites": [
     {
       "id": "recipe-book-modern",
+      "publicPath": "/modern/recipe-book",
+      "distPath": "modern/recipe-book",
       "enabled": true,
       "navLabelKey": "recipeBook",
       "entry": "lang-query",
@@ -11,6 +13,8 @@
     },
     {
       "id": "field-guide-modern",
+      "publicPath": "/modern/field-guide",
+      "distPath": "modern/field-guide",
       "enabled": true,
       "navLabelKey": "fieldGuide",
       "entry": "locale-path",
@@ -20,6 +24,8 @@
     },
     {
       "id": "quest-book-modern",
+      "publicPath": "/modern/quest-book",
+      "distPath": "modern/quest-book",
       "enabled": true,
       "navLabelKey": "questBook",
       "entry": "lang-query",

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   fetchBuildJson,
+  getSiteDistPath,
   githubOutputName,
   loadStaticSitesConfig,
   releaseDownloadUrl,
@@ -34,6 +35,7 @@ for (const site of sites) {
 
   resolved.push({
     id,
+    distPath: getSiteDistPath(site),
     contentHash,
     releaseTag,
     downloadUrl,

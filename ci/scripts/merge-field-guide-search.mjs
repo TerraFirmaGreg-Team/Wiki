@@ -9,11 +9,15 @@ import {
   mergeFieldGuideRecordsIntoChunk,
   WIKI_LOCALES,
 } from '../lib/search-merge.mjs';
+import { getSiteDistPath, getSitePublicPathPrefix, getStaticSiteById } from '../lib/static-site.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '../..');
 const distDir = process.argv[2] ?? join(root, '.vitepress/dist');
-const fieldGuideRoot = join(distDir, FIELD_GUIDE_SITE_ID);
+const configPath = join(root, 'ci/static-sites.json');
+const site = getStaticSiteById(FIELD_GUIDE_SITE_ID, configPath);
+const fieldGuideRoot = join(distDir, getSiteDistPath(site));
+const publicPathPrefix = getSitePublicPathPrefix(site);
 
 if (!existsSync(distDir)) {
   console.error(`::error::Missing dist directory: ${distDir}`);
@@ -43,7 +47,7 @@ for (const locale of WIKI_LOCALES) {
 
   /** @type {Array<{ entry?: string; content?: string; url?: string }>} */
   const records = JSON.parse(readFileSync(searchIndexPath, 'utf8'));
-  const mergedCount = mergeFieldGuideRecordsIntoChunk(chunkPath, records, FIELD_GUIDE_SITE_ID, locale);
+  const mergedCount = mergeFieldGuideRecordsIntoChunk(chunkPath, records, publicPathPrefix, locale);
   totalMerged += mergedCount;
   const dedupedFrom = records.length !== mergedCount ? ` (${records.length} raw rows)` : '';
   console.log(`Merged ${mergedCount} field guide document(s) into ${locale} search index${dedupedFrom}`);
