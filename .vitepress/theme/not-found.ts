@@ -4,6 +4,7 @@ import {
   WIKI_NAMESPACE,
 } from '../../ci/lib/tfg-locale-core.mjs'
 import pageIndex from 'virtual:tfg-page-index'
+import { matchStaticSitePathname, staticSiteHomeHref } from './static-site'
 
 const GITHUB_REPO = 'TerraFirmaGreg-Team/Wiki'
 
@@ -64,6 +65,16 @@ function wikiEditOnGitHubUrl(relativePath: string): string {
 }
 
 export function resolveNotFoundView(pathname: string, labels: NotFoundLabels): NotFoundView {
+  const staticSite = matchStaticSitePathname(pathname)
+  if (staticSite) {
+    return {
+      quote: labels.missingQuote,
+      homeHref: staticSiteHomeHref(pathname, staticSite),
+      englishHref: null,
+      contributeHref: null,
+    }
+  }
+
   const locale = parseLocaleFromPath(pathname) ?? DEFAULT_WIKI_LOCALE
   const subpath = subpathFromPathname(pathname, locale)
   const homeHref = `/${WIKI_NAMESPACE}/${locale}/`
