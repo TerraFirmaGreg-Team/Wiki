@@ -39,6 +39,12 @@ export type UiSearchTranslations = {
   }
 }
 
+export type UiNotFoundLabels = {
+  title: string
+  quote: string
+  homeLink: string
+}
+
 export type UiLocale = {
   label: string
   lang: string
@@ -51,6 +57,7 @@ export type UiLocale = {
   sidebarMenuLabel: string
   returnToTopLabel: string
   langMenuLabel: string
+  notFound: UiNotFoundLabels
   search: UiSearchTranslations
 }
 
@@ -129,6 +136,12 @@ export function buildThemeConfig(
     sidebarMenuLabel: ui.sidebarMenuLabel,
     returnToTopLabel: ui.returnToTopLabel,
     langMenuLabel: ui.langMenuLabel,
+    notFound: {
+      title: ui.notFound.title,
+      quote: ui.notFound.quote,
+      linkText: ui.notFound.homeLink,
+      linkLabel: ui.notFound.homeLink,
+    },
   }
 }
 
@@ -158,4 +171,26 @@ export function assertUiLocales(locales: readonly string[]) {
       throw new Error(`Missing UI locale file: .vitepress/i18n/${locale}.json`)
     }
   }
+}
+
+const HOME_INDEX_RE = /^modern\/([^/]+)\/index\.md$/
+
+export function homeEditLinkSuffix(
+  relativePath: string,
+  ui: Record<string, UiLocale>,
+  githubRepo: string,
+): string | null {
+  const match = relativePath.match(HOME_INDEX_RE)
+  if (!match) {
+    return null
+  }
+
+  const locale = match[1]
+  const labels = ui[locale]
+  if (!labels?.editLink) {
+    return null
+  }
+
+  const url = `https://github.com/${githubRepo}/edit/main/docs/${relativePath}`
+  return `\n\n[${labels.editLink}](${url})\n`
 }

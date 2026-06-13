@@ -1,9 +1,9 @@
+import { existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
   DEFAULT_WIKI_LOCALE,
-  getWikiContentLocales,
   localeHreflang,
   WIKI_UI_LOCALES,
 } from './tfg-locale.mjs';
@@ -13,16 +13,18 @@ const DOCS_ROOT = join(__dirname, '../../docs');
 
 export const LOCALES = WIKI_UI_LOCALES;
 
-export const CONTENT_LOCALES = getWikiContentLocales(DOCS_ROOT);
+const LOCALE_SEGMENT = WIKI_UI_LOCALES.join('|');
 
-const CONTENT_LOCALE_RE = new RegExp(`^modern/(${CONTENT_LOCALES.join('|')})`);
+function modernDir(docsRoot = DOCS_ROOT) {
+  return join(docsRoot, 'modern');
+}
 
 export function pageToCanonical(siteUrl, page) {
   const base = siteUrl.replace(/\/$/, '');
   if (page === 'index.md') {
     return `${base}/modern/${DEFAULT_WIKI_LOCALE}/`;
   }
-  const indexMatch = page.match(new RegExp(`^modern/(${CONTENT_LOCALES.join('|')})/index\\.md$`));
+  const indexMatch = page.match(new RegExp(`^modern/(${LOCALE_SEGMENT})/index\\.md$`));
   if (indexMatch) {
     return `${base}/modern/${indexMatch[1]}/`;
   }
@@ -30,17 +32,30 @@ export function pageToCanonical(siteUrl, page) {
   return `${base}/${path}`;
 }
 
-export function pageContentLocale(page) {
-  const match = page.match(CONTENT_LOCALE_RE);
-  return match ? match[1] : null;
-}
-
 export function localePageSuffix(page) {
-  const match = page.match(new RegExp(`^modern/(${CONTENT_LOCALES.join('|')})/(.+\\.md)$`));
+  const match = page.match(new RegExp(`^modern/(${LOCALE_SEGMENT})/(.+\\.md)$`));
   if (!match || match[2] === 'index.md') {
     return null;
   }
   return match[2].replace(/\.md$/, '').replace(/\/index$/, '');
+}
+
+export function localesForPage(page, docsRoot = DOCS_ROOT) {
+  const root = modernDir(docsRoot);
+  if (page === 'index.md') {
+    return LOCALES.filter((locale) => existsSync(join(root, locale, 'index.md')));
+  }
+
+  const suffix = localePageSuffix(page);
+  if (!suffix) {
+    const indexMatch = page.match(new RegExp(`^modern/(${LOCALE_SEGMENT})/index\\.md$`));
+    if (indexMatch) {
+      return [indexMatch[1]];
+    }
+    return [];
+  }
+
+  return LOCALES.filter((locale) => existsSync(join(root, locale, `${suffix}.md`)));
 }
 
 export function hreflangForLocale(locale) {

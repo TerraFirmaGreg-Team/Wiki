@@ -63,9 +63,11 @@ The sidebar is generated automatically from the folder structure. Use `order` to
 
 ## Adding a Language
 
-1. Copy `docs/modern/en_us/` to `docs/modern/<new-locale>/` and translate the content.
-2. Run `node ci/scripts/sync-ui-locales.mjs` (or add `.vitepress/i18n/<new-locale>.json` manually).
-3. Register the locale in `language.json` if it is not already listed in `enabledLocales`.
+1. Add the locale to `language.json` (`enabledLocales` and `localeNames`).
+2. Copy `docs/modern/en_us/` to `docs/modern/<new-locale>/` and translate the content.
+3. Run `node ci/scripts/sync-ui-locales.mjs`.
+
+Missing pages under a locale return 404. A placeholder `index.md` alone is enough to expose the locale home URL.
 
 ## Contributing
 

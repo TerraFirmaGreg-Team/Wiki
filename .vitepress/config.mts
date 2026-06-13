@@ -6,12 +6,11 @@ import { dirname, resolve } from 'node:path'
 import {
   buildLocaleRedirectScript,
   DEFAULT_WIKI_LOCALE,
-  getWikiContentLocales,
-  resolveContentLocale,
   WIKI_UI_LOCALES,
 } from '../ci/lib/tfg-locale.mjs'
 import { buildVitePressBootstrapScript } from '../ci/lib/tfg-theme.mjs'
 import { assertUiLocales, buildSearchOptions, buildThemeConfig, loadUiLocales } from './i18n/index.ts'
+import { homeEditLinkPlugin } from './plugins/home-edit-link.mts'
 import {
   buildPageSeoHead,
   buildWebSiteJsonLd,
@@ -23,8 +22,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const GITHUB_ORG = 'TerraFirmaGreg-Team'
 const GITHUB_REPO = `${GITHUB_ORG}/Wiki`
 const NAMESPACE = 'modern'
-const DOCS_ROOT = resolve(__dirname, '..', 'docs')
-const CONTENT_LOCALES = getWikiContentLocales(DOCS_ROOT)
 const SITE_DOMAIN = readFileSync(resolve(__dirname, '..', 'public', 'CNAME'), 'utf8').trim()
 const SITE_URL = `https://${SITE_DOMAIN}`
 const OG_IMAGE = `${SITE_URL}/logo.png`
@@ -44,10 +41,9 @@ function localeBase(locale: Locale) {
 }
 
 function sidebarOptions(locale: Locale): VitePressSidebarOptions {
-  const contentLocale = resolveContentLocale(locale, CONTENT_LOCALES)
   return {
     documentRootPath: '/docs',
-    scanStartPath: `${NAMESPACE}/${contentLocale}`,
+    scanStartPath: `${NAMESPACE}/${locale}`,
     resolvePath: `${localeBase(locale)}/`,
     collapsed: false,
     useTitleFromFrontmatter: true,
@@ -81,8 +77,8 @@ export default defineConfig(
         publicDir: resolve(__dirname, '..', 'public'),
         define: {
           'import.meta.env.VITE_EXTRA_EXTENSIONS': JSON.stringify('html'),
-          __WIKI_CONTENT_LOCALES__: JSON.stringify(CONTENT_LOCALES),
         },
+        plugins: [homeEditLinkPlugin(resolve(__dirname, '..', 'docs'), UI, GITHUB_REPO)],
       },
       title: SITE_TITLE,
       description: SITE_DESCRIPTION,
@@ -112,7 +108,7 @@ export default defineConfig(
       transformHead({ page, title, description }) {
         const head = buildPageSeoHead(SITE_URL, page, title, description, OG_IMAGE)
         if (page === 'index.md') {
-          head.push(['script', {}, buildLocaleRedirectScript(CONTENT_LOCALES)])
+          head.push(['script', {}, buildLocaleRedirectScript()])
         }
         return head
       },

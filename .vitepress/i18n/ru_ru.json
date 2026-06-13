@@ -22,6 +22,11 @@
   "sidebarMenuLabel": "Menu",
   "returnToTopLabel": "Back to top",
   "langMenuLabel": "Change language",
+  "notFound": {
+    "title": "PAGE NOT FOUND",
+    "quote": "This page does not exist, or it has not been translated into your language yet.",
+    "homeLink": "Take me home"
+  },
   "search": {
     "button": {
       "buttonText": "Search",

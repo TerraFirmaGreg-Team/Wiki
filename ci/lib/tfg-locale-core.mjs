@@ -52,14 +52,6 @@ const LOCALE_DETECT_RULES = [
   { prefix: 'en', locale: 'en_us' },
 ];
 
-export function resolveContentLocale(locale, contentLocales) {
-  const normalized = normalizeWikiLocale(locale);
-  if (normalized && contentLocales.includes(normalized)) {
-    return normalized;
-  }
-  return DEFAULT_WIKI_LOCALE;
-}
-
 export function normalizeWikiLocale(value) {
   return WIKI_UI_LOCALES.includes(value) ? value : null;
 }
@@ -71,20 +63,6 @@ export function parseLocaleFromPath(pathname) {
 
 export function localeBasePath(locale) {
   return `/${WIKI_NAMESPACE}/${locale}/`;
-}
-
-export function rewritePathToContentLocale(pathname, contentLocales) {
-  const locale = parseLocaleFromPath(pathname);
-  if (!locale) {
-    return pathname;
-  }
-
-  const contentLocale = resolveContentLocale(locale, contentLocales);
-  if (contentLocale === locale) {
-    return pathname;
-  }
-
-  return pathname.replace(`/${WIKI_NAMESPACE}/${locale}`, `/${WIKI_NAMESPACE}/${contentLocale}`);
 }
 
 export function detectBrowserLocale(navigator = globalThis.navigator) {
@@ -115,14 +93,13 @@ export function resolveWikiLocalePreference(storage, navigator = globalThis.navi
   return readSavedWikiLocale(storage) ?? detectBrowserLocale(navigator);
 }
 
-export function buildLocaleRedirectScript(contentLocales) {
-  const contentLocalesJson = JSON.stringify(contentLocales);
+export function buildLocaleRedirectScript() {
   const uiLocalesJson = JSON.stringify(WIKI_UI_LOCALES);
   const detectRulesJson = JSON.stringify(
     LOCALE_DETECT_RULES.map((rule) => [rule.prefix, rule.locale]),
   );
 
-  return `(()=>{const p=location.pathname;if(p!=='/'&&p!=='')return;const K='${TFG_LOCALE_KEY}';const UI=${uiLocalesJson};const CONTENT=${contentLocalesJson};const RULES=${detectRulesJson};const DEFAULT='${DEFAULT_WIKI_LOCALE}';function n(v){return UI.includes(v)?v:null}function d(){const ls=navigator.languages?.length?navigator.languages:[navigator.language||'en'];for(const raw of ls){const l=raw.toLowerCase();for(const [prefix,locale] of RULES){if(l===prefix||l.startsWith(prefix+'-'))return locale}}return DEFAULT}function c(v){return CONTENT.includes(v)?v:DEFAULT}const loc=c(n(localStorage.getItem(K))??d());location.replace('/${WIKI_NAMESPACE}/'+loc+'/')})();`;
+  return `(()=>{const p=location.pathname;if(p!=='/'&&p!=='')return;const K='${TFG_LOCALE_KEY}';const UI=${uiLocalesJson};const RULES=${detectRulesJson};const DEFAULT='${DEFAULT_WIKI_LOCALE}';function n(v){return UI.includes(v)?v:null}function d(){const ls=navigator.languages?.length?navigator.languages:[navigator.language||'en'];for(const raw of ls){const l=raw.toLowerCase();for(const [prefix,locale] of RULES){if(l===prefix||l.startsWith(prefix+'-'))return locale}}return DEFAULT}const loc=n(localStorage.getItem(K))??d();location.replace('/${WIKI_NAMESPACE}/'+loc+'/')})();`;
 }
 
 export function localeHreflang(locale) {

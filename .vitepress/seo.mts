@@ -1,13 +1,12 @@
 import type { HeadConfig } from 'vitepress'
 
 import {
-  CONTENT_LOCALES,
   hreflangForLocale,
   localePageSuffix,
+  localesForPage,
   LOCALES as WIKI_LOCALES,
   pageToCanonical,
 } from '../ci/lib/seo.mjs'
-import { resolveContentLocale } from '../ci/lib/tfg-locale-core.mjs'
 
 export const LOCALES = WIKI_LOCALES
 export type WikiLocale = (typeof LOCALES)[number]
@@ -26,40 +25,40 @@ type WikiSitemapItem = {
   lastmod?: string | number | Date
 }
 
-const LOCALE_INDEX_RE = new RegExp(`^modern/(${CONTENT_LOCALES.join('|')})/index\\.md$`)
+const LOCALE_INDEX_RE = new RegExp(`^modern/(${LOCALES.join('|')})/index\\.md$`)
 
 function hreflangUrlForLocale(base: string, suffix: string | null, locale: WikiLocale): string {
-  const contentLocale = resolveContentLocale(locale, CONTENT_LOCALES)
   if (!suffix) {
-    return `${base}/modern/${contentLocale}/`
+    return `${base}/modern/${locale}/`
   }
-  return `${base}/modern/${contentLocale}/${suffix}`
+  return `${base}/modern/${locale}/${suffix}`
 }
 
-function hreflangLinks(base: string, suffix: string | null): HeadConfig[] {
-  const urls = LOCALES.map((locale) => hreflangUrlForLocale(base, suffix, locale))
-  const links: HeadConfig[] = LOCALES.map((locale, index) => [
+function hreflangLinks(base: string, suffix: string | null, locales: readonly WikiLocale[]): HeadConfig[] {
+  const urls = locales.map((locale) => hreflangUrlForLocale(base, suffix, locale))
+  const links: HeadConfig[] = locales.map((locale, index) => [
     'link',
     { rel: 'alternate', hreflang: hreflangForLocale(locale), href: urls[index]! },
   ])
-  links.push([
-    'link',
-    { rel: 'alternate', hreflang: 'x-default', href: hreflangUrlForLocale(base, suffix, 'en_us') },
-  ])
+  if (urls[0]) {
+    links.push(['link', { rel: 'alternate', hreflang: 'x-default', href: urls[0]! }])
+  }
   return links
 }
 
 export function buildHreflangHead(siteUrl: string, page: string): HeadConfig[] {
   const base = siteUrl.replace(/\/$/, '')
   const suffix = localePageSuffix(page)
+  const locales = localesForPage(page)
+
   if (!suffix) {
     if (LOCALE_INDEX_RE.test(page) || page === 'index.md') {
-      return hreflangLinks(base, null)
+      return hreflangLinks(base, null, locales)
     }
     return []
   }
 
-  return hreflangLinks(base, suffix)
+  return hreflangLinks(base, suffix, locales)
 }
 
 export function buildPageSeoHead(
@@ -120,27 +119,30 @@ function normalizeSitemapPath(url: string): string {
 function sitemapHreflangLinks(url: string): WikiSitemapItem['links'] | undefined {
   const path = normalizeSitemapPath(url)
 
-  const indexMatch = path.match(new RegExp(`^/modern/(${CONTENT_LOCALES.join('|')})$`))
+  const indexMatch = path.match(new RegExp(`^/modern/(${LOCALES.join('|')})$`))
   if (indexMatch) {
-    return hreflangSitemapLinks(null)
+    const locales = localesForPage(`modern/${indexMatch[1]}/index.md`)
+    return hreflangSitemapLinks(null, locales)
   }
 
-  const pageMatch = path.match(new RegExp(`^/modern/(${CONTENT_LOCALES.join('|')})/(.+)$`))
+  const pageMatch = path.match(new RegExp(`^/modern/(${LOCALES.join('|')})/(.+)$`))
   if (pageMatch) {
-    return hreflangSitemapLinks(pageMatch[2]!)
+    const suffix = pageMatch[2]!
+    const locales = localesForPage(`modern/${pageMatch[1]}/${suffix}.md`)
+    return hreflangSitemapLinks(suffix, locales)
   }
 
   return undefined
 }
 
-function hreflangSitemapLinks(suffix: string | null): WikiSitemapItem['links'] {
-  const links = LOCALES.map((locale) => ({
+function hreflangSitemapLinks(suffix: string | null, locales: readonly WikiLocale[]): WikiSitemapItem['links'] {
+  const links = locales.map((locale) => ({
     lang: hreflangForLocale(locale),
     hreflang: hreflangForLocale(locale),
-    url: suffix
-      ? `/modern/${resolveContentLocale(locale, CONTENT_LOCALES)}/${suffix}`
-      : `/modern/${resolveContentLocale(locale, CONTENT_LOCALES)}/`,
+    url: suffix ? `/modern/${locale}/${suffix}` : `/modern/${locale}/`,
   }))
-  links.push({ lang: 'x-default', hreflang: 'x-default', url: links[0]!.url })
+  if (links[0]) {
+    links.push({ lang: 'x-default', hreflang: 'x-default', url: links[0].url })
+  }
   return links
 }
