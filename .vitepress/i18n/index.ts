@@ -41,8 +41,11 @@ export type UiSearchTranslations = {
 
 export type UiNotFoundLabels = {
   title: string
-  quote: string
+  missingQuote: string
+  untranslatedQuote: string
   homeLink: string
+  englishLink: string
+  contributeLink: string
 }
 
 export type UiLocale = {
@@ -138,9 +141,14 @@ export function buildThemeConfig(
     langMenuLabel: ui.langMenuLabel,
     notFound: {
       title: ui.notFound.title,
-      quote: ui.notFound.quote,
+      quote: ui.notFound.missingQuote,
       linkText: ui.notFound.homeLink,
       linkLabel: ui.notFound.homeLink,
+      homeLink: ui.notFound.homeLink,
+      missingQuote: ui.notFound.missingQuote,
+      untranslatedQuote: ui.notFound.untranslatedQuote,
+      englishLink: ui.notFound.englishLink,
+      contributeLink: ui.notFound.contributeLink,
     },
   }
 }

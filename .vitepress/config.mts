@@ -11,6 +11,7 @@ import {
 import { buildVitePressBootstrapScript } from '../ci/lib/tfg-theme.mjs'
 import { assertUiLocales, buildSearchOptions, buildThemeConfig, loadUiLocales } from './i18n/index.ts'
 import { homeEditLinkPlugin } from './plugins/home-edit-link.mts'
+import { pageIndexPlugin } from './plugins/page-index.mts'
 import {
   buildPageSeoHead,
   buildWebSiteJsonLd,
@@ -78,7 +79,10 @@ export default defineConfig(
         define: {
           'import.meta.env.VITE_EXTRA_EXTENSIONS': JSON.stringify('html'),
         },
-        plugins: [homeEditLinkPlugin(resolve(__dirname, '..', 'docs'), UI, GITHUB_REPO)],
+        plugins: [
+          homeEditLinkPlugin(resolve(__dirname, '..', 'docs'), UI, GITHUB_REPO),
+          pageIndexPlugin(resolve(__dirname, '..', 'docs')),
+        ],
       },
       title: SITE_TITLE,
       description: SITE_DESCRIPTION,

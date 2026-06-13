@@ -33,7 +33,7 @@ export const MINI_SEARCH_OPTIONS = {
   storeFields: ['title', 'titles'],
 };
 
-const LOCAL_SEARCH_CHUNK_RE = /^const e=(.+);export\{e as default\};?$/s;
+const LOCAL_SEARCH_CHUNK_RE = /^const (\w+)=(.+);export\{\1 as default\};?$/s;
 
 /**
  * @param {string} literal
@@ -67,7 +67,7 @@ export function parseLocalSearchChunk(source) {
   if (!match) {
     throw new Error('Invalid local search chunk format');
   }
-  return JSON.parse(decodeChunkLiteral(match[1].trim()));
+  return JSON.parse(decodeChunkLiteral(match[2].trim()));
 }
 
 /**

@@ -24,8 +24,11 @@
   "langMenuLabel": "Change language",
   "notFound": {
     "title": "PAGE NOT FOUND",
-    "quote": "This page does not exist, or it has not been translated into your language yet.",
-    "homeLink": "Take me home"
+    "missingQuote": "This page does not exist.",
+    "untranslatedQuote": "This page has not been translated yet.",
+    "homeLink": "Take me home",
+    "englishLink": "Read in English",
+    "contributeLink": "Contribute on GitHub"
   },
   "search": {
     "button": {

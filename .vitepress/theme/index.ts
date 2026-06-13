@@ -1,6 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { inBrowser, type EnhanceAppContext } from 'vitepress'
 import staticSitesConfig from '../../ci/static-sites.json'
+import Layout from './Layout.vue'
 import { persistLocaleFromPath } from './locale'
 
 const STATIC_SITE_PREFIXES = (staticSitesConfig.sites ?? []).map((site) => {
@@ -48,6 +49,7 @@ function installLocalePersistence(router: EnhanceAppContext['router']) {
 
 export default {
   extends: DefaultTheme,
+  Layout,
   enhanceApp({ router }) {
     installStaticSiteRouter(router)
     installLocalePersistence(router)

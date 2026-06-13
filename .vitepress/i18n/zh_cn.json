@@ -24,8 +24,11 @@
   "langMenuLabel": "切换语言",
   "notFound": {
     "title": "页面未找到",
-    "quote": "该页面不存在，或尚未翻译为当前语言。",
-    "homeLink": "返回首页"
+    "missingQuote": "该页面不存在。",
+    "untranslatedQuote": "该页面尚未翻译为当前语言。",
+    "homeLink": "返回首页",
+    "englishLink": "阅读英文版",
+    "contributeLink": "在 GitHub 贡献翻译"
   },
   "search": {
     "button": {
