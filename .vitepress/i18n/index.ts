@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { DefaultTheme } from 'vitepress'
@@ -151,15 +151,11 @@ export function buildSearchOptions(
   }
 }
 
-export function assertUiLocales(docsRoot: string, locales: readonly string[]) {
+export function assertUiLocales(locales: readonly string[]) {
   const ui = loadUiLocales()
   for (const locale of locales) {
     if (!ui[locale]) {
       throw new Error(`Missing UI locale file: .vitepress/i18n/${locale}.json`)
-    }
-    const contentDir = resolve(docsRoot, 'modern', locale)
-    if (!existsSync(contentDir)) {
-      throw new Error(`Missing content directory: docs/modern/${locale}/`)
     }
   }
 }

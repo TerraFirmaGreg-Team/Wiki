@@ -1,8 +1,21 @@
-import { parseLocaleFromPath, writeSavedWikiLocale } from '../../ci/lib/tfg-locale.mjs'
+import {
+  localeBasePath,
+  parseLocaleFromPath,
+  resolveWikiLocalePreference,
+  rewritePathToContentLocale as rewritePathToContentLocaleCore,
+  WIKI_UI_LOCALES,
+  writeSavedWikiLocale,
+} from '../../ci/lib/tfg-locale-core.mjs'
 
-export { resolveWikiLocalePreference, localeBasePath } from '../../ci/lib/tfg-locale.mjs'
+declare const __WIKI_CONTENT_LOCALES__: readonly string[]
 
-export type WikiLocale = 'en_us' | 'zh_cn' | 'pt_br'
+export { resolveWikiLocalePreference, localeBasePath } from '../../ci/lib/tfg-locale-core.mjs'
+
+export type WikiLocale = (typeof WIKI_UI_LOCALES)[number]
+
+export function rewritePathToContentLocale(pathname: string): string {
+  return rewritePathToContentLocaleCore(pathname, __WIKI_CONTENT_LOCALES__)
+}
 
 export function persistLocaleFromPath(pathname: string): WikiLocale | null {
   const locale = parseLocaleFromPath(pathname)

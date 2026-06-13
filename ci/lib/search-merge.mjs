@@ -3,11 +3,13 @@ import { basename, join } from 'node:path';
 
 import MiniSearch from 'minisearch';
 
+import { DEFAULT_WIKI_LOCALE, WIKI_UI_LOCALES } from './tfg-locale.mjs';
+
 /**
  * @typedef {{ id: string; title: string; titles: string[]; text: string }} SearchDocument
  */
 
-export const WIKI_LOCALES = ['en_us', 'zh_cn', 'pt_br'];
+export const WIKI_LOCALES = WIKI_UI_LOCALES;
 
 export const FIELD_GUIDE_SITE_ID = 'field-guide-modern';
 
@@ -18,11 +20,13 @@ export const QUEST_BOOK_SITE_ID = 'quest-book-modern';
 export const QUEST_BOOK_SOURCE_LABEL = 'Quest Book';
 
 /** @type {Readonly<Record<string, string>>} */
-export const VP_LOCALE_TO_WIKI_LOCALE = {
-  root: 'en_us',
-  'modern/zh_cn': 'zh_cn',
-  'modern/pt_br': 'pt_br',
-};
+export const VP_LOCALE_TO_WIKI_LOCALE = Object.fromEntries([
+  ['root', DEFAULT_WIKI_LOCALE],
+  ...WIKI_UI_LOCALES.filter((locale) => locale !== DEFAULT_WIKI_LOCALE).map((locale) => [
+    `modern/${locale}`,
+    locale,
+  ]),
+]);
 
 export const MINI_SEARCH_OPTIONS = {
   fields: ['title', 'titles', 'text'],

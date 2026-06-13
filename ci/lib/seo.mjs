@@ -1,14 +1,28 @@
-/** Shared SEO helpers usable from Node CI scripts and VitePress config. */
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-export const LOCALES = ['en_us', 'zh_cn', 'pt_br'];
+import {
+  DEFAULT_WIKI_LOCALE,
+  getWikiContentLocales,
+  localeHreflang,
+  WIKI_UI_LOCALES,
+} from './tfg-locale.mjs';
 
-/** @param {string} siteUrl @param {string} page docs-relative path */
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const DOCS_ROOT = join(__dirname, '../../docs');
+
+export const LOCALES = WIKI_UI_LOCALES;
+
+export const CONTENT_LOCALES = getWikiContentLocales(DOCS_ROOT);
+
+const CONTENT_LOCALE_RE = new RegExp(`^modern/(${CONTENT_LOCALES.join('|')})`);
+
 export function pageToCanonical(siteUrl, page) {
   const base = siteUrl.replace(/\/$/, '');
   if (page === 'index.md') {
-    return `${base}/modern/en_us/`;
+    return `${base}/modern/${DEFAULT_WIKI_LOCALE}/`;
   }
-  const indexMatch = page.match(/^modern\/(en_us|zh_cn|pt_br)\/index\.md$/);
+  const indexMatch = page.match(new RegExp(`^modern/(${CONTENT_LOCALES.join('|')})/index\\.md$`));
   if (indexMatch) {
     return `${base}/modern/${indexMatch[1]}/`;
   }
@@ -16,9 +30,24 @@ export function pageToCanonical(siteUrl, page) {
   return `${base}/${path}`;
 }
 
-/** @param {string} xml */
+export function pageContentLocale(page) {
+  const match = page.match(CONTENT_LOCALE_RE);
+  return match ? match[1] : null;
+}
+
+export function localePageSuffix(page) {
+  const match = page.match(new RegExp(`^modern/(${CONTENT_LOCALES.join('|')})/(.+\\.md)$`));
+  if (!match || match[2] === 'index.md') {
+    return null;
+  }
+  return match[2].replace(/\.md$/, '').replace(/\/index$/, '');
+}
+
+export function hreflangForLocale(locale) {
+  return localeHreflang(locale);
+}
+
 export function parseSitemapLocs(xml) {
-  /** @type {string[]} */
   const locs = [];
   const re = /<loc>([^<]+)<\/loc>/g;
   let match;
@@ -28,7 +57,6 @@ export function parseSitemapLocs(xml) {
   return locs;
 }
 
-/** @param {Iterable<string>} urls */
 export function buildMergedSitemap(urls) {
   const unique = [...new Set([...urls].filter(Boolean))];
   const body = unique.map((url) => `  <url><loc>${escapeXml(url)}</loc></url>`).join('\n');
@@ -41,7 +69,6 @@ export function buildMergedSitemap(urls) {
   ].join('\n');
 }
 
-/** @param {string} value */
 function escapeXml(value) {
   return value
     .replace(/&/g, '&amp;')

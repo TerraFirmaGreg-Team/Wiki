@@ -5,12 +5,12 @@ import { fileURLToPath } from 'node:url';
 
 import { buildMergedSitemap, parseSitemapLocs } from '../lib/seo.mjs';
 import { buildStaticSiteUrl, getSiteDistPath, loadStaticSitesConfig } from '../lib/static-site.mjs';
+import { WIKI_UI_LOCALES } from '../lib/tfg-locale.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '../..');
 const distDir = process.argv[2] ?? join(root, '.vitepress/dist');
 const siteUrl = `https://${readFileSync(join(root, 'public/CNAME'), 'utf8').trim()}`;
-const WIKI_LOCALES = ['en_us', 'zh_cn', 'pt_br'];
 
 const wikiSitemap = join(distDir, 'sitemap.xml');
 if (!existsSync(wikiSitemap)) {
@@ -39,10 +39,10 @@ for (const site of loadStaticSitesConfig()) {
     continue;
   }
 
-  for (const locale of WIKI_LOCALES) {
+  for (const locale of WIKI_UI_LOCALES) {
     urls.push(buildStaticSiteUrl(site, siteUrl, locale));
   }
-  console.warn(`Merged ${WIKI_LOCALES.length} landing URL(s) for ${site.id} (no sitemap.xml)`);
+  console.warn(`Merged ${WIKI_UI_LOCALES.length} landing URL(s) for ${site.id} (no sitemap.xml)`);
 }
 
 const merged = buildMergedSitemap(urls);

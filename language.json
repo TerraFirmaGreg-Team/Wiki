@@ -1,0 +1,39 @@
+{
+  "defaultLocale": "en_us",
+  "enabledLocales": [
+    "en_us",
+    "de_de",
+    "es_es",
+    "fr_fr",
+    "hu_hu",
+    "ja_jp",
+    "ko_kr",
+    "pl_pl",
+    "pt_br",
+    "ru_ru",
+    "sv_se",
+    "tr_tr",
+    "uk_ua",
+    "zh_cn",
+    "zh_hk",
+    "zh_tw"
+  ],
+  "localeNames": {
+    "en_us": "English",
+    "de_de": "Deutsch",
+    "es_es": "Español",
+    "fr_fr": "Français",
+    "hu_hu": "Magyar",
+    "ja_jp": "日本語",
+    "ko_kr": "한국어",
+    "pl_pl": "Polski",
+    "pt_br": "Portuguese (Brazil)",
+    "ru_ru": "Русский",
+    "sv_se": "Svenska",
+    "tr_tr": "Türkçe",
+    "uk_ua": "Українська мова",
+    "zh_cn": "简体中文(中国大陆)",
+    "zh_hk": "繁體中文（港澳)",
+    "zh_tw": "繁體中文(台灣)"
+  }
+}

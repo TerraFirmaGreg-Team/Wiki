@@ -64,8 +64,8 @@ The sidebar is generated automatically from the folder structure. Use `order` to
 ## Adding a Language
 
 1. Copy `docs/modern/en_us/` to `docs/modern/<new-locale>/` and translate the content.
-2. Add `.vitepress/i18n/<new-locale>.json` (copy `en_us.json` and translate UI strings).
-3. Register the locale in `LOCALES` inside `.vitepress/config.mts`.
+2. Run `node ci/scripts/sync-ui-locales.mjs` (or add `.vitepress/i18n/<new-locale>.json` manually).
+3. Register the locale in `language.json` if it is not already listed in `enabledLocales`.
 
 ## Contributing
 

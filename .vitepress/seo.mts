@@ -1,8 +1,15 @@
 import type { HeadConfig } from 'vitepress'
 
-import { LOCALES as WIKI_LOCALES, pageToCanonical } from '../ci/lib/seo.mjs'
+import {
+  CONTENT_LOCALES,
+  hreflangForLocale,
+  localePageSuffix,
+  LOCALES as WIKI_LOCALES,
+  pageToCanonical,
+} from '../ci/lib/seo.mjs'
+import { resolveContentLocale } from '../ci/lib/tfg-locale-core.mjs'
 
-export const LOCALES = WIKI_LOCALES as readonly ['en_us', 'zh_cn', 'pt_br']
+export const LOCALES = WIKI_LOCALES
 export type WikiLocale = (typeof LOCALES)[number]
 
 export { pageToCanonical, parseSitemapLocs, buildMergedSitemap } from '../ci/lib/seo.mjs'
@@ -19,20 +26,27 @@ type WikiSitemapItem = {
   lastmod?: string | number | Date
 }
 
-const HREFLANG: Record<WikiLocale, string> = {
-  en_us: 'en',
-  zh_cn: 'zh-CN',
-  pt_br: 'pt-BR',
+const LOCALE_INDEX_RE = new RegExp(`^modern/(${CONTENT_LOCALES.join('|')})/index\\.md$`)
+
+function hreflangUrlForLocale(base: string, suffix: string | null, locale: WikiLocale): string {
+  const contentLocale = resolveContentLocale(locale, CONTENT_LOCALES)
+  if (!suffix) {
+    return `${base}/modern/${contentLocale}/`
+  }
+  return `${base}/modern/${contentLocale}/${suffix}`
 }
 
-const LOCALE_INDEX_RE = /^modern\/(en_us|zh_cn|pt_br)\/index\.md$/
-
-function localePageSuffix(page: string): string | null {
-  const match = page.match(/^modern\/(en_us|zh_cn|pt_br)\/(.+\.md)$/)
-  if (!match || match[2] === 'index.md') {
-    return null
-  }
-  return match[2].replace(/\.md$/, '').replace(/\/index$/, '')
+function hreflangLinks(base: string, suffix: string | null): HeadConfig[] {
+  const urls = LOCALES.map((locale) => hreflangUrlForLocale(base, suffix, locale))
+  const links: HeadConfig[] = LOCALES.map((locale, index) => [
+    'link',
+    { rel: 'alternate', hreflang: hreflangForLocale(locale), href: urls[index]! },
+  ])
+  links.push([
+    'link',
+    { rel: 'alternate', hreflang: 'x-default', href: hreflangUrlForLocale(base, suffix, 'en_us') },
+  ])
+  return links
 }
 
 export function buildHreflangHead(siteUrl: string, page: string): HeadConfig[] {
@@ -40,21 +54,12 @@ export function buildHreflangHead(siteUrl: string, page: string): HeadConfig[] {
   const suffix = localePageSuffix(page)
   if (!suffix) {
     if (LOCALE_INDEX_RE.test(page) || page === 'index.md') {
-      return hreflangLinks(LOCALES.map((locale) => `${base}/modern/${locale}/`))
+      return hreflangLinks(base, null)
     }
     return []
   }
-  const urls = LOCALES.map((locale) => `${base}/modern/${locale}/${suffix}`)
-  return hreflangLinks(urls)
-}
 
-function hreflangLinks(urls: string[]): HeadConfig[] {
-  const links: HeadConfig[] = LOCALES.map((locale, index) => [
-    'link',
-    { rel: 'alternate', hreflang: HREFLANG[locale], href: urls[index]! },
-  ])
-  links.push(['link', { rel: 'alternate', hreflang: 'x-default', href: urls[0]! }])
-  return links
+  return hreflangLinks(base, suffix)
 }
 
 export function buildPageSeoHead(
@@ -115,26 +120,27 @@ function normalizeSitemapPath(url: string): string {
 function sitemapHreflangLinks(url: string): WikiSitemapItem['links'] | undefined {
   const path = normalizeSitemapPath(url)
 
-  const indexMatch = path.match(/^\/modern\/(en_us|zh_cn|pt_br)$/)
+  const indexMatch = path.match(new RegExp(`^/modern/(${CONTENT_LOCALES.join('|')})$`))
   if (indexMatch) {
-    return hreflangSitemapLinks((locale) => `/modern/${locale}/`)
+    return hreflangSitemapLinks(null)
   }
 
-  const pageMatch = path.match(/^\/modern\/(en_us|zh_cn|pt_br)\/(.+)$/)
+  const pageMatch = path.match(new RegExp(`^/modern/(${CONTENT_LOCALES.join('|')})/(.+)$`))
   if (pageMatch) {
-    const suffix = pageMatch[2]!
-    return hreflangSitemapLinks((locale) => `/modern/${locale}/${suffix}`)
+    return hreflangSitemapLinks(pageMatch[2]!)
   }
 
   return undefined
 }
 
-function hreflangSitemapLinks(urlForLocale: (locale: WikiLocale) => string): WikiSitemapItem['links'] {
+function hreflangSitemapLinks(suffix: string | null): WikiSitemapItem['links'] {
   const links = LOCALES.map((locale) => ({
-    lang: HREFLANG[locale],
-    hreflang: HREFLANG[locale],
-    url: urlForLocale(locale),
+    lang: hreflangForLocale(locale),
+    hreflang: hreflangForLocale(locale),
+    url: suffix
+      ? `/modern/${resolveContentLocale(locale, CONTENT_LOCALES)}/${suffix}`
+      : `/modern/${resolveContentLocale(locale, CONTENT_LOCALES)}/`,
   }))
-  links.push({ lang: 'x-default', hreflang: 'x-default', url: urlForLocale('en_us') })
+  links.push({ lang: 'x-default', hreflang: 'x-default', url: links[0]!.url })
   return links
 }
