@@ -6,6 +6,7 @@ import {
   isGitalkConfigured,
   loadGitalkConfig,
   wikiGitalkIssueId,
+  wikiGitalkRawKey,
   type GitalkSiteConfig,
 } from './lib/gitalk'
 import 'gitalk/dist/gitalk.css'
@@ -62,6 +63,9 @@ watch(
     const { default: Gitalk } = await import('gitalk')
     if (cancelled) return
 
+    const rawKey = wikiGitalkRawKey(path, locale.value)
+    const id = await wikiGitalkIssueId(path, locale.value)
+
     container.replaceChildren()
     const gitalk = new Gitalk({
       clientID: config.clientID.trim(),
@@ -69,10 +73,10 @@ watch(
       repo: config.repo.trim(),
       owner: config.owner.trim(),
       admin: config.admin.map((name) => name.trim()).filter(Boolean),
-      id: wikiGitalkIssueId(path, locale.value),
+      id,
       title: pageTitle,
-      body: ['Wiki discussion', '', `- Page: ${pageUrl}`].join('\n'),
-      labels: ['wiki', locale.value],
+      body: ['Wiki discussion', '', `- Key: \`${rawKey}\``, `- Page: ${pageUrl}`].join('\n'),
+      labels: ['wiki'],
       language: gitalkLanguageForLocale(locale.value),
       distractionFreeMode: config.distractionFreeMode ?? false,
       createIssueManually: config.createIssueManually ?? false,

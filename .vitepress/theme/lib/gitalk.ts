@@ -66,18 +66,43 @@ export async function loadGitalkConfig(): Promise<GitalkSiteConfig | null> {
   return null
 }
 
-export function wikiGitalkIssueId(pathname: string, locale: string): string {
-  const normalized = pathname.replace(/\/$/, '') || '/'
-  const suffix = normalized.replace(new RegExp(`^/modern/${locale}`), '') || '/'
-  const raw = `wiki/${locale}${suffix === '/' ? '' : suffix}`
-  if (raw.length <= GITALK_ID_MAX) return raw
-  return `wiki/${hashPath(raw).slice(0, GITALK_ID_MAX - 5)}`
+export async function hashGitalkRaw(raw: string): Promise<string> {
+  if (typeof crypto !== 'undefined' && crypto.subtle) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw))
+    return Array.from(new Uint8Array(buf))
+      .map((byte) => byte.toString(16).padStart(2, '0'))
+      .join('')
+  }
+  return syncHashGitalkRaw(raw)
 }
 
-function hashPath(input: string): string {
-  let hash = 0
-  for (let i = 0; i < input.length; i++) {
-    hash = (hash * 31 + input.charCodeAt(i)) >>> 0
+function syncHashGitalkRaw(raw: string): string {
+  const parts: string[] = []
+  for (let seed = 0; seed < 4; seed++) {
+    let hash = seed
+    for (let i = 0; i < raw.length; i++) {
+      hash = Math.imul(hash ^ raw.charCodeAt(i), 0x5bd1e995)
+      hash = (hash ^ (hash >>> 15)) >>> 0
+    }
+    parts.push(hash.toString(16).padStart(8, '0'))
   }
-  return hash.toString(36)
+  return parts.join('')
+}
+
+export async function gitalkHashedId(sitePrefix: string, raw: string): Promise<string> {
+  const hash = await hashGitalkRaw(raw)
+  const hashBudget = GITALK_ID_MAX - sitePrefix.length - 1
+  return `${sitePrefix}/${hash.slice(0, hashBudget)}`
+}
+
+/** Canonical key before hashing. */
+export function wikiGitalkRawKey(pathname: string, locale: string): string {
+  const normalized = pathname.replace(/\/$/, '') || '/'
+  const suffix = normalized.replace(new RegExp(`^/modern/${locale}`), '') || '/'
+  return `wiki/${locale}${suffix === '/' ? '' : suffix}`
+}
+
+export async function wikiGitalkIssueId(pathname: string, locale: string): Promise<string> {
+  const raw = wikiGitalkRawKey(pathname, locale)
+  return gitalkHashedId('wiki', raw)
 }
