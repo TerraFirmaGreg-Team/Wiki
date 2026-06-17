@@ -54,6 +54,7 @@ const commentsTitle = computed(() => {
 })
 
 const giscusKey = computed(() => route.path)
+const giscusTerm = computed(() => route.path.slice(1))
 
 function giscusLang() {
   return GISCUS_LANG[locale.value] ?? 'en'
@@ -119,7 +120,8 @@ onMounted(async () => {
       :repo-id="giscus.repoId"
       :category="giscus.category"
       :category-id="giscus.categoryId"
-      mapping="pathname"
+      mapping="specific"
+      :term="giscusTerm"
       :theme="theme"
       :lang="giscusLang()"
       reactions-enabled="1"
