@@ -2,32 +2,84 @@
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-1);
 }
 
 .wiki-gitalk__title {
   margin: 0 0 1rem;
   font-size: 1.125rem;
   font-weight: 600;
-}
-
-.wiki-gitalk .gt-header-textarea {
   color: var(--vp-c-text-1);
+}
+
+/* Focus dimmer: Gitalk default is pure #000 — use theme background instead */
+.wiki-gitalk .gt-container.gt-input-focused:after {
   background: var(--vp-c-bg);
+  opacity: 0.72;
 }
 
-.wiki-gitalk .gt-header-preview {
-  background: var(--vp-c-bg-soft);
-}
-
-.wiki-gitalk .gt-btn {
+.wiki-gitalk .gt-container .gt-header-textarea {
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg-soft);
   border-color: var(--vp-c-divider);
 }
 
-.wiki-gitalk .gt-btn-preview,
-.wiki-gitalk .gt-btn-public {
+.wiki-gitalk .gt-container .gt-header-textarea:hover {
+  background-color: var(--vp-c-bg-elv);
+}
+
+.wiki-gitalk .gt-container .gt-header-textarea::placeholder {
+  color: var(--vp-c-text-3);
+}
+
+.wiki-gitalk .gt-container .gt-header-preview {
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-divider);
+}
+
+.wiki-gitalk .gt-container .gt-header-controls-tip {
+  color: var(--vp-c-brand-1);
+}
+
+.wiki-gitalk .gt-container .gt-btn {
+  border-color: var(--vp-c-divider);
+  color: var(--vp-c-text-1);
+}
+
+.wiki-gitalk .gt-container .gt-btn-preview,
+.wiki-gitalk .gt-container .gt-btn-public {
   background-color: var(--vp-c-brand-1);
   border-color: var(--vp-c-brand-1);
-  color: var(--vp-button-brand-text);
+  color: var(--vp-button-brand-text, #fff);
+}
+
+.wiki-gitalk .gt-container .gt-btn-preview:hover,
+.wiki-gitalk .gt-container .gt-btn-public:hover {
+  background-color: var(--vp-c-brand-2);
+  border-color: var(--vp-c-brand-2);
+}
+
+.wiki-gitalk .gt-container .gt-comments-null,
+.wiki-gitalk .gt-container .gt-comment-text,
+.wiki-gitalk .gt-container .gt-comment-date {
+  color: var(--vp-c-text-2);
+}
+
+.wiki-gitalk .gt-container .gt-comment-content {
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+}
+
+.wiki-gitalk .gt-container .gt-comment-content:hover {
+  box-shadow: none;
+  background-color: var(--vp-c-bg-elv);
+}
+
+.wiki-gitalk .gt-container .gt-comment-username,
+.wiki-gitalk .gt-container a {
+  color: var(--vp-c-brand-1);
 }
 
 .wiki-gitalk .gt-container .gt-popup .gt-action.is--active:before {
@@ -36,4 +88,59 @@
 
 .wiki-gitalk .gt-container .gt-popup .gt-action.is--active:after {
   background-color: var(--vp-c-brand-1);
+}
+
+/* Gitalk bundles github-markdown-css (light-only); align preview/comment body with VP theme */
+.wiki-gitalk .markdown-body {
+  color: var(--vp-c-text-1);
+  background-color: transparent;
+}
+
+.wiki-gitalk .markdown-body a {
+  color: var(--vp-c-brand-1);
+}
+
+.wiki-gitalk .markdown-body p,
+.wiki-gitalk .markdown-body li,
+.wiki-gitalk .markdown-body blockquote,
+.wiki-gitalk .markdown-body h1,
+.wiki-gitalk .markdown-body h2,
+.wiki-gitalk .markdown-body h3,
+.wiki-gitalk .markdown-body h4,
+.wiki-gitalk .markdown-body h5,
+.wiki-gitalk .markdown-body h6 {
+  color: var(--vp-c-text-1);
+}
+
+.wiki-gitalk .markdown-body code,
+.wiki-gitalk .markdown-body tt {
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg-alt);
+}
+
+.wiki-gitalk .markdown-body pre {
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg-alt);
+}
+
+.wiki-gitalk .markdown-body pre code {
+  background-color: transparent;
+}
+
+.wiki-gitalk .markdown-body blockquote {
+  border-left-color: var(--vp-c-divider);
+  color: var(--vp-c-text-2);
+}
+
+.wiki-gitalk .markdown-body hr {
+  background-color: var(--vp-c-divider);
+}
+
+.wiki-gitalk .markdown-body table tr {
+  background-color: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-divider);
+}
+
+.wiki-gitalk .markdown-body table tr:nth-child(2n) {
+  background-color: var(--vp-c-bg-alt);
 }
