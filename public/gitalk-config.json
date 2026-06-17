@@ -1,9 +1,0 @@
-{
-  "enabled": true,
-  "clientID": "Ov23livK9qZ4POkLjmOE",
-  "repo": "tfg-wiki-issue-tracker",
-  "owner": "jmecn",
-  "admin": ["jmecn"],
-  "proxy": "https://tfg-gitalk-proxy.115050813.workers.dev/get_accesstoken",
-  "distractionFreeMode": false
-}

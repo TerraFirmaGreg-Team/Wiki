@@ -83,16 +83,14 @@ jobs:
       - name: Merge quest book into wiki search index
         run: node ci/scripts/merge-quest-book-search.mjs
 
-      - name: Write gitalk-config.json
+      - name: Write giscus-config.json
         env:
-          GITALK_ENABLED: ${{ secrets.GITALK_ENABLED }}
-          GITALK_CLIENT_ID: ${{ secrets.GITALK_CLIENT_ID }}
-          GITALK_REPO: ${{ secrets.GITALK_REPO }}
-          GITALK_OWNER: ${{ secrets.GITALK_OWNER }}
-          GITALK_ADMIN: ${{ secrets.GITALK_ADMIN }}
-          GITALK_PROXY: ${{ secrets.GITALK_PROXY }}
-          GITALK_DISTRACTION_FREE: ${{ secrets.GITALK_DISTRACTION_FREE }}
-        run: node ci/scripts/write-gitalk-config.mjs
+          GISCUS_ENABLED: ${{ secrets.GISCUS_ENABLED }}
+          GISCUS_REPO: ${{ secrets.GISCUS_REPO }}
+          GISCUS_REPO_ID: ${{ secrets.GISCUS_REPO_ID }}
+          GISCUS_CATEGORY: ${{ secrets.GISCUS_CATEGORY }}
+          GISCUS_CATEGORY_ID: ${{ secrets.GISCUS_CATEGORY_ID }}
+        run: node ci/scripts/write-giscus-config.mjs
 
       - name: Save field-guide-modern static site cache
         if: steps.mirror.outputs.field_guide_modern_downloaded == 'true'

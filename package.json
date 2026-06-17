@@ -1,6 +1,6 @@
 {
   "name": "tfg-wiki",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "TerraFirmaGreg team wiki, built with VitePress.",
   "type": "module",
@@ -10,7 +10,7 @@
     "preview": "vitepress preview"
   },
   "devDependencies": {
-    "gitalk": "^1.8.0",
+    "@giscus/vue": "^3.1.0",
     "minisearch": "^7.2.0",
     "vitepress": "^1.6.4",
     "vitepress-sidebar": "^1.36.1",
