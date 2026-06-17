@@ -8,7 +8,7 @@ const Layout = DefaultTheme.Layout
 
 <template>
   <Layout>
-    <template #doc-footer-before>
+    <template #doc-after>
       <GitalkComments />
     </template>
     <template #not-found>
