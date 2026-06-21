@@ -9,7 +9,7 @@ If you're upgrading from 0.11, please follow the [0.12 upgrade instructions firs
 Worlds from 0.12 are safe to update to 0.13, but there are some important things to know:
 
 # Overworld worldgen
-Due to some issues with servers, we've changed the default world generation for worlds from pre-0.12 to the **new worldgen**. If you still want to keep the old worldgen, change the `worldgenOverrides` setting in `defaultconfigs/tfg-server.toml` to `0`.
+Due to some issues with servers, we've changed the default world generation for worlds from pre-0.12 to the **new worldgen**. If you still want to keep the old worldgen, change the `worldgenOverrides` setting in `defaultconfigs/tfg-server.toml` to `["minecraft:overworld=1"]`.
 
 # Beneath overhaul
 We've completely reworked the Beneath. It's now significantly taller, so you will need to wipe the dimension in order to not be teleported above bedrock.
