@@ -83,6 +83,15 @@ jobs:
       - name: Merge quest book into wiki search index
         run: node ci/scripts/merge-quest-book-search.mjs
 
+      - name: Write giscus-config.json
+        env:
+          GISCUS_ENABLED: ${{ secrets.GISCUS_ENABLED }}
+          GISCUS_REPO: ${{ secrets.GISCUS_REPO }}
+          GISCUS_REPO_ID: ${{ secrets.GISCUS_REPO_ID }}
+          GISCUS_CATEGORY: ${{ secrets.GISCUS_CATEGORY }}
+          GISCUS_CATEGORY_ID: ${{ secrets.GISCUS_CATEGORY_ID }}
+        run: node ci/scripts/write-giscus-config.mjs
+
       - name: Save field-guide-modern static site cache
         if: steps.mirror.outputs.field_guide_modern_downloaded == 'true'
         uses: actions/cache/save@v5
