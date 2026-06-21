@@ -44,6 +44,6 @@ Chromium has been completely changed. Due to the introduction of gem slurries, R
 You unlock easier ways of processing all three as you progress.
 
 # ComputerCraft
-We've added a mod to enable UTF-8 support for ComputerCraft. @Kondrashka177
+We've added a mod to enable UTF-8 support for ComputerCraft.
 
 Existing ComputerCraft programs should continue to work without migration. Programs which already contain valid UTF-8 text should display correctly after installing the mod. Programs which were previously saved with corrupted/mojibake text will need that text corrected manually; simply opening and saving the file again will not automatically recover the original characters.
