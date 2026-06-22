@@ -10,7 +10,7 @@ order: 5
 
 # 主世界地形生成
 
-由于服务器端存在一些问题，我们已将 0.12 之前世界的默认地形生成改为**新世界生成**。若仍想保留旧地形生成，请将 `defaultconfigs/tfg-server.toml` 中的 `worldgenOverrides` 设置为 `["minecraft:overworld=1"]`。
+由于服务器端存在一些问题，我们已将 0.12 之前世界的默认地形生成改为**新世界生成**。若仍想保留旧地形生成，请将 `defaultconfigs/tfg-server.toml` 中的 `worldgenOverrides` 设置为 `["minecraft:overworld=0"]`。
 
 # 幽冥之地翻新
 

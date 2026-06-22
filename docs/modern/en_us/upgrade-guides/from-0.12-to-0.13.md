@@ -9,7 +9,15 @@ If you're upgrading from 0.11, please follow the [0.12 upgrade instructions firs
 Worlds from 0.12 are safe to update to 0.13, but there are some important things to know:
 
 # Overworld worldgen
-Due to some issues with servers, we've changed the default world generation for worlds from pre-0.12 to the **new worldgen**. If you still want to keep the old worldgen, change the `worldgenOverrides` setting in `defaultconfigs/tfg-server.toml` to `["minecraft:overworld=0"]`.
+Due to some issues with servers, we've changed the default world generation for worlds from pre-0.12 to the **new worldgen**.
+
+- If your world was created in 0.12 then you don't have to do anything.
+- If your world was created before 0.12 and you've already changed it to use the new worldgen, you don't have to do anything.
+- If your world was created before 0.12 and you want to keep the old worldgen, you will need to change the `worldgenOverrides` setting in `defaultconfigs/tfg-server.toml` to `["minecraft:overworld=0"]`.
+
+You don't have to do anything to get the new mineshafts, just explore new chunks.
+
+In the future (likely in several months) we may drop support for the old worldgen, as it is becoming a lot of work to keep both available.
 
 # Beneath overhaul
 We've completely reworked the Beneath. It's now significantly taller, so you will need to wipe the dimension in order to not be teleported above bedrock.
