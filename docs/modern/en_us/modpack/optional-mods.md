@@ -6,7 +6,6 @@ Here's some more mods that are compatible with TFG but aren't included by defaul
 
 ## Visual
 * ***TFC Caelum*** ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) - a realistic sky mod that shows planets, accurate constellations, moon phases, and so on. Also adds rainbows! Not included by default because it crashes MacOS clients.
-* ***Better Foliage Renewed*** ([CF](https://www.curseforge.com/minecraft/mc-mods/better-foliage-renewed), [MR](https://modrinth.com/mod/better-foliage-renewed/versions)) - makes TFC leaves more "bushy". Only works on base TFC trees and not the AFC ones, and only looks good on higher graphics settings that have leaf transparency. May also cause large FPS drops in forests.
 * ***Xaero Zoomout*** ([CF](https://www.curseforge.com/minecraft/mc-mods/xaerozoomout), [MR](https://modrinth.com/mod/xaero-zoomout)) - Lets you zoom out further on the map.
 * ***Distant Horizons*** ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) - TFG comes with configurations to get it working with TFC's world generation.
 * [BlueMap](https://bluemap.bluecolored.de/) - TFG comes with a resource pack for it to work with some of TFC's blocks.
