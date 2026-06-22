@@ -15,11 +15,11 @@ hero:
 features:
   - title: Інструкції з оновлення
     details: Покрокові інструкції з перенесення світів між основними версіями.
-    link: /modern/en_us/upgrade-guides/from-0.12-to-0.13
+    link: /modern/uk_ua/upgrade-guides/from-0.12-to-0.13
     linkText: 0.12 > 0.13
   - title: Основні журнали змін релізів
     details: Основні моменти нового контенту, механік та помітних змін у кожному великому релізі.
-    link: /modern/en_us/major-changelogs/0.13
+    link: /modern/uk_ua/major-changelogs/0.13
     linkText: Прочитати журнал змін 0.13
   - title: Додаткові моди
     details: Додаткові моди, які не входять типово, але з якими TFG має сумісність.
