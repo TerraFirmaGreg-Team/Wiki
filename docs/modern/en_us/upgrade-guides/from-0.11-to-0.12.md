@@ -1,5 +1,5 @@
 ---
-title: 0.11 → 0.12 
+title: 0.11 → 0.12 Upgrade guide
 order: 4
 ---
 # 0.11 → 0.12 Upgrade guide

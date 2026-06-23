@@ -7,10 +7,13 @@ Crie o arquivo `gradle-local.properties` e insira o seguinte:
 
 > ⚠️Importante: Ao definir o instance_path, use barras normais (/), não barras invertidas (\\).
 
-```
-//  Se o arquivo JAR do TFG-Core na pasta mods do seu modpack deve ser substituído automaticamente pela versão mais recete do core, toda vez que o core for recompilado, ele deve ser reconstruído
+Se o arquivo JAR do TFG-Core na pasta mods do seu modpack deve ser substituído automaticamente pela versão mais recete do core, toda vez que o core for recompilado, ele deve ser reconstruído 
+```properties
 enable_copy_to_instance = true 
+```
+
 // Caminho para a pasta do modpack
+```properties
 instance_path = C:/caminho//para//modpack
 ```
 ## Geração de dados padrão
@@ -19,13 +22,19 @@ Por padrão, o registrate procurará por uma textura com o mesmo nome do ID do b
 
 Para desabilitar a geração de dados para um bloco:
 
-`.setData(ProviderType.LOOT, NonNullBiConsumer.noop())`
+```java
+.setData(ProviderType.LOOT, NonNullBiConsumer.noop())
+```
 
-`.setData(ProviderType.BLOCKSTATE, NonNullBiConsumer.noop())`
+```java
+.setData(ProviderType.BLOCKSTATE, NonNullBiConsumer.noop())
+```
 
 Para desabilitar a geração de dados para um item:
 
-`.setData(ProviderType.ITEM_MODEL, NonNullBiConsumer.noop())`
+```java
+.setData(ProviderType.ITEM_MODEL, NonNullBiConsumer.noop())
+```
 
 ## Máquinas
 
@@ -36,7 +45,7 @@ Os construtores de máquinas possuem vários métodos, como `workableTieredHullM
 Chame `.model` em uma definição de item.
 
 Exemplo com múltiplas camadas de modelo:
-```
+```java
 .model(ModelUtils.layeredItemModel(
   TFGCore.id("item/wireless_card/wireless_card_base"),
   TFGCore.id("item/wireless_card/wireless_card_layer1"),
@@ -51,23 +60,33 @@ Geração de dados é feita usando o método `.blockState` em uma definição de
 
 Por exemplo:
 
-`ModelUtils.createActiveModel(TFGCore.id("block/casings/machine_casing_vacuum_engine_intake"))` Cria um modelo de bloco ativo/inativo usando a textura fornecida, pressupondo que a textura ativa possui o sufixo _active
+Cria um modelo de bloco ativo/inativo usando a textura fornecida, pressupondo que a textura ativa possui o sufixo _active
+```java
+ModelUtils.createActiveModel(TFGCore.id("block/casings/machine_casing_vacuum_engine_intake"))
+```
 
-`ModelUtils.existingActiveModel(TFGCore.id("block/casings/bioculture_rotor_secondary"))` Procura por um modelo ativo/inativo existente e cria um estado de bloco baseado nele.
+Procura por um modelo ativo/inativo existente e cria um estado de bloco baseado nele.
+```java
+ModelUtils.existingActiveModel(TFGCore.id("block/casings/bioculture_rotor_secondary"))
+```
 
-`GTModels.cubeAllModel(TFGCore.id("block/casings/electromagnetic_accelerator"))` Cria um modelo de bloco simples com a textura especificada.
+Cria um modelo de bloco simples com a textura especificada.
+```java
+GTModels.cubeAllModel(TFGCore.id("block/casings/electromagnetic_accelerator"))
+```
 
 #### Usando modelos existentes e definindo texturas a serem utilizadas
 
-```
-(datagenContext, modelProvider) -> modelProvider.models().withExistingParent(datagenContext.getName(), GTCEu.id("block/cube_2_layer/all"))
+```java
+(datagenContext, modelProvider) -> modelProvider.models()
+                .withExistingParent(datagenContext.getName(), GTCEu.id("block/cube_2_layer/all"))
                 .texture("bot_all", textureResourceLocation)
                 .texture("top_all", texture2ResourceLocation)
 ```
 
 #### Definindo estados de bloco personalizados
 
-```
+```java
 (ctx, prov) -> {
   /// Cria um novo modelo para o estado de bloco inativo
   var inactive = prov.models().cubeAll(ctx.getName(), inactiveTexture)
@@ -83,9 +102,15 @@ Por exemplo:
 
 ### Definindo itens dentro de definições de blocos
 
-`.simpleItem()` Cria um item de bloco que usa o modelo do bloco para renderização.
+Cria um item de bloco que usa o modelo do bloco para renderização.
+```java
+.simpleItem()
+``` 
 
-`.item()` Retorna um construtor de item de bloco
+Retorna um construtor de item de bloco
+```java
+.item()
+``` 
 
 ### Definindo tabelas de loot e quedas de blocos
 
@@ -93,6 +118,10 @@ Por padrão, blocos se soltam a si mesmos. Use o método `.loot()` para definir 
 
 Exemplos:
 
-`.loot((ctx, b) -> ctx.dropOther(b, MARS_DIRT))` Solta um item diferente
-
-`.loot((ctx, b) -> ctx.createShearsOnlyDrop(b, ITEM))` Faz com que o bloco só tenha queda ao ser quebrado com tesoura, soltando ITEM.
+Solta um item diferente
+```java
+.loot((ctx, b) -> ctx.dropOther(b, MARS_DIRT))
+```
+```java
+.loot((ctx, b) -> ctx.createShearsOnlyDrop(b, ITEM))
+```

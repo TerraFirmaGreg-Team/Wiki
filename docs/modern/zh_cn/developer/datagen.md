@@ -3,30 +3,39 @@ title: Java Datagen
 order: 5
 ---
 #### 配置
-
 创建文件 `gradle-local.properties`，并写入如下内容：
 
 > ⚠️ 重要：填写 `instance_path` 时请使用正斜杠 `/`，不要使用反斜杠 `\`。
 
-```
-// 若希望在每次重新构建 core 后，自动用最新的 TFG-Core jar 替换整合包 mods 文件夹中的对应文件
+若希望在每次重新构建 core 后，自动用最新的 TFG-Core jar 替换整合包 mods 文件夹中的对应文件
+```properties
 enable_copy_to_instance = true 
-// 整合包所在路径
+```
+
+整合包所在路径
+```properties
 instance_path = C:/path//to//modpack
 ```
+
 ## 默认数据生成
 
 默认情况下，registrate 会查找与方块 ID 同名的贴图，并将其用作该方块六个面的贴图。对于物品，registrate 会查找简单贴图并用作该物品的贴图。
 
 要对方块禁用数据生成：
 
-`.setData(ProviderType.LOOT, NonNullBiConsumer.noop())`
+```java
+.setData(ProviderType.LOOT, NonNullBiConsumer.noop())
+```
 
-`.setData(ProviderType.BLOCKSTATE, NonNullBiConsumer.noop())`
+```java
+.setData(ProviderType.BLOCKSTATE, NonNullBiConsumer.noop())
+```
 
 要对物品禁用数据生成：
 
-`.setData(ProviderType.ITEM_MODEL, NonNullBiConsumer.noop())`
+```java
+.setData(ProviderType.ITEM_MODEL, NonNullBiConsumer.noop())
+```
 
 ## 机器
 
@@ -38,7 +47,7 @@ instance_path = C:/path//to//modpack
 
 多模型层示例：
 
-```
+```java
 .model(ModelUtils.layeredItemModel(
   TFGCore.id("item/wireless_card/wireless_card_base"),
   TFGCore.id("item/wireless_card/wireless_card_layer1"),
@@ -53,27 +62,37 @@ instance_path = C:/path//to//modpack
 
 例如：
 
-`ModelUtils.createActiveModel(TFGCore.id("block/casings/machine_casing_vacuum_engine_intake"))` 使用给定贴图创建激活/未激活方块模型，并假定激活用贴图带有 `_active` 后缀。
+使用给定贴图创建激活/未激活方块模型，并假定激活用贴图带有 `_active` 后缀。
+```java
+ModelUtils.createActiveModel(TFGCore.id("block/casings/machine_casing_vacuum_engine_intake"))
+```
 
-`ModelUtils.existingActiveModel(TFGCore.id("block/casings/bioculture_rotor_secondary"))` 查找已有的激活/未激活方块模型，并据此生成方块状态。
+查找已有的激活/未激活方块模型，并据此生成方块状态。
+```java
+ModelUtils.existingActiveModel(TFGCore.id("block/casings/bioculture_rotor_secondary"))
+```
 
-`GTModels.cubeAllModel(TFGCore.id("block/casings/electromagnetic_accelerator"))` 使用指定贴图创建简单方块模型。
+使用指定贴图创建简单方块模型。
+```java
+GTModels.cubeAllModel(TFGCore.id("block/casings/electromagnetic_accelerator"))
+```
 
 #### 使用已有模型并指定要使用的贴图
 
-```
-(datagenContext, modelProvider) -> modelProvider.models().withExistingParent(datagenContext.getName(), GTCEu.id("block/cube_2_layer/all"))
+```java
+(datagenContext, modelProvider) -> modelProvider.models()
+                .withExistingParent(datagenContext.getName(), GTCEu.id("block/cube_2_layer/all"))
                 .texture("bot_all", textureResourceLocation)
                 .texture("top_all", texture2ResourceLocation)
 ```
 
 #### 自定义方块状态
 
-```
+```java
 (ctx, prov) -> {
-  /// 为未激活方块状态创建新模型
+  /// Creates a new model for the inactive block state
   var inactive = prov.models().cubeAll(ctx.getName(), inactiveTexture)
-  /// 为激活方块状态查找已有模型
+  /// Looks for an existing model for the active block state
   var active = prov.models().getExistingFile(activeModelPath);
 
   prov.getVariantBuilder(ctx.getEntry()).partialState().with(GTBlockStateProperties.ACTIVE, false)
@@ -85,9 +104,15 @@ instance_path = C:/path//to//modpack
 
 ### 在方块定义中定义物品
 
-`.simpleItem()` 会创建使用方块模型进行渲染的方块物品。
+会创建使用方块模型进行渲染的方块物品。
+```java
+.simpleItem()
+``` 
 
-`.item()` 返回方块物品构建器。
+返回方块物品构建器。
+```java
+.item()
+``` 
 
 ### 定义战利品表与方块掉落
 
@@ -95,6 +120,10 @@ instance_path = C:/path//to//modpack
 
 示例：
 
-`.loot((ctx, b) -> ctx.dropOther(b, MARS_DIRT))` 掉落其他物品
-
-`.loot((ctx, b) -> ctx.createShearsOnlyDrop(b, ITEM))` 仅剪刀可获得的掉落
+掉落其他物品
+```java
+.loot((ctx, b) -> ctx.dropOther(b, MARS_DIRT))
+```
+```java
+.loot((ctx, b) -> ctx.createShearsOnlyDrop(b, ITEM))
+```
