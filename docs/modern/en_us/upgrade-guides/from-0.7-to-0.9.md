@@ -1,5 +1,5 @@
 ---
-title: 0.7 → 0.9
+title: 0.7 → 0.9 Upgrade Guide
 order: 1
 ---
 **Please remember to create a new instance of TFG and copy your world across into it, instead of upgrading it in-place!** This is both safer, and also lets you preview your upgraded world, so you can go back and prepare it better.
