@@ -8,3 +8,4 @@ ci/static-sites-resolved.json
 .vscode
 /.vs/*
 *.vsidx
+.env

@@ -1,0 +1,12 @@
+base_url: "https://terrafirmagreg.api.crowdin.com"
+base_path: "../../docs"
+
+project_id_env: "CROWDIN_ID"
+api_token_env: "CROWDIN_TOKEN"
+
+preserve_hierarchy: true
+
+files:
+  - source: "/modern/en_us/**/*.md"
+    translation: "/modern/%locale_with_underscore%/**/%original_file_name%"
+    update_option: "update_as_unapproved"

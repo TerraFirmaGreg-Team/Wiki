@@ -1,0 +1,12 @@
+base_url: "https://terrafirmagreg.api.crowdin.com"
+base_path: "../../.vitepress"
+
+project_id_env: "CROWDIN_ID"
+api_token_env: "CROWDIN_TOKEN"
+
+preserve_hierarchy: true
+
+files:
+  - source: "/i18n/en_us.json"
+    translation: "/i18n/%locale_with_underscore%.%file_extension%"
+    update_option: "update_as_unapproved"
