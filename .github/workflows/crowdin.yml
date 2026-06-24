@@ -24,7 +24,7 @@ concurrency:
 
 env:
   LOCALIZATION_BRANCH: translations
-  TARGET_BRANCH: dev
+  TARGET_BRANCH: main
 
 jobs:
   sync-docs:
