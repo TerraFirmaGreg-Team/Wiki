@@ -2,9 +2,16 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { basename, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { DefaultTheme } from 'vitepress'
+import {
+  DEFAULT_WIKI_LOCALE,
+  LOCALE_BCP47,
+  WIKI_UI_LOCALES,
+} from '../../ci/lib/tfg-locale-core.mjs'
+import { loadWikiLanguageConfig } from '../../ci/lib/tfg-locale.mjs'
 import { buildStaticSiteUrl, loadStaticSitesConfig } from '../../ci/lib/static-site.mjs'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
+const I18N_DIR = resolve(__dirname, '../i18n')
 
 export type UiNavLabels = {
   home: string
@@ -64,16 +71,93 @@ export type UiLocale = {
   search: UiSearchTranslations
 }
 
-export function loadUiLocales(): Record<string, UiLocale> {
-  const dir = resolve(__dirname)
+type UiLocaleOverrides = Partial<Omit<UiLocale, 'nav' | 'docFooter' | 'notFound' | 'search'>> & {
+  nav?: Partial<UiNavLabels>
+  docFooter?: Partial<UiLocale['docFooter']>
+  notFound?: Partial<UiNotFoundLabels>
+  search?: {
+    button?: Partial<UiSearchTranslations['button']>
+    modal?: Partial<Omit<UiSearchTranslations['modal'], 'footer'>> & {
+      footer?: Partial<UiSearchTranslations['modal']['footer']>
+    }
+  }
+}
+
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function deepMerge<T>(base: T, overrides: unknown): T {
+  if (!isPlainObject(base) || !isPlainObject(overrides)) {
+    return base
+  }
+
+  const result = { ...base } as Record<string, unknown>
+  for (const [key, value] of Object.entries(overrides)) {
+    const existing = result[key]
+    if (isPlainObject(existing) && isPlainObject(value)) {
+      result[key] = deepMerge(existing, value)
+    } else if (value !== undefined) {
+      result[key] = value
+    }
+  }
+  return result as T
+}
+
+function readLocaleFiles(): Record<string, UiLocaleOverrides> {
   return Object.fromEntries(
-    readdirSync(dir)
+    readdirSync(I18N_DIR)
       .filter((file) => file.endsWith('.json'))
       .map((file) => {
         const id = basename(file, '.json')
-        const data = JSON.parse(readFileSync(resolve(dir, file), 'utf8')) as UiLocale
+        const data = JSON.parse(readFileSync(resolve(I18N_DIR, file), 'utf8')) as UiLocaleOverrides
         return [id, data]
       }),
+  )
+}
+
+function stripLocaleMeta(data: UiLocaleOverrides | UiLocale) {
+  const { label: _label, lang: _lang, ...content } = data
+  return content
+}
+
+function hasTranslatedKeys(overrides: UiLocaleOverrides, base: UiLocale): boolean {
+  return JSON.stringify(stripLocaleMeta(overrides)) !== JSON.stringify(stripLocaleMeta(base))
+}
+
+export function resolveUiLocale(
+  locale: string,
+  base: UiLocale,
+  overrides: UiLocaleOverrides | undefined,
+  localeNames: Record<string, string>,
+): UiLocale {
+  const merged = overrides ? deepMerge(base, overrides) : structuredClone(base)
+  merged.label = localeNames[locale] ?? overrides?.label ?? merged.label
+  merged.lang = LOCALE_BCP47[locale as keyof typeof LOCALE_BCP47] ?? overrides?.lang ?? merged.lang
+  return merged
+}
+
+export function loadUiLocales(): Record<string, UiLocale> {
+  const files = readLocaleFiles()
+  const base = files[DEFAULT_WIKI_LOCALE]
+  if (!base) {
+    throw new Error(`Missing UI locale file: .vitepress/i18n/${DEFAULT_WIKI_LOCALE}.json`)
+  }
+
+  const { localeNames } = loadWikiLanguageConfig()
+  const resolvedBase = resolveUiLocale(DEFAULT_WIKI_LOCALE, base as UiLocale, base, localeNames)
+
+  return Object.fromEntries(
+    WIKI_UI_LOCALES.map((locale) => {
+      const overrides = files[locale]
+      if (!overrides) {
+        return [locale, resolveUiLocale(locale, resolvedBase, undefined, localeNames)]
+      }
+      if (!hasTranslatedKeys(overrides, resolvedBase)) {
+        return [locale, resolveUiLocale(locale, resolvedBase, undefined, localeNames)]
+      }
+      return [locale, resolveUiLocale(locale, resolvedBase, overrides, localeNames)]
+    }),
   )
 }
 
@@ -172,11 +256,10 @@ export function buildSearchOptions(
   }
 }
 
-export function assertUiLocales(locales: readonly string[]) {
-  const ui = loadUiLocales()
+export function assertUiLocales(locales: readonly string[], ui: Record<string, UiLocale>) {
   for (const locale of locales) {
     if (!ui[locale]) {
-      throw new Error(`Missing UI locale file: .vitepress/i18n/${locale}.json`)
+      throw new Error(`Cannot resolve UI locale: ${locale}`)
     }
   }
 }

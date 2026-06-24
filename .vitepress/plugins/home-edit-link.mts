@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 import type { Plugin } from 'vite'
-import { homeEditLinkSuffix, type UiLocale } from '../i18n/index.ts'
+import { homeEditLinkSuffix, type UiLocale } from '../theme/i18n.ts'
 
 function isHomeLayout(markdown: string): boolean {
   const end = markdown.indexOf('---', 3)

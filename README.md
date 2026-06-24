@@ -12,10 +12,12 @@ Source for the [TerraFirmaGreg](https://github.com/TerraFirmaGreg-Team) team wik
 /
 ├── .vitepress/
 │   ├── config.mts          # Site config (locales, sidebar plugin, search)
-│   └── i18n/               # UI strings per locale (nav, footer, search, …)
-│       ├── en_us.json
-│       ├── zh_cn.json
-│       └── pt_br.json
+│   ├── i18n/               # UI strings per locale (nav, footer, search, …)
+│   │   ├── en_us.json      # Required template; other locales fall back to this
+│   │   └── zh_cn.json      # Optional; create manually when translating UI
+│   └── theme/
+│       ├── i18n.ts         # Loads JSON, merges en_us fallback, builds themeConfig
+│       └── ...
 ├── public/                 # CNAME, favicon, logo
 ├── docs/
 │   ├── index.md            # Root; auto-redirects to visitor's locale
@@ -65,7 +67,9 @@ The sidebar is generated automatically from the folder structure. Use `order` to
 
 1. Add the locale to `language.json` (`enabledLocales` and `localeNames`).
 2. Copy `docs/modern/en_us/` to `docs/modern/<new-locale>/` and translate the content.
-3. Run `node ci/scripts/sync-ui-locales.mjs`.
+3. Optionally add `.vitepress/i18n/<new-locale>.json` with translated UI strings (omit keys that should fall back to English).
+
+Missing UI JSON falls back to `en_us.json`.
 
 Missing pages under a locale return 404. A placeholder `index.md` alone is enough to expose the locale home URL.
 

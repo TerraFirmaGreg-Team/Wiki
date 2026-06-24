@@ -9,7 +9,7 @@ import {
   WIKI_UI_LOCALES,
 } from '../ci/lib/tfg-locale.mjs'
 import { buildVitePressBootstrapScript } from '../ci/lib/tfg-theme.mjs'
-import { assertUiLocales, buildSearchOptions, buildThemeConfig, loadUiLocales } from './i18n/index.ts'
+import { assertUiLocales, buildSearchOptions, buildThemeConfig, loadUiLocales } from './theme/i18n.ts'
 import { homeEditLinkPlugin } from './plugins/home-edit-link.mts'
 import { pageIndexPlugin } from './plugins/page-index.mts'
 import {
@@ -35,7 +35,7 @@ type Locale = (typeof LOCALES)[number]
 const DEFAULT_LOCALE: Locale = DEFAULT_WIKI_LOCALE
 
 const UI = loadUiLocales()
-assertUiLocales(LOCALES)
+assertUiLocales(LOCALES, UI)
 
 function localeBase(locale: Locale) {
   return `/${NAMESPACE}/${locale}`
