@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData } from 'vitepress'
-import { isUntranslatedPage } from './untranslated-notice'
+import { isUntranslatedPage } from '../untranslated-notice'
 import UntranslatedNotice from './UntranslatedNotice.vue'
 
 const { frontmatter } = useData()

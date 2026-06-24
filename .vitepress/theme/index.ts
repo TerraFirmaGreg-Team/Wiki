@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { inBrowser, type EnhanceAppContext } from 'vitepress'
-import Layout from './Layout.vue'
+import Layout from './components/Layout.vue'
 import { persistLocaleFromPath } from './locale'
 import { isStaticSitePathname } from './static-site'
 
