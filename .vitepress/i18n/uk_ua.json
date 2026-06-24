@@ -1,0 +1,54 @@
+{
+  "label": "Українська",
+  "lang": "uk_ua",
+  "nav": {
+    "home": "Головна",
+    "download": "Завантаження",
+    "officialSite": "Офіційний сайт",
+    "projects": "Проєкти",
+    "discord": "Discord",
+    "fieldGuide": "Польовий посібник",
+    "recipeBook": "Книга рецептів",
+    "questBook": "Книга квестів"
+  },
+  "editLink": "Редагуй цю сторінку на GitHub",
+  "docFooter": {
+    "prev": "Попередня сторінка",
+    "next": "Наступна сторінка"
+  },
+  "outline": "Зміст",
+  "lastUpdated": "Останнє оновлення",
+  "darkModeSwitchLabel": "Тема",
+  "sidebarMenuLabel": "Меню",
+  "returnToTopLabel": "Вгору",
+  "langMenuLabel": "Змінити мову",
+  "notFound": {
+    "title": "СТОРІНКУ НЕ ЗНАЙДЕНО",
+    "missingQuote": "Цієї сторінки не існує",
+    "untranslatedQuote": "Ця сторінка ще не була перекладена.",
+    "homeLink": "На головну",
+    "englishLink": "Читати українською",
+    "contributeLink": "Допомогти на GitHub"
+  },
+  "search": {
+    "button": {
+      "buttonText": "Пошук",
+      "buttonAriaLabel": "Пошук"
+    },
+    "modal": {
+      "displayDetails": "Показати детальний список",
+      "resetButtonTitle": "Очистити пошук",
+      "backButtonTitle": "Закрити пошук",
+      "noResultsText": "Немає результатів для",
+      "footer": {
+        "selectText": "вибрати",
+        "selectKeyAriaLabel": "ввести",
+        "navigateText": "для навігації",
+        "navigateUpKeyAriaLabel": "стрілка вгору",
+        "navigateDownKeyAriaLabel": "стрілка вниз",
+        "closeText": "щоб закрити",
+        "closeKeyAriaLabel": "вихід"
+      }
+    }
+  }
+}
