@@ -21,14 +21,14 @@ features:
     details: 每个主版本的新内容、新机制与显著变化一览。
     link: /modern/zh_cn/major-changelogs/0.13
     linkText: 查看 0.13 更新
-  - title: 开发者文档
-    details: KubeJS、Datagen、多方块脚本、Pixel Composer、世界生成——参与贡献所需的一切。
-    link: /modern/zh_cn/developer/cheat-sheet
-    linkText: 打开速查表
   - title: 推荐附加模组
     details: 默认未打包但与 TFG 兼容、值得一试的扩展模组。
-    link: /modern/zh_cn/modpack/optional-mods
+    link: /modern/zh_cn/developer/cheat-sheet
     linkText: 查看清单
+  - title: 开发者文档
+    details: 团队成员与贡献者的内部文档。
+    link: /modern/zh_cn/modpack/optional-mods
+    linkText: 打开 KubeJS 速查表
 ---
 
-想看更多内容、或者只是来玩？欢迎加入我们的 [Discord](https://discord.com/invite/AEaCzCTUwQ)。
+想看更多内容、或者只是来玩玩？ 欢迎加入我们的 [Discord](https://discord.com/invite/AEaCzCTUwQ)。

@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: TerraFirmaGreg Wiki
-  tagline: Виживальний модпак таким, яким він мав бути
+  tagline: Модпак для виживання таким, яким він мав бути
   actions:
     - theme: brand
       text: Завантажити з CurseForge

@@ -2,6 +2,9 @@
 title: 0.7 → 0.9
 order: 1
 ---
+
+# 0.7 → 0.9
+
 **Por favor, lembre-se de criar uma nova instância do TFG e copiar seu mundo para ela, em vez de atualizá-lo diretamente!** Isso é mais seguro e também permite visualizar o mundo atualizado, caso você queira voltar e prepará-lo melhor.
 
 Mundos da versão 0.7 podem ser atualizados para a 0.9 com segurança, mas há algumas mudanças importantes:

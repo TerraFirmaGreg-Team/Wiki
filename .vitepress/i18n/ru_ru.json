@@ -1,0 +1,54 @@
+{
+  "label": "Русский",
+  "lang": "ru-RU",
+  "nav": {
+    "home": "Главная",
+    "download": "Скачать",
+    "officialSite": "Официальный сайт",
+    "projects": "Проекты",
+    "discord": "Discord",
+    "fieldGuide": "Полевое руководство",
+    "recipeBook": "Книга рецептов",
+    "questBook": "Книга квестов"
+  },
+  "editLink": "Редактировать эту страницу на GitHub",
+  "docFooter": {
+    "prev": "Предыдущая страница",
+    "next": "Следующая страница"
+  },
+  "outline": "Содержание",
+  "lastUpdated": "Последнее обновление",
+  "darkModeSwitchLabel": "Тема",
+  "sidebarMenuLabel": "Меню",
+  "returnToTopLabel": "Вернуться к началу",
+  "langMenuLabel": "Сменить язык",
+  "notFound": {
+    "title": "СТРАНИЦА НЕ НАЙДЕНА",
+    "missingQuote": "Эта страница не существует.",
+    "untranslatedQuote": "Эта страница еще не переведена.",
+    "homeLink": "Вернуться на главную",
+    "englishLink": "Читать на английском",
+    "contributeLink": "Внести вклад на GitHub"
+  },
+  "search": {
+    "button": {
+      "buttonText": "Поиск",
+      "buttonAriaLabel": "Поиск"
+    },
+    "modal": {
+      "displayDetails": "Показать подробный список",
+      "resetButtonTitle": "Сбросить поиск",
+      "backButtonTitle": "Закрыть поиск",
+      "noResultsText": "Нет результатов для",
+      "footer": {
+        "selectText": "для выбора",
+        "selectKeyAriaLabel": "ввод",
+        "navigateText": "для навигации",
+        "navigateUpKeyAriaLabel": "стрелка вверх",
+        "navigateDownKeyAriaLabel": "стрелка вниз",
+        "closeText": "для закрытия",
+        "closeKeyAriaLabel": "выход"
+      }
+    }
+  }
+}
