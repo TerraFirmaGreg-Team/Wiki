@@ -1,4 +1,5 @@
-name: Deploy VitePress site to Pages
+name: "Deploy VitePress site to Pages"
+run-name: "[📄]: Deploy VitePress site to Pages #${{ github.run_number }}"
 
 on:
   push:
@@ -13,8 +14,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
