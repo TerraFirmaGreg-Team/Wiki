@@ -2,6 +2,7 @@
 title: Básico do Pixel Composer
 order: 2
 ---
+
 [Pixel Composer](https://pixel-composer.com) é uma ferramenta de arte 2D e 3D usada no pacote para criar várias texturas animadas, incluindo o novo logotipo! Como não há muita documentação disponível online, estou criando este artigo para compartilhar o que sei.
 
 <h1 align="center">  Básicos </h1>
@@ -20,6 +21,7 @@ A janela de pré-visualização é usada para mostrar qual nó está sendo visua
 </p>
 
 **1\) Tiling**
+
 > O principal a notar é que você pode visualizar o tiling ativando a opção de tiling.
 
 <h2 align="center"> B) Espaço de Trabalho </h2>
@@ -32,24 +34,31 @@ O espaço de trabalho é onde você conectará nós para produzir uma imagem. Vo
 </p>
 
 **1\) Noise**
+
 > Padrões de noise são seus melhores aliados para criar texturas procedurais. Alguns fazem tile de forma contínua enquanto outros não, e alguns podem ser animados para ciclos em loop enquanto outros não. Experimente diferentes padrões de noise até encontrar o que procura.
 
 **2\) Transform**
+
 > O nó Transform permite realizar transformações básicas, como translação, escala, rotação, etc.
 
 **3\) Colorize**
+
 > O nó Colorize é usado para manipular cor; você pode usar um gradiente ou uma paleta para recolorir seus nós.
 
 **4\) Composite**
+
 > O nó Composite funciona como camadas no Photoshop ou em outros programas de arte.
 
 **5\) Color Adjust**
+
 > O nó Color Adjust permite realizar todos os tipos de ajustes básicos de imagem, como opacidade, matiz, saturação, contraste, etc.
 
 **6\) Render Spritesheet**
+
 > O nó Render Spritesheet organiza todos os quadros da sua linha do tempo em uma única imagem. Você pode controlar a ordem de empilhamento no painel do nó.
 
 **7\) Export**
+
 > O nó Export pega o nó de entrada e o converte para um tipo de arquivo a ser salvo no seu PC.
 
 <h2 align="center"> C) Painel de Nós </h2>
@@ -62,12 +71,15 @@ O painel de nós é onde você passará a maior parte do tempo ajustando as conf
 </p>
 
 **1\) Animação**
+
 > O botão com aparência de cronômetro é usado para habilitar a animação da configuração atual na linha do tempo.
 
 **2\) Visibilidade**
+
 > O botão com aparência de olho impedirá que a configuração atual seja exibida na pré-visualização.
 
 **3\) Mapeamento**
+
 > O botão com aparência de dado alterna o mapeamento da configuração atual, permitindo que você altere seus valores com nós.
 
 <h2 align="center"> D) Linha do Tempo </h2>
@@ -80,7 +92,9 @@ A linha do tempo controla sua animação com o uso de keyframes. Você pode repr
 </p>
 
 **1\) Configurações**
+
 > Algo importante a saber é que você controlará o comprimento da linha do tempo e a taxa de quadros no menu de configurações no canto inferior direito. Observe que a taxa de quadros não será aplicada à sua exportação, apenas à pré-visualização. Você controla a taxa de quadros da exportação no painel do nó Export.
 
-> ### TODO: 
+> ### TODO:
+>
 > Substituir arquivos de imagem por links.

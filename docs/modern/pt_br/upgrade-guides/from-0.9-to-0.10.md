@@ -2,6 +2,9 @@
 title: 0.9 → 0.10
 order: 2
 ---
+
+# 0.9 → 0.10
+
 **Por favor, lembre-se de criar uma nova instância do TFG e copiar seu mundo para ela, em vez de atualizá-lo diretamente!** Isso é mais seguro e também permite visualizar o mundo atualizado, caso você queira voltar e prepará-lo melhor.
 
 Se você está atualizando a partir da 0.7, siga primeiro as [instruções de atualização para a 0.9](/modern/pt_br/upgrade-guides/from-0.7-to-0.9).
@@ -16,6 +19,6 @@ Mundos da versão 0.9 podem ser atualizados para a 0.10 com segurança, mas há 
 6. Lava obtida com polia de mangueira não é mais infinita. Ainda pode ser usada como combustível, mas existem várias outras opções no early game: creosoto (de madeira ou carvão), areias petrolíferas ou óleo de semente (e biodiesel) a partir das novas plantas Girassol e Canola!
 7. Quase todas as receitas relacionadas ao AE2 foram alteradas, então você precisará atualizar todos os seus padrões.
 8. Steam 'n' Rails está atualmente em uma versão alpha com suporte ao Create 6, então alguns dos seus trens/bogeys podem ficar invisíveis ou com glitches.
-9. O GregTech recebeu uma grande atualização de versão com várias mudanças importantes, então confira também o [changelog](<https://github.com/GregTechCEu/GregTech-Modern/releases>).
+9. O GregTech recebeu uma grande atualização de versão com várias mudanças importantes, então confira também o [changelog](https://github.com/GregTechCEu/GregTech-Modern/releases).
 
 Confira o [changelog do TFG](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/releases) para a lista completa de outras mudanças.
