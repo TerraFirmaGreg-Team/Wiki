@@ -5,6 +5,9 @@
   "description": "TerraFirmaGreg team wiki, built with VitePress.",
   "type": "module",
   "scripts": {
+    "prepare-docs": "node ci/scripts/prepare-docs.mjs",
+    "predev": "pnpm prepare-docs",
+    "prebuild": "pnpm prepare-docs",
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview"

@@ -6,21 +6,19 @@ import {
 import pageIndex from 'virtual:tfg-page-index'
 import { matchStaticSitePathname, staticSiteHomeHref } from './static-site'
 
-const GITHUB_REPO = 'TerraFirmaGreg-Team/Wiki'
-
 export type NotFoundLabels = {
   title: string
   missingQuote: string
-  untranslatedQuote: string
   homeLink: string
   englishLink: string
-  contributeLink: string
 }
 
 type ThemeNotFound = Partial<NotFoundLabels> & {
   quote?: string
   linkText?: string
   linkLabel?: string
+  untranslatedQuote?: string
+  contributeLink?: string
 }
 
 export function readNotFoundLabels(raw: ThemeNotFound | undefined): NotFoundLabels {
@@ -30,18 +28,16 @@ export function readNotFoundLabels(raw: ThemeNotFound | undefined): NotFoundLabe
   return {
     title: nf.title ?? 'PAGE NOT FOUND',
     missingQuote: nf.missingQuote ?? combined ?? 'This page does not exist.',
-    untranslatedQuote: nf.untranslatedQuote ?? combined ?? 'This page has not been translated yet.',
     homeLink: nf.homeLink ?? nf.linkText ?? 'Take me home',
     englishLink: nf.englishLink ?? 'Read in English',
-    contributeLink: nf.contributeLink ?? 'Contribute on GitHub',
   }
 }
 
 export type NotFoundView = {
   quote: string
+  untranslated: boolean
   homeHref: string
   englishHref: string | null
-  contributeHref: string | null
 }
 
 function pageFile(locale: string, subpath: string): string {
@@ -60,18 +56,14 @@ function subpathFromPathname(pathname: string, locale: string): string {
   return rest.replace(/^\/+|\/+$/g, '')
 }
 
-function wikiEditOnGitHubUrl(relativePath: string): string {
-  return `https://github.com/${GITHUB_REPO}/edit/main/docs/${relativePath}`
-}
-
 export function resolveNotFoundView(pathname: string, labels: NotFoundLabels): NotFoundView {
   const staticSite = matchStaticSitePathname(pathname)
   if (staticSite) {
     return {
       quote: labels.missingQuote,
+      untranslated: false,
       homeHref: staticSiteHomeHref(pathname, staticSite),
       englishHref: null,
-      contributeHref: null,
     }
   }
 
@@ -88,9 +80,9 @@ export function resolveNotFoundView(pathname: string, labels: NotFoundLabels): N
     : `/${WIKI_NAMESPACE}/${DEFAULT_WIKI_LOCALE}/`
 
   return {
-    quote: untranslated ? labels.untranslatedQuote : labels.missingQuote,
+    quote: labels.missingQuote,
+    untranslated,
     homeHref,
     englishHref: untranslated ? englishPath : null,
-    contributeHref: untranslated ? wikiEditOnGitHubUrl(pageFile(locale, subpath)) : null,
   }
 }

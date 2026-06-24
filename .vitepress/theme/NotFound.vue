@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useData, useRoute, withBase } from 'vitepress'
 import { resolveNotFoundView, readNotFoundLabels } from './not-found'
+import UntranslatedNotice from './UntranslatedNotice.vue'
 
 const route = useRoute()
 const { theme } = useData()
@@ -15,7 +16,8 @@ const view = computed(() => resolveNotFoundView(route.path, labels.value))
     <p class="code">{{ theme.notFound?.code ?? '404' }}</p>
     <h1 class="title">{{ labels.title }}</h1>
     <div class="divider" />
-    <blockquote class="quote">
+    <UntranslatedNotice v-if="view.untranslated" class="notice" />
+    <blockquote v-else class="quote">
       {{ view.quote }}
     </blockquote>
 
@@ -25,15 +27,6 @@ const view = computed(() => resolveNotFoundView(route.path, labels.value))
       </a>
       <a v-if="view.englishHref" class="link" :href="withBase(view.englishHref)">
         {{ labels.englishLink }}
-      </a>
-      <a
-        v-if="view.contributeHref"
-        class="link"
-        :href="view.contributeHref"
-        target="_blank"
-        rel="noreferrer"
-      >
-        {{ labels.contributeLink }}
       </a>
     </div>
   </div>
@@ -70,6 +63,12 @@ const view = computed(() => resolveNotFoundView(route.path, labels.value))
   width: 64px;
   height: 1px;
   background-color: var(--vp-c-divider);
+}
+
+.notice {
+  margin: 0 auto;
+  max-width: 480px;
+  text-align: left;
 }
 
 .quote {

@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -14,9 +14,18 @@ const DOCS_ROOT = join(__dirname, '../../docs');
 export const LOCALES = WIKI_UI_LOCALES;
 
 const LOCALE_SEGMENT = WIKI_UI_LOCALES.join('|');
+const UNTRANSLATED_FRONTMATTER_RE = /^untranslated:\s*true\s*$/m;
 
 function modernDir(docsRoot = DOCS_ROOT) {
   return join(docsRoot, 'modern');
+}
+
+function isTranslatedLocaleFile(filePath) {
+  if (!existsSync(filePath)) {
+    return false;
+  }
+  const content = readFileSync(filePath, 'utf8');
+  return !UNTRANSLATED_FRONTMATTER_RE.test(content);
 }
 
 export function pageToCanonical(siteUrl, page) {
@@ -55,7 +64,7 @@ export function localesForPage(page, docsRoot = DOCS_ROOT) {
     return [];
   }
 
-  return LOCALES.filter((locale) => existsSync(join(root, locale, `${suffix}.md`)));
+  return LOCALES.filter((locale) => isTranslatedLocaleFile(join(root, locale, `${suffix}.md`)));
 }
 
 export function hreflangForLocale(locale) {

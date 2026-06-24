@@ -17,8 +17,12 @@ import {
   buildWebSiteJsonLd,
   transformWikiSitemapItems,
 } from './seo.mts'
+import { UNTRANSLATED_CROWDIN_LINK, CROWDIN_WIKI_URL } from './theme/untranslated-notice.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+const WIKI_ROOT = resolve(__dirname, '..')
+const BUILD_DOCS_REL = '.build'
+const BUILD_DOCS = resolve(WIKI_ROOT, BUILD_DOCS_REL)
 
 const GITHUB_ORG = 'TerraFirmaGreg-Team'
 const GITHUB_REPO = `${GITHUB_ORG}/Wiki`
@@ -43,7 +47,7 @@ function localeBase(locale: Locale) {
 
 function sidebarOptions(locale: Locale): VitePressSidebarOptions {
   return {
-    documentRootPath: '/docs',
+    documentRootPath: '/.build',
     scanStartPath: `${NAMESPACE}/${locale}`,
     resolvePath: `${localeBase(locale)}/`,
     collapsed: false,
@@ -72,7 +76,7 @@ const rootEntry = localeEntry(DEFAULT_LOCALE)
 export default defineConfig(
   withSidebar(
     {
-      srcDir: 'docs',
+      srcDir: BUILD_DOCS_REL,
       theme: resolve(__dirname, 'theme/index.ts'),
       vite: {
         publicDir: resolve(__dirname, '..', 'public'),
@@ -80,8 +84,8 @@ export default defineConfig(
           'import.meta.env.VITE_EXTRA_EXTENSIONS': JSON.stringify('html'),
         },
         plugins: [
-          homeEditLinkPlugin(resolve(__dirname, '..', 'docs'), UI, GITHUB_REPO),
-          pageIndexPlugin(resolve(__dirname, '..', 'docs')),
+          homeEditLinkPlugin(resolve(WIKI_ROOT, 'docs'), UI, GITHUB_REPO),
+          pageIndexPlugin(BUILD_DOCS),
         ],
       },
       title: SITE_TITLE,
@@ -115,6 +119,17 @@ export default defineConfig(
           head.push(['script', {}, buildLocaleRedirectScript()])
         }
         return head
+      },
+
+      transformPageData(pageData) {
+        if (pageData.frontmatter?.untranslated === true) {
+          return {
+            editLink: {
+              pattern: CROWDIN_WIKI_URL,
+              text: UNTRANSLATED_CROWDIN_LINK,
+            },
+          }
+        }
       },
 
       sitemap: {
