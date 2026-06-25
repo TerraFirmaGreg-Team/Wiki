@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CROWDIN_NAME, CROWDIN_WIKI_URL, UNTRANSLATED_BEFORE_CROWDIN } from './untranslated-notice'
+import { CROWDIN_NAME, CROWDIN_WIKI_URL, UNTRANSLATED_BEFORE_CROWDIN } from '../untranslated-notice'
 </script>
 
 <template>

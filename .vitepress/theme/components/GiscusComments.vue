@@ -2,7 +2,7 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import Giscus from '@giscus/vue'
-import './giscus.css'
+import '../giscus.css'
 
 const GISCUS_DEFAULT = {
   repo: 'TerraFirmaGreg-Team/Modpack-Modern' as const,

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData, useRoute, withBase } from 'vitepress'
-import { resolveNotFoundView, readNotFoundLabels } from './not-found'
+import { resolveNotFoundView, readNotFoundLabels } from '../not-found'
 import UntranslatedNotice from './UntranslatedNotice.vue'
 
 const route = useRoute()
