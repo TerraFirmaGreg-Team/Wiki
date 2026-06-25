@@ -17,13 +17,13 @@ import {
   buildWebSiteJsonLd,
   transformWikiSitemapItems,
 } from './seo.mts'
+import { buildWikiDeadLinkIgnores } from '../ci/lib/static-site.mjs'
 import { UNTRANSLATED_CROWDIN_LINK, CROWDIN_WIKI_URL } from './theme/untranslated-notice.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const WIKI_ROOT = resolve(__dirname, '..')
 const BUILD_DOCS_REL = '.build'
 const BUILD_DOCS = resolve(WIKI_ROOT, BUILD_DOCS_REL)
-
 const GITHUB_ORG = 'TerraFirmaGreg-Team'
 const GITHUB_REPO = `${GITHUB_ORG}/Wiki`
 const NAMESPACE = 'modern'
@@ -67,7 +67,7 @@ function localeEntry(locale: Locale) {
     label: ui.label,
     lang: ui.lang,
     link: `${localeBase(locale)}/`,
-    themeConfig: buildThemeConfig(ui, localeBase(locale), locale, GITHUB_REPO, SITE_URL),
+    themeConfig: buildThemeConfig(ui, localeBase(locale), locale, GITHUB_REPO),
   }
 }
 
@@ -94,7 +94,7 @@ export default defineConfig(
       base: '/',
       cleanUrls: true,
       lastUpdated: true,
-      ignoreDeadLinks: 'localhostLinks',
+      ignoreDeadLinks: buildWikiDeadLinkIgnores(),
       appearance: {
         storageKey: 'tfg-theme',
       },

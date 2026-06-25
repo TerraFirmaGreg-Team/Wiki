@@ -49,6 +49,22 @@ export function getSitePublicPathPrefix(site) {
   return `/${String(raw).replace(/^\/+|\/+$/g, '')}`;
 }
 
+const EXTERNAL_URL_RE = /^(?:[a-z]+:|\/\/)/i;
+const REGEXP_ESCAPE_RE = /[.*+?^${}()|[\]\\]/g;
+
+export function buildWikiDeadLinkIgnores(configPath) {
+  function isLocalhostDeadLink(url) {
+    return url.replace(EXTERNAL_URL_RE, '').startsWith('//localhost');
+  }
+
+  const siteIgnores = loadStaticSitesConfig(configPath).map((site) => {
+    const prefix = getSitePublicPathPrefix(site).replace(REGEXP_ESCAPE_RE, '\\$&');
+    return new RegExp(`^${prefix}(?:/|$)`);
+  });
+
+  return [isLocalhostDeadLink, ...siteIgnores];
+}
+
 /**
  * @param {{ id: string; publicPath?: string; entry?: StaticSiteEntryKind }} site
  * @param {string} [wikiLocale]

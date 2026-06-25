@@ -9,7 +9,7 @@ next: false
 head:
   - - link
     - rel: canonical
-      href: https://wiki.terrafirmagreg.team/modern/en_us/
+      href: /modern/en_us/
 ---
 
 # TerraFirmaGreg Wiki

@@ -165,8 +165,7 @@ function buildStaticSiteNavItems(
   nav: UiNavLabels,
   wikiLocale: string,
 ): DefaultTheme.NavItem[] {
-  const configPath = resolve(__dirname, '../../ci/static-sites.json')
-  return loadStaticSitesConfig(configPath)
+  return loadStaticSitesConfig()
     .filter((site) => site.navLabelKey)
     .map((site) => {
       const labelKey = site.navLabelKey as keyof UiNavLabels
@@ -186,7 +185,6 @@ export function buildThemeConfig(
   localeBase: string,
   wikiLocale: string,
   githubRepo: string,
-  siteUrl: string,
 ): DefaultTheme.Config {
   const nav = ui.nav
   return {
