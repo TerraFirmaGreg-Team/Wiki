@@ -8,7 +8,7 @@ import {
   WIKI_UI_LOCALES,
 } from '../../ci/lib/tfg-locale-core.mjs'
 import { loadWikiLanguageConfig } from '../../ci/lib/tfg-locale.mjs'
-import { buildStaticSiteUrl, loadStaticSitesConfig } from '../../ci/lib/static-site.mjs'
+import { buildStaticSitePath, loadStaticSitesConfig } from '../../ci/lib/static-site.mjs'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const I18N_DIR = resolve(__dirname, '../i18n')
@@ -164,7 +164,6 @@ export function loadUiLocales(): Record<string, UiLocale> {
 function buildStaticSiteNavItems(
   nav: UiNavLabels,
   wikiLocale: string,
-  siteUrl: string,
 ): DefaultTheme.NavItem[] {
   const configPath = resolve(__dirname, '../../ci/static-sites.json')
   return loadStaticSitesConfig(configPath)
@@ -177,7 +176,7 @@ function buildStaticSiteNavItems(
       }
       return {
         text,
-        link: buildStaticSiteUrl(site, siteUrl, wikiLocale),
+        link: buildStaticSitePath(site, wikiLocale),
       }
     })
 }
@@ -204,7 +203,7 @@ export function buildThemeConfig(
         items: [
           { text: 'Modpack-Modern', link: 'https://github.com/TerraFirmaGreg-Team/Modpack-Modern' },
           { text: 'Core-Modern', link: 'https://github.com/TerraFirmaGreg-Team/Core-Modern' },
-          ...buildStaticSiteNavItems(nav, wikiLocale, siteUrl),
+          ...buildStaticSiteNavItems(nav, wikiLocale),
         ],
       },
       { text: nav.discord, link: 'https://discord.com/invite/AEaCzCTUwQ' },
