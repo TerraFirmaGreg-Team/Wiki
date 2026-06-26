@@ -4,6 +4,7 @@ node_modules
 .vitepress/dist
 .build
 ci/static-sites-resolved.json
+/public/modern/
 *.log
 .idea
 .vscode

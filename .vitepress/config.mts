@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withSidebar, type VitePressSidebarOptions } from 'vitepress-sidebar'
+import { diagramPlugin } from 'vitepress-plugin-mermaid-diagram'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
@@ -162,6 +163,11 @@ export default defineConfig(
             localeEntry(locale),
           ]),
         ),
+      },
+      markdown: {
+        config(md) {
+          md.use(diagramPlugin, { preview: true })
+        },
       },
     },
     LOCALES.map((locale) => sidebarOptions(locale)),
