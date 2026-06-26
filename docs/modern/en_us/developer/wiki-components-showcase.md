@@ -27,6 +27,6 @@ Learn more about Mermaid at [https://mermaid.ai/open-source/intro/](https://merm
 ```mermaid
 graph TD
   A[You found a bug] --> B{Is it game breaking?}
-  B -->|Yes| C[@Pyrite]
-  B -->|No| D[@Pyrite]
+  B -->|Yes| C["@Pyrite"]
+  B -->|No| D["@Pyrite"]
 ```

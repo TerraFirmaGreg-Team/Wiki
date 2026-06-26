@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withSidebar, type VitePressSidebarOptions } from 'vitepress-sidebar'
-import { diagramPlugin } from 'vitepress-plugin-mermaid-diagram'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
@@ -74,13 +74,21 @@ function localeEntry(locale: Locale) {
 
 const rootEntry = localeEntry(DEFAULT_LOCALE)
 
-export default defineConfig(
-  withSidebar(
-    {
+export default withMermaid(
+  defineConfig(
+    withSidebar(
+      {
       srcDir: BUILD_DOCS_REL,
       theme: resolve(__dirname, 'theme/index.ts'),
       vite: {
         publicDir: resolve(__dirname, '..', 'public'),
+        ssr: {
+          external: ['svg-pan-zoom', 'vitepress-plugin-mermaid-pan-zoom'],
+        },
+        optimizeDeps: {
+          include: ['mermaid'],
+          exclude: ['vitepress'],
+        },
         define: {
           'import.meta.env.VITE_EXTRA_EXTENSIONS': JSON.stringify('html'),
         },
@@ -164,12 +172,8 @@ export default defineConfig(
           ]),
         ),
       },
-      markdown: {
-        config(md) {
-          md.use(diagramPlugin, { preview: true })
-        },
       },
-    },
-    LOCALES.map((locale) => sidebarOptions(locale)),
+      LOCALES.map((locale) => sidebarOptions(locale)),
+    ),
   ),
 )

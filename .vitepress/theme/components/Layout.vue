@@ -1,13 +1,18 @@
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import GiscusComments from './GiscusComments.vue'
 import NotFound from './NotFound.vue'
 import UntranslatedBanner from './UntranslatedBanner.vue'
 
 const Layout = DefaultTheme.Layout
+const MermaidPanZoom = defineAsyncComponent(() => import('./MermaidPanZoom.vue'))
 </script>
 
 <template>
+  <ClientOnly>
+    <MermaidPanZoom />
+  </ClientOnly>
   <Layout>
     <template #doc-before>
       <UntranslatedBanner />

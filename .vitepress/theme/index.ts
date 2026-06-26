@@ -1,7 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
 import { inBrowser, type EnhanceAppContext } from 'vitepress'
-import 'vitepress-plugin-mermaid-diagram/diagram-dark.css'
-import DiagramPreview from 'vitepress-plugin-mermaid-diagram/DiagramPreview.vue'
 import Layout from './components/Layout.vue'
 import Recipe from './components/Recipe.vue'
 import { persistLocaleFromPath } from './locale'
@@ -60,7 +58,6 @@ export default {
   Layout,
   enhanceApp({ app, router }) {
     app.component('Recipe', Recipe)
-    app.component('DiagramPreview', DiagramPreview)
     installStaticSiteRouter(router)
     installLocalePersistence(router)
   },

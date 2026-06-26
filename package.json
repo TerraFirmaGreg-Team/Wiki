@@ -13,10 +13,17 @@
     "preview": "vitepress preview"
   },
   "devDependencies": {
+    "@braintree/sanitize-url": "^7.1.2",
     "@giscus/vue": "^3.1.0",
+    "cytoscape": "^3.34.0",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "dayjs": "^1.11.21",
+    "debug": "^4.4.3",
+    "mermaid": "^11.16.0",
     "minisearch": "^7.2.0",
     "vitepress": "^1.6.4",
-    "vitepress-plugin-mermaid-diagram": "^0.3.2",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "vitepress-plugin-mermaid-pan-zoom": "^1.0.2",
     "vitepress-sidebar": "^1.36.1",
     "vue": "^3.5.34"
   },
