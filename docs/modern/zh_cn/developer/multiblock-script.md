@@ -2,8 +2,11 @@
 title: Phoenixvine 多方块脚本
 order: 4
 ---
+
 > 特别感谢来自 [PFT](https://github.com/Phoenixvine32908/Phoenix-Forge-Technologies) 的 [Phoenixvine](https://github.com/Phoenixvine32908) 分享这些脚本
+
 # 步骤 1)
+
 下载以下两个文件并将其放在您电脑上任意位置的同一文件夹中。
 
 [multi.bat](https://github.com/Phoenixvine32908/Phoenix-Forge-Technologies/blob/main/multi.bat)
@@ -14,6 +17,7 @@ order: 4
 </p>
 
 # 步骤 2)
+
 将您的复制/粘贴小工具置于复制模式，选择您的结构。
 
 <p align="center">
@@ -21,13 +25,15 @@ order: 4
 </p>
 
 # 步骤 3)
-将您的小工具放入模板管理器。您可以放入一张纸并点击保存以确保它是正确的结构。然后点击复制将 json 保存到您的剪贴板。
+
+将您的小工具放入模板管理器。 您可以放入一张纸并点击保存以确保它是正确的结构。 然后点击复制将 json 保存到您的剪贴板。
 
 <p align="center">
 <img width="1024" height="720" alt="manager" src="https://github.com/user-attachments/assets/cabdc85b-1986-4f4c-94a1-ac9981f0fd36" />
 </p>
 
 # 步骤 4)
+
 运行 `.bat` 文件，它应该会打开控制台并看起来像这样：
 
 <p align="center">
@@ -35,6 +41,7 @@ order: 4
 </p>
 
 # 步骤 5)
+
 输入您从模板管理器复制的 json 字符串。
 
 <p align="center">
@@ -42,7 +49,8 @@ order: 4
 </p>
 
 # 步骤 6)
-按回车键。它应该会运行并输出新的 GTM 结构格式。您现在可以复制/粘贴并使用它。
+
+按回车键。 它应该会运行并输出新的 GTM 结构格式。 您现在可以复制/粘贴并使用它。
 
 <p align="center">
 <img width="1024" height="720" alt="ran" src="https://github.com/user-attachments/assets/c34e9334-2b66-4c17-a70c-d7e238c280f3" />
@@ -83,7 +91,8 @@ order: 4
 ```
 
 # 步骤 7)
-您可能需要稍微重新格式化输出。以下是上面示例清理后的 Java 形式：
+
+您可能需要稍微重新格式化输出。 以下是上面示例清理后的 Java 格式：
 
 ```java
 			.pattern(definition -> FactoryBlockPattern.start()
@@ -127,8 +136,11 @@ order: 4
 ```
 
 # 可选步骤
-目前脚本在命令行中接受 json 字符串，但如果 json 字符串长于文本限制，这将无法工作。因此我有一个修改版的 python 脚本，可以从 json 文件读取并输出到 JS 文件。
+
+目前脚本在命令行中接受 json 字符串，但如果 json 字符串长于文本限制，这将无法工作。 因此我有一个修改版的 python 脚本，可以从 json 文件读取并输出到 JS 文件。
+
 > 将 'multis.py' 中的代码替换为此代码：
+
 ```py
 import re
 import json
@@ -139,7 +151,7 @@ def transform_json(input_data):
 
     m_blocks = re.search(r"blockstatemap:\[(.*?)\](?:,|})", statePos_str)
     if not m_blocks:
-        raise ValueError("在 statePosArrayList 中未找到 blockstatemap.")
+        raise ValueError("Nie znaleziono blockstatemap w statePosArrayList.")
     blockstatemap_str = m_blocks.group(1)
     block_names = re.findall(r'Name:"(.*?)"', blockstatemap_str)
 
@@ -147,7 +159,7 @@ def transform_json(input_data):
     m_start = re.search(r"startpos:\{(.*?)\}", statePos_str)
     m_end = re.search(r"endpos:\{(.*?)\}", statePos_str)
     if not m_start or not m_end:
-        raise ValueError("在 statePosArrayList 中未找到 startpos 或 endpos.")
+        raise ValueError("Nie znaleziono startpos lub endpos w statePosArrayList.")
 
     def parse_pos(pos_str):
         pos = {}
@@ -166,12 +178,12 @@ def transform_json(input_data):
 
     m_list = re.search(r"statelist:\[I;(.*?)\]", statePos_str)
     if not m_list:
-        raise ValueError("在 statePosArrayList 中未找到 statelist.")
+        raise ValueError("Nie znaleziono statelist w statePosArrayList.")
     statelist_str = m_list.group(1)
     statelist_nums = [int(x) for x in statelist_str.split(",") if x.strip() != ""]
     if len(statelist_nums) != total_blocks:
         raise ValueError(
-            "statelist 中的元素数量与结构维度不匹配."
+            "Liczba elementów w statelist nie zgadza się z wymiarami struktury."
         )
 
     block_to_letter = {"minecraft:air": " "}
@@ -234,4 +246,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-现在，它不会要求输入 json 字符串，而是会读取文件夹中名为 "input.json" 的文件（您将在此处放置代码），并写入文件夹中名为 "output.js" 的文件。此外，这会将空气设置为 " " 而不是 "A"，以获得更好的可读性。
+
+现在，它不会要求输入 json 字符串，而是会读取文件夹中名为 "input.json" 的文件（您将在此处放置代码）， 并写入文件夹中名为 "output.js" 的文件。 此外，这会将空气设置为 " " 而不是 "A"，以获得更好的可读性。
