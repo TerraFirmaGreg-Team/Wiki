@@ -16,7 +16,7 @@ features:
   - title: 升级指南
     details: 跨主版本升级存档的逐步操作说明。
     link: /modern/zh_cn/upgrade-guides/from-0.12-to-0.13
-    linkText: 0.12 → 0.13
+    linkText: 0.12 → 0.13 升级指南
   - title: 主版本更新日志
     details: 每个主版本的新内容、新机制与显著变化一览。
     link: /modern/zh_cn/major-changelogs/0.13
