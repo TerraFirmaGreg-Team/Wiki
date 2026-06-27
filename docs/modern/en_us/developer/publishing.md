@@ -18,8 +18,8 @@ You can do this with most launchers, but do **not** update these mods:
 - *Drippy Loading Screen & FancyMenu* - they currently have [a bug](https://github.com/Keksuccino/Drippy-Loading-Screen/issues/118) that makes our loading screen's progress bar look weird. If/when that's fixed then these should be ok to update.
 - *EMI, EMI++, and Reliable Remover* - the latest version of EMI (1.1.24) crashes on TFG. If it gets an update, try it again, or find out which one of our mods is crashing and get them to update too. EMI++ and Reliable Remover are dependencies on EMI.
 - *KubeJS* - Version 2001.6.5-build.26 broke the API for edible/drinkable items. If they ever sort their shit out, it's ok to update this.
-- *PandaLib & Panda's Falling Trees* - **never update this!** Newer versions completely changed how it detects trees, and broke it working with TFC ones. This is fixed on the 1.21 version of these mods, but the author doesn't support 1.20 any more (to avoid breaking anything else). We also have a lot of TFGC mixins around this version.
-- *TFC Astikor Carts* - **never update this!** Newer versions don't work with the mixins TFGC has, and don't contain anything new that we'd want anyway.
+- *PandaLib & Panda's Falling Trees* - **never update this!** Newer versions completely changed how it detects trees, and broke it working with TFC ones. This is fixed on the 1.21 version of these mods, but the author doesn't support 1.20 any more (to avoid breaking anything else). We also have a lot of TFG-Core mixins around this version.
+- *TFC Astikor Carts* - **never update this!** Newer versions don't work with the mixins TFG-Core has, and don't contain anything new that we'd want anyway.
 
 It should be safe to update anything else, but be sure to run the game and test them a little before publishing.
 
@@ -73,7 +73,7 @@ It's normal for a lot of mods to be missing from modrinth, and for a few mods to
 
 ## 6. Run the language merger
 
-Sync the Tools-Modern repo and run the LanguageMerger tool. This will ensure that the modpack has all of the latest changes to the english text. Commit the loose files afterwards.
+Sync the Tools-Modern repo and run the LanguageMerger tool. This will ensure that the modpack has all of the latest changes to the english text. Commit the `en_us` json files in the modpack afterwards.
 
 ## 7. Wait for TFG-Core 
 
@@ -83,7 +83,7 @@ Keep doing `java -jar pakku.jar update TerraFirmaGreg-Core` until your pakku-loc
 
 If your minecraft instance and workspace are separate folders (as they should be), copy over your config and defaultconfigs folders to your instance and launch the game a final time.
 
-Run some quick tests like opening your test world, checking `/kjs errors server_scripts` to check for any warnings, check if `minecraft:barrier` has any recipe uses (which indicates empty tags), try drinking the ground (this can happen if TFC's data is broken), try creating a new world to make sure that works, and check that any new quests aren't instantly completing on first load...
+Run some quick tests like opening your test world, checking `/kjs errors server_scripts` to check for any warnings, check if `minecraft:barrier` has any recipe uses (which indicates empty tags), try drinking the ground (this can happen if TFC's data is broken), check that the field guide isn't broken, try creating a new world to make sure that works, check that any new quests aren't instantly completing on first load...
 
 If everything's all good, copy the `config/crash_assistant/modlist.json` file from your instance back into your workspace. This file is used in Crash Assistant error reports to say what mod changes the user has made.
 
