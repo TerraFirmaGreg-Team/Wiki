@@ -1,6 +1,6 @@
 ---
-title: Worldgen Notes
-order: 6
+title: Modpack Publishing
+order: 7
 ---
 # How to publish a new release of the modpack
 
@@ -15,7 +15,7 @@ Finish up any PR reviews and merge them in. If there's any last-minute things to
 ## 2. Check for any mod updates
 
 You can do this with most launchers, but do **not** update these mods:
-- *Drippy Loading Screen & FancyMenu* - they currently have a bug that makes our loading screen's progress bar look weird. If that's fixed then these should be ok to update.
+- *Drippy Loading Screen & FancyMenu* - they currently have [a bug](https://github.com/Keksuccino/Drippy-Loading-Screen/issues/118) that makes our loading screen's progress bar look weird. If/when that's fixed then these should be ok to update.
 - *EMI, EMI++, and Reliable Remover* - the latest version of EMI (1.1.24) crashes on TFG. If it gets an update, try it again, or find out which one of our mods is crashing and get them to update too. EMI++ and Reliable Remover are dependencies on EMI.
 - *KubeJS* - Version 2001.6.5-build.26 broke the API for edible/drinkable items. If they ever sort their shit out, it's ok to update this.
 - *PandaLib & Panda's Falling Trees* - **never update this!** Newer versions completely changed how it detects trees, and broke it working with TFC ones. This is fixed on the 1.21 version of these mods, but the author doesn't support 1.20 any more (to avoid breaking anything else). We also have a lot of TFGC mixins around this version.
@@ -73,7 +73,7 @@ It's normal for a lot of mods to be missing from modrinth, and for a few mods to
 
 ## 6. Run the language merger
 
-Sync the Tools-Modern repo and run the LanguageMerger tool. This will ensure that the modpack has all of the latest changes to the english text.
+Sync the Tools-Modern repo and run the LanguageMerger tool. This will ensure that the modpack has all of the latest changes to the english text. Commit the loose files afterwards.
 
 ## 7. Wait for TFG-Core 
 
@@ -96,6 +96,8 @@ Get someone with a linux server (tom and sakura can both do this) to download th
 You can maybe skip this step if you're doing a small but urgent publish with a bunch of recipe hotfixes or something, but if it's not urgent, it's good to test this.
 
 ## 10. Final steps
+
+If this is your first time publishing, make sure you have another experienced dev check all of your steps before continuing!
 
 At the top of the modpack's CHANGELOG.md, make a new `## Unreleased` section and change the existing one to have a proper release number and date. It should follow a format like `## [0.xx.yy] - DD-MM-YYY`.
 
