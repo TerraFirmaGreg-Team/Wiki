@@ -15,11 +15,11 @@ Finish up any PR reviews and merge them in. If there's any last-minute things to
 ## 2. Check for any mod updates
 
 You can do this with most launchers, but do **not** update these mods:
-- *Drippy Loading Screen & FancyMenu* - they currently have a bug that makes our loading screen's progress bar look weird. Remove this line whenever that's fixed.
+- *Drippy Loading Screen & FancyMenu* - they currently have a bug that makes our loading screen's progress bar look weird. If that's fixed then these should be ok to update.
 - *EMI, EMI++, and Reliable Remover* - the latest version of EMI (1.1.24) crashes on TFG. If it gets an update, try it again, or find out which one of our mods is crashing and get them to update too. EMI++ and Reliable Remover are dependencies on EMI.
 - *KubeJS* - Version 2001.6.5-build.26 broke the API for edible/drinkable items. If they ever sort their shit out, it's ok to update this.
-- *PandaLib & Panda's Falling Trees* - newer versions completely changed how it detects trees, and broke it working with TFC ones. This is fixed on the 1.21 version of these mods, but the author doesn't support 1.20 any more (to avoid breaking anything else). We also have a lot of TFGC mixins around this version.
-- *TFC Astikor Carts* - newer versions don't work with the mixins TFGC has, and don't contain anything new that we'd want anyway.
+- *PandaLib & Panda's Falling Trees* - **never update this!** Newer versions completely changed how it detects trees, and broke it working with TFC ones. This is fixed on the 1.21 version of these mods, but the author doesn't support 1.20 any more (to avoid breaking anything else). We also have a lot of TFGC mixins around this version.
+- *TFC Astikor Carts* - **never update this!** Newer versions don't work with the mixins TFGC has, and don't contain anything new that we'd want anyway.
 
 It should be safe to update anything else, but be sure to run the game and test them a little before publishing.
 
@@ -27,7 +27,7 @@ Also, check if [AE2 Cosmolite](https://github.com/Frontiers-PackForge/Applied-En
 
 Be sure to check if any shaders or resource packs have updates too.
 
-### 2a. Update Pakku
+### 2a. Update pakku-lock.json
 
 If you keep your minecraft instance separate from your workspace (as you should), copy the pakku-lock.json file from your workspace into your instance. Next, open a command prompt/terminal at your workspace.
 
@@ -39,13 +39,15 @@ For the most part, you'll only really be using two commands:
 
 After updating everything, be sure to run the game to test updates. Then, copy the pakku-lock.json file back into your workspace.
 
-#### Alpha, Beta, or Release
+### 2b. Update pakku.json
 
 To change between types of publishes, edit the `pakku.json` file and look for the `release_type` line near the top. Change this to `alpha`, `beta`, or `release` if necessary.
 
 If you're adding "optional" mods, you can include them here with `"export": false`, but keep in mind that only some launchers obey this. CurseForge downloads everything even if it's marked as optional here, so that's why we have that "optional mod list" wiki page instead.
 
-### 2b. Update TFG-Core
+Most of the time you don't need to update this file.
+
+### 2c. Update TFG-Core
 
 If any of the updated mods are also dependencies for TFG-Core, you'll need to update those as well. Look in `gradle.properties` and `gradle/scripts/dependencies.gradle` for the dependencies.
 
@@ -85,7 +87,15 @@ Run some quick tests like opening your test world, checking `/kjs errors server_
 
 If everything's all good, copy the `config/crash_assistant/modlist.json` file from your instance back into your workspace. This file is used in Crash Assistant error reports to say what mod changes the user has made.
 
-## 9. Final steps
+## 9. Run a linux server test
+
+Make sure everything you've in the modpack is published to `dev`, then wait for the [build system](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/actions) to finish making a build.
+
+Get someone with a linux server (tom and sakura can both do this) to download the built serverpack and run it. Some bugs and crashes only show up on servers!
+
+You can maybe skip this step if you're doing a small but urgent publish with a bunch of recipe hotfixes or something, but if it's not urgent, it's good to test this.
+
+## 10. Final steps
 
 At the top of the modpack's CHANGELOG.md, make a new `## Unreleased` section and change the existing one to have a proper release number and date. It should follow a format like `## [0.xx.yy] - DD-MM-YYY`.
 
