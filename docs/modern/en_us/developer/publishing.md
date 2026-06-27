@@ -89,7 +89,7 @@ If everything's all good, copy the `config/crash_assistant/modlist.json` file fr
 
 ## 9. Run a linux server test
 
-Make sure everything you've in the modpack is published to `dev`, then wait for the [build system](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/actions) to finish making a build.
+Make sure everything you've changed in the modpack is published to `dev`, then wait for the [build system](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/actions) to finish making a build.
 
 Get someone with a linux server (tom and sakura can both do this) to download the built serverpack and run it. Some bugs and crashes only show up on servers!
 
