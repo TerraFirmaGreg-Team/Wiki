@@ -1,0 +1,54 @@
+{
+  "label": "Português",
+  "lang": "pt-BR",
+  "nav": {
+    "home": "Início",
+    "download": "Baixar",
+    "officialSite": "Site Oficial",
+    "projects": "Projetos",
+    "discord": "Discord",
+    "fieldGuide": "Guia de Campo",
+    "recipeBook": "Livro de Receitas",
+    "questBook": "Livro de Missões"
+  },
+  "editLink": "Edite essa página no GitHub",
+  "docFooter": {
+    "prev": "Página anterior",
+    "next": "Página seguinte"
+  },
+  "outline": "Nesta página",
+  "lastUpdated": "Última atualização",
+  "darkModeSwitchLabel": "Tema",
+  "sidebarMenuLabel": "Menu",
+  "returnToTopLabel": "Voltar ao topo",
+  "langMenuLabel": "Mudar idioma",
+  "notFound": {
+    "title": "PÁGINA NÃO ENCONTRADA",
+    "missingQuote": "Esta página não existe.",
+    "untranslatedQuote": "Esta página ainda não foi traduzida.",
+    "homeLink": "Leve-me à página inicial",
+    "englishLink": "Ler em Inglês",
+    "contributeLink": "Contribua no GitHub"
+  },
+  "search": {
+    "button": {
+      "buttonText": "Buscar",
+      "buttonAriaLabel": "Buscar"
+    },
+    "modal": {
+      "displayDetails": "Exibir lista detalhada",
+      "resetButtonTitle": "Redefinir busca",
+      "backButtonTitle": "Fechar busca",
+      "noResultsText": "Nenhum resultado para",
+      "footer": {
+        "selectText": "selecionar",
+        "selectKeyAriaLabel": "inserir",
+        "navigateText": "navegar",
+        "navigateUpKeyAriaLabel": "seta para cima",
+        "navigateDownKeyAriaLabel": "seta para baixo",
+        "closeText": "fechar",
+        "closeKeyAriaLabel": "cancelar"
+      }
+    }
+  }
+}
