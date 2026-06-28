@@ -2,9 +2,11 @@
 title: Script Multibloco do Phoenixvine
 order: 4
 ---
+
 > Agradecimentos especiais a [Phoenixvine](https://github.com/Phoenixvine32908) do [PFT](https://github.com/Phoenixvine32908/Phoenix-Forge-Technologies) por compartilhar estes scripts
 
 # Passo 1
+
 Baixe estes dois arquivos e coloque-os na mesma pasta em qualquer lugar do seu PC.
 
 [multi.bat](https://github.com/Phoenixvine32908/Phoenix-Forge-Technologies/blob/main/multi.bat)
@@ -15,6 +17,7 @@ Baixe estes dois arquivos e coloque-os na mesma pasta em qualquer lugar do seu P
 </p>
 
 # Passo 2
+
 Com sua ferramenta de copiar/colar no modo de cópia, selecione a estrutura.
 
 <p align="center">
@@ -22,6 +25,7 @@ Com sua ferramenta de copiar/colar no modo de cópia, selecione a estrutura.
 </p>
 
 # Passo 3
+
 Coloque sua ferramenta no gerenciador de templates. Você pode inserir um pedaço de papel e salvar para confirmar que é a estrutura correta. Em seguida, clique em copiar para salvar o JSON na área de transferência.
 
 <p align="center">
@@ -29,6 +33,7 @@ Coloque sua ferramenta no gerenciador de templates. Você pode inserir um pedaç
 </p>
 
 # Passo 4
+
 Execute o arquivo `.bat`; isso abrirá o console e deverá parecer com isto:
 
 <p align="center">
@@ -36,6 +41,7 @@ Execute o arquivo `.bat`; isso abrirá o console e deverá parecer com isto:
 </p>
 
 # Passo 5
+
 Cole a string JSON que você copiou do gerenciador de templates.
 
 <p align="center">
@@ -43,6 +49,7 @@ Cole a string JSON que você copiou do gerenciador de templates.
 </p>
 
 # Passo 6
+
 Pressione Enter. O script será executado e gerará a nova estrutura no formato GTM. Você pode então copiar/colar e utilizar o resultado.
 
 <p align="center">
@@ -84,6 +91,7 @@ Pressione Enter. O script será executado e gerará a nova estrutura no formato 
 ```
 
 # Passo 7
+
 Provavelmente será necessário reformatar um pouco o resultado. Aqui está o exemplo acima formatado em Java:
 
 ```java
@@ -127,9 +135,12 @@ Provavelmente será necessário reformatar um pouco o resultado. Aqui está o ex
 			)
 ```
 
-Opcional
+# Opcional
+
 Atualmente o script aceita uma string JSON via linha de comando, mas isso falha se a string for maior que o limite de texto. Abaixo há um script Python modificado para ler de um arquivo JSON e gerar um arquivo JS.
+
 > Substitua o código em 'multis.py' por este:
+
 ```py
 import re
 import json
@@ -235,4 +246,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Agora, em vez de solicitar a string JSON via entrada, o script lerá um arquivo chamado "input.json" na mesma pasta (onde você deverá colocar o JSON) e gravará a saída em "output.js". Além disso, o ar será representado como " " em vez de "A" para melhor legibilidade.
+
+Agora, em vez de solicitar a string JSON via entrada, o script lerá um arquivo chamado "input.json" na mesma pasta (onde você deverá colocar o JSON) e gravará a saída em "output.js". E escreva em um arquivo dentro da pasta chamado "output.js". Além disso, o ar será representado como " " em vez de "A" para melhor legibilidade.

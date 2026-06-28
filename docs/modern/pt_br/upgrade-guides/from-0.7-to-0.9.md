@@ -1,9 +1,9 @@
 ---
-title: 0.7 → 0.9
+title: Guia de Atualização 0.7 → 0.9
 order: 1
 ---
 
-# 0.7 → 0.9
+# Guia de Atualização 0.7 → 0.9
 
 **Por favor, lembre-se de criar uma nova instância do TFG e copiar seu mundo para ela, em vez de atualizá-lo diretamente!** Isso é mais seguro e também permite visualizar o mundo atualizado, caso você queira voltar e prepará-lo melhor.
 

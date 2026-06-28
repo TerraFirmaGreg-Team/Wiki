@@ -2,20 +2,25 @@
 title: Geração de Dados Java
 order: 5
 ---
+
 #### Configuração
+
 Crie o arquivo `gradle-local.properties` e insira o seguinte:
 
 > ⚠️Importante: Ao definir o instance_path, use barras normais (/), não barras invertidas (\\).
 
-Se o arquivo JAR do TFG-Core na pasta mods do seu modpack deve ser substituído automaticamente pela versão mais recete do core, toda vez que o core for recompilado, ele deve ser reconstruído 
+Se o arquivo jar do TFG-Core na pasta do seu modpack deve ser substituído automaticamente pela versão mais recente do core sempre que o core for recompilado
+
 ```properties
 enable_copy_to_instance = true 
 ```
 
-// Caminho para a pasta do modpack
+Caminho para pasta do modpack
+
 ```properties
-instance_path = C:/caminho//para//modpack
+instance_path = C:/path//to//modpack
 ```
+
 ## Geração de dados padrão
 
 Por padrão, o registrate procurará por uma textura com o mesmo nome do ID do bloco e a usará como textura para todos os lados do bloco. Para itens, o registrate procurará por uma textura simples e a usará para o item.
@@ -45,6 +50,7 @@ Os construtores de máquinas possuem vários métodos, como `workableTieredHullM
 Chame `.model` em uma definição de item.
 
 Exemplo com múltiplas camadas de modelo:
+
 ```java
 .model(ModelUtils.layeredItemModel(
   TFGCore.id("item/wireless_card/wireless_card_base"),
@@ -60,17 +66,20 @@ Geração de dados é feita usando o método `.blockState` em uma definição de
 
 Por exemplo:
 
-Cria um modelo de bloco ativo/inativo usando a textura fornecida, pressupondo que a textura ativa possui o sufixo _active
+Cria um modelo de bloco ativo/inativo usando a textura dada, supondo que a textura ativa possue o sufixo _active
+
 ```java
 ModelUtils.createActiveModel(TFGCore.id("block/casings/machine_casing_vacuum_engine_intake"))
 ```
 
-Procura por um modelo ativo/inativo existente e cria um estado de bloco baseado nele.
+Procura por um modelo de bloco ativo/inativo e cria um estado de bloco com base nele.
+
 ```java
 ModelUtils.existingActiveModel(TFGCore.id("block/casings/bioculture_rotor_secondary"))
 ```
 
 Cria um modelo de bloco simples com a textura especificada.
+
 ```java
 GTModels.cubeAllModel(TFGCore.id("block/casings/electromagnetic_accelerator"))
 ```
@@ -88,9 +97,9 @@ GTModels.cubeAllModel(TFGCore.id("block/casings/electromagnetic_accelerator"))
 
 ```java
 (ctx, prov) -> {
-  /// Cria um novo modelo para o estado de bloco inativo
+  /// Creates a new model for the inactive block state
   var inactive = prov.models().cubeAll(ctx.getName(), inactiveTexture)
-  /// Procura por um modelo existente para o estado de bloco ativo
+  /// Looks for an existing model for the active block state
   var active = prov.models().getExistingFile(activeModelPath);
 
   prov.getVariantBuilder(ctx.getEntry()).partialState().with(GTBlockStateProperties.ACTIVE, false)
@@ -102,15 +111,17 @@ GTModels.cubeAllModel(TFGCore.id("block/casings/electromagnetic_accelerator"))
 
 ### Definindo itens dentro de definições de blocos
 
-Cria um item de bloco que usa o modelo do bloco para renderização.
+Cria um item de bloco que usa o modelo de bloco para renderização.
+
 ```java
 .simpleItem()
-``` 
+```
 
 Retorna um construtor de item de bloco
+
 ```java
 .item()
-``` 
+```
 
 ### Definindo tabelas de loot e quedas de blocos
 
@@ -118,10 +129,12 @@ Por padrão, blocos se soltam a si mesmos. Use o método `.loot()` para definir 
 
 Exemplos:
 
-Solta um item diferente
+Soltar um item diferente
+
 ```java
 .loot((ctx, b) -> ctx.dropOther(b, MARS_DIRT))
 ```
+
 ```java
 .loot((ctx, b) -> ctx.createShearsOnlyDrop(b, ITEM))
 ```
