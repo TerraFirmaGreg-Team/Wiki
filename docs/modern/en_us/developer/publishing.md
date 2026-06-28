@@ -99,7 +99,7 @@ You can maybe skip this step if you're doing a small but urgent publish with a b
 
 If this is your first time publishing, make sure you have another experienced dev check all of your steps before continuing!
 
-At the top of the modpack's CHANGELOG.md, make a new `## Unreleased` section and change the existing one to have a proper release number and date. It should follow a format like `## [0.xx.yy] - DD-MM-YYY`.
+At the top of the modpack's CHANGELOG.md, make a new `## Unreleased` section and change the existing one to have a proper release number and date. It should follow a format like `## [0.xx.yy] - DD-MM-YYYY`.
 
 Push your changes to `dev`. Wait a little bit and the build script will create a pull request. Review everything in the pull request description. If it all looks good, assign Xikaro as the reviewer and mark the pull request as Ready for Review.
 
