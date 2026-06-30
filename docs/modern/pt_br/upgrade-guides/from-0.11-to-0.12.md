@@ -11,7 +11,7 @@ order: 4
 
 Se você está atualizando a partir da 0.10, por favor siga primeiro as [instruções de atualização para a 0.11](/modern/pt_br/upgrade-guides/from-0.10-to-0.11).
 
-Mundos da versão 0.11 podem ser atualizados para a 0.12 com segurança, mas há algumas coias importantes a saber:
+Mundos da versão 0.11 podem ser atualizados para a 0.12 com segurança, mas há algumas coisas importantes a saber:
 
 # Novos Veios de Fluido
 
