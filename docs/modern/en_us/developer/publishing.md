@@ -21,6 +21,7 @@ You can do this with most launchers, but do **not** update these mods:
 - *PandaLib & Panda's Falling Trees* - **never update this!** Newer versions completely changed how it detects trees, and broke it working with TFC ones. This is fixed on the 1.21 version of these mods, but the author doesn't support 1.20 any more (to avoid breaking anything else). We also have a lot of TFG-Core mixins around this version.
 - *TFC Astikor Carts* - **never update this!** Newer versions don't work with the mixins TFG-Core has, and don't contain anything new that we'd want anyway.
 - *ModernFix* - Causes issues with item stacking and wooden buckets not working after version (5.27.51).
+- *TooManyRecipeViewers* - Causes lag spikes when viewing recipes after version (0.8.1).
 
 It should be safe to update anything else, but be sure to run the game and test them a little before publishing.
 
