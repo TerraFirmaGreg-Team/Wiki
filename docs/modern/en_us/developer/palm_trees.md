@@ -1,3 +1,8 @@
+---
+title: Creating Palm Trees
+order: 8
+---
+
 # Palm Trees
 
 > This document serves as a general guide for adding new palm fruit trees to TFG. And an explanation of class functions.
