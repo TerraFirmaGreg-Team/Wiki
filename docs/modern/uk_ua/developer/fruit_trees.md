@@ -37,7 +37,7 @@ order: 9
 - Додай дані [climate range](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfg/food/constants.food.js#L897) до константи.
 - Поки ти перебуваєш в цьому файлі, додай також [fruit info](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfg/food/constants.food.js#L655) до константи фруктів. Це згенерує джеми, а також інші пов'язані з фруктами предмети та рецепти.
 
-### Крок 2) Food Data
+### Крок 2) Дані про їжу
 
 - Додай [food data](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/server_scripts/tfg/food/data.food.js#L79) для продуктів твоїх фруктових дерев.
 - Додай [planter data](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/server_scripts/tfg/food/data.planters.js#L193) для бонсай-плантерів у теплицях модифікації FirmaLife.
