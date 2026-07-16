@@ -17,10 +17,16 @@
     --tfg-header-fade-border: rgba(255, 255, 255, 0.8);
 }
 
-/* Class for TFG style gradient text */
-.tfg-gradient-text {
-    --tfg-gradient-image: linear-gradient(to right, #fa18cf, #ff7967);
-    background-image: var(--tfg-gradient-image);
+/* General gradient text class */
+.gradient-text {
+    --gt-dir: to right;
+    --gt-from: #fa18cf;
+    --gt-to: #ff7967;
+    --gt-image: linear-gradient(var(--gt-dir), var(--gt-from), var(--gt-to));
+}
+
+.gradient-text {
+    background-image: var(--gt-image);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent !important;
@@ -28,6 +34,7 @@
 
 /* Class for outer heading box */
 .modern-header {
+    display: block;
     text-align: center;
     position: relative;
     z-index: 0;
@@ -40,14 +47,15 @@
     text-shadow: 0 0 10px var(--tfg-header-text-shadow);
 
     background-image:
-            var(--tfg-gradient-image, linear-gradient(transparent, transparent)),
-            radial-gradient(var(--tfg-header-bg-inner), var(--tfg-header-bg-outer));
+        var(--gt-image, var(--gt-image)),
+        radial-gradient(var(--tfg-header-bg-inner), var(--tfg-header-bg-outer));
     -webkit-background-clip: text, padding-box;
     background-clip: text, padding-box;
 }
 
 /* Class for outer heading box that fades down */
 .modern-header-fade {
+    display: block;
     text-align: center;
     position: relative;
     z-index: 0;
@@ -59,9 +67,9 @@
     border: 2px solid transparent;
 
     background-image:
-            var(--tfg-gradient-image, linear-gradient(transparent, transparent)),
-            radial-gradient(var(--tfg-header-bg-inner), var(--tfg-header-bg-outer)),
-            linear-gradient(var(--vp-c-bg), var(--vp-c-bg));
+        var(--gt-image, var(--gt-image)),
+        radial-gradient(var(--tfg-header-bg-inner), var(--tfg-header-bg-outer)),
+        linear-gradient(var(--vp-c-bg), var(--vp-c-bg));
     -webkit-background-origin: padding-box, padding-box, padding-box;
     background-origin: padding-box, padding-box, padding-box;
     -webkit-background-clip: text, padding-box, padding-box;
