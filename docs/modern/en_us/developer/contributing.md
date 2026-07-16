@@ -5,7 +5,7 @@ order: 10
 
 # Contribution Guide
 
-## <div class="modern-header-fade"><span class="gradient-text"> Quality Guidelines </span></div>
+## <ModernHeader fade><GradientText> Quality Guidelines </GradientText></ModernHeader>
 
 Please take some time to familiarize yourself with our quality guidelines before contributing to TerraFirmaGreg. This will help ensure that your contributions align with our standards and make the review process smoother for us all.
 
@@ -74,7 +74,7 @@ Although stylistic preferences are allowed to vary, it is important to maintain 
 </details>
 </details>
 
-## <div class="modern-header-fade"><span class="gradient-text"> Outside Resources </span></div>
+## <ModernHeader fade><GradientText> Outside Resources </GradientText></ModernHeader>
 
 Listed here are resources that may be useful when contributing to TerraFirmaGreg. This is not an extensive list, but it should provide a good starting point for understanding modpack creation, mod making, and utilizing our dependencies.
 

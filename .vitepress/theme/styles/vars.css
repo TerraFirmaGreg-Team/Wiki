@@ -1,0 +1,17 @@
+:root {
+    --tfg-header-bg-inner: rgba(0, 0, 0, 0.03);
+    --tfg-header-bg-outer: rgb(0 0 0 / 0);
+    --tfg-header-border: #8e8e8e;
+    --tfg-header-shadow: rgba(94, 94, 94, 0.4);
+    --tfg-header-text-shadow: rgba(0, 0, 0, 0.1);
+    --tfg-header-fade-border: rgb(0 0 0 / 0.32);
+}
+
+:root:not(.dark) {
+    --tfg-header-bg-inner: rgba(255, 255, 255, 0.07);
+    --tfg-header-bg-outer: rgb(0 0 0 / 0);
+    --tfg-header-border: rgb(74 74 74);
+    --tfg-header-shadow: rgba(0, 0, 0, 0.7);
+    --tfg-header-text-shadow: rgba(0, 0, 0, 0.8);
+    --tfg-header-fade-border: rgb(255 255 255 / 0.19);
+}

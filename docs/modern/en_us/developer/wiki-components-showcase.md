@@ -37,65 +37,61 @@ graph TD
 
 ---
 
-## Custom HTML Classes
+## Custom Components
 
-Custom HTML classes can be found in [modern.css](../../../../.vitepress/theme/modern.css) and can be called in any document. Listed below are some notable options.
+### <GradientText> gradient-text </GradientText>
 
----
-
-### <span class="gradient-text"> gradient-text </span>
-
-The general `gradient-text` class allows for customization with CSS variables.
+The `GradientText` component allows for customization with props.
 
 ```html
-<span class="gradient-text"> 
+<GradientText> 
     Default Gradient
-</span>
+</GradientText>
 ```
 
-<span class="gradient-text" style="--gt-from: #00ff00; --gt-to: #0000ff;"> Custom Colors (Green to Blue) </span>
+<GradientText from="#00ff00" to="#0000ff"> Custom Colors (Green to Blue) </GradientText>
 
 ```html
-<span class="gradient-text" style="--gt-from: #00ff00; --gt-to: #0000ff;"> 
+<GradientText from="#00ff00" to="#0000ff"> 
     Custom Colors (Green to Blue)
-</span>
+</GradientText>
 
 ```
-<span class="gradient-text" style="--gt-dir: to bottom; --gt-from: red; --gt-to: yellow;"> Custom Direction (Red to Yellow) </span>
+<GradientText dir="to bottom" from="red" to="yellow"> Custom Direction (Red to Yellow) </GradientText>
 
 ```html
-<span class="gradient-text" style="--gt-dir: to bottom; --gt-from: red; --gt-to: yellow;"> 
+<GradientText dir="to bottom" from="red" to="yellow"> 
     Custom Direction (Red to Yellow)
-</span>
+</GradientText>
 
 ```
 
-<span class="gradient-text" style="--gt-image: radial-gradient(circle, #fa18cf, #ff7967);"> Custom Type (Radial) </span>
+<GradientText image="radial-gradient(circle, #fa18cf, #ff7967)"> Custom Type (Radial) </GradientText>
 
 ```html
-<span class="gradient-text" style="--gt-image: radial-gradient(circle, #fa18cf, #ff7967);"> 
+<GradientText image="radial-gradient(circle, #fa18cf, #ff7967)"> 
     Custom Type (Radial)
-</span>
+</GradientText>
 ```
 
 ---
 
-### <div class="modern-header">modern-header </div>
+### <ModernHeader>modern-header </ModernHeader>
 
 ```html
-<div class="modern-header">
+<ModernHeader>
     modern-header
-</div>
+</ModernHeader>
 ```
 
 ---
 
-### <div class="modern-header-fade"> modern-header-fade </div>
+### <ModernHeader fade> modern-header-fade </ModernHeader>
 
 ```html
-<div class="modern-header-fade">
+<ModernHeader fade>
     modern-header-fade
-</div>
+</ModernHeader>
 ```
 
 ---

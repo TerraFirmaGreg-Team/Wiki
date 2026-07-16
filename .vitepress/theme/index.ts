@@ -1,8 +1,10 @@
 import DefaultTheme from 'vitepress/theme'
 import { inBrowser, type EnhanceAppContext } from 'vitepress'
+import './styles/vars.css'
 import Layout from './components/Layout.vue'
 import Recipe from './components/Recipe.vue'
-import './modern.css'
+import GradientText from './components/GradientText.vue'
+import ModernHeader from './components/ModernHeader.vue'
 import { persistLocaleFromPath } from './locale'
 import { isStaticSitePathname } from './static-site'
 
@@ -59,6 +61,8 @@ export default {
   Layout,
   enhanceApp({ app, router }) {
     app.component('Recipe', Recipe)
+    app.component('GradientText', GradientText)
+    app.component('ModernHeader', ModernHeader)
     installStaticSiteRouter(router)
     installLocalePersistence(router)
   },
