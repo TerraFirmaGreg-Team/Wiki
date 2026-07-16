@@ -3,7 +3,14 @@ title: Contribution Guide
 order: 10
 ---
 
+# Contribution Guide
+
 ## <div class="modern-header-fade"><span class="gradient-text"> Quality Guidelines </span></div>
+
+Please take some time to familiarize yourself with our quality guidelines before contributing to TerraFirmaGreg. This will help ensure that your contributions align with our standards and make the review process smoother for us all.
+
+<details>
+    <summary> List </summary>
 
 ### <span style="color:gray">a.</span> Style
 <details>
@@ -43,13 +50,95 @@ The use of Artificial Intelligence or more specifically LLM's is not allowed whe
 
 </details>
 
-### <span style="color:gray">e.</span> Art
+### <span style="color:gray">e.</span> Art Direction
 <details>
     <summary> Info </summary>
 
 We take our art direction and vision for our pack seriously. It is important to us that our assets follow a cohesive style and theme. In general all item textures must be 16x16. All blocks must follow 1.20.1 model contraints; OBJ models are only allowed when strictly necessary. And general pixel art best-practices will be expected. If we feel your assets are not up to our standards, please do not take them personally if we replace them. If you feel you cannot deliver quality assets but still want to contribute new items, please ask one of our dedicated artists if they can help you or contact Redeix on discord for advice. If you would like to try your hand at making assets, we recommend [Blockbench](https://www.blockbench.net) for making models, and [PixelComposer](https://pixel-composer.com) or [Aseprite](https://www.aseprite.org) for making textures. If you would like to help adjust your style to match our standards, please check out this [Style Guide](https://www.blockbench.net/wiki/guides/minecraft-style-guide).
 
 </details>
+
+### <span style="color:gray">f.</span> Coding Standards
+<details>
+    <summary> Info </summary>
+
+Although stylistic preferences are allowed to vary, it is important to maintain efficient coding practices within the codebase. Please try to use these principles when contributing to TFG. We reserve the right to reject contributions that do not adhere to these guidelines:
+- When possible, you should attempt to use loops to reduce the amount of redundant code. This not only improves code readability but also enhances performance by minimizing unnecessary iterations. If you find yourself writing repetitive code, consider refactoring it into a `for`, `while`, or `switch` statement.
+- Java--and to some extent--Kubejs are [OOP languages](https://en.wikipedia.org/wiki/Object-oriented_programming), which put an emphasis on building modular and reusable code. When possible, consider creating reusable functions or methods to be used in the future across the codebase.
+- **Build in safety checks!** This includes validating inputs/outputs, handling exceptions, providing default values, and implementing error catching.
+- Use [JSDocs](https://jsdoc.app), [Javadocs](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html), and Comments to document your code. This is mostly optional, but it does provide additional context for reviewers and future developers.
+- When programming for our core mod, please use [Lombok](https://projectlombok.org/features/), which can help reduce common code and improve code accessibility.
+- Try not to use ["magic-numbers"](https://en.wikipedia.org/wiki/Magic_number_(programming)). Separating hard-coded values into defined variables can make your code more readable and easier to maintain in the future. Also, sometimes it's helpful to split a number into its parts for readability. For example, If I had a recipe that took 10 minutes, either I could write the value as `12000` or as `20 * 60 * 10` (20 ticks * 60 seconds * 10 minutes).
+- When creating recipes or functions, attempt to use [Tags](https://minecraft.wiki/w/Tag_(Java_Edition)) instead of hard-coded items. This can make your code more flexible and less prone to breaking as items change over time.
+
+</details>
+</details>
+
+## <div class="modern-header-fade"><span class="gradient-text"> Outside Resources </span></div>
+
+Listed here are resources that may be useful when contributing to TerraFirmaGreg. This is not an extensive list, but it should provide a good starting point for understanding modpack creation, mod making, and utilizing our dependencies.
+
+<details>
+    <summary> List </summary>
+
+### Minecraft
+
+<details>
+    <summary> List </summary>
+
+- [Minecraft Wiki](https://minecraft.wiki): The best source online for information about Minecraft itself and its mechanics.
+- [Minecraft Source](https://linkie.shedaniel.dev/mappings?namespace=mojang_raw&version=1.20.1&search=arrow&translateMode=none): A tool for exploring Minecraft's source code.
+- [Data-pack Creation](https://minecraft.wiki/w/Data_pack): Information about Datapacks which control data-driven parts of the game like tags, loot, worldgen, etc.
+- [Resource-Pack Creation](https://minecraft.wiki/w/Resource_pack): Information about Resource Packs which control visual aspects of the game like textures, models, and languages.
+- [Jigsaw/ Structure Guide](https://gist.github.com/GentlemanRevvnar/98a8f191f46d28f63592672022c41497): Guide for creating custom structures in Minecraft using Jigsaw.
+- [Color Codes](https://minecraft.wiki/w/Formatting_codes#Color_codes): Color codes used in Minecraft text.
+
+</details>
+
+### Kubejs
+
+<details>
+    <summary> List </summary>
+
+- [Kubejs Wiki](https://kubejs.com/wiki): Documentation for Kubejs. Although the wiki is not the best, and their [old site](https://wiki.latvian.dev/books/kubejs) often has slightly more information.
+- [Kubejs Offline](https://hunter19823.github.io/kubejsoffline/1.20.1/forge/): A dump of internal Kubejs classes.
+- [Kubejs TFC](https://notenoughmail.github.io/kubejs_tfc/1.20.1/): A comprehensive wiki for the Kubejs-TFC mod which details all of its events and utility. The main [TFC Wiki](https://terrafirmacraft.github.io/Documentation/1.20.x/) may also provide some help.
+- [GTCEU Modern Wiki](https://gregtechceu.github.io/GregTech-Modern/1.20.1/Modpacks/): Provides in-depth documentation for Kubejs and Java functions that can be used by addon developers.
+- [Vintage Kubejs](https://kubejs.com/wiki/addons/vintage-kubejs): Provides documentation for the Create Vintage-Improvements Kubejs addon.
+- [Kubejs Create](https://kubejs.com/wiki/addons/create): Provides documentation for the Create Kubejs addon.
+- [LootJs](https://github.com/AlmostReliable/lootjs/wiki/1.20.1): Documentation for LootJs; a Kubejs addon for complex loot table generation using JavaScript.
+
+</details>
+
+### Java
+
+<details>
+    <summary> List </summary>
+
+- [Java API](https://docs.oracle.com/en/java/javase/20/docs/api/): Java API documentation for various classes and methods.
+- [Forge Documentation](https://docs.minecraftforge.net/en/1.20.1/gettingstarted/): Online documentation for Forge, the modding framework used by our mod/ modpack.
+- [Mixins Wiki](https://github.com/SpongePowered/Mixin/wiki): Information and links for Mixins, a library used for modifying Java classes at runtime.
+- [Mixin Squared Wiki](https://github.com/Bawnorton/MixinSquared/wiki): Documentation for Mixin Squared, a library for modifying other mixins at runtime.
+- [Hotswapping Plugin](https://plugins.jetbrains.com/plugin/14832-single-hotswap): A plugin for JetBrains IDEs that allows for hotswapping of Java classes during development.
+- [ModDevGradle Guide](https://github.com/neoforged/ModDevGradle/blob/main/LEGACY.md): Documentation for ModDevGradle, a Gradle plugin for Minecraft mod development.
+- [Maven Guide](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html): Documentation for Maven, a build automation tool for Java projects.
+- [Spotless Source](https://github.com/diffplug/spotless): Repository for Spotless, a tool for formatting and linting code.
+
+</details>
+
+### Modpack Development
+<details>
+    <summary> List </summary>
+
+- [Pakku Source](https://github.com/juraj-hrivnak/Pakku): Repository for Pakku, a tool for managing modpack dependencies and imports.
+- [Patchouli Documentation](https://vazkiimods.github.io/Patchouli/docs/intro): Documentation for Patchouli, the mod responsible for our Field Guide.
+- [Phoenix's Material Previewer](https://p-h-o-e-n-i-x-packforge.github.io/PhoenixMaterialArchitect/): Web-based tool for previewing GTCeu materials.
+
+</details>
+
+</details>
+
+---
 
 ## Video Guide:
 
