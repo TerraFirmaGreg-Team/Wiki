@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme'
 import { inBrowser, type EnhanceAppContext } from 'vitepress'
 import Layout from './components/Layout.vue'
 import Recipe from './components/Recipe.vue'
+import './modern.css'
 import { persistLocaleFromPath } from './locale'
 import { isStaticSitePathname } from './static-site'
 
