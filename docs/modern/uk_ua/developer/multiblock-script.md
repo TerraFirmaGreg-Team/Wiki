@@ -1,22 +1,13 @@
 ---
-title: Скрипт для багатоблокових структур від Phoenixvine
+title: Advanced Multiblock Converter
 order: 4
 ---
 
-> Окрема подяка [Phoenixvine](https://github.com/Phoenixvine32908)  з команди [PFT](https://github.com/Phoenixvine32908/Phoenix-Forge-Technologies) за те, що поділився цими скриптами
+# Advanced Multiblock Converter
 
-# Крок 1)
+## Крок 1) Підготовка файлу структури
 
-Завантажте ці два файли та розмістіть їх в одній теці у будь-якому місці на твоєму ПК.
-
-[multi.bat](https://github.com/Phoenixvine32908/Phoenix-Forge-Technologies/blob/main/multi.bat)
-[multis.py](https://github.com/Phoenixvine32908/Phoenix-Forge-Technologies/blob/main/multis.py)
-
-<p align="center">
-<img width="637" height="168" alt="files" src="https://github.com/user-attachments/assets/2abf3552-982a-47c0-92cc-4d8d1ce88f3a" />
-</p>
-
-# Крок 2)
+### 1.
 
 Переведіть свій ґаджет копіювання у режим копіювання та виділіть структуру.
 
@@ -24,7 +15,7 @@ order: 4
 <img width="1020" height="720" alt="copy" src="https://github.com/user-attachments/assets/3f9ac011-5081-49ea-ab52-e7483183e5eb" />
 </p>
 
-# Крок 3)
+### 2.
 
 Помістіть свій ґаджет у менеджера шаблонів. Ти можеш покласти туди аркуш паперу та натиснути "Зберегти", щоб переконатися, що це саме та структура. Після цього натисни «Копіювати», щоб зберегти Json-код у свій буфер обміну.
 
@@ -32,65 +23,58 @@ order: 4
 <img width="1024" height="720" alt="manager" src="https://github.com/user-attachments/assets/cabdc85b-1986-4f4c-94a1-ac9981f0fd36" />
 </p>
 
-# Крок 4)
+## Крок 2) Запуск інструменту
 
-Запусти`.bat-файл`. Має відкритися консоль, яка виглядатиме ось так:
+> Advanced Converter — це сильно модифікований інструмент, який створив Phoenixvine.
+> Цей інструмент бере інформацію про структуру з моду Building Gadgets і конвертує її у формат структур GT. Усі файли мають залишатися в тій самій теці.
 
-<p align="center">
-<img width="720" height="450" alt="run" src="https://github.com/user-attachments/assets/1525a13d-b120-4035-af80-ae6644b6be45" />
-</p>
+### Інструкції
 
-# Крок 5)
+- Завантаж [Advanced Multiblock Convert.exe](https://github.com/TerraFirmaGreg-Team/Tools-Modern/tree/dev/AdvancedMultiblockConverter/advanced-multiblock-converter) або скомпілюй програму через packager.
+- Встанови [Node.js](https://nodejs.org/en/download) якщо у тебе його немає.
 
-Встав Json рядок, який ти скопіював з менеджера шаблонів.
+### Варіант 1) Запустити як Electron App
 
-<p align="center">
-<img width="1024" height="720" alt="entered" src="https://github.com/user-attachments/assets/586cd260-5997-4831-93db-f11ebdf2bd68" />
-</p>
+- Запусти `Advanced Multiblock Converter.exe`
+- Встав json всередину блоку введення.
+- Вибери кнопку «Start».
+- Застосуй трансформації, якщо це необхідно.
+- Скопіюй готовий JS-код із блоку виведення.
 
-# Крок 6)
+### Варіант 2) Запуск у пакетному режимі
 
-Натисни клавішу Enter. Скрипт виконається та виведе код структури у новому форматі GTM. Тепер ти можеш скопіювати/вставити цей код та використовувати його.
+- Помісти текст своєї структури в input.json і збережи файл.
+- Використовуй `Run.bat`
+- Вибери «reset», щоб згенерувати початкову структуру.
+- Вибери бажані трансформації.
+- Вибери «reset» ще раз, щоб скинути й почати перетворення заново.
+- Результат буде збережено в output.js
 
-<p align="center">
-<img width="1024" height="720" alt="ran" src="https://github.com/user-attachments/assets/c34e9334-2b66-4c17-a70c-d7e238c280f3" />
-</p>
+### DEV) Запуск Packager'а
 
-```js
-.aisle("AAAAAAABAAABAAAAAAA", "AAAAAAABAAABAAAAAAA", "AAAAAAACCCCCAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAD")
-.aisle("AAAAABAAAAAAABAAAAA", "AAAAABAAAAAAABAAAAA", "AAAACCAAAAAAACCAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAAAAABAAABAAAAAAA", "AAAAAAACCCCCAAAAAAA", "AAACCAAAAAAAAACCAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAAABAAAAAAABAAAAA", "AAAACCAAAAAAACCAAAA", "AACAAAAAAAAAAAAACAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAAAAAACCCAAAAAAAA", "AAACCAAAAAAAAACCAAA", "ACCAAAAAAAAAAAAACCA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("ABABACCAAAAACCABABA", "ABACAAAAAAAAAAACABA", "ACAAAAAAAAAAAAAAACA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAAACAAAAAAACAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("BABAAAAAAAAAAAAABAB", "BACAAAAAAAAAAAAACAB", "CAAAAAAAAAAAAAAAAAC", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAACAAAEFGAAACAAAA", "AACAAAAABABAAAAACAA", "CAAAAAAABABAAAAAAAC", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAAHHHAAAAAAAA", "AAAAAAAAIIIAAAAAAAA", "AAAAAAAAIIIAAAAAAAA", "AAAAAAAAIIIAAAAAAAA")
-.aisle("AAAACAAAEEJAAACAAAA", "AACAAAAAAEAAAAAACAA", "CAAAAAAAAEAAAAAAAAC", "AAAAAAAAAEAAAAAAAAA", "AAAAAAAAAEAAAAAAAAA", "AAAAAAAAAEAAAAAAAAA", "AAAAAAAAAEAAAAAAAAA", "AAAAAAAAAEAAAAAAAAA", "AAAAAAAAAEAAAAAAAAA", "AAAAAAAAAEAAAAAAAAA", "AAAAAAAAHEHAAAAAAAA", "AAAAAAAAIEIAAAAAAAA", "AAAAAAAAIKIAAAAAAAA", "AAAAAAAAIIIAAAAAAAA")
-.aisle("AAAACAAAELLAAACAAAA", "AACAAAAABABAAAAACAA", "CAAAAAAABABAAAAAAAC", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAABABAAAAAAAA", "AAAAAAAAHHHAAAAAAAA", "AAAAAAAAIIIAAAAAAAA", "AAAAAAAAIIIAAAAAAAA", "AAAAAAAAIIIAAAAAAAA")
-.aisle("BABAAAAAAAAAAAAABAB", "BACAAAAAAAAAAAAACAB", "CAAAAAAAAAAAAAAAAAC", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAAACAAAAAAACAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("ABABACCAAAAACCABABA", "ABACAAAAAAAAAAACABA", "ACAAAAAAAAAAAAAAACA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAAAAAACCCAAAAAAAA", "AAACCAAAAAAAAACCAAA", "ACCAAAAAAAAAAAAACCA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAAABAAAAAAABAAAAA", "AAAACCAAAAAAACCAAAA", "AACAAAAAAAAAAAAACAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAAAAABAABAAAAAAAA", "AAAAAAACCCCCAAAAAAA", "AAACCAAAAAAAAACCAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("AAAAABAAAAAAABAAAAA", "AAAAABAAAAAAABAAAAA", "AAAACCAAAAAAACCAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-.aisle("DAAAAAABAAABAAAAAAA", "AAAAAAABAAABAAAAAAA", "AAAAAAACCCCCAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAA")
-   .where("A", Predicates.blocks("minecraft:air"))
-   .where("B", Predicates.blocks("gtceu:stainless_steel_frame"))
-   .where("C", Predicates.blocks("tfg:casings/machine_casing_red_solar_panel"))
-   .where("D", Predicates.blocks("minecraft:oak_planks"))
-   .where("E", Predicates.blocks("tfg:casings/machine_casing_iron_desh"))
-   .where("F", Predicates.blocks("tfg:large_solar_panel"))
-   .where("G", Predicates.blocks("gtceu:configurable_maintenance_hatch"))
-   .where("H", Predicates.blocks("ad_astra:iron_plateblock"))
-   .where("I", Predicates.blocks("gtceu:tempered_glass"))
-   .where("J", Predicates.blocks("gtceu:ulv_energy_output_hatch"))
-   .where("K", Predicates.blocks("gtceu:silver_block"))
-   .where("L", Predicates.blocks("gtceu:ulv_input_bus"))
-```
+- Встанови шлях до теки:
 
-# Крок 7)
+`cd <advanced-multiblock-converter location>`
+
+- Перевір, чи встановлено Node:
+
+`node -v`
+`npm -v`
+
+- Встанови залежності:
+
+`npm install`
+
+- Збери файли:
+
+`npm run build`
+`npm run dist`
+
+- Запусти додаток:
+
+`npm start`
+
+## Крок 3) Очищення вихідних даних
 
 Швидше за все, тобі доведеться трохи відформатувати отриманий результат. Ось очищений та приведений до вигляду Java коду, приклад згаданий вище:
 
@@ -134,117 +118,3 @@ order: 4
 				.build()
 			)
 ```
-
-# Додатково
-
-Наразі скрипт приймає Json рядок безпосередньо в командному рядку, але це не спрацює, якщо довжина Json рядка перевищує ліміт на кількість символів. Тому я маю модифікований Python скрипт, який замість цього зчитує дані з файлу Json і виводить результат у файл JS.
-
-> Заміни код у файлі 'multis.py' на цей:
-
-```py
-import re
-import json
-
-
-def transform_json(input_data):
-    statePos_str = input_data.get("statePosArrayList", "")
-
-    m_blocks = re.search(r"blockstatemap:\[(.*?)\](?:,|})", statePos_str)
-    if not m_blocks:
-        raise ValueError("Nie znaleziono blockstatemap w statePosArrayList.")
-    blockstatemap_str = m_blocks.group(1)
-    block_names = re.findall(r'Name:"(.*?)"', blockstatemap_str)
-
-    # Wyciągamy startpos i endpos
-    m_start = re.search(r"startpos:\{(.*?)\}", statePos_str)
-    m_end = re.search(r"endpos:\{(.*?)\}", statePos_str)
-    if not m_start or not m_end:
-        raise ValueError("Nie znaleziono startpos lub endpos w statePosArrayList.")
-
-    def parse_pos(pos_str):
-        pos = {}
-        for part in pos_str.split(","):
-            key, value = part.split(":")
-            pos[key.strip()] = int(value.strip())
-        return pos
-
-    startpos = parse_pos(m_start.group(1))
-    endpos = parse_pos(m_end.group(1))
-
-    x_dim = endpos["X"] - startpos["X"] + 1
-    y_dim = endpos["Y"] - startpos["Y"] + 1
-    z_dim = endpos["Z"] - startpos["Z"] + 1
-    total_blocks = x_dim * y_dim * z_dim
-
-    m_list = re.search(r"statelist:\[I;(.*?)\]", statePos_str)
-    if not m_list:
-        raise ValueError("Nie znaleziono statelist w statePosArrayList.")
-    statelist_str = m_list.group(1)
-    statelist_nums = [int(x) for x in statelist_str.split(",") if x.strip() != ""]
-    if len(statelist_nums) != total_blocks:
-        raise ValueError(
-            "Liczba elementów w statelist nie zgadza się z wymiarami struktury."
-        )
-
-    block_to_letter = {"minecraft:air": " "}
-    next_letter_ord = ord("A")
-
-    def assign_letter(block_type):
-        nonlocal next_letter_ord
-        if block_type == "minecraft:air":
-            return " "
-        if block_type not in block_to_letter:
-            block_to_letter[block_type] = chr(next_letter_ord)
-            next_letter_ord += 1
-        return block_to_letter[block_type]
-
-    structure = []
-    index = 0
-    for _ in range(z_dim):
-        layer = []
-        for _ in range(y_dim):
-            row = []
-            for _ in range(x_dim):
-                block_index = statelist_nums[index]
-                index += 1
-                block_type = block_names[block_index]
-                letter = assign_letter(block_type)
-                row.append(letter)
-            layer.append(row)
-        structure.append(layer)
-
-    keys = {v: k for k, v in block_to_letter.items()}
-
-    return {"structure": structure, "keys": keys}
-
-
-def gen_output(data):
-    output_lines = []
-
-    for aisle in data["structure"]:
-        rows_str = ["".join(row) for row in aisle]
-        tmp = ", ".join(f'"{row}"' for row in rows_str)
-        line = f".aisle({tmp})"
-        output_lines.append(line)
-
-    for key, block in data["keys"].items():
-        output_lines.append(f'   .where("{key}", Predicates.blocks("{block}"))')
-
-    return output_lines
-
-
-def main():
-    with open("input.json", "r", encoding="utf-8") as f:
-        input_json = json.load(f)
-    data = transform_json(input_json)
-    lines = gen_output(data)
-
-    with open("output.js", "w", encoding="utf-8") as out_file:
-        out_file.write("\n".join(lines))
-
-
-if __name__ == "__main__":
-    main()
-```
-
-Тепер замість запиту на введення Json рядка скрипт зчитуватиме файл з назвою "input.json" у тій же теці — саме туди тобі й потрібно вставити свій код. І записуватиме результат у файл з назвою "output.js" у тій же теці. Також це встановить повітря як знак пробілу " " замість "A" для кращої читабельності коду.
