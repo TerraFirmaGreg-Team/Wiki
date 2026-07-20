@@ -155,22 +155,18 @@ A guide for setting up your development environment and contributing to the Terr
 <details open>
     <summary> Information </summary>
 
-### 1. Required & Recommended Software
+### 1. Required Software
 
 Please download and install the following software to set up your development environment for contributing to the TerraFirmaGreg modpack.
 
 <details>
     <summary> List </summary>
 
-#### Required Software
-- [Git](https://git-scm.com): A version control system for managing source code.
+#### Software
 - [Pakku](https://github.com/juraj-hrivnak/Pakku/releases): A tool for dependency management and modpack building.
 - [Java 17+](https://www.azul.com/downloads/?package=jdk#zulu): Required for Forge and Pakku to function properly. You can also often download it directly from some MC Launchers like Prsim.
-
-#### Recommended Software
 - [PrismLauncher](https://prismlauncher.org/download/windows/): An optimized launcher for Minecraft modifications, making it easier to create separate instances.
-- [GitHub Desktop](https://desktop.github.com/download/) A graphical client for managing Git repositories developed by GitHub.
-- [Visual Studio Code](https://code.visualstudio.com): A code editor with extensive capabilities for working with projects and integrating various plugins.
+- [Visual Studio Code](https://code.visualstudio.com): A code editor with extensive capabilities for working with projects and integrating various plugins. (or any other proper IDE of your choice.)
 
 </details>
 
