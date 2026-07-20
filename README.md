@@ -45,9 +45,9 @@ Needs Node.js >= 20. [pnpm](https://pnpm.io) is the package manager; the launche
 
 ```bat
 :: Windows
-dev.bat
-dev.bat build
-dev.bat preview
+./dev.bat
+./dev.bat build
+./dev.bat preview
 ```
 
 ## Adding a Page
