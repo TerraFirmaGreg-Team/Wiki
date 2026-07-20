@@ -231,7 +231,7 @@ This can also be done inside VSCode, using the terminal at the bottom of your sc
 #### <GradientText>Step 5</GradientText>: Copying and linking development & instance folders
 1. Copy all of your files from your development folder into the **`minecraft`** folder.
 2. Delete any folders you are going to change. The most likely one is **`kubejs`**.
-3. Symbolically link your development **`kubejs`** folder to your prism folder. There are a few ways to do this, the easiest being using `mklink Link Target` in a command prompt.
+3. Symbolically link your development **`kubejs`** folder to your prism folder. There are a few ways to do this, the easiest being using `mklink /d Link Target` in a command prompt.
 
 >[!TIP]
 > <details>
