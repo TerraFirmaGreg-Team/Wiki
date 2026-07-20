@@ -16,7 +16,7 @@ Please take some time to familiarize yourself with our quality guidelines before
 <details open>
     <summary> Info </summary>
 
-In general, we will not hold you accountable for personal stylistic choices in your work. However, please do not change others' work to suit your style standards unless you are actively working on that section of code. This is to ensure our programming environment feels less restrictive and prevents issues when reviewing code for redundant changes. We may ask you to change the style of your work if it is difficult to review, runs less efficient, or conflicts with common conventions.
+In general, we will not hold you accountable for personal stylistic choices in your work. However, please do not change others' work to suit your style standards unless you are actively working on that section of code. This is to ensure our programming environment feels less restrictive and prevents issues when reviewing code for redundant changes. We may ask you to change the style of your work if it is difficult to review, runs less efficienty, or conflicts with common conventions.
 
 </details>
 
