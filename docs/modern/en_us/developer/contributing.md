@@ -501,11 +501,11 @@ Creation steps will vary wildly between different types of projects. However, fo
     <summary> Information </summary>
 
 - #### Versioning Rules:
-    - This project loosely follows [Semantic Versioning](https://semver.org/).
-    - **Minor**: Bug fixes and minor changes (`0.10.0` → `0.10.1`)
-    - **Major**: Large features that theme new updates (`0.10.0` → `0.11.0`)
-    - **Release**: Final release of a content cycle. (`0.10.0` → `1.0.0`)
-    - **alpha**: Released versions of the project that might not be stable. (`0.10.0` → `0.10.1 alpha`)
+    - The TFG modpack follows a custom Incremental Versioning format:
+    - **Minor**: New updates (`0.10.0` → `0.10.1`)
+      - **alpha**: Released versions of the project that might not be stable. (`0.10.0` → `0.10.1 alpha`)
+    - **Major**: New content cycles. Typically separated by a new dimension being released or other major changes. (`0.10.0` → `0.11.0`)
+    - **Release**: When the pack is considered "complete". (`0.10.0` → `1.0.0`)
 
 - #### Working with Git:
     - Create separate branches for each new functionality or bug fix.
