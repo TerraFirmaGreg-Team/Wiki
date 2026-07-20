@@ -120,6 +120,7 @@ Listed here are resources that may be useful when contributing to TerraFirmaGreg
 - [Forge Documentation](https://docs.minecraftforge.net/en/1.20.1/gettingstarted/): Online documentation for Forge, the modding framework used by our mod/ modpack.
 - [Mixins Wiki](https://github.com/SpongePowered/Mixin/wiki): Information and links for Mixins, a library used for modifying Java classes at runtime.
 - [Mixin Squared Wiki](https://github.com/Bawnorton/MixinSquared/wiki): Documentation for Mixin Squared, a library for modifying other mixins at runtime.
+- [Mixin Example Sheet](https://wiki.fabricmc.net/tutorial:mixin_examples): A collection of examples for using Mixins in Java.
 - [Hotswapping Plugin](https://plugins.jetbrains.com/plugin/14832-single-hotswap): A plugin for JetBrains IDEs that allows for hotswapping of Java classes during development.
 - [ModDevGradle Guide](https://github.com/neoforged/ModDevGradle/blob/main/LEGACY.md): Documentation for ModDevGradle, a Gradle plugin for Minecraft mod development.
 - [Maven Guide](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html): Documentation for Maven, a build automation tool for Java projects.
