@@ -270,8 +270,6 @@ There are two approaches to creating a Pull Request: via terminal and via an IDE
 **Branch Designation**
 - **`main`:**
     - This branch contains the stable, tested, and released version of the project.
-    - It should only contain changes that have passed the full review cycle.
-    - Changes can be accepted by members of the **Project-Lead** team; at least one approval is required.
     - Never push directly to this branch. Or make a Pull Request to it unless you have permission.
 
 - **`dev`:**
@@ -394,7 +392,6 @@ There are two approaches to creating a Pull Request: via terminal and via an IDE
 
 3. Approval:
 - After making all necessary corrections and receiving positive feedback from reviewers, the PR is considered approved.
-- To merge changes into main, at least one approval from members of the [Dev-Modern] team is required.
 - For merging into dev – at least two approvals from members of the [Contributor-Modern] team are required.
 
 4. Merging Pull Request:
