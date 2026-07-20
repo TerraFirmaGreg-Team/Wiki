@@ -107,6 +107,7 @@ Listed here are resources that may be useful when contributing to TerraFirmaGreg
 - [Vintage Kubejs](https://kubejs.com/wiki/addons/vintage-kubejs): Provides documentation for the Create Vintage-Improvements Kubejs addon.
 - [Kubejs Create](https://kubejs.com/wiki/addons/create): Provides documentation for the Create Kubejs addon.
 - [LootJs](https://github.com/AlmostReliable/lootjs/wiki/1.20.1): Documentation for LootJs; a Kubejs addon for complex loot table generation using JavaScript.
+- [Greate](https://github.com/GreateBeyondTheHorizon/Greate/wiki): Repository documentation for the Greate mod.
 
 </details>
 
