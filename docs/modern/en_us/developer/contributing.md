@@ -144,7 +144,7 @@ Listed here are resources that may be useful when contributing to TerraFirmaGreg
 
 ## <ModernHeader fade><GradientText> Modpack Development </GradientText></ModernHeader>
 
-A guide for setting up your development environment and contributing to the TerraFirmaGreg modpack. Including instructions on how to set up Git and an IDE. Information on setting up a Java environment for contributing to our core mod can be found in the [Java Development](#java-development) section.
+A guide for setting up your development environment and contributing to the TerraFirmaGreg modpack. Including instructions on how to set up Git and an [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment). Information on setting up a Java environment for contributing to our core mod can be found in the [Java Development](#java-development) section.
 
 ### Video Guide:
 
