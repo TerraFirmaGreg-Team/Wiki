@@ -16,7 +16,7 @@ Please take some time to familiarize yourself with our quality guidelines before
 <details open>
     <summary> Info </summary>
 
-In general, we will not hold you accountable for personal stylistic choices in your work. However, please do not change others' work to suit your style standards unless you are actively working on that section of code. This is to ensure our programming environment feels less restrictive and prevents issues when reviewing code for redundant changes. We may ask you to change the style of your work if it is difficult to review, runs less efficienty, or conflicts with common conventions.
+In general, we will not hold you accountable for personal stylistic choices in your work. However, please do not change others' work to suit your style standards unless you are actively working on that section of code. This is to ensure our programming environment feels less restrictive and prevents issues when reviewing code for redundant changes. We may ask you to change the style of your work if it is difficult to review, runs less efficiently, or conflicts with common conventions.
 
 </details>
 
@@ -262,7 +262,7 @@ This can also be done inside VSCode, using the terminal at the bottom of your sc
 3. Open [TerraFirmaGreg-Core-Modern] and download the latest release.
 4. In your mods folder, find the TerraFirmaGreg-Core-Modern jar file, delete it, and replace it with the one you just downloaded.
 
-> Even newer releases may be available in GitHub Actions. Additionally, if you are developing [TerraFirmaGreg-Core-Modern], cores can be copied over automatically using a local Gradle property. [More Info](https://wiki.terrafirmagreg.team/modern/en_us/developer/datagen)
+> Even newer releases may be available in GitHub Actions. Additionally, if you are developing [TerraFirmaGreg-Core-Modern], core mod jar files can be copied over automatically using a local Gradle property. [More Info](https://wiki.terrafirmagreg.team/modern/en_us/developer/datagen)
 
 #### <GradientText>Step 7</GradientText>: Working with Branches and Creating Pull Request
 There are two approaches to creating a Pull Request: via terminal and via an IDE like Visual Studio Code.
