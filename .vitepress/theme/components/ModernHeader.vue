@@ -41,8 +41,8 @@ defineProps<{
 }
 
 .modern-header {
-    background-image: radial-gradient(var(--tfg-header-bg-inner), var(--tfg-header-bg-outer));
-    box-shadow: 0 0 20px var(--tfg-header-shadow);
+    background-image: radial-gradient(var(--header-bg-inner), var(--header-bg-outer));
+    box-shadow: 0 0 20px var(--header-shadow);
 }
 
 .modern-header-fade::before {
