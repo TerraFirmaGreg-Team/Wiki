@@ -262,7 +262,7 @@ This can also be done inside VSCode, using the terminal at the bottom of your sc
 3. Open [TerraFirmaGreg-Core-Modern] and download the latest release.
 4. In your mods folder, find the TerraFirmaGreg-Core-Modern jar file, delete it, and replace it with the one you just downloaded.
 
-> Even newer releases may be available in GitHub Actions. Additionally, if you are developing [TerraFirmaGreg-Core-Modern], you can copy your built jars to test them.
+> Even newer releases may be available in GitHub Actions. Additionally, if you are developing [TerraFirmaGreg-Core-Modern], cores can be copied over automatically using a local Gradle property. [More Info](https://wiki.terrafirmagreg.team/modern/en_us/developer/datagen)
 
 #### <GradientText>Step 7</GradientText>: Working with Branches and Creating Pull Request
 There are two approaches to creating a Pull Request: via terminal and via an IDE like Visual Studio Code.
