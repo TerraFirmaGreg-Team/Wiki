@@ -87,9 +87,10 @@ Listed here are resources that may be useful when contributing to TerraFirmaGreg
     <summary> List </summary>
 
 - [Minecraft Wiki](https://minecraft.wiki): The best source online for information about Minecraft itself and its mechanics.
-- [Minecraft Source](https://linkie.shedaniel.dev/mappings?namespace=mojang_raw&version=1.20.1&search=arrow&translateMode=none): A tool for exploring Minecraft's source code.
+- [Minecraft Source](https://linkie.shedaniel.dev/mappings?namespace=mojang_raw&version=1.20.1&search=arrow&translateMode=none): A tool for exploring Minecraft's decompiled source code.
 - [Data-pack Creation](https://minecraft.wiki/w/Data_pack): Information about Datapacks which control data-driven parts of the game like tags, loot, worldgen, etc.
 - [Resource-Pack Creation](https://minecraft.wiki/w/Resource_pack): Information about Resource Packs which control visual aspects of the game like textures, models, and languages.
+- [Minecraft Asset Explorer](https://mcasset.cloud/1.20.1/): Contains all vanilla assets that you could normally find in a datapack format. Useful if you want to make an edit of a vanilla texture, or see how a model, configured feature, etc. is made.
 - [Jigsaw/ Structure Guide](https://gist.github.com/GentlemanRevvnar/98a8f191f46d28f63592672022c41497): Guide for creating custom structures in Minecraft using Jigsaw.
 - [Color Codes](https://minecraft.wiki/w/Formatting_codes#Color_codes): Color codes used in Minecraft text.
 
