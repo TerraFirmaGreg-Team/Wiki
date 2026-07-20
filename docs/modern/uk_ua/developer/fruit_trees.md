@@ -22,7 +22,7 @@ order: 9
 - **floweringLeavesColor:** _Колір частинок листя у форматі RGB._
 - **dimension:** _Вимір, у якому зустрічається це фруктове дерево (використовується лише як інформація для підказки)._
 
-### Крок 2) Ассети
+### Крок 2) Ресурси
 
 - Додай текстури в теку ассетів fruit_tree для  [blocks](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/dev/src/main/resources/assets/tfg/textures/block/fruit_tree), [items](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/dev/src/main/resources/assets/tfg/textures/item/fruit_trees), та [food](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/dev/src/main/resources/assets/tfg/textures/item/food).
 
@@ -40,12 +40,12 @@ order: 9
 ### Крок 2) Дані про їжу
 
 - Додай [food data](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/server_scripts/tfg/food/data.food.js#L79) для продуктів твоїх фруктових дерев.
-- Додай [planter data](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/server_scripts/tfg/food/data.planters.js#L193) для бонсай-плантерів у теплицях модифікації FirmaLife.
-- додай [fruit tree](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfc/constants.js#L194) константну для генерації рецептів.
+- Додай [planter data](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/server_scripts/tfg/food/data.planters.js#L193) для горщиків для бонсаю у теплицях модифікації FirmaLife.
+- Додай [fruit tree](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfc/constants.js#L194) константну для генерації рецептів.
 
-### Крок 3) Ассети
+### Крок 3) Ресурси
 
-- Увімкни [GEN_JAM_MODELS](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfg/food/items.food.js#L62) та запусти модпак один раз, щоб згенерувати моделі джемів, якщо ти додаєш нові види фруктів. Не забудь знову змінити це булеве значення на false перед тим, як робити пуш коду.
+- Увімкни [GEN_JAM_MODELS](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfg/food/items.food.js#L62) та запусти модпак один раз, щоб згенерувати моделі джемів, якщо ти додаєш нові види фруктів. Не забудь знову встановити булеве значення на `false` перед відправленням.
 - Додай [jam textures](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/tree/dev/kubejs/assets/tfg/textures/block/food/jam).
 
 ### Крок 4) Генерація світу
