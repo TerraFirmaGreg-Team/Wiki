@@ -11,7 +11,7 @@ order: 5
 
 Se você está atualizando a partir da 0.11, siga primeiro as [instruções de atualização para a 0.12](/modern/pt_br/upgrade-guides/from-0.11-to-0.12).
 
-Mundos da versão 0.12 podem ser atualizados para a 0.13 com segurança, mas há algumas coias importantes a saber:
+Mundos da versão 0.12 podem ser atualizados para a 0.13 com segurança, mas há algumas coisas importantes a saber:
 
 # Geração de mundo do Overworld
 
@@ -23,17 +23,17 @@ Devido a alguns problemas com servidores, nós mudamos a geração padrão do mu
 
 Você não precisa fazer nada para obter as novas minas, apenas explore novos chunks.
 
-No futuro (provavelmente em vários meses) podemos deixar de suporta a velha geração de mundo, uma vez que está se tornando muito trabalhoso manter ambas disponíveis.
+No futuro (provavelmente em vários meses) podemos deixar de suportar a antiga geração de mundo, uma vez que está se tornando muito trabalhoso manter ambas disponíveis.
 
 # Revisão completa das Profundezas
 
 Nós reformulamos completamente as Profundezas. Agora é significativamente mais alto, então você precisará limpar a dimensão para não ser teleportado acima da bedrock.
 
-Para fazer isso, primeiro faça um backup de seu salvamento, em seguida, certifique-se de ter saído das Profundezas e levado qualquer coisa com você que quer manter, depois salve e saia do seu jogo. Depois, simplesmente vá para a sua pasta de instância de minecraft e, em seguida, dentro de `saves`, depois vá para a pasta com o nome do seu save. Apague a pasta chamada `DIM-1`. Então inicie seu jogo normalmente. O processo é o mesmo para servidores.
+Para fazer isso, primeiro faça um backup de seu salvamento, em seguida, certifique-se de ter saído das Profundezas e levado qualquer coisa com você que quer manter, depois salve e saia do seu jogo. Depois, simplesmente vá para a sua pasta de instância de minecraft e, em seguida, dentro de `saves`, depois vá para a pasta com o nome do seu mundo. Apague a pasta chamada `DIM-1`. Então inicie seu jogo normalmente. O processo é o mesmo para servidores.
 
 ⚠ ⚠ ⚠ **CRIE UM BACKUP ANTES DE FAZER ISSO** ⚠ ⚠ ⚠
 
-Se você já abriu um Prospetor HV ou LuV no **Modo Fluído** nas Profundezas, ou usou uma **Perfuratriz de Fluido** , você também precisará apagar seu arquivo `.minecraft/saves/(nome do mundo)/data/gtceu_bedrock_fluid.dat`, já que os veios de fluidos também mudaram.
+Se você já abriu um Prospetor HV ou LuV no **Modo Fluído** nas Profundezas, ou usou uma **Perfuratriz de Fluido**, você também precisará apagar seu arquivo `.minecraft/saves/(nome do mundo)/data/gtceu_bedrock_fluid.dat`, já que os veios de fluidos também mudaram.
 
 # Reformulação de alimentos
 
@@ -49,7 +49,7 @@ Engarrafadores no seu mundo devem ser automaticamente substituídos pelos novos 
 
 # Shaders
 
-Após atualizar, se As Profundezas estiverem completamente tingidas de vermelho/laranja, acesse as configurações do shader > Atmosfera > Dimensão do Nether > Modo de Cor, e altere a opção para "Baseado no Bioma", e _não_ "Baseado no Bioma (Modificado)". Como alternativa, selecione uma predefinição diferente se você disser que você tem uma "personalizada".
+Após atualizar, se As Profundezas estiverem completamente tingidas de vermelho/laranja, acesse as configurações do shader > Atmosfera > Dimensão do Nether > Modo de Cor, e altere a opção para "Baseado no Bioma", e _não_ "Baseado no Bioma (Modificado)". Como alternativa, selecione uma predefinição diferente se estiver dizendo que você tem uma "personalizada".
 
 # Minérios
 

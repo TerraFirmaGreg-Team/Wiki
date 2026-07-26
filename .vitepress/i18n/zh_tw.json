@@ -1,0 +1,54 @@
+{
+  "label": "繁體中文(台灣)",
+  "lang": "zh-TW",
+  "nav": {
+    "home": "首頁",
+    "download": "下載",
+    "officialSite": "官方網站",
+    "projects": "專案",
+    "discord": "Discord",
+    "fieldGuide": "野外指南",
+    "recipeBook": "配方書",
+    "questBook": "任務書"
+  },
+  "editLink": "在 GitHub 上編輯這個頁面",
+  "docFooter": {
+    "prev": "上一頁",
+    "next": "下一頁"
+  },
+  "outline": "本頁導覽",
+  "lastUpdated": "最後更新",
+  "darkModeSwitchLabel": "主題",
+  "sidebarMenuLabel": "選單",
+  "returnToTopLabel": "返回頂部",
+  "langMenuLabel": "變更語言",
+  "notFound": {
+    "title": "沒找到頁面",
+    "missingQuote": "頁面不存在",
+    "untranslatedQuote": "頁面還沒被翻譯",
+    "homeLink": "回主頁面",
+    "englishLink": "閱讀英文版",
+    "contributeLink": "在 GitHub 上參與貢獻"
+  },
+  "search": {
+    "button": {
+      "buttonText": "搜尋",
+      "buttonAriaLabel": "搜尋"
+    },
+    "modal": {
+      "displayDetails": "顯示詳細清單",
+      "resetButtonTitle": "重置搜尋",
+      "backButtonTitle": "關閉搜尋",
+      "noResultsText": "找不到搜尋結果",
+      "footer": {
+        "selectText": "選擇",
+        "selectKeyAriaLabel": "輸入",
+        "navigateText": "導航",
+        "navigateUpKeyAriaLabel": "↑",
+        "navigateDownKeyAriaLabel": "↓",
+        "closeText": "關閉",
+        "closeKeyAriaLabel": "ESC"
+      }
+    }
+  }
+}

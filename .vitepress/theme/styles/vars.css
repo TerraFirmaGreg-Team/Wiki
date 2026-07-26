@@ -1,0 +1,17 @@
+:root {
+    --header-bg-inner: rgba(0, 0, 0, 0.03);
+    --header-bg-outer: rgb(0 0 0 / 0);
+    --header-border: #8e8e8e;
+    --header-shadow: rgba(94, 94, 94, 0.4);
+    --header-text-shadow: rgba(0, 0, 0, 0.1);
+    --header-fade-border: rgb(0 0 0 / 0.32);
+}
+
+:root:not(.dark) {
+    --header-bg-inner: rgba(255, 255, 255, 0.07);
+    --header-bg-outer: rgb(0 0 0 / 0);
+    --header-border: rgb(74 74 74);
+    --header-shadow: rgba(0, 0, 0, 0.7);
+    --header-text-shadow: rgba(0, 0, 0, 0.8);
+    --header-fade-border: rgb(255 255 255 / 0.19);
+}

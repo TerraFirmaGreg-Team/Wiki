@@ -5,7 +5,7 @@ hero:
   name: TerraFirmaGreg Wiki
   tagline: Modpack de Sobrevivência Como Deveria Ter Sido
   actions:
-    - theme: marca
+    - theme: brand
       text: Baixar no CurseForge
       link: https://www.curseforge.com/members/terrafirmagreg/projects
     - theme: alt
@@ -28,7 +28,7 @@ features:
   - title: Informações para Desenvolvedores
     details: Documentação interna para membros e colaboradores da equipe.
     link: /modern/pt_br/developer/cheat-sheet
-    linkText: Abra um guia de referências KubeJS
+    linkText: Abrir folha de dicas KubeJS
 ---
 
 Quer que adicionemos mais conteúdo ou só passar tempo com a gente? Junte-se a nós no [Discord](https://discord.com/invite/AEaCzCTUwQ).
