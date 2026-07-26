@@ -14,6 +14,10 @@ Here's some more mods that are compatible with TFG but aren't included by defaul
 * ***Shoulder Surfing Reloaded*** ([CF](https://www.curseforge.com/minecraft/mc-mods/shoulder-surfing-reloaded), [MR](https://modrinth.com/mod/shoulder-surfing-reloaded/)) - Improved third person camera mod. Client-side, so you can install it even if you're playing on someone else's server.
     * ***Third Person Shooting: Zero*** ([CF](https://www.curseforge.com/minecraft/mc-mods/third-person-shooting), [MR](https://modrinth.com/mod/third-person-shooting-zero)) - Adds compatibility between Shoulder Surfing Reloaded and TACZ (the gun mod)
 
+### Resource Packs
+* ***ILAORE's 32x Texture Packs*** - for [TFC](https://www.curseforge.com/minecraft/texture-packs/ilaores-tfc-32x), [Create](https://www.curseforge.com/minecraft/texture-packs/improved-create-32x), [AE2](https://www.curseforge.com/minecraft/texture-packs/improved-applied-energistics-2), and [GregTech](https://www.curseforge.com/minecraft/texture-packs/gregtech-revival-32x). If you like higher detailed textures, you might like one of these, but keep in mind that a lot of blocks in TFG do not have 32x versions so there will be some style clashing.
+* ***Ad Astra 3D*** ([CF](https://www.curseforge.com/minecraft/texture-packs/ad-astra-3d), [MR](https://modrinth.com/resourcepack/ad-astra-3d)) - Replaces the usual pixelated textures of the celestial bodies in different sky boxes with 3D models. Goes great with shaders!
+
 ## Content
 ### Addons
 * ***Epic Knights of TerraFirmaGreg*** ([CF](https://www.curseforge.com/minecraft/mc-mods/epic-knights-of-terrafirmagreg/files/8242766)) - Adds additional weapons and armor to the TFC era of the modpack. Not included by default because of a lot of extra equipment bloat.
