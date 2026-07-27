@@ -25,10 +25,10 @@ features:
     details: Extra mods that aren't included by default, but which TFG has compatibility with.
     link: /modern/en_us/modpack/optional-mods
     linkText: See the list
-  - title: Developer Information
-    details: Internal documentation for team members and contributors.
-    link: /modern/en_us/developer/cheat-sheet
-    linkText: Open a KubeJS cheat sheet
+  - title: Updating & Reinstalling
+    details: How to update or reinstall your modpack without breaking anything.
+    link: /modern/en_us/modpack/reinstalling
+    linkText: Update instructions
 ---
 
 Want us to add more content, or just want to hang out? Join us on [Discord](https://discord.com/invite/AEaCzCTUwQ).
