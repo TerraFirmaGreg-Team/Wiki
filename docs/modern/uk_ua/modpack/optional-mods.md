@@ -17,6 +17,11 @@ order: 1
 - _**Shoulder Surfing Reloaded**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/shoulder-surfing-reloaded), [MR](https://modrinth.com/mod/shoulder-surfing-reloaded/)) — мод на покращену камеру від третьої особи. Клієнтський мод, тому ти можеш встановити його, навіть якщо граєш на чужому сервері.
   - _**Third Person Shooting: Zero**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/third-person-shooting), [MR](https://modrinth.com/mod/third-person-shooting-zero)) — додає сумісність між Shoulder Surfing Reloaded та TACZ (модом на зброю)
 
+### Ресурспаки
+
+- _**Ресурспаки ILAORE's 32x**_ - для [TFC](https://www.curseforge.com/minecraft/texture-packs/ilaores-tfc-32x), [Create](https://www.curseforge.com/minecraft/texture-packs/improved-create-32x), [AE2](https://www.curseforge.com/minecraft/texture-packs/improved-applied-energistics-2), та [GregTech](https://www.curseforge.com/minecraft/texture-packs/gregtech-revival-32x). Якщо тобі подобаються більш деталізовані текстури, тобі може підійти один із цих варіантів, але май на увазі, що багато блоків у TFG не мають версій у роздільності 32x, тому виникатиме певна невідповідність стилів.
+- _**Ad Astra 3D**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/ad-astra-3d), [MR](https://modrinth.com/resourcepack/ad-astra-3d)) - замінює звичні піксельні текстури небесних тіл у різних скайбоксах на 3D-моделі. Чудово пасує до шейдерів!
+
 ## Контент
 
 ### Аддони
