@@ -2,6 +2,7 @@
 title: Optional Mods
 order: 1
 ---
+# Optional Mods
 Here's some more mods that are compatible with TFG but aren't included by default. Feel free to add them to your own instance of the modpack!
 
 ## Visual
