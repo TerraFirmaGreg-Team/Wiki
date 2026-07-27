@@ -22,6 +22,7 @@ Here's some more mods that are compatible with TFG but aren't included by defaul
 ## Content
 ### Addons
 * ***Epic Knights of TerraFirmaGreg*** ([CF](https://www.curseforge.com/minecraft/mc-mods/epic-knights-of-terrafirmagreg/files/8242766)) - Adds additional weapons and armor to the TFC era of the modpack. Not included by default because of a lot of extra equipment bloat.
+* ***Via Romana***: ([CF](https://www.curseforge.com/minecraft/mc-mods/via-romana)) - Adds infrastructure driven fast travel. Allowing you create road networks with signs to travel between locations. TFG includes a built in [config file](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/dev/config/via_romana.json) for allowing roads to be made out of many of our blocks.
 
 ### With Custom Recipes
 * ***Create: Sound of Steam*** ([CF](https://www.curseforge.com/minecraft/mc-mods/create-sound-of-steam), [MR](https://modrinth.com/mod/create-sound-of-steam/)) - expands on create's Steam Whistle and adds a ton more options to let you play music. Not included by default because of how niche it is. We include our own recipes for it though.
