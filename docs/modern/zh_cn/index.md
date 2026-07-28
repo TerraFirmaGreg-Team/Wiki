@@ -25,10 +25,10 @@ features:
     details: 默认未打包但与 TFG 兼容、值得一试的扩展模组。
     link: /modern/zh_cn/developer/cheat-sheet
     linkText: 查看清单
-  - title: 开发者文档
-    details: 团队成员与贡献者的内部文档。
-    link: /modern/zh_cn/modpack/optional-mods
-    linkText: 打开 KubeJS 速查表
+  - title: 更新 & 重装
+    details: 如何安全地更新或重装你的整合包。
+    link: /modern/zh_cn/modpack/reinstalling
+    linkText: 更新说明
 ---
 
 想看更多内容、或者只是来玩玩？ 欢迎加入我们的 [Discord](https://discord.com/invite/AEaCzCTUwQ)。
