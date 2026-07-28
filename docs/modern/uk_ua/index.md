@@ -25,10 +25,10 @@ features:
     details: Додаткові моди, які не входять типово, але з якими TFG має сумісність.
     link: /modern/en_us/modpack/optional-mods
     linkText: Переглянути список
-  - title: Інформація для розробників
-    details: Внутрішня документація для членів команди та контриб’юторів.
-    link: /modern/en_us/developer/cheat-sheet
-    linkText: Відкрити шпаргалку KubeJS
+  - title: Оновлення та перевстановлення
+    details: Як оновити або перевстановити модпак нічого не зламавши.
+    link: /modern/en_us/modpack/reinstalling
+    linkText: Інструкції з оновлення
 ---
 
 Хочеш, щоб ми додали більше контенту, чи просто хочеш поспілкуватися? Приєднуйся до нас у [Discord](https://discord.com/invite/AEaCzCTUwQ).
