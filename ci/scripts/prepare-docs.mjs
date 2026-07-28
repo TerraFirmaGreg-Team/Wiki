@@ -105,10 +105,6 @@ function isPlaceholderLocaleIndex(content) {
   return content.includes('translationInProgress: true') && !content.includes('\nfeatures:\n')
 }
 
-function hasHomeStyleLayout(content) {
-  return /^(---\nlayout: (?:home|HomeWithSidebar)\n)/m.test(content)
-}
-
 function injectTranslationInProgress(content) {
   if (/^translationInProgress:\s*true\s*$/m.test(content)) {
     return content
