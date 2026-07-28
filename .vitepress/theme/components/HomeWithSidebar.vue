@@ -17,10 +17,7 @@ const { frontmatter, theme } = useData()
     </div>
     <VPHomeFeatures />
     <div class="vp-doc home-content">
-      <template v-if="frontmatter.markdownStyles !== false">
-        <Content />
-      </template>
-      <Content v-else />
+      <Content />
     </div>
   </div>
 </template>

@@ -23,11 +23,11 @@ features:
     linkText: 查看 0.13 更新
   - title: 推荐附加模组
     details: 默认未打包但与 TFG 兼容、值得一试的扩展模组。
-    link: /modern/zh_cn/modpack/optional-mods
+    link: /modern/zh_cn/developer/cheat-sheet
     linkText: 查看清单
   - title: 开发者文档
     details: 团队成员与贡献者的内部文档。
-    link: /modern/zh_cn/developer/cheat-sheet
+    link: /modern/zh_cn/modpack/optional-mods
     linkText: 打开 KubeJS 速查表
 ---
 

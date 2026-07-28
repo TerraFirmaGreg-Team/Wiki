@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: HomeWithSidebar
 
 hero:
   name: TerraFirmaGreg Wiki
