@@ -105,12 +105,16 @@ function isPlaceholderLocaleIndex(content) {
   return content.includes('translationInProgress: true') && !content.includes('\nfeatures:\n')
 }
 
+function hasHomeStyleLayout(content) {
+  return /^(---\nlayout: (?:home|HomeWithSidebar)\n)/m.test(content)
+}
+
 function injectTranslationInProgress(content) {
   if (/^translationInProgress:\s*true\s*$/m.test(content)) {
     return content
   }
   const normalized = content.replace(/^\uFEFF/, '')
-  return normalized.replace(/^(---\nlayout: home\n)/m, '$1translationInProgress: true\n')
+  return normalized.replace(/^(---\nlayout: (?:home|HomeWithSidebar)\n)/m, '$1translationInProgress: true\n')
 }
 
 function rewriteLocaleLinks(content, locale, defaultLocale) {

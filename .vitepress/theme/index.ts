@@ -5,6 +5,7 @@ import Layout from './components/Layout.vue'
 import Recipe from './components/Recipe.vue'
 import GradientText from './components/GradientText.vue'
 import ModernHeader from './components/ModernHeader.vue'
+import HomeWithSidebar from './components/HomeWithSidebar.vue'
 import { persistLocaleFromPath } from './locale'
 import { isStaticSitePathname } from './static-site'
 
@@ -63,6 +64,7 @@ export default {
     app.component('Recipe', Recipe)
     app.component('GradientText', GradientText)
     app.component('ModernHeader', ModernHeader)
+    app.component('HomeWithSidebar', HomeWithSidebar)
     installStaticSiteRouter(router)
     installLocalePersistence(router)
   },
