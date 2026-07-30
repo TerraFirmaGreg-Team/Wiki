@@ -27,7 +27,7 @@ features:
     linkText: Переглянути список
   - title: Оновлення та перевстановлення
     details: Як оновити або перевстановити модпак нічого не зламавши.
-    link: /modern/en_us/modpack/reinstalling
+    link: /modern/uk_ua/modpack/reinstalling
     linkText: Інструкції з оновлення
 ---
 
