@@ -1,0 +1,54 @@
+{
+  "label": "Lietuvių",
+  "lang": "lt-LT",
+  "nav": {
+    "home": "Pradžia",
+    "download": "Atsisiųsti",
+    "officialSite": "Oficialus puslapis",
+    "projects": "Projektai",
+    "discord": "Discord",
+    "fieldGuide": "Lauko vadovas",
+    "recipeBook": "Receptų knyga",
+    "questBook": "Užduočių knyga"
+  },
+  "editLink": "Redaguoti šį puslapį per GitHub",
+  "docFooter": {
+    "prev": "Ankstesnis puslapis",
+    "next": "Kitas puslapis"
+  },
+  "outline": "Šiame puslapyje",
+  "lastUpdated": "Paskutinį kartą atnaujinta",
+  "darkModeSwitchLabel": "Tema",
+  "sidebarMenuLabel": "Meniu",
+  "returnToTopLabel": "Grįžti į viršų",
+  "langMenuLabel": "Pakeisti kalbą",
+  "notFound": {
+    "title": "PUSLAPIS NERASTAS",
+    "missingQuote": "Šis puslapis neegzistuoja.",
+    "untranslatedQuote": "Šis puslapis neišverstas",
+    "homeLink": "Į pagrindinį puslapį",
+    "englishLink": "Skaityti angliškai",
+    "contributeLink": "Padėkite GitHub svetaineje"
+  },
+  "search": {
+    "button": {
+      "buttonText": "Paieška",
+      "buttonAriaLabel": "Paieška"
+    },
+    "modal": {
+      "displayDetails": "Rodyti detalų sąrašą",
+      "resetButtonTitle": "Išvalyti paiešką",
+      "backButtonTitle": "Uždaryti paiešką",
+      "noResultsText": "Jokių rezultatų ",
+      "footer": {
+        "selectText": "pasirinkti",
+        "selectKeyAriaLabel": "įeiti",
+        "navigateText": "naviguoti",
+        "navigateUpKeyAriaLabel": "rodyklė į viršų",
+        "navigateDownKeyAriaLabel": "rodyklė į apačią",
+        "closeText": "uždaryti",
+        "closeKeyAriaLabel": "išeiti"
+      }
+    }
+  }
+}
