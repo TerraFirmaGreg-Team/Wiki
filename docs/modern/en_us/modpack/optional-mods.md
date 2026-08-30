@@ -18,6 +18,9 @@ Here's some more mods that are compatible with TFG but aren't included by defaul
 ### Resource Packs
 * ***ILAORE's 32x Texture Packs*** - for [TFC](https://www.curseforge.com/minecraft/texture-packs/ilaores-tfc-32x), [Create](https://www.curseforge.com/minecraft/texture-packs/improved-create-32x), [AE2](https://www.curseforge.com/minecraft/texture-packs/improved-applied-energistics-2), and [GregTech](https://www.curseforge.com/minecraft/texture-packs/gregtech-revival-32x). If you like higher detailed textures, you might like one of these, but keep in mind that a lot of blocks in TFG do not have 32x versions so there will be some style clashing.
 * ***Ad Astra 3D*** ([CF](https://www.curseforge.com/minecraft/texture-packs/ad-astra-3d), [MR](https://modrinth.com/resourcepack/ad-astra-3d)) - Replaces the usual pixelated textures of the celestial bodies in different sky boxes with 3D models. Goes great with shaders!
+* ***HotOrNot 3D Mittens*** ([MR](https://modrinth.com/resourcepack/tfchotornot-3d-mittens)) - Changes the appearance of the TFC HotOrNot mittens into a 3D model.
+* ***Naturalis*** ([CF](https://www.curseforge.com/minecraft/texture-packs/tfc-naturalis), [MR](https://modrinth.com/resourcepack/tfc-naturalis)) - Makes fruit trees and grain crops more "bushy" looking.
+* ***TFC Livestock Skins*** ([CF](https://www.curseforge.com/minecraft/texture-packs/aures-tfc-livestock-skins)) - Adds some variations of livestock animals like alpacas, chickens, and ducks, based on the climate and block they spawned on. Requires [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) and [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features) to be installed as well.
 
 ## Content
 ### Addons
