@@ -23,6 +23,9 @@ order: 1
 
 - _**Ресурспаки ILAORE's 32x**_ - для [TFC](https://www.curseforge.com/minecraft/texture-packs/ilaores-tfc-32x), [Create](https://www.curseforge.com/minecraft/texture-packs/improved-create-32x), [AE2](https://www.curseforge.com/minecraft/texture-packs/improved-applied-energistics-2), та [GregTech](https://www.curseforge.com/minecraft/texture-packs/gregtech-revival-32x). Якщо тобі подобаються більш деталізовані текстури, тобі може підійти один із цих варіантів, але май на увазі, що багато блоків у TFG не мають версій у роздільності 32x, тому виникатиме певна невідповідність стилів.
 - _**Ad Astra 3D**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/ad-astra-3d), [MR](https://modrinth.com/resourcepack/ad-astra-3d)) - замінює звичні піксельні текстури небесних тіл у різних скайбоксах на 3D-моделі. Чудово пасує до шейдерів!
+- _**HotOrNot 3D Mittens**_ ([MR](https://modrinth.com/resourcepack/tfchotornot-3d-mittens)) - Змінює вигляд рукавиць TFC HotOrNot на 3D-модель.
+- _**Naturalis**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/tfc-naturalis), [MR](https://modrinth.com/resourcepack/tfc-naturalis)) - Робить фруктові дерева та зернові культури більш «кущистими» на вигляд.
+- **TFC Livestock Skins**\* ([CF](https://www.curseforge.com/minecraft/texture-packs/aures-tfc-livestock-skins)) - Додає кілька варіацій свійських тварин, таких як альпаки, кури та качки, залежно від клімату та блоку, на якому вони з'являються. Також потребує встановлення [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) та [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features).
 
 ## Контент
 
@@ -34,8 +37,14 @@ order: 1
 ### З кастомними рецептами
 
 - _**Create: Sound of Steam**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-sound-of-steam), [MR](https://modrinth.com/mod/create-sound-of-steam/)) — розширює можливості парового свистка з Create та додає безліч нових опцій для відтворення музики. Типово не входить до збірки через свою вузько спеціалізованість. Проте ми додаємо для нього власні рецепти.
+
 - _**Chimes**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/chimes)) — додає вітряні дзвіночки. Типово не входить до збірки, щоб уникнути захаращення модпаку, проте ми маємо для нього власні рецепти.
+
 - _**Create: Extra Gauges**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-extra-gauges), [MR](https://modrinth.com/mod/extra-gauges)) — розширює можливості фабричних вимірювальних приладів з Create. Якщо ти додаш його до свого модпаку, ти отримаєш змінені рецепти від TFG.
+
+- _**Create: Railways Navigator**_  ([CF](https://www.curseforge.com/minecraft/mc-mods/create-railways-navigator), [MR](https://modrinth.com/mod/create-railways-navigator)) - Розширює можливості планування руху потягів, додає інформаційні дисплеї для пасажирів як у потягах, так і на станціях, а також пристрій-навігатор, який може підказати, на які потяги тобі потрібно сісти для запланованої подорожі. Не включено за замовчуванням, оскільки це переважно корисно для великих багатокористувацьких серверів із великою кількістю залізниць. Користувацькі рецепти включено.
+  - _**Dragonlib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - Бібліотека, необхідна для роботи Railways Navigator.
+
 - _**Immersive vehicles**_. ([CF](https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator)) та його офіційні аддони з підтримкою рецептів TFG від @ilikecupcakes
   - _**MTS Official Content Pack**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/transport-simulator-official-vehicle-set)) — додає десятки автомобілів, літаків, гелікоптерів та танків. А також дорожні знаки та світлофори. Для підтримки рецептів потрібен базовий мод та офіційний набір автомобілів.
   - _**MTS Official Automobile Pack**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/mts-iv-official-automobile-pack)) — додає кілька нових автомобілів. Для підтримки рецептів потрібен базовий мод та офіційний набір контенту.

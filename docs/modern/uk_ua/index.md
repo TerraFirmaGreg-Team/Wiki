@@ -23,7 +23,7 @@ features:
     linkText: Прочитати журнал змін 0.13
   - title: Додаткові моди
     details: Додаткові моди, які не входять типово, але з якими TFG має сумісність.
-    link: /modern/en_us/modpack/optional-mods
+    link: /modern/uk_ua/modpack/optional-mods
     linkText: Переглянути список
   - title: Оновлення та перевстановлення
     details: Як оновити або перевстановити модпак нічого не зламавши.
