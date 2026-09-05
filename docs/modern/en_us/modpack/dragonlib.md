@@ -1,6 +1,9 @@
 ---
 title: Installing Dragonlib
 order: 3
+prev:
+    link: '/modpack/optional-mods'
+next: false
 ---
 Dragonlib is a library mod needed for Create: Railways Navigator.
 Unfortunately simply installing the latest version has been known to cause issues.
