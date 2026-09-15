@@ -21,6 +21,7 @@ Here's some more mods that are compatible with TFG but aren't included by defaul
 * ***HotOrNot 3D Mittens*** ([MR](https://modrinth.com/resourcepack/tfchotornot-3d-mittens)) - Changes the appearance of the TFC HotOrNot mittens into a 3D model.
 * ***Naturalis*** ([CF](https://www.curseforge.com/minecraft/texture-packs/tfc-naturalis), [MR](https://modrinth.com/resourcepack/tfc-naturalis)) - Makes fruit trees and grain crops more "bushy" looking.
 * ***TFC Livestock Skins*** ([CF](https://www.curseforge.com/minecraft/texture-packs/aures-tfc-livestock-skins)) - Adds some variations of livestock animals like alpacas, chickens, and ducks, based on the climate and block they spawned on. Requires [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) and [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features) to be installed as well.
+* ***lsc's Player Dolls*** ([CF](https://www.curseforge.com/minecraft/texture-packs/lscs-player-dolls), [MR](https://modrinth.com/resourcepack/lscs-player-dolls)) - A simple resource pack that transforms vanilla Player Heads into adorable dolls. Put a plushie of GregT next to your EBF! Requires [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) and [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features) to be installed as well.
 
 ## Content
 ### Addons
