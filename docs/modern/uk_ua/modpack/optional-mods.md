@@ -26,6 +26,7 @@ order: 1
 - _**HotOrNot 3D Mittens**_ ([MR](https://modrinth.com/resourcepack/tfchotornot-3d-mittens)) - Змінює вигляд рукавиць TFC HotOrNot на 3D-модель.
 - _**Naturalis**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/tfc-naturalis), [MR](https://modrinth.com/resourcepack/tfc-naturalis)) - Робить фруктові дерева та зернові культури більш «кущистими» на вигляд.
 - **TFC Livestock Skins**\* ([CF](https://www.curseforge.com/minecraft/texture-packs/aures-tfc-livestock-skins)) - Додає кілька варіацій свійських тварин, таких як альпаки, кури та качки, залежно від клімату та блоку, на якому вони з'являються. Також потребує встановлення [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) та [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features).
+- _**lsc's Player Dolls**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/lscs-player-dolls), [MR](https://modrinth.com/resourcepack/lscs-player-dolls)) - Простий ресурспак, який перетворює звичайні голови гравців на милі ляльки. Постав плюшевого GregT поруч зі своїм EBF! Для роботи також потрібно встановити [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) та [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features)
 
 ## Контент
 
@@ -43,7 +44,7 @@ order: 1
 - _**Create: Extra Gauges**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-extra-gauges), [MR](https://modrinth.com/mod/extra-gauges)) — розширює можливості фабричних вимірювальних приладів з Create. Якщо ти додаш його до свого модпаку, ти отримаєш змінені рецепти від TFG.
 
 - _**Create: Railways Navigator**_  ([CF](https://www.curseforge.com/minecraft/mc-mods/create-railways-navigator), [MR](https://modrinth.com/mod/create-railways-navigator)) - Розширює можливості планування руху потягів, додає інформаційні дисплеї для пасажирів як у потягах, так і на станціях, а також пристрій-навігатор, який може підказати, на які потяги тобі потрібно сісти для запланованої подорожі. Не включено за замовчуванням, оскільки це переважно корисно для великих багатокористувацьких серверів із великою кількістю залізниць. Користувацькі рецепти включено.
-  - _**Dragonlib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - Бібліотека, необхідна для роботи Railways Navigator.
+  - _**Dragonlib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - Бібліотека, необхідна для роботи Railways Navigator. **ВАЖЛИВО:** Виявлено, що найновіша версія dragonlib перешкоджає завантаженню гри. Повідомлялося, що версії 3.0.21 та 3.0.26 обидві працюють.
 
 - _**Immersive vehicles**_. ([CF](https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator)) та його офіційні аддони з підтримкою рецептів TFG від @ilikecupcakes
   - _**MTS Official Content Pack**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/transport-simulator-official-vehicle-set)) — додає десятки автомобілів, літаків, гелікоптерів та танків. А також дорожні знаки та світлофори. Для підтримки рецептів потрібен базовий мод та офіційний набір автомобілів.
