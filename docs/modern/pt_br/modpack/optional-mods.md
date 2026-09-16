@@ -8,7 +8,6 @@ Abaixo estão mais alguns mods compatíveis com o TFG, mas que não vêm incluí
 ## Visual
 
 - TFC Caelum ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) - um mod de céu realista que mostra planetas, constelações precisas, fases da lua e afins. Também adiciona arco-íris! Não incluído por padrão porque trava clientes no MacOS.
-- Xaero Zoomout ([CF](https://www.curseforge.com/minecraft/mc-mods/xaerozoomout), [MR](https://modrinth.com/mod/xaero-zoomout)) - permite afastar mais o zoom no mapa.
 - Distant Horizons ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) - o TFG vem com configurações para fazê-lo funcionar com a geração de mundo do TFC.
 - [BlueMap](https://bluemap.bluecolored.de/) - o TFG vem com um pacote de recursos para fazê-lo funcionar com alguns blocos do TFC.
 

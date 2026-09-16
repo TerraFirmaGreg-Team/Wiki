@@ -10,7 +10,6 @@ order: 1
 ## 视觉类
 
 - _**TFC Caelum**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) —— 一款逼真的天空模组，可以显示行星、精确的星座、月相等等。 还会添加彩虹！ 默认不包含是因为它会导致 macOS 客户端崩溃。
-- _**Xaero Zoomout**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/xaerozoomout), [MR](https://modrinth.com/mod/xaero-zoomout)) —— 允许在地图上拉得更远。
 - _**Distant Horizons**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) —— TFG 自带配置，使其能够与 TFC 的世界生成协同工作。
 - [BlueMap](https://bluemap.bluecolored.de/) —— TFG 附带资源包，使其可以与部分 TFC 方块兼容。
 
