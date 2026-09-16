@@ -10,7 +10,6 @@ order: 1
 ## Графічні
 
 - _**TFC Caelum**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) — мод на реалістичне небо, який показує планети, точні сузір'я, фази місяця тощо. Також додає веселки! Типово не входить до збірки за замовчуванням, оскільки викликає збої у клієнтів на MacOS.
-- _**Xaero Zoomout**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/xaerozoomout), [MR](https://modrinth.com/mod/xaero-zoomout)) — дозволяє сильніше віддаляти мапу.
 - _**Distant Horizons**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) — TFG постачається з конфігураціями для забезпечення його роботи з генерацією світу TFC.
 - [BlueMap](https://bluemap.bluecolored.de/) — TFG постачається з ресурспаком для забезпечення його роботи з деякими блоками TFC.
 
