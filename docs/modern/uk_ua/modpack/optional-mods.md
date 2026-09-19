@@ -10,7 +10,7 @@ order: 1
 ## Графічні
 
 - _**TFC Caelum**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) — мод на реалістичне небо, який показує планети, точні сузір'я, фази місяця тощо. Також додає веселки! Типово не входить до збірки за замовчуванням, оскільки викликає збої у клієнтів на MacOS.
-- _**Distant Horizons**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) — TFG постачається з конфігураціями для забезпечення його роботи з генерацією світу TFC.
+- _**Distant Horizons**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) — TFG містить налаштування для забезпечення його роботи з генерацією світу TFC. ВАЖЛИВО: DH не зможе генерувати LOD, доки не буде видалено мод Chunky.
 - [BlueMap](https://bluemap.bluecolored.de/) — TFG постачається з ресурспаком для забезпечення його роботи з деякими блоками TFC.
 
 ### Вигляд від третьої особи
