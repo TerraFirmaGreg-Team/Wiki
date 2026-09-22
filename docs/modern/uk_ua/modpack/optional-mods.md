@@ -9,7 +9,6 @@ order: 1
 
 ## Графічні
 
-- _**TFC Caelum**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) — мод на реалістичне небо, який показує планети, точні сузір'я, фази місяця тощо. Також додає веселки! Типово не входить до збірки за замовчуванням, оскільки викликає збої у клієнтів на MacOS.
 - _**Distant Horizons**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) — TFG містить налаштування для забезпечення його роботи з генерацією світу TFC. ВАЖЛИВО: DH не зможе генерувати LOD, доки не буде видалено мод Chunky.
 - [BlueMap](https://bluemap.bluecolored.de/) — TFG постачається з ресурспаком для забезпечення його роботи з деякими блоками TFC.
 
@@ -24,7 +23,7 @@ order: 1
 - _**Ad Astra 3D**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/ad-astra-3d), [MR](https://modrinth.com/resourcepack/ad-astra-3d)) - замінює звичні піксельні текстури небесних тіл у різних скайбоксах на 3D-моделі. Чудово пасує до шейдерів!
 - _**HotOrNot 3D Mittens**_ ([MR](https://modrinth.com/resourcepack/tfchotornot-3d-mittens)) - Змінює вигляд рукавиць TFC HotOrNot на 3D-модель.
 - _**Naturalis**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/tfc-naturalis), [MR](https://modrinth.com/resourcepack/tfc-naturalis)) - Робить фруктові дерева та зернові культури більш «кущистими» на вигляд.
-- **TFC Livestock Skins**\* ([CF](https://www.curseforge.com/minecraft/texture-packs/aures-tfc-livestock-skins)) - Додає кілька варіацій свійських тварин, таких як альпаки, кури та качки, залежно від клімату та блоку, на якому вони з'являються. Також потребує встановлення [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) та [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features).
+- **TFC Livestock Skins**\* ([CF](https://www.curseforge.com/minecraft/texture-packs/aures-tfc-livestock-skins)) - Додає кілька варіацій свійських тварин, таких як альпаки, кури та качки, залежно від клімату та блоку, на якому вони з'являються. Для роботи також потрібно встановити [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) та [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features)
 - _**lsc's Player Dolls**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/lscs-player-dolls), [MR](https://modrinth.com/resourcepack/lscs-player-dolls)) - Простий ресурспак, який перетворює звичайні голови гравців на милі ляльки. Постав плюшевого GregT поруч зі своїм EBF! Для роботи також потрібно встановити [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) та [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features)
 
 ## Контент
