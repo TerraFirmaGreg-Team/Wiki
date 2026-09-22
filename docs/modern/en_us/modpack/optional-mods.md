@@ -6,7 +6,6 @@ order: 1
 Here's some more mods that are compatible with TFG but aren't included by default. Feel free to add them to your own instance of the modpack!
 
 ## Visual
-* ***TFC Caelum*** ([CF](https://www.curseforge.com/minecraft/mc-mods/tfc-caelum), [MR](https://modrinth.com/mod/tfc-caelum)) - a realistic sky mod that shows planets, accurate constellations, moon phases, and so on. Also adds rainbows! Not included by default because it crashes MacOS clients.
 * ***Distant Horizons*** ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) - TFG comes with configurations to get it working with TFC's world generation. IMPORTANT: DH will be unable to generate LODs unless the mod Chunky is removed.
 * [BlueMap](https://bluemap.bluecolored.de/) - TFG comes with a resource pack for it to work with some of TFC's blocks.
 
