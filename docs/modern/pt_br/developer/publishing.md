@@ -75,15 +75,11 @@ Em Tools-Modern, há uma ferramenta chamada PakkuLockChecker. Ele vai analisar o
 
 É normal que muitos mods estejam faltando no Modrinth e que alguns tenham divergências de versão, então você só precisa se preocupar com os mais importantes, como o TFG-Core e assim por diante.
 
-## 6. Execute o mesclador de idiomas
-
-Sincronize o repositório Tools-Modern e execute a ferramenta LanguageMerger. Isso garantirá que o modpack tenha todas as alterações mais recentes do texto em inglês. Faça o commit dos arquivos json `en_us` no modpack posteriormente.
-
-## 7. Esperar pelo TFG-Core
+## 6. Esperar pelo TFG-Core
 
 Continue rodando `java -jar pakku.jar update TerraFirmaGreg-Core` até que o arquivo pakku-lock.json tenha as versões corretas para o Curseforge e Modrinth. A ferramenta PakkuLockChecker também pode ser útil aqui.
 
-## 8. Inicie o modpack uma última vez
+## 7. Inicie o modpack uma última vez
 
 Se sua instância do Minecraft e espaço de trabalho são pastas separadas (como elas devem ser), copie suas pastas config e defaultconfigs, sobrescreva na sua instância e inicie o jogo uma última vez.
 
@@ -91,7 +87,7 @@ Rode alguns testes rápidos como abrir o seu mundo de teste, rode `/kjs errors s
 
 Se tudo estiver certo, copie o arquivo `config/crash_assistant/modlist.json` de sua instância para seu espaço de trabalho. Este arquivo é usado em relatórios de erro do Assistente de Crash para dizer quais alterações de mod o usuário fez.
 
-## 9. Execute um teste num servidor linux
+## 8. Execute um teste num servidor linux
 
 Certifique-se de que tudo o que você mudou no modpack seja publicado em `dev`, depois espere o [build system](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/actions) terminar de construir uma compilação.
 
@@ -99,7 +95,7 @@ Consiga alguém com um servidor linux (tom e sakura podem ambos fazer isso) para
 
 Talvez você possa pular esta etapa se estiver fazendo uma publicação pequena, mas urgente, com um monte de correções de receitas ou algo, mas se não é urgente, é bom testar isso.
 
-## 10. Últimos passos
+## 9. Últimos passos
 
 Se esta for a sua primeira vez publicando, certifique-se de que outro desenvolvedor experiente revise todos os seus passos antes de continuar!
 

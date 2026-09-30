@@ -23,7 +23,7 @@ instance_path = C:/path//to//modpack
 
 ## 默认数据生成
 
-默认情况下，registrate 会查找与方块 ID 同名的贴图，并将其用作该方块六个面的贴图。 对于物品，registrate 会查找简单贴图并用作该物品的贴图。
+默认情况下，registrate 会查找与方块 ID 同名的贴图，并将其用作该方块六个面的贴图。对于物品，registrate 会查找简单贴图并用作该物品的贴图。
 
 要对方块禁用数据生成：
 
@@ -125,7 +125,7 @@ GTModels.cubeAllModel(TFGCore.id("block/casings/electromagnetic_accelerator"))
 
 ### 定义战利品表与方块掉落
 
-默认情况下，方块会掉落自身。 使用 `.loot()` 方法可定义自定义掉落。
+默认情况下，方块会掉落自身。使用 `.loot()` 方法可定义自定义掉落。
 
 示例：
 

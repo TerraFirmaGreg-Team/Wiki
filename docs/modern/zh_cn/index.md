@@ -31,4 +31,4 @@ features:
     linkText: 更新说明
 ---
 
-想看更多内容、或者只是来玩玩？ 欢迎加入我们的 [Discord](https://discord.com/invite/AEaCzCTUwQ)。
+想看更多内容、或者只是来玩玩？欢迎加入我们的 [Discord](https://discord.com/invite/AEaCzCTUwQ)。

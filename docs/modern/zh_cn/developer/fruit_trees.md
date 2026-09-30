@@ -5,7 +5,7 @@ order: 9
 
 # 果树
 
-> 本文档旨在作为向 TFG 添加新果树的通用指南。 并对类函数进行说明。
+> 本文档旨在作为向 TFG 添加新果树的通用指南。并对类函数进行说明。
 
 ## [核心模组侧](https://github.com/TerraFirmaGreg-Team/Core-Modern)
 
@@ -35,7 +35,7 @@ order: 9
 ### 步骤 1) 气候范围与果实
 
 - 将[气候范围](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfg/food/constants.food.js#L897)数据添加到常量中。
-- 在此文件中，同时将[果实信息](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfg/food/constants.food.js#L655)添加到水果常量中。 这将生成果酱以及其他与水果相关的物品/配方。
+- 在此文件中，同时将[果实信息](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfg/food/constants.food.js#L655)添加到水果常量中。这将生成果酱以及其他与水果相关的物品/配方。
 
 ### 步骤 2) 食物数据
 
@@ -45,7 +45,7 @@ order: 9
 
 ### 步骤 3) 资产文件
 
-- 如果你正在添加新的水果类型，请启用[GEN_JAM_MODELS](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfg/food/items.food.js#L62)并启动一次整合包以生成果酱模型。 在推送前请记得将布尔值设回 false。
+- 如果你正在添加新的水果类型，请启用[GEN_JAM_MODELS](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/d6bde70e925152ab3d3797f9197a48aaeccd829a/kubejs/startup_scripts/tfg/food/items.food.js#L62)并启动一次整合包以生成果酱模型。在推送前请记得将布尔值设回 false。
 - 添加[果酱纹理](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/tree/dev/kubejs/assets/tfg/textures/block/food/jam)。
 
 ### 步骤 4) 地形生成
@@ -58,6 +58,6 @@ order: 9
 
 - 在各自维度的分类下，为每棵新树添加野外手册条目。
 
-## [工具仓库侧](https://github.com/TerraFirmaGreg-Team/Tools-Modern)
+### [工具仓库侧](https://github.com/TerraFirmaGreg-Team/Tools-Modern)
 
 - 为所有内容添加语言字符串。

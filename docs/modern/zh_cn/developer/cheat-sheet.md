@@ -5,7 +5,7 @@ order: 1
 
 ## 速查表
 
-本页面的目的是供开发者记录有用的函数，以备将来使用。如果您有任何值得分享的 JavaScript 或 Java 代码，请放在这里。 如果您有任何值得分享的 JavaScript 或 Java 代码，请放在这里。
+本页面的目的是供开发者记录有用的函数，以备将来使用。如果您有任何值得分享的 JavaScript 或 Java 代码，请放在这里。如果您有任何值得分享的 JavaScript 或 Java 代码，请放在这里。
 
 ***
 
@@ -20,15 +20,15 @@ order: 1
 ```
 
 - .itemIds
-  这用于访问该材料标签中的物品 ID 列表。 结果是一个 Java Set。
+  这用于访问该材料标签中的物品 ID 列表。结果是一个 Java Set。
 - .toArray()
   这将列表（一个 Java Set）转换为 JavaScript 数组。
 - .map(String)
-  这将数组中的每个物品 ID 转换为字符串。 大多数 js 函数都需要此步骤，但并非全部。
+  这将数组中的每个物品 ID 转换为字符串。大多数 js 函数都需要此步骤，但并非全部。
 
 ## 标签减法
 
-以下是在配方中使用数组来生成相同数组（但不包括原始物品）的示例。 适用于切石机、染色等。
+以下是在配方中使用数组来生成相同数组（但不包括原始物品）的示例。适用于切石机、染色等。
 
 ```js
 	const tag_array = Ingredient.of('#forge:tag').itemIds.toArray().map(String);
@@ -78,9 +78,9 @@ order: 1
        });
 ```
 
-1. 声明文件路径。 （上例中的 `trimfilepaths`）
-2. 创建一个包含 JSON 信息的常量版本。 （上例中的 `newtrimdata`）
-3. 对每个文件路径，读取其内容，如果缺失则写入新数据。 （上例中的 `existingData`）
+1. 声明文件路径。（上例中的 `trimfilepaths`）
+2. 创建一个包含 JSON 信息的常量版本。（上例中的 `newtrimdata`）
+3. 对每个文件路径，读取其内容，如果缺失则写入新数据。（上例中的 `existingData`）
 
 ## 打印配方 JSON 到日志
 
@@ -202,7 +202,7 @@ event.recipes.gtceu.chemical_reactor("test_xor")
 
 ## 从 Forge 注册表获取粒子类型
 
-为了使用来自其他模组的粒子类型而不使其成为依赖项，您可以使用 `ForgeRegistries.PARTICLE_TYPES.getValue()`。 以下是使用 `ae2:lightning_fx` 的示例。 如果该模组不存在，它将回退到 `minecraft:end_rod`。
+为了使用来自其他模组的粒子类型而不使其成为依赖项，您可以使用 `ForgeRegistries.PARTICLE_TYPES.getValue()`。以下是使用 `ae2:lightning_fx` 的示例。如果该模组不存在，它将回退到 `minecraft:end_rod`。
 
 ```java
 @Override
@@ -233,7 +233,7 @@ event.recipes.gtceu.chemical_reactor("test_xor")
 
 [Extra Mixins](https://github.com/LlamaLad7/MixinExtras/wiki)
 
-如果您的 mixin 覆盖了 Minecraft 中的任何内容，或者注入到了一个从 Minecraft 继承的方法中，您的 mixin 需要 `remap = true`。其他所有情况都应使用 `remap = false`。 其他所有情况都应使用 `remap = false`。
+如果您的 mixin 覆盖了 Minecraft 中的任何内容，或者注入到了一个从 Minecraft 继承的方法中，您的 mixin 需要 `remap = true`。其他所有情况都应使用 `remap = false`。其他所有情况都应使用 `remap = false`。
 
 要获取 mixin 的重映射路径，请在 IntelliJ 中右键单击该方法，然后选择 Copy Special > Mixin Target Reference。
 
@@ -241,7 +241,7 @@ event.recipes.gtceu.chemical_reactor("test_xor")
 
 "在 Mixin 类上添加 @Pseudo 注解，可以让我们定位那些在编译时可能不存在、但在运行时存在的类。为此，我们使用该类的完全限定名来进行定位。" -Kolja
 
-Wormsignhandlermixin 中有一个很好的例子。 由于 mod/maven 可能表现异常，此工具应仅在必要时使用。
+Wormsignhandlermixin 中有一个很好的例子。由于 mod/maven 可能表现异常，此工具应仅在必要时使用。
 
 ## 调试
 
@@ -276,12 +276,12 @@ Wormsignhandlermixin 中有一个很好的例子。 由于 mod/maven 可能表�
     material.setFormula("Al2Si2O5(OH)4", true)
 ```
 
-将化学式工具提示更改为您想要的任何内容！ 我认为 `true` 会将数字变为下标。
+将化学式工具提示更改为您想要的任何内容！我认为 `true` 会将数字变为下标。
 
 ## 平衡化学式
 
-格雷科技 Discord 有一个用于检查您的化学式是否平衡的机器人。 [这里](https://discord.com/channels/701354865217110096/1186025944222269580/1392395245248974900) 有一个例子。
+格雷科技 Discord 有一个用于检查您的化学式是否平衡的机器人。[这里](https://discord.com/channels/701354865217110096/1186025944222269580/1392395245248974900) 有一个例子。
 
 对于固体物品，1 摩尔 = 该物品分子中的原子数，所以 1 摩尔的 Al2O3 是 5 个蓝宝石粉。
 
-对于液体物品则相反，1 摩尔 = 1 桶。 所以 1 摩尔的 H2O 是一桶水。
+对于液体物品则相反，1 摩尔 = 1 桶。所以 1 摩尔的 H2O 是一桶水。

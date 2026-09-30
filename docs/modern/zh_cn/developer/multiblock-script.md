@@ -17,7 +17,7 @@ order: 4
 
 ### 2.
 
-将您的小工具放入模板管理器。 您可以放入一张纸并点击保存以确保它是正确的结构。 然后点击复制将 json 保存到您的剪贴板。
+将您的小工具放入模板管理器。您可以放入一张纸并点击保存以确保它是正确的结构。然后点击复制将 json 保存到您的剪贴板。
 
 <p align="center">
 <img width="1024" height="720" alt="manager" src="https://github.com/user-attachments/assets/cabdc85b-1986-4f4c-94a1-ac9981f0fd36" />
@@ -25,8 +25,7 @@ order: 4
 
 ## 步骤 2) 运行工具
 
-> 高级转换器是一个经过大量修改的工具，最初由 Phoenixvine 创建。
-> 此工具从 Building Gadget 模组获取结构信息，并将其转换为 GT 结构格式。 所有文件应保留在同一文件夹中。
+> 高级转换器是一个经过大量修改的工具，最初由 Phoenixvine 创建。此工具从 Building Gadget 模组获取结构信息，并将其转换为 GT 结构格式。所有文件应保留在同一文件夹中。
 
 ### 说明
 
@@ -76,7 +75,7 @@ order: 4
 
 ## 步骤 3) 清理输出
 
-您可能需要稍微重新格式化输出。 以下是上面示例清理后的 Java 格式：
+您可能需要稍微重新格式化输出。以下是上面示例清理后的 Java 格式：
 
 ```java
 			.pattern(definition -> FactoryBlockPattern.start()
