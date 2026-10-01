@@ -11,7 +11,7 @@ order: 8
 
 ### Крок 1) Елемент Enum
 
-Щоб додати нові пальмові дерева, спочатку знайди перелік [FruitTreeType](https://github.com/TerraFirmaGreg-Team/Core-Modern/blob/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/java/su/terrafirmagreg/core/common/data/PalmTrees.java#L39) та додай новий елемент enum за зразком
+Щоб додати нові пальмові дерева, спочатку знайди перелік [PalmTrees](https://github.com/TerraFirmaGreg-Team/Core-Modern/blob/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/java/su/terrafirmagreg/core/common/data/PalmTrees.java#L39) та додай новий елемент enum за зразком
 
 ```java
     PalmTrees(int defaultGrowthDays, int foliageColorIndex, int minGrowthSize, int maxGrowthSize, int minDrops, int maxDrops, Integer clusterAges, String clusterModelShape, boolean specialCluster, boolean specialFruit, Lifecycle[] stages)
@@ -31,7 +31,7 @@ order: 8
 
 ### Крок 2) Ресурси
 
-- Додай текстури в теку ассетів palm_tree asset folder for [blocks](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/resources/assets/tfg/textures/block/palm_tree), [items](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/resources/assets/tfg/textures/item/palm_tree), та [food](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/resources/assets/tfg/textures/item/food).
+- Додай текстури в теку ассетів palm_tree [blocks](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/resources/assets/tfg/textures/block/palm_tree), [items](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/resources/assets/tfg/textures/item/palm_tree), та [food](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/resources/assets/tfg/textures/item/food).
 - Додай моделі для [palm heads](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/resources/assets/tfg/models/block/palm_tree), хоча ти можеш просто використати іншу крону пальми як батьківську модель. Але все ж рекомендується використовувати унікальні текстури для всіх видів пальм, щоб їх можна було хоч якось відрізнити одну від одної.
 - Необов'язково: додай [climate range](https://github.com/TerraFirmaGreg-Team/Core-Modern/tree/40dcc63f51c8abb9bddd9a864b467f3f18a61693/src/main/resources/data/tfg/tfc/climate_ranges/palm_tree) jsons до data теки щоб бути здатним протестувати дерева в dev середовищі. Але кліматичні дані все одно мають бути додані на стороні модпаку для послідовності.
 
@@ -54,7 +54,7 @@ order: 8
 
 - Увімкни [GEN_JAM_MODELS](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/f64e735e44db247b3c044ac31f7462046b5d0233/kubejs/startup_scripts/tfg/food/items.food.js#L62) та запусти модпак один раз, щоб згенерувати моделі джемів, якщо ти додаєш нові види фруктів. Не забудь знову змінити це булеве значення на false перед тим, як робити пуш коду.
 - Додай [jam textures](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/tree/f64e735e44db247b3c044ac31f7462046b5d0233/kubejs/assets/tfg/textures/block/food/jam).
-- Додай [planter textures](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/tree/f64e735e44db247b3c044ac31f7462046b5d0233/kubejs/assets/tfg/textures/block/palm_tree) для горщика для бонсаю у теплицях модифікації FirmaLife. Це просто 3x3 квадрат у верхньому лівому кутку 16x16 текстури.
+- Додай [planter textures](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/tree/f64e735e44db247b3c044ac31f7462046b5d0233/kubejs/assets/tfg/textures/block/palm_tree) для бонсай-плантерів у теплицях модифікації FirmaLife. Це просто 3x3 квадрат у верхньому лівому кутку 16x16 текстури.
 
 ### Крок 4) Генерація світу
 
@@ -67,11 +67,12 @@ order: 8
 
 - Додай записи в польовий довідник для кожного нового дерева у відповідну категорію виміру.
 
+### Крок 6
+
+- Додати рядки локалізації для всього [ось тут](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/tree/dev/kubejs/assets/tfg/lang/uk_ua).
+
 ### Необов’язковий\*)
 
 - Інформація про горщики теплиці Firmalife генерується автоматично за допомогою переліку (enum). Але ти можеш змінити регістр [тут](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/f64e735e44db247b3c044ac31f7462046b5d0233/kubejs/server_scripts/tfg/food/data.planters.js#L233).
 - Рецепти для електричної теплиці генеруються автоматично на основі enum. Але ти можеш змінити регістр [тут](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/f64e735e44db247b3c044ac31f7462046b5d0233/kubejs/server_scripts/tfg/aquaponics/recipes.greenhouse.js#L529).
 
-## [Сторона репозиторію інструментів](https://github.com/TerraFirmaGreg-Team/Tools-Modern)
-
-- Додай мовні рядки для всього [ось так](https://github.com/TerraFirmaGreg-Team/Tools-Modern/pull/500/changes)
