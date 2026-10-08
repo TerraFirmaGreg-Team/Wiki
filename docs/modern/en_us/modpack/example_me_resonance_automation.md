@@ -1,3 +1,7 @@
+---
+title: Automating the ME Resonance Fabricator & ME Resonance Charger
+order: 3
+---
 # ME Resonance Fabricator & ME Resonance Charger Automation
 
 Automating Certus Bud replacement using Applied Energistics 2 Spatial I/O Ports and wire length decay.
@@ -47,6 +51,6 @@ To rotate the Spatial Storage Cells between ports:
 
 ### Images Showing The Set Up
 
-![MERF Automation Guide](https://github.com/Nezumi-Remis/Wiki/blob/main/public/MERF%20Automation%20Guide.png?raw=true)
+![MERF Automation Guide](https://github.com/TerraFirmaGreg-Team/Wiki/blob/main/public/MERF%20Automation%20Guide.png?raw=true)
 
-![MERF Automation Guide](https://github.com/Nezumi-Remis/Wiki/blob/main/public/MERF%20Automation%20Guide2.png?raw=true)
+![MERF Automation Guide](https://github.com/TerraFirmaGreg-Team/Wiki/blob/main/public/MERF%20Automation%20Guide2.png?raw=true)
