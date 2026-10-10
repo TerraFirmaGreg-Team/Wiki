@@ -6,7 +6,7 @@ order: 3
 
 Automating Certus Bud replacement using Applied Energistics 2 Spatial I/O Ports and wire length decay.
 
-Using simple redstone with MoreRed components ensured a reliable way to swap two different buds between MERF and MERC to keep fastest recipe timers.
+Using simple redstone with MoreRed components ensures a reliable way to swap two different buds between MERF and MERC to keep fastest recipe timers.
 
 
 ## Setup Requirements
@@ -15,7 +15,7 @@ Using simple redstone with MoreRed components ensured a reliable way to swap two
 *  **Two AE2 2³ Spatial Storage Cells**
 * **MoreRed Red Alloy Cable of two different colours**
 * **MoreRed NOT Gate, AND Gate, Pulse Gate**
-* **Bundled Cable Relay Plate**
+* **Bundled Cable Relay Plate** or **Bundled Cable**
 * **Machine Controller Cover**
 * **Any Two Robot Arms**
 * **Some Item Pipes**
