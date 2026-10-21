@@ -36,14 +36,12 @@ order: 1
 ### З кастомними рецептами
 
 - _**Create: Sound of Steam**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-sound-of-steam), [MR](https://modrinth.com/mod/create-sound-of-steam/)) — розширює можливості парового свистка з Create та додає безліч нових опцій для відтворення музики. Типово не входить до збірки через свою вузько спеціалізованість. Проте ми додаємо для нього власні рецепти.
-
 - _**Chimes**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/chimes)) — додає вітряні дзвіночки. Типово не входить до збірки, щоб уникнути захаращення модпаку, проте ми маємо для нього власні рецепти.
-
 - _**Create: Extra Gauges**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-extra-gauges), [MR](https://modrinth.com/mod/extra-gauges)) — розширює можливості фабричних вимірювальних приладів з Create. Якщо ти додаш його до свого модпаку, ти отримаєш змінені рецепти від TFG.
-
 - _**Create: Railways Navigator**_  ([CF](https://www.curseforge.com/minecraft/mc-mods/create-railways-navigator), [MR](https://modrinth.com/mod/create-railways-navigator)) - Розширює можливості планування руху потягів, додає інформаційні дисплеї для пасажирів як у потягах, так і на станціях, а також пристрій-навігатор, який може підказати, на які потяги тобі потрібно сісти для запланованої подорожі. Не включено за замовчуванням, оскільки це переважно корисно для великих багатокористувацьких серверів із великою кількістю залізниць. Користувацькі рецепти включено.
   - _**Dragonlib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - Бібліотека, необхідна для роботи Railways Navigator. **ВАЖЛИВО:** Виявлено, що найновіша версія dragonlib перешкоджає завантаженню гри. Повідомлялося, що версії 3.0.21 та 3.0.26 обидві працюють.
 
-- _**Immersive vehicles**_. ([CF](https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator)) та його офіційні аддони з підтримкою рецептів TFG від @ilikecupcakes
-  - _**MTS Official Content Pack**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/transport-simulator-official-vehicle-set)) — додає десятки автомобілів, літаків, гелікоптерів та танків. А також дорожні знаки та світлофори. Для підтримки рецептів потрібен базовий мод та офіційний набір автомобілів.
-  - _**MTS Official Automobile Pack**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/mts-iv-official-automobile-pack)) — додає кілька нових автомобілів. Для підтримки рецептів потрібен базовий мод та офіційний набір контенту.
+<!--* ***Immersive vehicles***: ([CF](https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator)) and its official addons with TFG recipe support by @ilikecupcakes
+    * ***MTS Official Content Pack*** ([CF](https://www.curseforge.com/minecraft/mc-mods/transport-simulator-official-vehicle-set)) Adds dozens of cars, planes, helicopters and tanks. As well as road signs/lights. Requires the base mod and the official automobile pack for recipe support.
+    * ***MTS Official Automobile Pack*** ([CF](https://www.curseforge.com/minecraft/mc-mods/mts-iv-official-automobile-pack)) Adds several new cars. Requires the base mod and the official content pack for recipe support.
+    -->
