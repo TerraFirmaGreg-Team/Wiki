@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - dev
-  pull_request:
   workflow_dispatch:
 
 concurrency:
@@ -15,8 +14,8 @@ permissions:
   contents: read
 
 env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
 
 jobs:
   deploy:
@@ -43,9 +42,9 @@ jobs:
           if [ "$GITHUB_REF" = "refs/heads/dev" ]; then
             echo "VERCEL_ENV=production" >> "$GITHUB_ENV"
             echo "VERCEL_FLAGS=--prod" >> "$GITHUB_ENV"
-#          else
-#            echo "VERCEL_ENV=preview" >> "$GITHUB_ENV"
-#            echo "VERCEL_FLAGS=" >> "$GITHUB_ENV"
+          else
+            echo "VERCEL_ENV=preview" >> "$GITHUB_ENV"
+            echo "VERCEL_FLAGS=" >> "$GITHUB_ENV"
           fi
 
       - name: Pull Vercel environment
