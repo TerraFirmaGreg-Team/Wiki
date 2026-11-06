@@ -60,6 +60,19 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           NEXT_PUBLIC_DUMP_STORAGE_URL: ${{ vars.NEXT_PUBLIC_DUMP_STORAGE_URL }}
 
+      - name: Normalize APP_PRIVATE_KEY
+        uses: actions/github-script@v7
+        env:
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+        with:
+          script: |
+            const crypto = require('crypto')
+            const pem = process.env.APP_PRIVATE_KEY.replace(/\\n/g, '\n')
+            const pkcs8 = crypto.createPrivateKey(pem).export({ format: 'pem', type: 'pkcs8' })
+            const flat = pkcs8.trimEnd().replace(/\n/g, '\\n')
+            core.setSecret(flat)
+            core.exportVariable('APP_PRIVATE_KEY_FLAT', flat)
+
       - uses: amondnet/vercel-action@v42.3.0
         id: vercel
         with:
@@ -77,6 +90,6 @@ jobs:
             --env "COMMENTS_AUTH=${{ vars.COMMENTS_AUTH }}"
             --env "APP_ID=${{ vars.APP_ID }}"
             --env "APP_CLIENT_ID=${{ vars.APP_CLIENT_ID }}"
-            --env "APP_PRIVATE_KEY=${{ secrets.APP_PRIVATE_KEY }}"
+            --env "APP_PRIVATE_KEY=${{ env.APP_PRIVATE_KEY_FLAT }}"
             --env "APP_SECRET=${{ secrets.APP_SECRET }}"
             --env "DISCUSSIONS_SECRET=${{ secrets.DISCUSSIONS_SECRET }}"
