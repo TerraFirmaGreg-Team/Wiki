@@ -69,7 +69,7 @@ jobs:
           vercel-project-id: ${{ vars.VERCEL_PROJECT_ID }}
           github-comment: ${{ github.event_name == 'pull_request' }}
           vercel-args: |
-            --prebuilt ${{ env.VERCEL_FLAGS }}
+            --prebuilt ${{ env.VERCEL_FLAGS }} --archive=tgz
             --env "NEXT_PUBLIC_DUMP_STORAGE_URL=${{ vars.NEXT_PUBLIC_DUMP_STORAGE_URL }}"
             --env "CLOUDFLARE_ACCOUNT_ID=${{ vars.CLOUDFLARE_ACCOUNT_ID }}"
             --env "CLOUDFLARE_D1_DATABASE_ID=${{ vars.CLOUDFLARE_D1_DATABASE_ID }}"
