@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - dev
+  pull_request:
   workflow_dispatch:
 
 concurrency:
@@ -12,6 +13,11 @@ concurrency:
 
 permissions:
   contents: read
+  pull-requests: write
+
+env:
+  VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
 
 jobs:
   deploy:
@@ -31,15 +37,27 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Normalize APP_PRIVATE_KEY
-        uses: actions/github-script@v7
+      - run: npm install -g vercel@65.8.0
+
+      - name: Select Vercel target
+        run: |
+          if [ "$GITHUB_REF" = "refs/heads/dev" ]; then
+            echo "VERCEL_ENV=production" >> "$GITHUB_ENV"
+            echo "VERCEL_FLAGS=--prod" >> "$GITHUB_ENV"
+          else
+            echo "VERCEL_ENV=preview" >> "$GITHUB_ENV"
+            echo "VERCEL_FLAGS=" >> "$GITHUB_ENV"
+          fi
+
+      - name: Pull Vercel project settings
+        run: vercel pull --yes --environment="$VERCEL_ENV" --token="$VERCEL_TOKEN"
         env:
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-        with:
-          script: |
-            const flat = process.env.APP_PRIVATE_KEY.replace(/[\n"]/g, '')
-            core.setSecret(flat)
-            core.exportVariable('APP_PRIVATE_KEY_FLAT', flat)
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build
+        run: vercel build $VERCEL_FLAGS --build-env "NEXT_PUBLIC_DUMP_STORAGE_URL=${{ vars.NEXT_PUBLIC_DUMP_STORAGE_URL }}" --token="$VERCEL_TOKEN"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
       - uses: amondnet/vercel-action@v42.3.0
         id: vercel
@@ -48,19 +66,16 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ vars.VERCEL_ORG_ID }}
           vercel-project-id: ${{ vars.VERCEL_PROJECT_ID }}
-          vercel-build: true
-          target: ${{ github.ref == 'refs/heads/dev' && 'production' || 'preview' }}
           github-comment: ${{ github.event_name == 'pull_request' }}
-          build-env: |
-            NEXT_PUBLIC_DUMP_STORAGE_URL=${{ vars.NEXT_PUBLIC_DUMP_STORAGE_URL }}
-          env: |
-            NEXT_PUBLIC_DUMP_STORAGE_URL=${{ vars.NEXT_PUBLIC_DUMP_STORAGE_URL }}
-            CLOUDFLARE_ACCOUNT_ID=${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-            CLOUDFLARE_D1_DATABASE_ID=${{ vars.CLOUDFLARE_D1_DATABASE_ID }}
-            COMMENTS_AUTH=${{ vars.COMMENTS_AUTH }}
-            APP_ID=${{ vars.APP_ID }}
-            APP_CLIENT_ID=${{ vars.APP_CLIENT_ID }}
-            CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_TOKEN }}
-            APP_PRIVATE_KEY=${{ env.APP_PRIVATE_KEY_FLAT }}
-            APP_SECRET=${{ secrets.APP_SECRET }}
-            DISCUSSIONS_SECRET=${{ secrets.DISCUSSIONS_SECRET }}
+          vercel-args: |
+            --prebuilt ${{ env.VERCEL_FLAGS }}
+            --env "NEXT_PUBLIC_DUMP_STORAGE_URL=${{ vars.NEXT_PUBLIC_DUMP_STORAGE_URL }}"
+            --env "CLOUDFLARE_ACCOUNT_ID=${{ vars.CLOUDFLARE_ACCOUNT_ID }}"
+            --env "CLOUDFLARE_D1_DATABASE_ID=${{ vars.CLOUDFLARE_D1_DATABASE_ID }}"
+            --env "CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_TOKEN }}"
+            --env "COMMENTS_AUTH=${{ vars.COMMENTS_AUTH }}"
+            --env "APP_ID=${{ vars.APP_ID }}"
+            --env "APP_CLIENT_ID=${{ vars.APP_CLIENT_ID }}"
+            --env "APP_PRIVATE_KEY=${{ secrets.APP_PRIVATE_KEY }}"
+            --env "APP_SECRET=${{ secrets.APP_SECRET }}"
+            --env "DISCUSSIONS_SECRET=${{ secrets.DISCUSSIONS_SECRET }}"
