@@ -55,9 +55,10 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
       - name: Build
-        run: vercel build $VERCEL_FLAGS --build-env "NEXT_PUBLIC_DUMP_STORAGE_URL=${{ vars.NEXT_PUBLIC_DUMP_STORAGE_URL }}" --token="$VERCEL_TOKEN"
+        run: vercel build $VERCEL_FLAGS --token="$VERCEL_TOKEN"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          NEXT_PUBLIC_DUMP_STORAGE_URL: ${{ vars.NEXT_PUBLIC_DUMP_STORAGE_URL }}
 
       - uses: amondnet/vercel-action@v42.3.0
         id: vercel
