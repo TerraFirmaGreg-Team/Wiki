@@ -7,13 +7,13 @@ on:
 #    paths:
 #      - 'content/docs/**/en_us/**/*.md'
 #      - 'content/changelog/**/en_us/**/*.md'
-#  workflow_dispatch:
-#    inputs:
-#      create_pr:
-#        description: "Create Pull Request after sync"
-#        type: boolean
-#        default: false
-#        required: true
+  workflow_dispatch:
+    inputs:
+      create_pr:
+        description: "Create Pull Request after sync"
+        type: boolean
+        default: false
+        required: true
 #  schedule:
 #    # Run daily at 3 AM UTC
 #    - cron: '0 3 * * *'
