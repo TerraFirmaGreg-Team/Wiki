@@ -1,13 +1,32 @@
+# deps
 node_modules
+
+# generated content
+
+# test & build
+/coverage
+/.next/
+/out/
+/data/
+/build
+*.tsbuildinfo
+/.dev.vars
+/src/generated/
+
+# misc
 .DS_Store
-.vitepress/cache
-.vitepress/dist
-.build
-ci/static-sites-resolved.json
-/public/modern/
-*.log
-.idea
-.vscode
-/.vs/*
-*.vsidx
-.env
+*.pem
+/.pnp
+.pnp.js
+/.idea/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# others
+.env*.local
+.vercel
+next-env.d.ts
+/export
+/.source
+.env*

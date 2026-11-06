@@ -1,129 +1,69 @@
-name: "Deploy VitePress site to Pages"
-run-name: "[📄]: Deploy VitePress site to Pages #${{ github.run_number }}"
+name: deploy
 
 on:
   push:
-    branches: [main]
+    branches:
+      - dev
+  pull_request:
   workflow_dispatch:
-  schedule:
-    - cron: "0 4 * * *"
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     steps:
-      - uses: actions/checkout@v5
-        with:
-          fetch-depth: 0 # needed for lastUpdated git timestamps
+      - uses: actions/checkout@v7
 
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v5
+      - uses: pnpm/action-setup@v6
         with:
-          node-version: 20
+          version: 12
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
           cache: pnpm
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
 
-      - name: Build VitePress site
-        run: pnpm build
+      - run: npm install -g vercel@65.8.0
 
-      - name: Resolve upstream static site versions
-        id: static_sites
-        run: node ci/scripts/resolve-static-sites.mjs
+      - name: Select Vercel target
+        run: |
+          if [ "$GITHUB_REF" = "refs/heads/dev" ]; then
+            echo "VERCEL_ENV=production" >> "$GITHUB_ENV"
+            echo "VERCEL_FLAGS=--prod" >> "$GITHUB_ENV"
+#          else
+#            echo "VERCEL_ENV=preview" >> "$GITHUB_ENV"
+#            echo "VERCEL_FLAGS=" >> "$GITHUB_ENV"
+          fi
 
-      # Restore cached static site trees (skipped when contentHash changes).
-      - name: Restore field-guide-modern static site cache
-        uses: actions/cache/restore@v5
-        with:
-          path: .vitepress/dist/modern/field-guide
-          key: wiki-static-field-guide-modern-${{ steps.static_sites.outputs.field_guide_modern_content_hash }}
-          fail-on-cache-miss: false
-
-      - name: Restore recipe-book-modern static site cache
-        uses: actions/cache/restore@v5
-        with:
-          path: .vitepress/dist/modern/recipe-book
-          key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
-          fail-on-cache-miss: false
-
-      - name: Restore quest-book-modern static site cache
-        uses: actions/cache/restore@v5
-        with:
-          path: .vitepress/dist/modern/quest-book
-          key: wiki-static-quest-book-modern-${{ steps.static_sites.outputs.quest_book_modern_content_hash }}
-          fail-on-cache-miss: false
-
-      - name: Install aggregated static sites
-        id: mirror
-        run: bash ci/mirror-static-sites.sh
-
-      # Per-site sitemap.xml (field-guide, quest-book when published) is merged into wiki sitemap.
-      - name: Merge static site sitemaps
-        run: node ci/scripts/merge-sitemaps.mjs
-
-      - name: Merge field guide into wiki search index
-        run: node ci/scripts/merge-field-guide-search.mjs
-
-      # Quest book search links use ?lang=&chapter=&quest= (not #quest=).
-      - name: Merge quest book into wiki search index
-        run: node ci/scripts/merge-quest-book-search.mjs
-
-      - name: Write giscus-config.json
+      - name: Pull Vercel environment
+        run: vercel pull --yes --environment="$VERCEL_ENV" --token="$VERCEL_TOKEN"
         env:
-          GISCUS_ENABLED: ${{ secrets.GISCUS_ENABLED }}
-          GISCUS_REPO: ${{ secrets.GISCUS_REPO }}
-          GISCUS_REPO_ID: ${{ secrets.GISCUS_REPO_ID }}
-          GISCUS_CATEGORY: ${{ secrets.GISCUS_CATEGORY }}
-          GISCUS_CATEGORY_ID: ${{ secrets.GISCUS_CATEGORY_ID }}
-        run: node ci/scripts/write-giscus-config.mjs
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
-      - name: Save field-guide-modern static site cache
-        if: steps.mirror.outputs.field_guide_modern_downloaded == 'true'
-        uses: actions/cache/save@v5
-        with:
-          path: .vitepress/dist/modern/field-guide
-          key: wiki-static-field-guide-modern-${{ steps.static_sites.outputs.field_guide_modern_content_hash }}
+      - name: Build project artifacts
+        run: vercel build $VERCEL_FLAGS --token="$VERCEL_TOKEN"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
-      - name: Save recipe-book-modern static site cache
-        if: steps.mirror.outputs.recipe_book_modern_downloaded == 'true'
-        uses: actions/cache/save@v5
-        with:
-          path: .vitepress/dist/modern/recipe-book
-          key: wiki-static-recipe-book-modern-${{ steps.static_sites.outputs.recipe_book_modern_content_hash }}
-
-      - name: Save quest-book-modern static site cache
-        if: steps.mirror.outputs.quest_book_modern_downloaded == 'true'
-        uses: actions/cache/save@v5
-        with:
-          path: .vitepress/dist/modern/quest-book
-          key: wiki-static-quest-book-modern-${{ steps.static_sites.outputs.quest_book_modern_content_hash }}
-
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .vitepress/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy
+        id: deploy
+        run: |
+          out=$(vercel deploy --prebuilt $VERCEL_FLAGS --token="$VERCEL_TOKEN")
+          url=$(echo "$out" | tail -n1)
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "**Deployed:** $url" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

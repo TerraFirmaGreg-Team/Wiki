@@ -1,0 +1,16 @@
+#page-panel:has(.quest-viewport) > header:not(:has(> *)),
+#page-panel:has(.calc-viewport) > header:not(:has(> *)) {
+  display: none;
+}
+
+#page-panel:has(.quest-viewport) > div:has(> #page),
+#page-panel:has(.calc-viewport) > div:has(> #page) {
+  padding: 0;
+}
+
+#page:has(.quest-viewport),
+#page:has(.calc-viewport) {
+  padding: 0;
+  gap: 0;
+}
+

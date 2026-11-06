@@ -1,0 +1,24 @@
+base_url: "https://terrafirmagreg.api.crowdin.com"
+base_path: "../../content"
+
+project_id_env: "CROWDIN_ID"
+api_token_env: "CROWDIN_TOKEN"
+
+preserve_hierarchy: true
+
+files:
+  - source: "/docs/modern/en_us/**/*.md"
+    translation: "/docs/modern/%locale_with_underscore%/**/%original_file_name%"
+    update_option: "update_as_unapproved"
+  - source: "/docs/dev/en_us/**/*.md"
+    translation: "/docs/dev/%locale_with_underscore%/**/%original_file_name%"
+    update_option: "update_as_unapproved"
+  - source: "/docs/vintage/en_us/**/*.md"
+    translation: "/docs/vintage/%locale_with_underscore%/**/%original_file_name%"
+    update_option: "update_as_unapproved"
+  - source: "/changelog/modern/en_us/**/*.md"
+    translation: "/changelog/modern/%locale_with_underscore%/**/%original_file_name%"
+    update_option: "update_as_unapproved"
+  - source: "/changelog/vintage/en_us/**/*.md"
+    translation: "/changelog/vintage/%locale_with_underscore%/**/%original_file_name%"
+    update_option: "update_as_unapproved"

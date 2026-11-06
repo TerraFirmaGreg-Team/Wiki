@@ -1,0 +1,80 @@
+import { createMDX } from 'fumadocs-mdx/next';
+import { createNextStory } from '@fumadocs/story/next';
+const withMDX = createMDX({
+  macro: { include: ['**/src/**/*.ts', '**/src/**/*.tsx'] },
+  remarkImageOptions: { onError: 'ignore' },
+});
+const withStory = createNextStory();
+
+const config = {
+  turbopack: {
+    resolveAlias: {
+      'fumadocs-ui/components/ui/button':
+        '@terrafirmagreg-team/ui/components/ui/button',
+    },
+  },
+  reactStrictMode: true,
+  reactCompiler: true,
+  experimental: { cpus: 16 },
+  images: {
+    unoptimized: true,
+  },
+  transpilePackages: [
+    '@terrafirmagreg-team/analytics',
+    '@terrafirmagreg-team/auth',
+    '@terrafirmagreg-team/changelog',
+    '@terrafirmagreg-team/data',
+    '@terrafirmagreg-team/discussions',
+    '@terrafirmagreg-team/docs',
+    '@terrafirmagreg-team/dump',
+    '@terrafirmagreg-team/game',
+    '@terrafirmagreg-team/guide',
+    '@terrafirmagreg-team/history',
+    '@terrafirmagreg-team/kit',
+    '@terrafirmagreg-team/mdx',
+    '@terrafirmagreg-team/preview',
+    '@terrafirmagreg-team/quest',
+    '@terrafirmagreg-team/recipe',
+    '@terrafirmagreg-team/search',
+    '@terrafirmagreg-team/share',
+    '@terrafirmagreg-team/sites',
+    '@terrafirmagreg-team/translate',
+    '@terrafirmagreg-team/ui',
+  ],
+  async redirects() {
+    const locale = '([a-z]{2}_[a-z]{2})';
+    const movedDev = '(datagen|fruit_trees|multiblock-script|palm_trees)';
+    return [
+      { source: '/modern/field-guide/:path*', destination: '/guide' },
+      { source: '/modern/quest-book/:path*', destination: '/quest' },
+      { source: '/modern/recipe-book/:path*', destination: '/recipe' },
+      { source: '/modern/en_us/developer/wiki-components-showcase', destination: '/docs/dev/components' },
+      { source: `/modern/:lang${locale}/developer/wiki-components-showcase`, destination: '/docs/dev/components?lang=:lang' },
+      { source: `/modern/en_us/developer/:slug${movedDev}`, destination: '/docs/modern/mod/:slug' },
+      { source: `/modern/:lang${locale}/developer/:slug${movedDev}`, destination: '/docs/modern/mod/:slug?lang=:lang' },
+      { source: '/modern/en_us/developer/:path*', destination: '/docs/modern/developer/:path*' },
+      { source: `/modern/:lang${locale}/developer/:path*`, destination: '/docs/modern/developer/:path*?lang=:lang' },
+      { source: '/modern/en_us/:path*', destination: '/docs/modern/:path*' },
+      { source: `/modern/:lang${locale}/:path*`, destination: '/docs/modern/:path*?lang=:lang' },
+      { source: '/modern/:path*', destination: '/docs/modern' },
+    ].map((r) => ({ ...r, permanent: true }));
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/docs/:path*.md',
+        destination: '/api/markdown/docs/:path*',
+      },
+      {
+        source: '/guide/:path*.md',
+        destination: '/api/markdown/guide/:path*',
+      },
+      {
+        source: '/changelog/:path*.md',
+        destination: '/api/markdown/changelog/:path*',
+      },
+    ];
+  },
+};
+
+export default withStory(withMDX(config));

@@ -1,77 +1,46 @@
 # TerraFirmaGreg Wiki
 
-Source for the [TerraFirmaGreg](https://github.com/TerraFirmaGreg-Team) team wiki. Built with [VitePress](https://vitepress.dev).
+Source for the [TerraFirmaGreg](https://github.com/TerraFirmaGreg-Team) team wiki.
 
 - https://wiki.terrafirmagreg.team
-
-> **Source of truth.** Edit pages here — the old `Modpack-Modern` wiki is no longer maintained.
 
 ## Layout
 
 ```
 /
-├── .vitepress/
-│   ├── config.mts          # Site config (locales, sidebar plugin, search)
-│   ├── i18n/               # UI strings per locale (nav, footer, search, …)
-│   │   ├── en_us.json      # Required template; other locales fall back to this
-│   │   └── zh_cn.json      # Optional; create manually when translating UI
-│   └── theme/
-│       ├── i18n.ts         # Loads JSON, merges en_us fallback, builds themeConfig
-│       └── ...
-├── public/                 # CNAME, favicon, logo
-├── docs/
-│   ├── index.md            # Root; auto-redirects to visitor's locale
-│   └── modern/             # Modpack-Modern namespace
-│       ├── en_us/
-│       ├── zh_cn/
-│       └── pt_br/
-├── dev.sh / dev.bat
-└── package.json
+├── content/
+│   ├── docs/<pack>/<locale>/<section>/   # wiki pages (modern, vintage, dev)
+│   └── changelog/<pack>/<locale>/        # release notes
+├── src/                                  # app: routes, views, providers, config
+├── public/                               # static assets
+└── scripts/
 ```
 
-Content paths: `docs/modern/<locale>/<section>/<slug>.md`  
-Public URLs: `/modern/<locale>/<section>/<slug>` (e.g. `/modern/en_us/upgrade-guides/from-0.11-to-0.12`).
+Pages: `content/docs/<pack>/<locale>/<section>/<slug>.md`. 
+URLs: `/docs/<pack>/<section>/<slug>`.
 
 ## Local Development
 
-Needs Node.js >= 20. [pnpm](https://pnpm.io) is the package manager; the launcher scripts fall back to npm.
+Node.js, pnpm.
 
 ```bash
-# macOS / Linux
-./dev.sh           # dev server at http://localhost:5173/
-./dev.sh build     # production build
-./dev.sh preview   # serve the build locally
-```
-
-```bat
-:: Windows
-./dev.bat
-./dev.bat build
-./dev.bat preview
+pnpm install
+pnpm dev        # dev server
+pnpm build      # production build
+pnpm start      # production start server
+pnpm check      # types:check + lint
 ```
 
 ## Adding a Page
 
-Create the `.md` file at the **same relative path in every locale** (e.g. `docs/modern/en_us/<section>/<slug>.md`). Add frontmatter:
+Create the `.md` file at the same relative path in every locale (`content/docs/<pack>/<locale>/<section>/<slug>.md`) with frontmatter:
 
 ```yaml
 ---
-title: Page title in sidebar
+title: Page title
 order: 1
 ---
 ```
-
-The sidebar is generated automatically from the folder structure. Use `order` to control sort position within a section. For a new section, add an `index.md` in that folder with `title` and `order` for the group heading.
-
-## Adding a Language
-
-1. Add the locale to `language.json` (`enabledLocales` and `localeNames`).
-2. Copy `docs/modern/en_us/` to `docs/modern/<new-locale>/` and translate the content.
-3. Optionally add `.vitepress/i18n/<new-locale>.json` with translated UI strings (omit keys that should fall back to English).
-
-Missing UI JSON falls back to `en_us.json`.
-
-Missing pages under a locale return 404. A placeholder `index.md` alone is enough to expose the locale home URL.
 
 ## Contributing
 

@@ -1,0 +1,8 @@
+.prose a:not([data-card]):not(:where(.not-prose, .not-prose *)) {
+  text-decoration-color: var(--color-link-accent, var(--color-primary));
+}
+
+:is([data-slot='outline'], a[data-active]) [data-md] {
+  all: revert !important;
+}
+
