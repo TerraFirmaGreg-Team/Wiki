@@ -69,11 +69,11 @@ importers:
         specifier: ^1.2.8
         version: 1.2.8(faf2d785e3d3b11330a55d800701b77d)
       '@terrafirmagreg-team/dump':
-        specifier: ^1.2.6
-        version: 1.2.6(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
+        specifier: ^1.2.7
+        version: 1.2.7(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
       '@terrafirmagreg-team/game':
-        specifier: ^1.2.5
-        version: 1.2.5(7ac18d3fd65a1da2fc9b1aa405805389)
+        specifier: ^1.2.6
+        version: 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/guide':
         specifier: ^1.2.9
         version: 1.2.9(66532f40027cb580ae0e1bb81b76c0e9)
@@ -108,8 +108,8 @@ importers:
         specifier: ^1.2.8
         version: 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@terrafirmagreg-team/ui':
-        specifier: ^1.2.8
-        version: 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+        specifier: ^1.2.9
+        version: 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       fumadocs-core:
         specifier: 'catalog:'
         version: 16.18.1(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
@@ -1674,8 +1674,11 @@ packages:
   '@terrafirmagreg-team/dump@1.2.6':
     resolution: {integrity: sha512-nQhPLg8Ji+QmgFReSnEw9GJHFIh6zjHUTmEMNKuRsFFqMa56dWKXm9co0/b8LqoLZUprw9GC22V0hYmVwELxUw==}
 
-  '@terrafirmagreg-team/game@1.2.5':
-    resolution: {integrity: sha512-SY8uNoG+Apo6CW1mqHgJJsRcmJr4n3s+yIDgokB2FsJpiEZEUNM7pvMwqGfFGPlsXlqcjzXg5W0ZbC3oF2qCeg==}
+  '@terrafirmagreg-team/dump@1.2.7':
+    resolution: {integrity: sha512-yj/hV9G0zZ/UGUr8EfrJZpmI8h31D4ZW/Ze0hKLY5DPPidFM+NnCdzsOACNdtQlKh0ZEpVJUdNz8qcknAoLKIg==}
+
+  '@terrafirmagreg-team/game@1.2.6':
+    resolution: {integrity: sha512-+VLeESh7qQ5hZNilAZwzLv8VFRNnJ5iigIfuh4B/6osddtHMe83jZZa5QEgHrdfMdhD+9ICojn0CXF53DNtMhQ==}
     peerDependencies:
       next: '>=15'
       react: '>=19'
@@ -1741,6 +1744,13 @@ packages:
 
   '@terrafirmagreg-team/ui@1.2.8':
     resolution: {integrity: sha512-YJREWryy4ZyFyLXmqy/kd9ppGHnD2Pp+8hvcF+tCrl/5SF6GwqH2AxOis7avml37wIj6zKiyRtcnRDUogoVPig==}
+    peerDependencies:
+      next: '>=15'
+      react: '>=19'
+      react-dom: '>=19'
+
+  '@terrafirmagreg-team/ui@1.2.9':
+    resolution: {integrity: sha512-ZesZWlosMZXvoURzrC2l7+VTrOd1eRqUmBpzbIvW/teQ0AEAfwBgj1/oZtJYeQBYdh7GhYsGnKTvzwZPJWk0xA==}
     peerDependencies:
       next: '>=15'
       react: '>=19'
@@ -6612,7 +6622,7 @@ snapshots:
       immer: 11.2.9
       redux: 5.0.1
       redux-thunk: 3.1.0(redux@5.0.1)
-      reselect: 5.3.0
+      reselect: 5.2.0
     optionalDependencies:
       '@types/react': 19.3.0
       react: 19.3.1
@@ -6827,7 +6837,7 @@ snapshots:
       '@terrafirmagreg-team/kit': 1.2.11(9596a906243e64afba75306efdf4004c)
       '@terrafirmagreg-team/mdx': 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       fumadocs-core: 16.17.10(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
       lucide-react: 1.70.0(@types/react@19.3.0)(react@19.3.1)
       next: 16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -6909,7 +6919,7 @@ snapshots:
       '@terrafirmagreg-team/auth': 1.2.2(drizzle-orm@0.45.4(kysely@0.29.8))
       '@terrafirmagreg-team/data': 1.2.3(drizzle-orm@0.45.4(kysely@0.29.8))
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       class-variance-authority: 0.7.1
       fuma-comment-github-discussions: 1.1.1(@fuma-comment/server@1.6.0(drizzle-orm@0.45.4(kysely@0.29.8))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))
       lucide-react: 1.70.0(@types/react@19.3.0)(react@19.3.1)
@@ -6960,7 +6970,7 @@ snapshots:
       '@terrafirmagreg-team/mdx': 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/sites': 1.2.2(@types/react@19.3.0)(react@19.3.1)
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       fumadocs-core: 16.17.10(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
       next: 16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react: 19.3.1
@@ -7058,7 +7068,44 @@ snapshots:
       - waku
       - zod
 
-  '@terrafirmagreg-team/game@1.2.5(7ac18d3fd65a1da2fc9b1aa405805389)':
+  '@terrafirmagreg-team/dump@1.2.7(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)':
+    dependencies:
+      '@terrafirmagreg-team/data': 1.2.3(drizzle-orm@0.45.4(kysely@0.29.8))
+      '@terrafirmagreg-team/sites': 1.2.2(@types/react@19.3.0)(react@19.3.1)
+      '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      aws4fetch: 1.0.20
+      fumadocs-core: 16.17.10(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
+      server-only: 0.0.1
+    transitivePeerDependencies:
+      - '@mdx-js/mdx'
+      - '@mixedbread/sdk'
+      - '@modelcontextprotocol/server'
+      - '@orama/core'
+      - '@oramacloud/client'
+      - '@pierre/highlights'
+      - '@tanstack/react-router'
+      - '@types/estree-jsx'
+      - '@types/hast'
+      - '@types/mdast'
+      - '@types/react'
+      - algoliasearch
+      - convex
+      - drizzle-orm
+      - flexsearch
+      - lucide-react
+      - meilisearch
+      - mongodb
+      - next
+      - prisma
+      - react
+      - react-dom
+      - react-router
+      - supports-color
+      - typeorm
+      - waku
+      - zod
+
+  '@terrafirmagreg-team/game@1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)':
     dependencies:
       '@terrafirmagreg-team/data': 1.2.3(drizzle-orm@0.45.4(kysely@0.29.8))
       '@terrafirmagreg-team/dump': 1.2.6(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
@@ -7120,15 +7167,15 @@ snapshots:
     dependencies:
       '@terrafirmagreg-team/data': 1.2.3(drizzle-orm@0.45.4(kysely@0.29.8))
       '@terrafirmagreg-team/discussions': 1.2.7(@date-fns/tz@1.5.0)(@floating-ui/dom@1.8.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(@typescript/typescript6@6.0.2)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(highlight.js@11.11.2)(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
-      '@terrafirmagreg-team/dump': 1.2.6(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
-      '@terrafirmagreg-team/game': 1.2.5(7ac18d3fd65a1da2fc9b1aa405805389)
+      '@terrafirmagreg-team/dump': 1.2.7(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
+      '@terrafirmagreg-team/game': 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/kit': 1.2.11(9596a906243e64afba75306efdf4004c)
       '@terrafirmagreg-team/mdx': 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/preview': 1.2.3(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       '@terrafirmagreg-team/search': 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/sites': 1.2.2(@types/react@19.3.0)(react@19.3.1)
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       fumadocs-core: 16.17.10(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
       lucide-react: 1.70.0(@types/react@19.3.0)(react@19.3.1)
       next: 16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -7235,7 +7282,7 @@ snapshots:
       '@terrafirmagreg-team/mdx': 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/sites': 1.2.2(@types/react@19.3.0)(react@19.3.1)
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       fumadocs-core: 16.17.10(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
       lucide-react: 1.70.0(@types/react@19.3.0)(react@19.3.1)
       next: 16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -7290,7 +7337,7 @@ snapshots:
       '@fumadocs/story': 1.5.3(db5fd084428b185d18959ae017c9f89f)
       '@fumari/stf': 1.1.2(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       '@types/turndown': 5.0.6
       fumadocs-core: 16.17.10(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
       fumadocs-docgen: 3.2.0(@types/estree@1.0.10)(@types/hast@3.0.5)(@types/mdast@4.0.4)(fumadocs-core@16.17.10(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7))(mdast-util-mdx@3.0.0)
@@ -7359,7 +7406,7 @@ snapshots:
     dependencies:
       '@terrafirmagreg-team/sites': 1.2.2(@types/react@19.3.0)(react@19.3.1)
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       next: 16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react: 19.3.1
     transitivePeerDependencies:
@@ -7388,13 +7435,13 @@ snapshots:
     dependencies:
       '@terrafirmagreg-team/data': 1.2.3(drizzle-orm@0.45.4(kysely@0.29.8))
       '@terrafirmagreg-team/discussions': 1.2.7(@date-fns/tz@1.5.0)(@floating-ui/dom@1.8.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(@typescript/typescript6@6.0.2)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(highlight.js@11.11.2)(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
-      '@terrafirmagreg-team/dump': 1.2.6(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
-      '@terrafirmagreg-team/game': 1.2.5(7ac18d3fd65a1da2fc9b1aa405805389)
+      '@terrafirmagreg-team/dump': 1.2.7(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
+      '@terrafirmagreg-team/game': 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/kit': 1.2.11(9596a906243e64afba75306efdf4004c)
       '@terrafirmagreg-team/preview': 1.2.3(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       '@terrafirmagreg-team/sites': 1.2.2(@types/react@19.3.0)(react@19.3.1)
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       fumadocs-core: 16.17.10(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
       lucide-react: 1.70.0(@types/react@19.3.0)(react@19.3.1)
       next: 16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -7458,14 +7505,14 @@ snapshots:
   '@terrafirmagreg-team/recipe@1.2.9(7ac18d3fd65a1da2fc9b1aa405805389)':
     dependencies:
       '@terrafirmagreg-team/data': 1.2.3(drizzle-orm@0.45.4(kysely@0.29.8))
-      '@terrafirmagreg-team/dump': 1.2.6(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
-      '@terrafirmagreg-team/game': 1.2.5(7ac18d3fd65a1da2fc9b1aa405805389)
+      '@terrafirmagreg-team/dump': 1.2.7(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(drizzle-orm@0.45.4(kysely@0.29.8))(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
+      '@terrafirmagreg-team/game': 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/kit': 1.2.11(9596a906243e64afba75306efdf4004c)
       '@terrafirmagreg-team/mdx': 1.2.6(7ac18d3fd65a1da2fc9b1aa405805389)
       '@terrafirmagreg-team/preview': 1.2.3(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       '@terrafirmagreg-team/sites': 1.2.2(@types/react@19.3.0)(react@19.3.1)
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       '@types/pathfinding': 0.1.0
       comlink: 4.4.2
       fflate: 0.8.3
@@ -7524,7 +7571,7 @@ snapshots:
       '@terrafirmagreg-team/kit': 1.2.11(9596a906243e64afba75306efdf4004c)
       '@terrafirmagreg-team/sites': 1.2.2(@types/react@19.3.0)(react@19.3.1)
       '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      '@terrafirmagreg-team/ui': 1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      '@terrafirmagreg-team/ui': 1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
       fumadocs-core: 16.17.10(@mdx-js/mdx@3.1.1)(@modelcontextprotocol/server@2.4.0)(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.70.0(@types/react@19.3.0)(react@19.3.1))(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(zod@4.6.7)
       lucide-react: 1.70.0(@types/react@19.3.0)(react@19.3.1)
       next: 16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -7605,6 +7652,59 @@ snapshots:
       - react-dom
 
   '@terrafirmagreg-team/ui@1.2.8(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)':
+    dependencies:
+      '@base-ui/react': 1.9.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@icons-pack/react-simple-icons': 13.15.1(react@19.3.1)
+      '@react-three/drei': 10.7.9(@react-three/fiber@9.8.2(@types/react@19.3.0)(immer@11.2.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(three@0.186.1))(@types/react@19.3.0)(@types/three@0.187.0)(immer@11.2.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(three@0.186.1)
+      '@react-three/fiber': 9.8.2(@types/react@19.3.0)(immer@11.2.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(three@0.186.1)
+      '@shadcn/react': 0.3.1(@types/react@19.3.0)(react@19.3.1)
+      '@terrafirmagreg-team/data': 1.2.3(drizzle-orm@0.45.4(kysely@0.29.8))
+      '@terrafirmagreg-team/translate': 1.2.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@xyflow/react': 12.12.0(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(immer@11.2.9)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      beautiful-mermaid: 1.1.3
+      class-variance-authority: 0.7.1
+      cmdk: 1.1.1(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      cn: 0.5.2
+      embla-carousel-react: 8.6.0(react@19.3.1)
+      flag-icons: 7.6.0
+      hast-util-to-jsx-runtime: 2.3.7
+      input-otp: 1.5.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      katex: 0.19.1
+      lucide-react: 1.70.0(@types/react@19.3.0)(react@19.3.1)
+      next: 16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      next-themes: 0.4.6(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      react: 19.3.1
+      react-day-picker: 10.0.2(@types/react@19.3.0)(react@19.3.1)
+      react-dom: 19.3.1(react@19.3.1)
+      react-medium-image-zoom: 5.4.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      react-resizable-panels: 4.19.1(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      recharts: 3.10.1(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)
+      scroll-into-view-if-needed: 3.1.0
+      tailwindcss: 4.3.5
+      three: 0.186.1
+      three-stdlib: 2.36.1(three@0.186.1)
+    transitivePeerDependencies:
+      - '@date-fns/tz'
+      - '@types/react'
+      - '@types/react-dom'
+      - '@types/three'
+      - convex
+      - date-fns
+      - drizzle-orm
+      - expo
+      - expo-asset
+      - expo-file-system
+      - expo-gl
+      - immer
+      - mongodb
+      - prisma
+      - react-is
+      - react-native
+      - redux
+      - supports-color
+      - typeorm
+
+  '@terrafirmagreg-team/ui@1.2.9(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(@types/three@0.187.0)(date-fns@4.4.0)(drizzle-orm@0.45.4(kysely@0.29.8))(immer@11.2.9)(next@16.4.5(@babel/core@7.29.7)(@playwright/test@1.64.1)(@types/node@26.6.6)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react-dom@19.3.1(react@19.3.1))(react-is@16.13.1)(react@19.3.1)(redux@5.0.1)':
     dependencies:
       '@base-ui/react': 1.9.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@icons-pack/react-simple-icons': 13.15.1(react@19.3.1)
