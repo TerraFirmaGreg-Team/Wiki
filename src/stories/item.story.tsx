@@ -6,7 +6,7 @@ export const story = defineStory({
   Component: ItemEntry,
   args: [
     {
-      variant: 'Icon only',
+      variant: 'Icon',
       initial: { id: 'minecraft:iron_ingot', dataset: { id: 'modern' } },
     },
     {

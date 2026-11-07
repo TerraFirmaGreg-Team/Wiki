@@ -14,6 +14,4 @@ Survival Modpack As It Should've Been
 ::card[Optional Mods]{description="Extra mods that aren't included by default, but which TFG has compatibility with." href="/docs/modern/modpack/optional-mods"}
 ::card[Updating & Reinstalling]{description="How to update or reinstall your modpack without breaking anything." href="/docs/modern/modpack/reinstalling"}
 :::
-
-
 Want us to add more content, or just want to hang out? Join us on [Discord](https://discord.com/invite/AEaCzCTUwQ).

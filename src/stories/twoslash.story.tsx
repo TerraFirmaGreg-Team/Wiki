@@ -201,7 +201,7 @@ export const story = defineStory({
   Component: CodeBlock,
   args: [
     {
-      variant: 'Query ^?',
+      variant: 'Query',
       initial: { ...base, children: queryCode },
     },
     {
@@ -217,11 +217,11 @@ export const story = defineStory({
       initial: { ...base, children: tagsCode },
     },
     {
-      variant: 'Completions ^|',
+      variant: 'Completions',
       initial: { ...base, children: completionsCode },
     },
     {
-      variant: 'Highlight ^^^',
+      variant: 'Marks',
       initial: { ...base, children: highlightCode },
     },
     {

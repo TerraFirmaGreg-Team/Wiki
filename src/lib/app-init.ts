@@ -1,5 +1,8 @@
 import dynamic from 'next/dynamic';
-import { registerUiConfig } from '@terrafirmagreg-team/ui/lib/config';
+import {
+  DEFAULT_EXTERNAL_META_PROVIDERS,
+  registerUiConfig,
+} from '@terrafirmagreg-team/ui/lib/config';
 import {
   registerClientDumpLoader,
   registerSectionConfig,
@@ -23,6 +26,7 @@ import {
 import { PageActions } from '@terrafirmagreg-team/kit/components/page-actions';
 import { UntranslatedCallout } from '@terrafirmagreg-team/ui/components/blocks/lang/untranslated-callout';
 import iconUrl from '@/app/icon.png';
+import '@/stories';
 import '@terrafirmagreg-team/quest/lib/embed';
 import '@terrafirmagreg-team/recipe/lib/embed';
 import '@terrafirmagreg-team/guide/lib/search/filter';
@@ -40,6 +44,17 @@ registerUiConfig({
       (m) => m.PagePreviewIcon,
     ),
   ),
+  externalMetaProviders: [
+    ...DEFAULT_EXTERNAL_META_PROVIDERS.slice(0, -1),
+    {
+      host: /.*/,
+      url: `${previewRoute}?ext={href}`,
+      kind: 'json',
+      title: 'title',
+      description: 'description',
+    },
+    ...DEFAULT_EXTERNAL_META_PROVIDERS.slice(-1),
+  ],
 });
 
 registerReadabilityConfig({

@@ -1,6 +1,6 @@
 ---
 title: Publicação do Modpack
-order: 7
+order: 2
 ---
 
 
@@ -29,7 +29,7 @@ Além disso, verifique se [AE2 Cosmolite](https://github.com/Frontiers-PackForge
 
 Certifique-se de verificar se algum shader ou pacote de recursos também tem atualizações.
 
-### 2a. Atualizar pakku-lock.json
+### Atualizar pakku-lock.json [step]
 
 Se você mantém a instância do seu minecraft separada do seu espaço de trabalho (como você deve), copie o arquivo pakku-lock.json do seu espaço de trabalho para sua instância. Em seguida, abra um prompt de comando/terminal em seu espaço de trabalho.
 
@@ -42,7 +42,7 @@ Na maior parte, você realmente irá usar só dois comandos:
 
 Depois de atualizar tudo, certifique-se de executar o jogo para testar as atualizações. Em seguida, copie o arquivo pakku-lock.json de volta para seu espaço de trabalho.
 
-### 2b. Atualizar pakku.json
+### Atualizar pakku.json [step]
 
 Para mudar entre os tipos de publicações, edite o arquivo `pakku.json` e procure a linha `release_type` perto do topo. Mude isto para `alpha`, `beta`, ou `release` se necessário.
 
@@ -50,7 +50,7 @@ Se você estiver adicionando mods "opcionais", você pode incluí-los aqui com `
 
 Na maioria das vezes você não precisa atualizar este arquivo.
 
-### 2c. Atualizar TFG-Core
+### Atualizar TFG-Core [step]
 
 Se algum dos mods atualizados também forem dependências do TFG-Core, você precisará atualizar esses também. Veja as dependências em `gradle.properties` e `gradle/scripts/dependencies.gradle`.
 

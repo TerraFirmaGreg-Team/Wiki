@@ -1,6 +1,5 @@
 ---
 title: Informações do Modpack
-order: 4
+order: 3
 link: false
 ---
-

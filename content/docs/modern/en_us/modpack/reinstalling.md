@@ -1,6 +1,6 @@
 ---
 title: Updating & Reinstalling the Modpack
-order: 2
+order: 7
 ---
 
 When updating the modpack, it is always safest to do so through a **clean reinstall**. If your modpack launcher has an "update" button, this frequently does not update the modpack correctly, leading to broken recipes, the modpack failing to launch, and other issues.

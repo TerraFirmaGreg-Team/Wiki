@@ -6,11 +6,11 @@ export const story = defineStory({
   Component: QuestEntry,
   args: [
     {
-      variant: 'By id',
+      variant: 'Id',
       initial: { id: '016D8D348A03C684', dataset: { id: 'modern' }, labeled: true },
     },
     {
-      variant: 'By filename',
+      variant: 'File',
       initial: {
         id: 'getting_started',
         dataset: { id: 'modern' },
@@ -18,7 +18,7 @@ export const story = defineStory({
       },
     },
     {
-      variant: 'By title',
+      variant: 'Title',
       initial: { id: 'Polarizer', dataset: { id: 'modern' }, labeled: true },
     },
   ],

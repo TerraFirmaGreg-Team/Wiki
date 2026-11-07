@@ -72,7 +72,7 @@ export const story = defineStory({
       },
     },
     {
-      variant: 'Line numbers',
+      variant: 'Lines',
       initial: {
         title: 'lines.ts',
         'data-line-numbers': true,
@@ -112,7 +112,7 @@ export const story = defineStory({
       initial: { children: wordCode },
     },
     {
-      variant: 'No copy',
+      variant: 'NoCopy',
       initial: {
         allowCopy: false,
         children: lines('const x = 1;'),

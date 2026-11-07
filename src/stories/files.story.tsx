@@ -10,27 +10,57 @@ export const story = defineStory({
   Component: Files,
   args: [
     {
-      variant: 'Default',
+      variant: 'List',
       initial: {
         children: (
-
-          <Folder name="src" defaultOpen>
-            <File name="index.ts" />
-            <Folder name="components">
-              <File name="button.tsx" />
+          <>
+            <Folder name="app" defaultOpen>
+              <File name="layout.tsx" />
+              <File name="page.tsx" />
             </Folder>
-          </Folder>
+            <File name="package.json" />
+          </>
         ),
       },
     },
     {
-      variant: 'Deep tree',
+      variant: 'Links',
+      initial: {
+        children: (
+          <>
+            <Folder
+              name="modpack"
+              defaultOpen
+              href="/docs/modern/modpack"
+              description="Modpack guides"
+            >
+              <File
+                name="optional-mods.md"
+                href="/docs/modern/modpack/optional-mods"
+                description="Extra compatible mods"
+              />
+              <Folder name="kubejs" defaultOpen>
+                <File name="server_scripts" />
+                <File name="startup_scripts" />
+              </Folder>
+            </Folder>
+            <File
+              name="pakku.json"
+              href="https://pakku.readthedocs.io"
+              description="Pakku config"
+            />
+          </>
+        ),
+      },
+    },
+    {
+      variant: 'Deep',
       initial: {
         children: (
           <Folder name="content" defaultOpen>
             <Folder name="docs" defaultOpen>
               <Folder name="dev" defaultOpen>
-                <Folder name="components">
+                <Folder name="components" defaultOpen>
                   <File name="index.md" />
                   <File name="item.md" />
                   <File name="meta.json" />
@@ -43,6 +73,16 @@ export const story = defineStory({
         ),
       },
     },
+    {
+      variant: 'Fenced',
+      initial: {
+        children: (
+          <Folder name="TerraFirmaGreg" defaultOpen>
+            <File name="mods" />
+            <File name="config" />
+          </Folder>
+        ),
+      },
+    },
   ],
 });
-

@@ -14,6 +14,4 @@ description: Модпак выживания, каким он должен бы�
 ::card[Опциональные моды]{description="Дополнительные моды, которые не включены по умолчанию, но всё ровно совместимы с TFG." href="/docs/modern/modpack/optional-mods"}
 ::card[Информация для разработчиков]{description="Внутренняя документация для членов команды и участников." href="/docs/modern/developer/cheat-sheet"}
 :::
-
-
 Хотите добавить больше контента, или просто хотите поболтать? Присоединяйтесь к нам в [Discord](https://discord.com/invite/AEaCzCTUwQ).

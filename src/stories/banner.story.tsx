@@ -18,12 +18,29 @@ export const story = defineStory({
       fixed: { changeLayout: false },
     },
     {
-      variant: 'Custom colors',
+      variant: 'Colors',
       initial: {
         ...base,
         variant: 'rainbow',
         rainbowColors: ['#fa18cf', '#ff7967'],
         children: 'Custom rainbowColors list.',
+      },
+      fixed: { changeLayout: false },
+    },
+    {
+      variant: 'Fade',
+      initial: {
+        variant: 'fade',
+        gradient: true,
+        children: 'Section heading with fade ring.',
+      },
+      fixed: { changeLayout: false },
+    },
+    {
+      variant: 'Glow',
+      initial: {
+        variant: 'glow',
+        children: 'Section heading with glow.',
       },
       fixed: { changeLayout: false },
     },

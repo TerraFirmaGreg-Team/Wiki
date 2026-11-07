@@ -1,6 +1,6 @@
 ---
 title: Modpack Publishing
-order: 7
+order: 2
 ---
 
 
@@ -28,7 +28,7 @@ Also, check if [AE2 Cosmolite](https://github.com/Frontiers-PackForge/Applied-En
 
 Be sure to check if any shaders or resource packs have updates too.
 
-### 2a. Update pakku-lock.json
+### Update pakku-lock.json [step]
 
 If you keep your minecraft instance separate from your workspace (as you should), copy the pakku-lock.json file from your workspace into your instance. Next, open a command prompt/terminal at your workspace.
 
@@ -40,7 +40,7 @@ For the most part, you'll only really be using two commands:
 
 After updating everything, be sure to run the game to test updates. Then, copy the pakku-lock.json file back into your workspace.
 
-### 2b. Update pakku.json
+### Update pakku.json [step]
 
 To change between types of publishes, edit the `pakku.json` file and look for the `release_type` line near the top. Change this to `alpha`, `beta`, or `release` if necessary.
 
@@ -48,7 +48,7 @@ If you're adding "optional" mods, you can include them here with `"export": fals
 
 Most of the time you don't need to update this file.
 
-### 2c. Update TFG-Core
+### Update TFG-Core [step]
 
 If any of the updated mods are also dependencies for TFG-Core, you'll need to update those as well. Look in `gradle.properties` and `gradle/scripts/dependencies.gradle` for the dependencies.
 

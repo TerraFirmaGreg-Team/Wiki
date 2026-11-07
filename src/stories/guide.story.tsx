@@ -6,7 +6,7 @@ export const story = defineStory({
   Component: GuideEntry,
   args: [
     {
-      variant: 'By id',
+      variant: 'Id',
       initial: {
         id: 'agriculture/composting',
         dataset: { id: 'modern' },
@@ -14,7 +14,7 @@ export const story = defineStory({
       },
     },
     {
-      variant: 'By name',
+      variant: 'Name',
       initial: { id: 'Blast Furnace', dataset: { id: 'modern' }, labeled: true },
     },
   ],

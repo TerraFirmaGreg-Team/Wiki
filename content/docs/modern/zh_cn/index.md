@@ -14,6 +14,4 @@ Survival Modpack As It Should've Been
 ::card[推荐附加模组]{description="默认未打包但与 TFG 兼容、值得一试的扩展模组。" href="/docs/modern/developer/cheat-sheet"}
 ::card[更新 & 重装]{description="如何安全地更新或重装你的整合包。" href="/docs/modern/modpack/reinstalling"}
 :::
-
-
 想看更多内容、或者只是来玩玩？欢迎加入我们的 [Discord](https://discord.com/invite/AEaCzCTUwQ)。

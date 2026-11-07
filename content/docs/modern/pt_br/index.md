@@ -14,6 +14,4 @@ Modpack de Sobrevivência Como Deveria Ter Sido
 ::card[Mods Opcionais]{description="Mods adicionais que não vêm por padrão, mas combinam bem com o TFG." href="/docs/modern/modpack/optional-mods"}
 ::card[Informações para Desenvolvedores]{description="Documentação interna para membros e colaboradores da equipe." href="/docs/modern/developer/cheat-sheet"}
 :::
-
-
 Quer que adicionemos mais conteúdo ou só passar tempo com a gente? Junte-se a nós no [Discord](https://discord.com/invite/AEaCzCTUwQ).

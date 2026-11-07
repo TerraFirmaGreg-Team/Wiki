@@ -24,7 +24,7 @@ export const story = defineStory({
       },
     },
     {
-      variant: 'With body',
+      variant: 'Body',
       initial: {
         title: 'Standalone card',
         icon: 'rocket',

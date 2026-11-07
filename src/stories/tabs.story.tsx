@@ -18,7 +18,7 @@ export const story = defineStory({
       initial: { items: ['First', 'Second'], children: threeTabs },
     },
     {
-      variant: 'Second tab default',
+      variant: 'Default',
       initial: {
         items: ['First', 'Second', 'Third'],
         defaultIndex: 1,
@@ -26,7 +26,7 @@ export const story = defineStory({
       },
     },
     {
-      variant: 'Persisted group',
+      variant: 'Persist',
       initial: {
         items: ['pnpm', 'npm'],
         persist: true,

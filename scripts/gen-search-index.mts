@@ -1,6 +1,9 @@
 import { readFileSync } from 'node:fs';
+import { register } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+register('./loader-hooks.mjs', import.meta.url);
 
 process.env.NODE_ENV ??= 'production';
 

@@ -14,6 +14,4 @@ description: Модпак для виживання таким, яким він 
 ::card[Додаткові моди]{description="Додаткові моди, які не входять типово, але з якими TFG має сумісність." href="/docs/modern/modpack/optional-mods"}
 ::card[Оновлення та перевстановлення]{description="Як оновити або перевстановити модпак нічого не зламавши." href="/docs/modern/modpack/reinstalling"}
 :::
-
-
 Хочеш, щоб ми додали більше контенту, чи просто хочеш поспілкуватися? Приєднуйся до нас у [Discord](https://discord.com/invite/AEaCzCTUwQ).

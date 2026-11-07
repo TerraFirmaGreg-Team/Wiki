@@ -1,6 +1,5 @@
 ---
 title: Информация о модпаке
-order: 4
+order: 3
 link: false
 ---
-

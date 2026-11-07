@@ -4,19 +4,20 @@ order: 4
 ---
 
 
-## Warnings & known issues
+:::warning
 **Please remember to create a new instance of TFG and copy your world across into it, instead of upgrading it in-place!** This is both safer, and also lets you preview your upgraded world, so you can go back and prepare it better.
+:::
 
 If you're upgrading from 0.10, please follow the [0.11 upgrade instructions first](/docs/modern/upgrade-guides/from-0.10-to-0.11).
 
 Worlds from 0.11 are safe to update to 0.12, but there are some important things to know:
 
-# New Fluid Veins
+## New Fluid Veins
 We have completely redone the overworld fluid veins so some of them depend on climate and biome. As a consequence, the fluid veins you used to have around your base will likely be different than before. Check out the new EMI tab to find out where to find new good veins you can move your fluid rigs to.
 
 If your chunks have no fluid at all, try closing your game, deleting your `.minecraft/saves/(world name)/data/gtceu_bedrock_fluid.dat` file, and then launching your game again. This clears gregtech's cache of fluid veins, forcing it to generate new ones.
 
-# New Worldgen
+## New Worldgen
 0.12 has **new overworld world generation**. You do not have to make a new world to update.
 
 ## If you have an **old** world and you want to continue using **old** worldgen
@@ -29,8 +30,9 @@ Open the `defaultconfigs/tfg-server.toml` file, and at the very bottom, replace 
 
 Note that this _will_ cause ugly chunk boundaries. The shape of continents is roughly the same, so if this is something you care about, generate your whole continent before upgrading, so then the chunk borders will be in the ocean. 
 
-⚠ ⚠ ⚠ **MAKE A BACKUP BEFORE DOING THIS** ⚠ ⚠ ⚠
-
+:::danger
+**MAKE A BACKUP BEFORE DOING THIS**
+:::
 ## If you want to make a **new** world with **new** worldgen
 
 Just create a new world as usual. Your world will remember that it was created in the new worldgen and you don't have to touch any configs.

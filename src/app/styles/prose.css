@@ -2,6 +2,11 @@
   text-decoration-color: var(--color-link-accent, var(--color-primary));
 }
 
+.prose a.gh-mention,
+.prose a.gh-issue {
+  font-weight: 600;
+}
+
 :is([data-slot='outline'], a[data-active]) [data-md] {
   all: revert !important;
 }

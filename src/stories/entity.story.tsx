@@ -6,7 +6,7 @@ export const story = defineStory({
   Component: EntityEntry,
   args: [
     {
-      variant: 'Auto (texture → egg)',
+      variant: 'Auto',
       initial: { id: 'tfc:pig', dataset: { id: 'modern' }, view: 'auto' },
     },
     {
@@ -14,7 +14,7 @@ export const story = defineStory({
       initial: { id: 'tfc:pig', dataset: { id: 'modern' }, view: 'texture' },
     },
     {
-      variant: 'Spawn egg',
+      variant: 'Egg',
       initial: { id: 'minecraft:zombie', dataset: { id: 'modern' }, view: 'egg' },
     },
     {

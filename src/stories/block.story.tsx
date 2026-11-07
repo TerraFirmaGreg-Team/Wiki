@@ -6,7 +6,7 @@ export const story = defineStory({
   Component: BlockEntry,
   args: [
     {
-      variant: 'Icon only',
+      variant: 'Icon',
       initial: { id: 'minecraft:stone', dataset: { id: 'modern' } },
     },
     {

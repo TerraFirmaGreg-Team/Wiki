@@ -65,7 +65,7 @@ export const story = defineStory({
       },
     },
     {
-      variant: 'Package manager',
+      variant: 'Manager',
       initial: {
         children: <Tabbed tabs={['pnpm', 'npm', 'yarn', 'bun']} code="fumadocs-core" />,
       },

@@ -1,6 +1,6 @@
 ---
 title: Automating the ME Resonance Fabricator & ME Resonance Charger
-order: 3
+order: 8
 ---
 
 

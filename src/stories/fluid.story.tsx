@@ -6,7 +6,7 @@ export const story = defineStory({
   Component: FluidEntry,
   args: [
     {
-      variant: 'Icon only',
+      variant: 'Icon',
       initial: { id: 'minecraft:lava', dataset: { id: 'modern' } },
     },
     {

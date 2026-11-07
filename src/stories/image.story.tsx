@@ -6,7 +6,7 @@ export const story = defineStory({
   Component: DocsImage,
   args: [
     {
-      variant: 'Natural size',
+      variant: 'Natural',
       initial: { src: '/dev/images/icon.png', alt: 'TerraFirmaGreg icon' },
     },
     {
@@ -14,7 +14,7 @@ export const story = defineStory({
       initial: { src: '/dev/images/icon.png', alt: 'TerraFirmaGreg icon', width: 96 },
     },
     {
-      variant: 'With caption',
+      variant: 'Caption',
       initial: {
         src: '/dev/images/icon.png',
         alt: 'TerraFirmaGreg icon',

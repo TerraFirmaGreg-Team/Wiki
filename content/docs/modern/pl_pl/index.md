@@ -14,6 +14,4 @@ Survival Modpack As It Should've Been
 ::card[Opcjonalne mody]{description="Dodatkowe modyfikacje, które nie są domyślnie dołączone, ale są kompatybilne z TFG." href="/docs/modern/modpack/optional-mods"}
 ::card[Aktualizowanie i ponowna instalacja]{description="Jak zaktualizować lub ponownie zainstalować paczkę modów bez niszczenia czegokolwiek." href="/docs/modern/modpack/reinstalling"}
 :::
-
-
 Want us to add more content, or just want to hang out? Join us on [Discord](https://discord.com/invite/AEaCzCTUwQ).

@@ -1,5 +1,6 @@
 import 'server-only';
 import '@/lib/app-init';
+import '@/lib/actions';
 import { registerSectionConfig } from '@terrafirmagreg-team/kit/lib/config';
 import '@terrafirmagreg-team/guide/lib/config';
 import '@terrafirmagreg-team/quest/lib/config';
@@ -7,7 +8,6 @@ import '@terrafirmagreg-team/recipe/lib/config';
 import { registerMdxComponents } from '@terrafirmagreg-team/mdx/components/mdx-components';
 import { ItemIcon } from '@terrafirmagreg-team/game/components/mdx/item-icon';
 import { MdxMultiblock } from '@terrafirmagreg-team/guide/components/mdx/multiblock';
-import { MdxStory } from '@/components/mdx/story';
 import {
   Entry,
   ItemEntry,
@@ -82,7 +82,6 @@ registerMdxComponents({
   QuestEntry,
   GuideEntry,
   Multiblock: MdxMultiblock,
-  Story: MdxStory,
 });
 
 

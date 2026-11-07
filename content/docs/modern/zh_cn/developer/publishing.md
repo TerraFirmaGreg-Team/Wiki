@@ -1,6 +1,6 @@
 ---
 title: 整合包发布流程
-order: 7
+order: 2
 ---
 
 

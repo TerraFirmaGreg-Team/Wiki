@@ -13,6 +13,7 @@ export const datasetConfig: SectionConfigInput['datasetConfig'] = {
       datasetLink.modrinth('terrafirmagreg'),
     ],
     order: 0,
+    sections: ['guide', 'quest', 'recipe'],
     guide: { bookOrder: ['tfg:field_guide'] },
   },
   vintage: {
@@ -25,6 +26,7 @@ export const datasetConfig: SectionConfigInput['datasetConfig'] = {
       datasetLink.modrinth('terrafirmagreg-vintage'),
     ],
     order: 1,
+    sections: [],
   },
   dev: {
     repo: 'TerraFirmaGreg-Team/Wiki',

@@ -3,12 +3,9 @@ title: Typography
 order: 50
 ---
 
-Base markdown rendering — headings get anchor links, links get hover `LinkPreview`, tables and images are styled.
-
 ::::preview[Text]
 **Bold**, *italic*, ~~strikethrough~~, `inline code`, and a [link to this section](/docs/dev).
 ::::
-
 ::::preview[Lists]
 - Unordered item
 - Another item
@@ -17,15 +14,13 @@ Base markdown rendering — headings get anchor links, links get hover `LinkPrev
 1. Ordered
 2. List
 ::::
-
 ::::preview[Table]
 | Directive | Component | Form |
 | --------- | --------- | ---- |
 | `:::tabs` | `Tabs` | container |
 | `::recipe` | `Recipe` | leaf |
-| `:gradient` | `GradientText` | text |
+| `::gradient` | `Gradient` block | paired |
 ::::
-
 ::::preview[Quote]
 > Blockquotes render with a left border and muted text.
 ::::
