@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "docs": "node scripts/next.mjs docs",
-    "build": "node node scripts/next.mjs build",
+    "build": "node scripts/next.mjs build",
     "start": "node scripts/next.mjs start",
     "dev": "node scripts/next.mjs dev",
     "check": "pnpm types:check && pnpm lint",
