@@ -6,7 +6,8 @@ order: 1
 Here's some more mods that are compatible with TFG but aren't included by default. Feel free to add them to your own instance of the modpack!
 
 ## Visual
-* ***Distant Horizons*** ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) - TFG comes with configurations to get it working with TFC's world generation. IMPORTANT: DH will be unable to generate LODs unless the mod Chunky is removed.
+* ***Distant Horizons*** ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) - TFG comes with configurations to get it working with TFC's world generation. Version 3.2 seems to work best. IMPORTANT: DH will be unable to generate LODs unless the mod Chunky is removed.
+    * NOTE: If entities render black, this is due to an incompatibility with [Wakes](https://www.curseforge.com/minecraft/mc-mods/wakes-reforged) on certain graphics cards.
 * [BlueMap](https://bluemap.bluecolored.de/) - TFG comes with a resource pack for it to work with some of TFC's blocks.
 
 ### Third Person
