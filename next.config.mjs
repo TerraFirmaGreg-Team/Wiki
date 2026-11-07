@@ -15,7 +15,6 @@ const config = {
   },
   reactStrictMode: true,
   reactCompiler: true,
-  experimental: { cpus: 16 },
   images: {
     unoptimized: true,
   },
