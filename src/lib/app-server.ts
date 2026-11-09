@@ -1,6 +1,8 @@
 import 'server-only';
 import '@/lib/app-init';
 import '@/lib/actions';
+import { unstable_cache } from 'next/cache';
+import { registerServerCache } from '@terrafirmagreg-team/data/lib/server-cache';
 import { registerSectionConfig } from '@terrafirmagreg-team/kit/lib/config';
 import '@terrafirmagreg-team/guide/lib/config';
 import '@terrafirmagreg-team/quest/lib/config';
@@ -41,6 +43,13 @@ import { registerDiscussionsConfig } from '@terrafirmagreg-team/discussions/lib/
 import { datasetConfig } from '@/config/datasets';
 import { loadLocaleSet } from '@terrafirmagreg-team/translate/server';
 import '@terrafirmagreg-team/guide/lib/markdown/provider';
+
+registerServerCache((key, loader, revalidate) =>
+  unstable_cache(loader, ['server-cache', key], {
+    revalidate,
+    tags: ['server-cache'],
+  })(),
+);
 
 registerSectionConfig({
   sources: {

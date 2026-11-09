@@ -24,13 +24,15 @@ import {
   registerPreviewResolver,
   resolveLinkPreview,
 } from '@terrafirmagreg-team/preview/lib';
+import { registerStoryLoader } from '@terrafirmagreg-team/mdx/lib/story-registry';
 import { PageActions } from '@terrafirmagreg-team/kit/components/page-actions';
 import { UntranslatedCallout } from '@terrafirmagreg-team/ui/components/blocks/lang/untranslated-callout';
 import iconUrl from '@/app/icon.png';
-import '@/stories';
 import '@terrafirmagreg-team/quest/lib/embed';
 import '@terrafirmagreg-team/recipe/lib/embed';
 import '@terrafirmagreg-team/guide/lib/search/filter';
+
+registerStoryLoader(() => import('@/stories'));
 
 registerTranslateConfig({ locales: localeCatalogs });
 
