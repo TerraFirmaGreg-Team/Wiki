@@ -2,8 +2,10 @@
 title: 0.12 → 0.13 Upgrade Guide
 order: 5
 ---
+
 :::warning
-**Please remember to create a new instance of TFG and copy your world across into it, instead of upgrading it in-place!** This is both safer, and also lets you preview your upgraded world, so you can go back and prepare it better.
+**Please remember to create a new instance of TFG and copy your world across into it, instead of upgrading it in-place!** 
+This is both safer, and also lets you preview your upgraded world, so you can go back and prepare it better.
 :::
 
 If you're upgrading from 0.11, please follow the [0.12 upgrade instructions first](/docs/modern/upgrade-guides/from-0.11-to-0.12).

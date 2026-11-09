@@ -35,7 +35,9 @@ import {
 import { registerSearchConfig } from '@terrafirmagreg-team/search/lib';
 import { buildSearchIndexes } from '@terrafirmagreg-team/search/lib';
 import { sections } from '@terrafirmagreg-team/kit/lib/sources';
-import { sectionConfig } from '@terrafirmagreg-team/kit/lib/config';
+import { datasetCatalog } from '@terrafirmagreg-team/kit/lib/datasets';
+import { siteLanguages } from '@terrafirmagreg-team/kit/lib/languages';
+import { registerDiscussionsConfig } from '@terrafirmagreg-team/discussions/lib/config';
 import { datasetConfig } from '@/config/datasets';
 import { loadLocaleSet } from '@terrafirmagreg-team/translate/server';
 import '@terrafirmagreg-team/guide/lib/markdown/provider';
@@ -64,9 +66,45 @@ registerSectionConfig({
       }),
 });
 
+void datasetCatalog()
+  .then((catalog) =>
+    registerDiscussionsConfig({ knownLanguages: siteLanguages(catalog) }),
+  )
+  .catch(() => {});
+
+void (async () => {
+  const { crowdinMembers, crowdinProgress, crowdinProjectSlug } =
+    await import('@terrafirmagreg-team/crowdin/lib/members');
+  const { repoContributors } = await import(
+    '@terrafirmagreg-team/github/lib/contributors'
+  );
+  const { sectionConfig } = await import(
+    '@terrafirmagreg-team/kit/lib/config'
+  );
+  for (const dataset of Object.values(sectionConfig().datasetConfig)) {
+    const slug = crowdinProjectSlug(dataset.crowdin?.url);
+    if (slug)
+      void Promise.all([
+        crowdinMembers(slug, {
+          excludeUsers: dataset.crowdin?.excludeUsers,
+          minWords: dataset.crowdin?.minWords,
+        }),
+        crowdinProgress(slug),
+      ]).catch(() => {});
+    const repo = dataset.github?.repo;
+    const url = dataset.github?.url ?? (repo && `https://github.com/${repo}`);
+    if (url)
+      void repoContributors(url, {
+        excludeUsers: dataset.github?.excludeUsers,
+        minContributions: dataset.github?.minContributions,
+        mergeUsers: dataset.github?.mergeUsers,
+      }).catch(() => {});
+  }
+})().catch(() => {});
+
 registerSearchConfig({
-  indexes: () =>
-    buildSearchIndexes(sections, sectionConfig().knownLanguages),
+  indexes: async () =>
+    buildSearchIndexes(sections, siteLanguages(await datasetCatalog())),
   i18n: () => loadLocaleSet().fumadocs,
 });
 

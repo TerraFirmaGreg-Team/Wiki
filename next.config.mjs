@@ -1,5 +1,9 @@
+import { existsSync } from 'node:fs';
 import { createMDX } from 'fumadocs-mdx/next';
 import { createNextStory } from '@fumadocs/story/next';
+const localPackages = existsSync(
+  new URL('../Web-Foundation/packages', import.meta.url),
+);
 const withMDX = createMDX({
   macro: { include: ['**/src/**/*.ts', '**/src/**/*.tsx'] },
   remarkImageOptions: { onError: 'ignore' },
@@ -8,6 +12,7 @@ const withStory = createNextStory();
 
 const config = {
   turbopack: {
+    ...(localPackages && { root: '..' }),
     resolveAlias: {
       'fumadocs-ui/components/ui/button':
         '@terrafirmagreg-team/ui/components/ui/button',
@@ -22,13 +27,14 @@ const config = {
     '@terrafirmagreg-team/analytics',
     '@terrafirmagreg-team/auth',
     '@terrafirmagreg-team/changelog',
+    '@terrafirmagreg-team/crowdin',
     '@terrafirmagreg-team/data',
     '@terrafirmagreg-team/discussions',
     '@terrafirmagreg-team/docs',
     '@terrafirmagreg-team/dump',
     '@terrafirmagreg-team/game',
+    '@terrafirmagreg-team/github',
     '@terrafirmagreg-team/guide',
-    '@terrafirmagreg-team/history',
     '@terrafirmagreg-team/kit',
     '@terrafirmagreg-team/mdx',
     '@terrafirmagreg-team/preview',

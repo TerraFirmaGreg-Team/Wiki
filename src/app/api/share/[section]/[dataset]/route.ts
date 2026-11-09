@@ -5,12 +5,14 @@ import {
   isSectionKey,
   parseDatasetRef,
 } from '@terrafirmagreg-team/sites/location';
-import { putShare } from '@terrafirmagreg-team/share';
+import { putShare, shareEnabled } from '@terrafirmagreg-team/share';
 
 export async function POST(
   req: Request,
   { params }: { params: Promise<{ section: string; dataset: string }> },
 ) {
+  if (!shareEnabled())
+    return Response.json({ error: 'disabled' }, { status: 404 });
   const { section, dataset } = await params;
   const body = (await req.json().catch(() => null)) as {
     tree?: unknown;

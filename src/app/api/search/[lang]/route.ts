@@ -1,12 +1,15 @@
 import '@/lib/app-server';
 import { searchExportLang } from '@terrafirmagreg-team/search/lib/server';
-import { knownLanguages } from '@/lib/locales';
+import { siteLanguages } from '@terrafirmagreg-team/kit/lib/languages';
+import { datasetCatalog } from '@terrafirmagreg-team/kit/lib/datasets';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-export function generateStaticParams() {
-  return knownLanguages.map((lang) => ({ lang: `${lang}.json` }));
+export async function generateStaticParams() {
+  return siteLanguages(await datasetCatalog()).map((lang) => ({
+    lang: `${lang}.json`,
+  }));
 }
 
 export async function GET(

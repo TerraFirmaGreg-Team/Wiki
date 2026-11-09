@@ -1,5 +1,5 @@
 ---
-title: TerraFirmaGreg Wiki
+title: TerraFirmaGreg Modern
 description: Survival Modpack As It Should've Been
 ---
 

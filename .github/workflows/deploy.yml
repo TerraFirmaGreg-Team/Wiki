@@ -38,7 +38,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm validate:links
+      - run: node scripts/content.mts links
 
       - run: pnpm gen:search
         env:

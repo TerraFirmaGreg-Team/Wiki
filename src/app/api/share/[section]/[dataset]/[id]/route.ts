@@ -2,7 +2,7 @@ import {
   datasetRef,
   parseDatasetRef,
 } from '@terrafirmagreg-team/sites/location';
-import { getShare } from '@terrafirmagreg-team/share';
+import { getShare, shareEnabled } from '@terrafirmagreg-team/share';
 
 export async function GET(
   req: Request,
@@ -12,6 +12,8 @@ export async function GET(
     params: Promise<{ section: string; dataset: string; id: string }>;
   },
 ) {
+  if (!shareEnabled())
+    return Response.json({ error: 'disabled' }, { status: 404 });
   const { section, dataset, id } = await params;
   const parsed = parseDatasetRef(decodeURIComponent(dataset));
   const version = new URL(req.url).searchParams.get('version') ?? undefined;

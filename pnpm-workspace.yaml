@@ -2,7 +2,7 @@ catalog:
   next: '>=15'
   react: '>=19'
   react-dom: '>=19'
-  '@types/node': ^26.6.5
+  '@types/node': ^26.6.6
   '@types/react': ^19.3.0
   '@types/react-dom': ^19.3.0
   '@types/hast': ^3.0.5
@@ -10,31 +10,34 @@ catalog:
   '@base-ui/react': ^1.9.0
   '@icons-pack/react-simple-icons': '13.15.1'
   class-variance-authority: ^0.7.1
-  cn: ^0.5.0
-  fumadocs-core: 16.18.1
+  cn: ^0.5.2
+  fumadocs-core: 16.18.4
   lucide-react: ^1.70.0
   remark-gfm: ^4.0.1
   remark-parse: ^11.0.0
   server-only: ^0.0.1
-  swr: ^2.4.2
+  swr: ^2.5.1
   unified: ^11.0.5
   zod: 4.6.7
 allowBuilds:
   esbuild: true
   unrs-resolver: true
 overrides:
-  fumadocs-ui: 16.18.1
+  fumadocs-ui: 16.18.4
+peerDependencyRules:
+  allowedVersions:
+    eslint: '^10'
 minimumReleaseAgeExclude:
   - '@terrafirmagreg-team/*'
   - lucide-react@1.70.0
   - '@base-ui/react@1.9.0'
   - '@base-ui/utils@0.5.0'
   - shadcn@4.23.0
-  - react-resizable-panels@4.16.0 || 4.18.0
+  - react-resizable-panels@4.21.0
   - '@next/eslint-plugin-next@16.4.5'
   - eslint-config-next@16.4.5
   - turndown@7.2.5
-  - fumadocs-mdx@15.5.0
+  - fumadocs-mdx@15.5.3
   - '@tailwindcss/node@4.3.5'
   - '@tailwindcss/oxide-android-arm64@4.3.5'
   - '@tailwindcss/oxide-darwin-arm64@4.3.5'
@@ -51,3 +54,5 @@ minimumReleaseAgeExclude:
   - '@tailwindcss/oxide@4.3.5'
   - '@tailwindcss/postcss@4.3.5'
   - tailwindcss@4.3.5
+  - fumadocs-core@16.18.4
+  - fumadocs-ui@16.18.4

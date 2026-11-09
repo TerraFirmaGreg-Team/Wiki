@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { defineDocs } from 'fumadocs-mdx/macro';
 import { applyMdxPreset } from 'fumadocs-mdx/config';
 import { z } from 'zod';
@@ -7,7 +8,7 @@ import { createDocsSource } from '@terrafirmagreg-team/docs/lib/source';
 import {changelogRoute} from '@terrafirmagreg-team/sites';
 import { groupTrees } from '@terrafirmagreg-team/changelog/lib/trees';
 import { remarkStripAutoSections } from '@terrafirmagreg-team/changelog/lib/remark';
-import { remarkGitChangelog } from '@terrafirmagreg-team/history/lib/remark';
+import { remarkGitChangelog } from '@terrafirmagreg-team/github/lib/remark';
 import { mdOptions } from '@terrafirmagreg-team/mdx/lib/md-plugins';
 import { datasetConfig } from '../config/datasets';
 import { gitConfig } from '../config/sections';
@@ -26,6 +27,13 @@ const historyPlugin: [typeof remarkGitChangelog, object] = [
     ...(process.env.GITHUB_TOKEN
       ? { github: { token: process.env.GITHUB_TOKEN } }
       : {}),
+    contributorsFilter: (filePath: string) => {
+      const rel = path
+        .relative(path.resolve('content/docs'), filePath)
+        .split(path.sep)
+        .join('/');
+      return !/^[^/]+\/[^/]+\/index\.mdx?$/i.test(rel);
+    },
   },
 ];
 const changelogOptions = applyMdxPreset({

@@ -6,6 +6,7 @@ const LOCALES = /translate[\\/]src[\\/]locales\.ts$/;
 
 const localesSource = `
 import { createNamespacedLocaleCatalogs } from './lib/locales.ts';
+import { sortLangCodes } from './lib/code.ts';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -23,6 +24,9 @@ const walk = (d, rel) => {
 };
 walk(dir, '');
 export const locales = createNamespacedLocaleCatalogs(mods);
+export const uiLanguages = sortLangCodes([
+  ...new Set(Object.values(locales).flatMap((catalog) => Object.keys(catalog))),
+]);
 `;
 
 export async function resolve(specifier, context, nextResolve) {

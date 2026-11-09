@@ -12,10 +12,11 @@ import { registerReadabilityConfig } from '@terrafirmagreg-team/ui/lib/readabili
 import { registerSearchClientSource } from '@terrafirmagreg-team/search/lib/sources';
 import { registerCommentsView } from '@terrafirmagreg-team/discussions/lib/comments';
 import { registerDiscussionsConfig } from '@terrafirmagreg-team/discussions/lib/config';
-import { knownLanguages, localeCatalogs } from '@/lib/locales';
-import {appName, siteUrl, basePath, previewRoute} from '@/config/sections';
+import { localeCatalogs } from '@/lib/locales';
+import {appName, siteUrl, basePath, previewRoute, sectionAccent} from '@/config/sections';
 import {docsRoute, immersiveSections} from '@terrafirmagreg-team/sites';
 import { datasetConfig } from '@/config/datasets';
+import { languages } from '@/config/languages';
 import { parseSectionLocation } from '@terrafirmagreg-team/sites/location';
 import {
   getPreviewResolver,
@@ -63,12 +64,14 @@ registerReadabilityConfig({
 });
 
 registerSectionConfig({
+  appName,
   basePath,
   siteUrl,
   previewRoute,
   docsRoute,
+  sectionAccent,
+  languages,
   datasetConfig,
-  knownLanguages,
 });
 
 registerClientDumpLoader({
@@ -104,7 +107,6 @@ registerSearchClientSource(({ refs, locale, tag }) => ({
 registerDiscussionsConfig({
   datasets: datasetConfig,
   siteUrl,
-  knownLanguages,
 });
 
 registerCommentsView(

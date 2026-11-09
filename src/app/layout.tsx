@@ -5,17 +5,8 @@ import {appName, siteUrl} from '@/config/sections';
 import { htmlLang } from '@terrafirmagreg-team/translate/lib/code';
 import { loadLocaleRegistry } from '@terrafirmagreg-team/translate/server';
 import { datasetCatalog } from '@terrafirmagreg-team/kit/lib/datasets';
+import { dumpStorageOrigin } from '@terrafirmagreg-team/data/lib/env';
 import './global.css';
-
-function dumpStorageOrigin(): string | undefined {
-  const raw = process.env.NEXT_PUBLIC_DUMP_STORAGE_URL;
-  if (!raw) return undefined;
-  try {
-    return new URL(raw).origin;
-  } catch {
-    return undefined;
-  }
-}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
