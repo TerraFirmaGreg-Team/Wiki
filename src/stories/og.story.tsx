@@ -48,15 +48,15 @@ const controls: { node: TypeNode } = {
 const presets: { variant: string; initial: OgPreviewProps }[] = [
   {
     variant: 'Docs landing',
-    initial: { section: 'docs', dataset: 'dev' },
+    initial: { section: 'docs', dataset: 'modern' },
   },
   {
     variant: 'Docs page',
     initial: {
       section: 'docs',
-      dataset: 'dev',
-      slug: 'en_us/site/og',
-     
+      dataset: 'modern',
+      slug: 'developer/contributing',
+
     },
   },
   {
@@ -68,50 +68,50 @@ const presets: { variant: string; initial: OgPreviewProps }[] = [
     initial: {
       section: 'changelog',
       dataset: 'modern',
-      slug: 'en_us/0.0.7',
-     
+      slug: '0.0.7',
+
     },
   },
   {
     variant: 'Guide book',
     initial: {
       url: '/guide/modern?book=tfg:field_guide',
-     
+
     },
   },
   {
     variant: 'Guide category',
     initial: {
       url: '/guide/modern?book=tfg:field_guide&cat=game_mechanics',
-     
+
     },
   },
   {
     variant: 'Guide entry',
     initial: {
       url: '/guide/modern?book=tfg:field_guide&entry=game_mechanics/player_temperature',
-     
+
     },
   },
   {
     variant: 'Recipe category',
     initial: {
       url: '/recipe/modern?type=gtceu:alloy_smelter',
-     
+
     },
   },
   {
     variant: 'Recipe tag',
     initial: {
       url: '/recipe/modern?type=emi:tag&id=emi:tag/item/ad_astra/items/calorite_ingots',
-     
+
     },
   },
   {
     variant: 'Recipe item',
     initial: {
       url: '/recipe/modern?item=tfg:ev_universal_circuit',
-     
+
     },
   },
   {
@@ -122,7 +122,7 @@ const presets: { variant: string; initial: OgPreviewProps }[] = [
     variant: 'Recipe single',
     initial: {
       url: '/recipe/modern?id=gtceu:alloy_blast_smelter/alloy_blast_smelter/rocket_alloy_t2',
-     
+
     },
   },
   {
@@ -133,7 +133,7 @@ const presets: { variant: string; initial: OgPreviewProps }[] = [
     variant: 'Quest chapter',
     initial: {
       url: '/quest/modern?category=ev__extreme_voltage',
-     
+
     },
   },
   {
@@ -143,15 +143,7 @@ const presets: { variant: string; initial: OgPreviewProps }[] = [
   {
     variant: 'Quest item',
     initial: { url: '/quest/modern?item=ad_astra:tier_2_rocket' },
-  },
-  {
-    variant: 'Lang prop',
-    initial: {
-      url: '/quest/modern?category=ev__extreme_voltage',
-      lang: 'ru_ru',
-     
-    },
-  },
+  }
 ];
 
 const items = presets.map((p) => ({ label: p.variant, ...p.initial }));

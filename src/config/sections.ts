@@ -1,8 +1,7 @@
-import { sites } from '@terrafirmagreg-team/sites/hosts';
 import type { SectionKey } from '@terrafirmagreg-team/sites';
 
 export const appName = 'Wiki';
-export const siteUrl = sites.wiki;
+export const siteUrl = 'https://dev.wiki.terrafirmagreg.team';
 
 export const sectionAccent: Record<SectionKey, string> = {
   docs: '#6ea8ff',

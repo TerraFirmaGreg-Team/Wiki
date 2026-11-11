@@ -3,6 +3,8 @@ import { registerLayoutDeps } from '@terrafirmagreg-team/kit/lib/config';
 import { useTrackView } from '@terrafirmagreg-team/analytics';
 import { useCommentsMenuItem } from '@terrafirmagreg-team/discussions/hooks/comments/use-menu-item';
 import { useFeatureFlags } from '@terrafirmagreg-team/kit/hooks/use-features';
+import { registerChangelogDeps } from '@terrafirmagreg-team/changelog/lib/config';
+import { loadChangelogEntries, loadSectionTree } from '@/lib/actions';
 
 function useTrackViewGated(path: string, apiUrl?: string) {
   const flags = useFeatureFlags();
@@ -12,4 +14,6 @@ function useTrackViewGated(path: string, apiUrl?: string) {
 registerLayoutDeps({
   trackView: useTrackViewGated,
   commentsMenuItem: useCommentsMenuItem,
+  loadSectionTree,
 });
+registerChangelogDeps({ loadEntries: loadChangelogEntries });

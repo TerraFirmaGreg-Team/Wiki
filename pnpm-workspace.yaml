@@ -12,7 +12,7 @@ catalog:
   class-variance-authority: ^0.7.1
   cn: ^0.5.2
   fumadocs-core: 16.18.4
-  lucide-react: ^1.70.0
+  lucide-react: ^1.71.0
   remark-gfm: ^4.0.1
   remark-parse: ^11.0.0
   server-only: ^0.0.1
@@ -29,13 +29,13 @@ peerDependencyRules:
     eslint: '^10'
 minimumReleaseAgeExclude:
   - '@terrafirmagreg-team/*'
-  - lucide-react@1.70.0
+  - lucide-react@1.71.0
   - '@base-ui/react@1.9.0'
   - '@base-ui/utils@0.5.0'
   - shadcn@4.23.0
   - react-resizable-panels@4.21.0
-  - '@next/eslint-plugin-next@16.4.5'
-  - eslint-config-next@16.4.5
+  - '@next/eslint-plugin-next@16.4.6'
+  - eslint-config-next@16.4.6
   - turndown@7.2.5
   - fumadocs-mdx@15.5.3
   - '@tailwindcss/node@4.3.5'
