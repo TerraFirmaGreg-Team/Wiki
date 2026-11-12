@@ -86,24 +86,14 @@ jobs:
     needs: [sync-docs, sync-ui]
     if: (github.event_name == 'schedule') || (github.event_name == 'workflow_dispatch' && inputs.create_pr)
     steps:
-      - name: "Checkout repository"
-        uses: actions/checkout@v7
-
-      - name: "Generate GitHub App Token"
-        id: generate_token
-        uses: actions/create-github-app-token@v3
-        with:
-          client-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-
       - name: "Create Pull Request"
         id: create_pr
-        uses: devops-infra/action-pull-request@v1
+        uses: TerraFirmaGreg-Team/Actions/pull-request/create@main
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           source_branch: ${{ env.LOCALIZATION_BRANCH }}
           target_branch: ${{ env.TARGET_BRANCH }}
-          ignore_users: "dependabot"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          draft: false
           label: "Pull request: Translation"
           title: 'add: New Crowdin translations'
           body: |
@@ -113,12 +103,8 @@ jobs:
             - Updated translation files
 
       - name: "Automatically Merge PR"
-        uses: pascalgn/automerge-action@v0.16.4
-        env:
-          GITHUB_TOKEN: "${{ steps.generate_token.outputs.token }}"
-          MERGE_METHOD: "squash"
-          MERGE_LABELS: ""
-          MERGE_REQUIRED_APPROVALS: "0"
-          MERGE_DELETE_BRANCH: true
-          MERGE_READY_STATE: "clean,has_hooks,unknown,unstable,blocked"
-          PULL_REQUEST: ${{ steps.create_pr.outputs.pr_number }}
+        uses: TerraFirmaGreg-Team/Actions/pull-request/automerge@main
+        with:
+          app_client_id: ${{ vars.APP_ID }}
+          app_private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          pull_request: ${{ steps.create_pr.outputs.pr_number }}
