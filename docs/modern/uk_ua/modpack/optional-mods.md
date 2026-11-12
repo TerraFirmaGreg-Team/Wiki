@@ -9,7 +9,8 @@ order: 1
 
 ## Графічні
 
-- _**Distant Horizons**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) — TFG містить налаштування для забезпечення його роботи з генерацією світу TFC. ВАЖЛИВО: DH не зможе генерувати LOD, доки не буде видалено мод Chunky.
+- _**Distant Horizons**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) — TFG містить налаштування для забезпечення його роботи з генерацією світу TFC. Версія 3.2, схоже, працює найкраще. ВАЖЛИВО: DH не зможе генерувати LOD, доки не буде видалено мод Chunky.
+  - ПРИМІТКА: Якщо сутності відображаються чорними, це спричинено несумісністю мода [Wakes](https://www.curseforge.com/minecraft/mc-mods/wakes-reforged) з деякими відеокартами.
 - [BlueMap](https://bluemap.bluecolored.de/) — TFG постачається з ресурспаком для забезпечення його роботи з деякими блоками TFC.
 
 ### Вигляд від третьої особи
