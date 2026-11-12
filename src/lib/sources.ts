@@ -10,6 +10,7 @@ import { groupTrees } from '@terrafirmagreg-team/changelog/lib/trees';
 import { remarkStripAutoSections } from '@terrafirmagreg-team/changelog/lib/remark';
 import { remarkGitChangelog } from '@terrafirmagreg-team/github/lib/remark';
 import { mdOptions } from '@terrafirmagreg-team/mdx/lib/md-plugins';
+import { registerSectionConfig } from '@terrafirmagreg-team/kit/lib/config';
 import { datasetConfig } from '../config/datasets';
 import { gitConfig } from '../config/sections';
 
@@ -90,4 +91,15 @@ export const {
   section: 'changelog',
   source: { ...changelogSource, files: () => changelogSource.files },
   postTrees: groupTrees(changelogRoute),
+});
+
+registerSectionConfig({
+  sources: {
+    docs: { getSource: getDocsSource, markdown: docsMarkdown, trees: docsTrees },
+    changelog: {
+      getSource: getChangelogSource,
+      markdown: changelogMarkdown,
+      trees: changelogTrees,
+    },
+  },
 });

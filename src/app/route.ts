@@ -1,3 +1,4 @@
+import '@/lib/app-server';
 import { createSectionRedirect } from '@terrafirmagreg-team/kit/components/views/routes';
 
-export default createSectionRedirect('docs');
+export const GET = createSectionRedirect('docs');

@@ -26,6 +26,8 @@ registerSectionConfig({
         page: (page) =>
           import('@/lib/sources').then((m) => m.docsMarkdown.page(page)),
       },
+      trees: (lang) =>
+        import('@/lib/sources').then((m) => m.docsTrees(lang)),
     },
     changelog: {
       getSource: () =>
@@ -36,6 +38,8 @@ registerSectionConfig({
             (m) => m.changelogMarkdown.page(page),
           ),
       },
+      trees: (lang) =>
+        import('@/lib/sources').then((m) => m.changelogTrees(lang)),
     },
   },
 });

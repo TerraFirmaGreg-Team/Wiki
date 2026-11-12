@@ -21,12 +21,7 @@ import {
 } from '@terrafirmagreg-team/game/components/entry/entry';
 import { QuestEntry } from '@terrafirmagreg-team/quest/components/mdx/quest-entry';
 import { GuideEntry } from '@terrafirmagreg-team/guide/components/mdx/guide-entry';
-import {
-  changelogMarkdown,
-  getChangelogSource,
-  docsMarkdown,
-  getDocsSource,
-} from '@/lib/sources';
+import '@/lib/sources';
 import { guideDumpHasContent } from '@terrafirmagreg-team/guide/lib/dump';
 import { questDumpHasContent } from '@terrafirmagreg-team/quest/lib/dump';
 import { recipeDumpHasContent } from '@terrafirmagreg-team/recipe/lib/dump';
@@ -41,6 +36,7 @@ import { datasetCatalog } from '@terrafirmagreg-team/kit/lib/datasets';
 import { siteLanguages } from '@terrafirmagreg-team/kit/lib/languages';
 import { registerDiscussionsConfig } from '@terrafirmagreg-team/discussions/lib/config';
 import { datasetConfig } from '@/config/datasets';
+import { gitConfig } from '@/config/sections';
 import { loadLocaleSet } from '@terrafirmagreg-team/translate/server';
 import '@terrafirmagreg-team/guide/lib/markdown/provider';
 
@@ -52,13 +48,7 @@ registerServerCache((key, loader, revalidate) =>
 );
 
 registerSectionConfig({
-  sources: {
-    docs: { getSource: getDocsSource, markdown: docsMarkdown },
-    changelog: {
-      getSource: getChangelogSource,
-      markdown: changelogMarkdown,
-    },
-  },
+  git: gitConfig,
   ...(process.env.DOCS_ONLY === '1'
     ? {}
     : {
