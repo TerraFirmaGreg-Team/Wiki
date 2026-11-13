@@ -56,3 +56,6 @@ minimumReleaseAgeExclude:
   - tailwindcss@4.3.5
   - fumadocs-core@16.18.4
   - fumadocs-ui@16.18.4
+  - '@eslint/config-array@0.23.6'
+  - eslint@10.15.0
+  - postcss@8.5.33
