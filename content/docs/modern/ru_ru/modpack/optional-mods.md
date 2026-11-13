@@ -49,7 +49,10 @@ order: 6
 - _**Create: Extra Gauges**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-extra-gauges), [MR](https://modrinth.com/mod/extra-gauges)) - расширяет заводские датчики Create. Добавив его в модпак, вы получите изменения в рецептах TFG.
 
 - _**Create: Railways Navigator**_  ([CF](https://www.curseforge.com/minecraft/mc-mods/create-railways-navigator), [MR](https://modrinth.com/mod/create-railways-navigator)) - Expands on train scheduling, adds passenger information displays for both trains and stations, and includes a navigator device that can tell you which trains to board for your intended journey. Not included by default because it primarily benefits large, rail-heavy multiplayer servers. Custom recipes included.
-  - _**Dragonlib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - A library required for Railways Navigator to work. **IMPORTANT:** The latest version of dragonlib has been found to prevent the game from loading. Versions 3.0.21 and 3.0.26 have both been reported to work.
+  - _**Dragonlib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - A library required for Railways Navigator to work.
+      :::important
+      The latest version of dragonlib has been found to prevent the game from loading. Versions 3.0.21 and 3.0.26 have both been reported to work.
+      :::
 
 - _**Immersive vehicles**_: ([CF](https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator)) и его официальные дополнения с поддержкой рецепта TFG от @ilikecupcakes
   - _**MTS Official Content Pack**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/transport-simulator-official-vehicle-set)) добавляет десятки автомобилей, самолетов, вертолетов и танков. А также дорожные знаки/огни. Требует базовый мод и официальный автомобильный пакет для поддержки рецептов.

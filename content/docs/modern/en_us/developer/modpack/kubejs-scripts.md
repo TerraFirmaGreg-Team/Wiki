@@ -270,7 +270,9 @@ The above example will make a decoration block that spawns 6 green `minecraft:du
 
 **Extra Methods:**
 
-> 📝 **Note:** active particle emitter consumers use the same methods as the above particle emitter consumers.
+:::note 
+Active particle emitter consumers use the same methods as the above particle emitter consumers.
+:::
 
 ```js
 .activeParticles(particles: Consumer<ParticleSetBuilder>)

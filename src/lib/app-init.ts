@@ -77,13 +77,19 @@ registerSectionConfig({
 });
 
 registerClientDumpLoader({
+  resolveSnapshot: (dataset) =>
+    import('@terrafirmagreg-team/dump/lib/dump/snapshot').then((m) =>
+      m.resolveDatasetSnapshot(dataset),
+    ),
   loadDump: (dataset) =>
     import('@terrafirmagreg-team/dump/lib/dump/mods/load').then((m) =>
       m.loadDatasetDump(dataset),
     ),
   loadVersions: (id) =>
     import('@terrafirmagreg-team/dump/lib/dump/client/dump').then((m) =>
-      m.loadClientVersions(id),
+      m.loadClientVersions(id).then((versions) =>
+        versions ? { ...versions, latest: versions.latest ?? undefined } : null,
+      ),
     ),
   warm: (dataset) => {
     import('@terrafirmagreg-team/dump/lib/dump/client/dump')
@@ -128,4 +134,3 @@ for (const [section, load] of Object.entries(lazyPreviewResolvers)) {
     return getPreviewResolver(section)?.resolve(ctx);
   });
 }
-

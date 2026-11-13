@@ -270,7 +270,9 @@ O exemplo acima cria um bloco decorativo que gera 6 partículas verdes `minecraf
 
 **Métodos Adicionais:**
 
-> 📝 **Nota:** consumidores de emissores de partículas ativos usam os mesmos métodos dos consumidores de emissores de partículas acima.
+:::note
+consumidores de emissores de partículas ativos usam os mesmos métodos dos consumidores de emissores de partículas acima.
+:::
 
 ```js
 .activeParticles(particles: Consumer<ParticleSetBuilder>)

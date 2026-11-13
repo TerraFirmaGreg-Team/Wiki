@@ -4,10 +4,8 @@ import { INDEX_BUILDERS } from '@/lib/search-indexes';
 import {
   buildDumpSearchBlobCached,
   putSearchBlob,
-  resolveDumpVersion,
 } from '@terrafirmagreg-team/dump/lib/dump-search';
-
-export const revalidate = false;
+import { resolveDatasetSnapshot } from '@terrafirmagreg-team/dump/lib/dump/snapshot';
 
 export function GET(req: Request) {
   const url = new URL(req.url);
@@ -16,13 +14,13 @@ export function GET(req: Request) {
   const lang = url.searchParams.get('lang') ?? 'en_us';
   if (!id) return Response.json({ error: 'id required' }, { status: 400 });
   return cachedResponse(req, ver ? 3600 : 60, async () => {
-    const [blob, resolvedVer] = await Promise.all([
+    const [blob, snapshot] = await Promise.all([
       buildDumpSearchBlobCached(id, ver, lang, INDEX_BUILDERS),
-      resolveDumpVersion(id, ver),
+      resolveDatasetSnapshot({ id, version: ver }),
     ]);
-    if (resolvedVer && Object.keys(blob.data).length) {
+    if (Object.keys(blob.data).length) {
       try {
-        await putSearchBlob(id, resolvedVer, lang, blob);
+        await putSearchBlob(snapshot, lang, blob);
       } catch (e) {
         console.warn('[search-dump] persist failed:', e);
       }

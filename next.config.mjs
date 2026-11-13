@@ -5,7 +5,7 @@ const localPackages = existsSync(
   new URL('../Web-Foundation/packages', import.meta.url),
 );
 const withMDX = createMDX({
-  macro: { include: ['**/src/**/*.ts', '**/src/**/*.tsx'] },
+  macro: { include: ['**/src/lib/sources.ts'] },
   remarkImageOptions: { onError: 'ignore' },
 });
 const withStory = createNextStory();
@@ -20,6 +20,9 @@ const config = {
   },
   reactStrictMode: true,
   reactCompiler: true,
+  experimental: {
+    turbopackRustReactCompiler: true,
+  },
   images: {
     unoptimized: true,
   },
@@ -60,8 +63,40 @@ const config = {
       { source: `/docs/modern/developer/:slug${movedModpack}`, destination: '/docs/modern/developer/modpack/:slug' },
       { source: '/docs/modern/development/:path*', destination: '/docs/modern/developer/:path*' },
       { source: '/docs/modern/mod/:path*', destination: '/docs/modern/developer/mod/:path*' },
-      { source: '/modern/field-guide/:path*', destination: '/guide' },
+      {
+        source: '/modern/quest-book/:path*',
+        has: [
+          { type: 'query', key: 'chapter', value: '(?<chapter>.+)' },
+          { type: 'query', key: 'quest', value: '(?<quest>.+)' },
+        ],
+        destination: '/quest/modern?category=:chapter&id=:quest',
+      },
+      {
+        source: '/modern/quest-book/:path*',
+        has: [{ type: 'query', key: 'chapter', value: '(?<chapter>.+)' }],
+        destination: '/quest/modern?category=:chapter',
+      },
+      {
+        source: '/modern/quest-book/:path*',
+        has: [{ type: 'query', key: 'quest', value: '(?<quest>.+)' }],
+        destination: '/quest/modern?id=:quest',
+      },
       { source: '/modern/quest-book/:path*', destination: '/quest' },
+      {
+        source: `/modern/field-guide/:lang${locale}/:cat/:entry.html`,
+        destination:
+          '/guide/modern?book=tfg:field_guide&entry=:cat/:entry&lang=:lang',
+      },
+      {
+        source: `/modern/field-guide/:lang${locale}/:cat.html`,
+        destination:
+          '/guide/modern?book=tfg:field_guide&cat=:cat&lang=:lang',
+      },
+      {
+        source: `/modern/field-guide/:lang${locale}/:path*`,
+        destination: '/guide/modern?lang=:lang',
+      },
+      { source: '/modern/field-guide/:path*', destination: '/guide' },
       { source: '/modern/recipe-book/:path*', destination: '/recipe' },
       { source: '/modern/en_us/developer/wiki-components-showcase', destination: '/docs/dev/components' },
       { source: `/modern/:lang${locale}/developer/wiki-components-showcase`, destination: '/docs/dev/components?lang=:lang' },
@@ -69,6 +104,8 @@ const config = {
       { source: `/modern/:lang${locale}/developer/:slug${movedDev}`, destination: '/docs/modern/developer/mod/:slug?lang=:lang' },
       { source: `/modern/en_us/developer/:slug${movedModpack}`, destination: '/docs/modern/developer/modpack/:slug' },
       { source: `/modern/:lang${locale}/developer/:slug${movedModpack}`, destination: '/docs/modern/developer/modpack/:slug?lang=:lang' },
+      { source: '/modern/en_us/developer/pixel-composer', destination: '/docs/modern/developer' },
+      { source: `/modern/:lang${locale}/developer/pixel-composer`, destination: '/docs/modern/developer?lang=:lang' },
       { source: '/modern/en_us/developer/:path*', destination: '/docs/modern/developer/:path*' },
       { source: `/modern/:lang${locale}/developer/:path*`, destination: '/docs/modern/developer/:path*?lang=:lang' },
       { source: '/modern/en_us/upgrade-guides/:path*', destination: '/docs/modern/upgrade-guides/:path*' },

@@ -19,7 +19,7 @@ order: 2
 - _Drippy Loading Screen & FancyMenu_ - 目前存在[一个 bug](https://github.com/Keksuccino/Drippy-Loading-Screen/issues/118)，会导致加载界面的进度条显示异常。等该问题修复后再考虑更新。等该问题修复后再考虑更新。
 - _KubeJS_ - 版本 2001.6.5-build.26 破坏了可食用/可饮用物品的 API。等他们修复后再更新。
 - _PandaLib & Panda's Falling Trees_ - **永远不要更新！** 新版本完全改变了树木检测逻辑，导致与 TFC 树木的兼容性被破坏。这个问题在 1.21 版本中已修复，但作者不再支持 1.20（以免破坏更多内容）。此外，我们在这个版本上有大量 TFG-Core 的 Mixin 代码。
-- _TFC Astikor Carts_ - **永远不要更新！** 新版本与 TFG-Core 的混入不兼容，而且也没有我们需要的任何新功能。
+- _TFC Astikor Carts 和 AstikorCarts Redux_ - **永远不要更新！** 新版本与 TFG-Core 的混入不兼容，而且也没有我们需要的任何新功能。
 - _ModernFix_ - 5.27.51 版本后导致物品堆叠无效和木桶失效的问题。
 - _TooManyRecipeViewers_ - 0.8.1版本后导致查看配方时的卡顿问题。
 

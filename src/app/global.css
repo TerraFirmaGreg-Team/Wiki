@@ -7,7 +7,6 @@
 @import '@terrafirmagreg-team/ui/styles/layout.css';
 @import '@terrafirmagreg-team/ui/styles/left-sidebar.css';
 @import '@terrafirmagreg-team/ui/styles/workspace.css';
-@import '@terrafirmagreg-team/ui/styles/right-sidebar.css';
 
 :root {
   --color-fc-background: var(--color-background);
@@ -62,3 +61,7 @@
   overflow-y: auto;
 }
 
+
+.fgc .fgc-sort {
+  height: auto;
+}

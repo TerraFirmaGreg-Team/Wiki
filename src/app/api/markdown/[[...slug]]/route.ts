@@ -8,8 +8,6 @@ import { notFound } from 'next/navigation';
 import type { SectionKey } from '@/types/section';
 import type { Lang } from '@terrafirmagreg-team/translate/types/locale';
 
-export const revalidate = false;
-
 export function GET(
   req: Request,
   { params }: { params: Promise<{ slug?: string[] }> },

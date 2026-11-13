@@ -31,7 +31,9 @@ Using simple redstone with MoreRed components ensures a reliable way to swap two
 * **Flawless or above:** 4  blocks of redstone dust.
 * **Exquisite:** 5 blocks of redstone dust.
 
-> **Note:** Using standard Comparator subtraction for Certus Block detection can result in infinite swap loops because `1 - 1 <= 0`. Replaces subtraction logic with Red Alloy Cable signal decay and a `NOT` gate resolves this issue.
+:::note
+Using standard Comparator subtraction for Certus Block detection can result in infinite swap loops because `1 - 1 <= 0`. Replaces subtraction logic with Red Alloy Cable signal decay and a `NOT` gate resolves this issue.
+:::
 
 ### 2. Reserve / Charger Signal (WHITE)
 * Connects from the secondary port through an `AND` gate interlock to ensure the spent bud is only swapped when a fully recharged bud is ready, apply same logic for redstone dust length as BLUE wire does.
@@ -39,7 +41,9 @@ Using simple redstone with MoreRed components ensures a reliable way to swap two
 ### 3. Double Pulse With Delay Generator
 * Adding a Pulse Generator with two different repeater intervals ensures the IO port activates two times to *pick up* and *put down* the certus bud block.
 
-> **Note:** Have both certus quartz buds placed before powering the redstone circuitry.
+:::note
+Have both certus quartz buds placed before powering the redstone circuitry.
+:::
 
 ### 4. Spatial Cell Rotation
 To rotate the Spatial Storage Cells between ports:

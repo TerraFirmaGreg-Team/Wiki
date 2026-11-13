@@ -270,7 +270,9 @@ StartupEvents.registry('block', event => {
 
 **额外方法：**
 
-> 📝 **注意：** 活动粒子发射器消费者使用与上述粒子发射器消费者相同的方法。
+:::note
+活动粒子发射器消费者使用与上述粒子发射器消费者相同的方法。
+:::
 
 ```js
 .activeParticles(particles: Consumer<ParticleSetBuilder>)

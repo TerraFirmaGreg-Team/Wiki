@@ -1,4 +1,7 @@
 import 'server-only';
+import '@terrafirmagreg-team/recipe/lib/og';
+import '@terrafirmagreg-team/quest/lib/og';
+import '@terrafirmagreg-team/guide/lib/og';
 import { registerSectionConfig } from '@terrafirmagreg-team/kit/lib/config';
 import { datasetConfig } from '@/config/datasets';
 import {

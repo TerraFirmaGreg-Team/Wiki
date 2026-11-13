@@ -8,7 +8,13 @@ order: 6
 
 ## Графічні
 
-- _**Distant Horizons**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) — TFG містить налаштування для забезпечення його роботи з генерацією світу TFC. ВАЖЛИВО: DH не зможе генерувати LOD, доки не буде видалено мод Chunky.
+- _**Distant Horizons**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) — TFG містить налаштування для забезпечення його роботи з генерацією світу TFC. Версія 3.2, схоже, працює найкраще.
+    :::important
+    DH не зможе генерувати LOD, доки не буде видалено мод Chunky.
+    :::
+    :::note
+    Якщо сутності відображаються чорними, це спричинено несумісністю мода [Wakes](https://www.curseforge.com/minecraft/mc-mods/wakes-reforged) з деякими відеокартами.
+    :::
 - [BlueMap](https://bluemap.bluecolored.de/) — TFG постачається з ресурспаком для забезпечення його роботи з деякими блоками TFC.
 
 ### Вигляд від третьої особи
@@ -41,7 +47,10 @@ order: 6
 - _**Create: Extra Gauges**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-extra-gauges), [MR](https://modrinth.com/mod/extra-gauges)) — розширює можливості фабричних вимірювальних приладів з Create. Якщо ти додаш його до свого модпаку, ти отримаєш змінені рецепти від TFG.
 
 - _**Create: Railways Navigator**_  ([CF](https://www.curseforge.com/minecraft/mc-mods/create-railways-navigator), [MR](https://modrinth.com/mod/create-railways-navigator)) - Розширює можливості планування руху потягів, додає інформаційні дисплеї для пасажирів як у потягах, так і на станціях, а також пристрій-навігатор, який може підказати, на які потяги тобі потрібно сісти для запланованої подорожі. Не включено за замовчуванням, оскільки це переважно корисно для великих багатокористувацьких серверів із великою кількістю залізниць. Користувацькі рецепти включено.
-  - _**Dragonlib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - Бібліотека, необхідна для роботи Railways Navigator. **ВАЖЛИВО:** Виявлено, що найновіша версія dragonlib перешкоджає завантаженню гри. Повідомлялося, що версії 3.0.21 та 3.0.26 обидві працюють.
+  - _**Dragonlib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - Бібліотека, необхідна для роботи Railways Navigator.
+      :::important
+      Виявлено, що найновіша версія dragonlib перешкоджає завантаженню гри. Повідомлялося, що версії 3.0.21 та 3.0.26 обидві працюють.
+      :::
 
 - _**Immersive vehicles**_. ([CF](https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator)) та його офіційні аддони з підтримкою рецептів TFG від @ilikecupcakes
   - _**MTS Official Content Pack**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/transport-simulator-official-vehicle-set)) — додає десятки автомобілів, літаків, гелікоптерів та танків. А також дорожні знаки та світлофори. Для підтримки рецептів потрібен базовий мод та офіційний набір автомобілів.

@@ -3,7 +3,6 @@ import { resolveDatasetMeta } from '@terrafirmagreg-team/kit/lib/datasets';
 import {
   datasetRef,
   isSectionKey,
-  parseDatasetRef,
 } from '@terrafirmagreg-team/sites/location';
 import { putShare, shareEnabled } from '@terrafirmagreg-team/share';
 
@@ -17,14 +16,14 @@ export async function POST(
   const body = (await req.json().catch(() => null)) as {
     tree?: unknown;
   } | null;
-  const parsed = parseDatasetRef(decodeURIComponent(dataset));
+  const ref = datasetRef(decodeURIComponent(dataset));
   const meta = isSectionKey(section)
-    ? await resolveDatasetMeta(section, parsed)
+    ? await resolveDatasetMeta(section, ref)
     : undefined;
   if (!meta || typeof body?.tree !== 'string')
     return Response.json({ error: 'invalid tree' }, { status: 400 });
 
-  const pinned = datasetRef(parsed.id, parsed.version ?? meta.versions?.[0]);
+  const pinned = datasetRef(ref.id, ref.version ?? meta.versions?.[0]);
   const shareId = await putShare(section, pinned, body.tree);
   if (!shareId) return Response.json({ error: 'invalid tree' }, { status: 400 });
   return Response.json({ id: shareId, dataset: pinned });

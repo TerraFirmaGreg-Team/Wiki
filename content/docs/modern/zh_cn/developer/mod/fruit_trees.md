@@ -57,6 +57,6 @@ order: 9
 
 - 在各自维度的分类下，为每棵新树添加野外手册条目。
 
-### [工具仓库侧](https://github.com/TerraFirmaGreg-Team/Tools-Modern)
+### 6. 语言文件
 
-- 为所有内容添加语言字符串。
+- 为所有内容添加语言字符串，[点击查看样例](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/tree/dev/kubejs/assets/tfg/lang/en_us)。

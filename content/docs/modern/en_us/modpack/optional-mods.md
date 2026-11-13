@@ -8,9 +8,11 @@ Here's some more mods that are compatible with TFG but aren't included by defaul
 ## Visual
 * ***Distant Horizons*** ([CF](https://www.curseforge.com/minecraft/mc-mods/distant-horizons), [MR](https://modrinth.com/mod/distanthorizons/versions)) - TFG comes with configurations to get it working with TFC's world generation. Version 3.2 seems to work best.
     :::important
-    DH will be unable to generate LODs unless the mod Chunky is removed.
+    DH will be unable to generate LODs unless the mod Chunky is removed
     :::
-    * [!NOTE] If entities render black, this is due to an incompatibility with [Wakes](https://www.curseforge.com/minecraft/mc-mods/wakes-reforged) on certain graphics cards.
+    :::note
+    If entities render black, this is due to an incompatibility with [Wakes](https://www.curseforge.com/minecraft/mc-mods/wakes-reforged) on certain graphics cards.
+    :::
 * [BlueMap](https://bluemap.bluecolored.de/) - TFG comes with a resource pack for it to work with some of TFC's blocks.
 
 ### Third Person
@@ -22,12 +24,18 @@ Here's some more mods that are compatible with TFG but aren't included by defaul
 * ***Ad Astra 3D*** ([CF](https://www.curseforge.com/minecraft/texture-packs/ad-astra-3d), [MR](https://modrinth.com/resourcepack/ad-astra-3d)) - Replaces the usual pixelated textures of the celestial bodies in different sky boxes with 3D models. Goes great with shaders!
 * ***HotOrNot 3D Mittens*** ([MR](https://modrinth.com/resourcepack/tfchotornot-3d-mittens)) - Changes the appearance of the TFC HotOrNot mittens into a 3D model.
 * ***Naturalis*** ([CF](https://www.curseforge.com/minecraft/texture-packs/tfc-naturalis), [MR](https://modrinth.com/resourcepack/tfc-naturalis)) - Makes fruit trees and grain crops more "bushy" looking.
+    :::warning
+    After installing this mod, delete the extra TerraFirmaCraft.jar inside your /mods/ folder.
+    :::
 * ***TFC Livestock Skins*** ([CF](https://www.curseforge.com/minecraft/texture-packs/aures-tfc-livestock-skins)) - Adds some variations of livestock animals like alpacas, chickens, and ducks, based on the climate and block they spawned on. Requires [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) and [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features) to be installed as well.
 * ***lsc's Player Dolls*** ([CF](https://www.curseforge.com/minecraft/texture-packs/lscs-player-dolls), [MR](https://modrinth.com/resourcepack/lscs-player-dolls)) - A simple resource pack that transforms vanilla Player Heads into adorable dolls. Put a plushie of GregT next to your EBF! Requires [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) and [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features) to be installed as well.
 
 ## Content
 ### Addons
 * ***Epic Knights of TerraFirmaGreg*** ([CF](https://www.curseforge.com/minecraft/mc-mods/epic-knights-of-terrafirmagreg/files/8242766)) - Adds additional weapons and armor to the TFC era of the modpack. Not included by default because of a lot of extra equipment bloat.
+    :::warning
+    After installing this mod, delete the extra TerraFirmaCraft.jar inside your /mods/ folder.
+    :::
 * ***Via Romana***: ([CF](https://www.curseforge.com/minecraft/mc-mods/via-romana)) - Adds infrastructure driven fast travel. Allowing you create road networks with signs to travel between locations. TFG includes a built in [config file](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/dev/config/via_romana.json) for allowing roads to be made out of many of our blocks.
 
 ### With Custom Recipes
@@ -35,7 +43,10 @@ Here's some more mods that are compatible with TFG but aren't included by defaul
 * ***Chimes*** ([CF](https://www.curseforge.com/minecraft/mc-mods/chimes)) - adds some wind chimes. Not included by default to avoid modpack bloat, but we do have our own recipes for it.
 * ***Create: Extra Gauges*** ([CF](https://www.curseforge.com/minecraft/mc-mods/create-extra-gauges), [MR](https://modrinth.com/mod/extra-gauges)) - expands on create's factory gauges. If you add it to your modpack, you'll get TFG recipe changes.
 * ***Create: Railways Navigator***  ([CF](https://www.curseforge.com/minecraft/mc-mods/create-railways-navigator), [MR](https://modrinth.com/mod/create-railways-navigator)) - Expands on train scheduling, adds passenger information displays for both trains and stations, and includes a navigator device that can tell you which trains to board for your intended journey. Not included by default because it primarily benefits large, rail-heavy multiplayer servers. Custom recipes included.
-    * ***Dragonlib*** ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - A library required for Railways Navigator to work. **IMPORTANT:** The latest version of dragonlib has been found to prevent the game from loading. Versions 3.0.21 and 3.0.26 have both been reported to work.
+    * ***Dragonlib*** ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - A library required for Railways Navigator to work.
+        :::important
+        The latest version of dragonlib has been found to prevent the game from loading. Versions 3.0.21 and 3.0.26 have both been reported to work.
+        :::
   
 * ***Immersive vehicles***: ([CF](https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator)) and its official addons with TFG recipe support by @ilikecupcakes
     * ***MTS Official Content Pack*** ([CF](https://www.curseforge.com/minecraft/mc-mods/transport-simulator-official-vehicle-set)) Adds dozens of cars, planes, helicopters and tanks. As well as road signs/lights. Requires the base mod and the official automobile pack for recipe support.

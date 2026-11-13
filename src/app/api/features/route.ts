@@ -7,6 +7,8 @@ import {
 } from '@terrafirmagreg-team/discussions/lib/comments/server';
 import { shareEnabled } from '@terrafirmagreg-team/share';
 
+export const dynamic = 'force-static';
+
 export function GET() {
   return Response.json({
     analytics: analyticsEnabled(),

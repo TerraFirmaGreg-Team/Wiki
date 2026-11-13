@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { isSectionKey } from '@terrafirmagreg-team/sites/location';
 import { sectionRoutes } from '@/lib/section-routes';
 
+export const revalidate = 60;
+
 type Props = {
   params: Promise<{ section: string; slug?: string[] }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -13,7 +15,6 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   if (!isSectionKey(section)) return {};
   return sectionRoutes[section].generateMetadata({
     params: Promise.resolve({ slug }),
-    searchParams: props.searchParams,
   });
 }
 

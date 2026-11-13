@@ -144,11 +144,19 @@ function LocationSearchSync() {
   return null;
 }
 
-function LangRoot({ children }: { children: ReactNode }) {
+function LangRoot({
+  children,
+  initialLang,
+}: {
+  children: ReactNode;
+  initialLang?: Lang;
+}) {
   const pathname = usePathname();
   const registry = useLocaleRegistry();
   const created = useMemo(() => createLocaleSet(registry), [registry]);
-  const [lang, setLang] = useState<Lang>(registry.defaultLanguage);
+  const [lang, setLang] = useState<Lang>(
+    initialLang ?? registry.defaultLanguage,
+  );
   const [scopeLangs, setScopeLangs] = useState<readonly Lang[] | null>(null);
   const defaultLang = scopeLangs?.[0] ?? registry.defaultLanguage;
   publishDefaultLang(defaultLang);
@@ -218,15 +226,17 @@ export function AppProvider({
   children,
   registry,
   catalog,
+  initialLang,
 }: {
   children: ReactNode;
   registry: LocaleRegistry;
   catalog: DatasetCatalog;
+  initialLang?: Lang;
 }) {
   return (
     <LocaleRegistryContext.Provider value={registry}>
       <SectionCatalogContext.Provider value={catalog}>
-        <LangRoot>{children}</LangRoot>
+        <LangRoot initialLang={initialLang}>{children}</LangRoot>
       </SectionCatalogContext.Provider>
     </LocaleRegistryContext.Provider>
   );
