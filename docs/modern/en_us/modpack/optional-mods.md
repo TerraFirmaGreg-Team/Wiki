@@ -19,12 +19,14 @@ Here's some more mods that are compatible with TFG but aren't included by defaul
 * ***Ad Astra 3D*** ([CF](https://www.curseforge.com/minecraft/texture-packs/ad-astra-3d), [MR](https://modrinth.com/resourcepack/ad-astra-3d)) - Replaces the usual pixelated textures of the celestial bodies in different sky boxes with 3D models. Goes great with shaders!
 * ***HotOrNot 3D Mittens*** ([MR](https://modrinth.com/resourcepack/tfchotornot-3d-mittens)) - Changes the appearance of the TFC HotOrNot mittens into a 3D model.
 * ***Naturalis*** ([CF](https://www.curseforge.com/minecraft/texture-packs/tfc-naturalis), [MR](https://modrinth.com/resourcepack/tfc-naturalis)) - Makes fruit trees and grain crops more "bushy" looking.
+    * ⚠️ After installing this mod, delete the extra TerraFirmaCraft.jar inside your /mods/ folder.
 * ***TFC Livestock Skins*** ([CF](https://www.curseforge.com/minecraft/texture-packs/aures-tfc-livestock-skins)) - Adds some variations of livestock animals like alpacas, chickens, and ducks, based on the climate and block they spawned on. Requires [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) and [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features) to be installed as well.
 * ***lsc's Player Dolls*** ([CF](https://www.curseforge.com/minecraft/texture-packs/lscs-player-dolls), [MR](https://modrinth.com/resourcepack/lscs-player-dolls)) - A simple resource pack that transforms vanilla Player Heads into adorable dolls. Put a plushie of GregT next to your EBF! Requires [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) and [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features) to be installed as well.
 
 ## Content
 ### Addons
 * ***Epic Knights of TerraFirmaGreg*** ([CF](https://www.curseforge.com/minecraft/mc-mods/epic-knights-of-terrafirmagreg/files/8242766)) - Adds additional weapons and armor to the TFC era of the modpack. Not included by default because of a lot of extra equipment bloat.
+    * ⚠️ After installing this mod, delete the extra TerraFirmaCraft.jar inside your /mods/ folder.
 * ***Via Romana***: ([CF](https://www.curseforge.com/minecraft/mc-mods/via-romana)) - Adds infrastructure driven fast travel. Allowing you create road networks with signs to travel between locations. TFG includes a built in [config file](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/dev/config/via_romana.json) for allowing roads to be made out of many of our blocks.
 
 ### With Custom Recipes
