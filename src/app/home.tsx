@@ -22,6 +22,7 @@ export function Home({ sections }: { sections: { key: string; url: string }[] })
           <Card
             key={key}
             href={urls[key]}
+            className={key === 'changelog' ? 'col-span-2' : undefined}
             icon={Icon ? <Icon color={accents[key]} /> : undefined}
             title={names[key]?.title ?? key}
             description={names[key]?.desc}
