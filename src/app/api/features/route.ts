@@ -7,7 +7,7 @@ import {
 } from '@terrafirmagreg-team/discussions/lib/comments/server';
 import { shareEnabled } from '@terrafirmagreg-team/share';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 
 export function GET() {
   return Response.json({
