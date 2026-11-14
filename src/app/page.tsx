@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 import '@/lib/app-server';
 import { appName, siteDescription, siteUrl } from '@/config/sections';
-import { defaultDataset } from '@terrafirmagreg-team/kit/lib/datasets';
+import { sectionTabs } from '@terrafirmagreg-team/sites/sections';
 import { sectionUrl } from '@terrafirmagreg-team/sites/location';
 import { resolveLang } from '@terrafirmagreg-team/translate/lib/code';
 import { withLang } from '@terrafirmagreg-team/translate/lib/url';
 import { loadLocaleRegistry } from '@terrafirmagreg-team/translate/server';
+import { Home } from './home';
 
 export const metadata: Metadata = {
   title: { absolute: appName },
@@ -23,25 +23,18 @@ type Props = {
 };
 
 export default async function Page({ searchParams }: Props) {
-  const dataset = await defaultDataset('docs');
-  if (!dataset) notFound();
   const { languages, defaultLanguage } = loadLocaleRegistry();
-  const target = withLang(
-    sectionUrl('docs', dataset),
-    resolveLang((await searchParams)?.lang, languages, defaultLanguage),
+  const lang = resolveLang(
+    (await searchParams)?.lang,
+    languages,
     defaultLanguage,
   );
   return (
-    <main className="flex flex-1 items-center justify-center">
-      <meta httpEquiv="refresh" content={`0;url=${target}`} />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `location.replace(${JSON.stringify(target)})`,
-        }}
-      />
-      <a className="text-muted-foreground underline" href={target}>
-        {appName}
-      </a>
-    </main>
+    <Home
+      sections={sectionTabs.map(({ key }) => ({
+        key,
+        url: withLang(sectionUrl(key), lang, defaultLanguage),
+      }))}
+    />
   );
 }
