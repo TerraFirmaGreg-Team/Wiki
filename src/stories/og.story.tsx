@@ -47,6 +47,10 @@ const controls: { node: TypeNode } = {
 
 const presets: { variant: string; initial: OgPreviewProps }[] = [
   {
+    variant: 'Site root',
+    initial: { url: '/' },
+  },
+  {
     variant: 'Docs landing',
     initial: { section: 'docs', dataset: 'modern' },
   },

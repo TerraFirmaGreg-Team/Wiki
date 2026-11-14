@@ -2,6 +2,7 @@ import type { SectionKey } from '@terrafirmagreg-team/sites';
 
 export const appName = 'Wiki';
 export const siteUrl = 'https://dev.wiki.terrafirmagreg.team';
+export const siteDescription = 'Guides for a hostile world';
 
 export const sectionAccent: Record<SectionKey, string> = {
   docs: '#6ea8ff',

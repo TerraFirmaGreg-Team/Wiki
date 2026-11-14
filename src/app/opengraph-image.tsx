@@ -1,6 +1,7 @@
-import { ogDefaultResponse } from '@terrafirmagreg-team/preview/lib/og-default';
+import '@/lib/og-server';
+import { ogRootResponse } from '@terrafirmagreg-team/preview/lib/og-root';
 import { ogPngDataUri } from '@terrafirmagreg-team/dump/lib/dump/assets/og';
-import {appName, siteUrl} from '@/config/sections';
+import { appName, siteDescription, siteUrl } from '@/config/sections';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -10,7 +11,7 @@ export const size = { width: 1200, height: 630 } as const;
 export const contentType = 'image/png';
 
 export default async function Image() {
-  return ogDefaultResponse(
+  return ogRootResponse(
     {
       site: appName,
       siteUrl,
@@ -18,7 +19,6 @@ export default async function Image() {
         await readFile(join(process.cwd(), 'src/app/icon.png')),
       ),
     },
-    appName,
-    'Documentation and gameplay guides',
+    siteDescription,
   );
 }
