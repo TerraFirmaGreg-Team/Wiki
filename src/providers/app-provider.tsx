@@ -21,6 +21,7 @@ import {
 import { usePathname, useSearchParams } from 'next/navigation';
 import { createLocaleSet } from '@terrafirmagreg-team/translate/create';
 import { htmlLang, isLang, resolveLang } from '@terrafirmagreg-team/translate/lib/code';
+import { readLangCookie, writeLangCookie } from '@terrafirmagreg-team/translate/lib/lang-cookie';
 import { encodeQueryValue, langFromFragment, publishDefaultLang, withLang } from '@terrafirmagreg-team/translate/lib/url';
 import type { Lang } from '@terrafirmagreg-team/translate/types/locale';
 import type { LocaleRegistry } from '@terrafirmagreg-team/translate/types/locale';
@@ -69,9 +70,12 @@ function LangQuerySync() {
   useLayoutEffect(() => {
     const allowed = scope.langs ?? languages;
     const effectiveDefault = scope.langs?.[0] ?? defaultLanguage;
-    const raw = searchParams.get('lang') ?? langFromFragment(window.location.hash);
+    const explicit =
+      searchParams.get('lang') ?? langFromFragment(window.location.hash);
+    const raw = explicit ?? readLangCookie();
     const next = resolveLang(raw, allowed, effectiveDefault);
     if (resolved && next !== resolved.lang) resolved.setLang(next);
+    if (explicit && isLang(explicit, allowed)) writeLangCookie(next);
 
     const param = searchParams.get('lang');
     if (param !== null && (param === effectiveDefault || !isLang(param, allowed))) {
@@ -180,6 +184,7 @@ function LangRoot({
         const lang = /^[a-z]{2}(_[a-z0-9]+)?$/i.test(next)
           ? next
           : registry.defaultLanguage;
+        writeLangCookie(lang);
         window.history.pushState(null, '', withLang(href, lang, defaultLang));
       },
     }),

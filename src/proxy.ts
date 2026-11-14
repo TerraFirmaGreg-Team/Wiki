@@ -1,5 +1,9 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { variantSegment } from '@terrafirmagreg-team/kit/lib/variant';
+import {
+  LANG_COOKIE,
+  LANG_HEADER,
+} from '@terrafirmagreg-team/translate/lib/lang-cookie';
 
 const VARIANT_KEYS: Record<string, readonly string[]> = {
   guide: ['book', 'entry', 'cat'],
@@ -27,11 +31,11 @@ function langHeaders(request: NextRequest): Headers | undefined {
     variantLang(request.nextUrl.pathname);
   if (lang === null) return undefined;
   const headers = new Headers(request.headers);
-  headers.set('x-wiki-lang', lang);
+  headers.set(LANG_HEADER, lang);
   const cookie = headers.get('cookie');
   headers.set(
     'cookie',
-    `${cookie ? `${cookie}; ` : ''}wiki_lang=${lang}`,
+    `${cookie ? `${cookie}; ` : ''}${LANG_COOKIE}=${lang}`,
   );
   return headers;
 }

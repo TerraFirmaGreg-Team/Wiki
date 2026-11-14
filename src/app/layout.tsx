@@ -3,6 +3,11 @@ import '@/lib/app-server';
 import { AppProvider } from '@/providers/app-provider';
 import {appName, siteUrl} from '@/config/sections';
 import { htmlLang, resolveLang } from '@terrafirmagreg-team/translate/lib/code';
+import {
+  LANG_COOKIE,
+  LANG_HEADER,
+  requestLang,
+} from '@terrafirmagreg-team/translate/lib/lang-cookie';
 import { cookies, headers } from 'next/headers';
 import { loadLocaleRegistry } from '@terrafirmagreg-team/translate/server';
 import { datasetCatalog } from '@terrafirmagreg-team/kit/lib/datasets';
@@ -28,8 +33,10 @@ export default async function Layout({ children }: LayoutProps<'/'>) {
   const requestHeaders = await headers();
   const requestCookies = await cookies();
   const lang = resolveLang(
-    requestCookies.get('wiki_lang')?.value ??
-      requestHeaders.get('x-wiki-lang'),
+    requestLang(
+      requestCookies.get(LANG_COOKIE)?.value,
+      requestHeaders.get(LANG_HEADER),
+    ),
     registry.languages,
     registry.defaultLanguage,
   );
