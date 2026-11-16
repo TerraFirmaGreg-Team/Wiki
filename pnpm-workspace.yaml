@@ -11,8 +11,8 @@ catalog:
   '@icons-pack/react-simple-icons': '13.15.1'
   class-variance-authority: ^0.7.1
   cn: ^0.5.2
-  fumadocs-core: 16.19.0
-  lucide-react: ^1.72.0
+  fumadocs-core: 16.19.3
+  lucide-react: ^1.73.0
   remark-gfm: ^4.0.1
   remark-parse: ^11.0.0
   server-only: ^0.0.1
