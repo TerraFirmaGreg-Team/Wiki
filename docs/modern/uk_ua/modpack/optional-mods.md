@@ -24,6 +24,7 @@ order: 1
 - _**Ad Astra 3D**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/ad-astra-3d), [MR](https://modrinth.com/resourcepack/ad-astra-3d)) - замінює звичні піксельні текстури небесних тіл у різних скайбоксах на 3D-моделі. Чудово пасує до шейдерів!
 - _**HotOrNot 3D Mittens**_ ([MR](https://modrinth.com/resourcepack/tfchotornot-3d-mittens)) - Змінює вигляд рукавиць TFC HotOrNot на 3D-модель.
 - _**Naturalis**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/tfc-naturalis), [MR](https://modrinth.com/resourcepack/tfc-naturalis)) - Робить фруктові дерева та зернові культури більш «кущистими» на вигляд.
+  - ⚠️ Після встановлення цього мода видали зайвий файл TerraFirmaCraft.jar із теки /mods.
 - **TFC Livestock Skins**\* ([CF](https://www.curseforge.com/minecraft/texture-packs/aures-tfc-livestock-skins)) - Додає кілька варіацій свійських тварин, таких як альпаки, кури та качки, залежно від клімату та блоку, на якому вони з'являються. Для роботи також потрібно встановити [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) та [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features)
 - _**lsc's Player Dolls**_ ([CF](https://www.curseforge.com/minecraft/texture-packs/lscs-player-dolls), [MR](https://modrinth.com/resourcepack/lscs-player-dolls)) - Простий ресурспак, який перетворює звичайні голови гравців на милі ляльки. Постав плюшевого GregT поруч зі своїм EBF! Для роботи також потрібно встановити [ETF](https://www.curseforge.com/minecraft/mc-mods/entity-texture-features-fabric) та [EMF](https://www.curseforge.com/minecraft/mc-mods/entity-model-features)
 
@@ -32,7 +33,9 @@ order: 1
 ### Аддони
 
 - _**Epic Knights of TerraFirmaGreg**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/epic-knights-of-terrafirmagreg/files/8242766)) — додає додаткову зброю та броню в епоху TFC цього модпаку. Типово не входить до збірки через велику кількість зайвого.
+  - ⚠️ Після встановлення цього мода видали зайвий файл TerraFirmaCraft.jar із теки /mods.
 - _**Via Romana**_: ([CF](https://www.curseforge.com/minecraft/mc-mods/via-romana)) - Додає систему швидкого переміщення, яка залежить від побудованої інфраструктури. Дозволяє створювати мережі доріг із дорожніми знаками для переміщення між локаціями. TFG містить вбудований [конфігураційний файл](https://github.com/TerraFirmaGreg-Team/Modpack-Modern/blob/dev/config/via_romana.json), який дозволяє створювати дороги з багатьох наших блоків.
+- _**Create: Return Ticket**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-return-ticket), [MR](https://modrinth.com/mod/create-return-ticket)) — Подорожуючи потягом, ти отримуватимеш предмет «Зворотний квиток», який дозволить миттєво телепортуватися назад, щоб здійснити зворотну подорож.
 
 ### З кастомними рецептами
 
@@ -41,6 +44,9 @@ order: 1
 - _**Create: Extra Gauges**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-extra-gauges), [MR](https://modrinth.com/mod/extra-gauges)) — розширює можливості фабричних вимірювальних приладів з Create. Якщо ти додаш його до свого модпаку, ти отримаєш змінені рецепти від TFG.
 - _**Create: Railways Navigator**_  ([CF](https://www.curseforge.com/minecraft/mc-mods/create-railways-navigator), [MR](https://modrinth.com/mod/create-railways-navigator)) - Розширює можливості планування руху потягів, додає інформаційні дисплеї для пасажирів як у потягах, так і на станціях, а також пристрій-навігатор, який може підказати, на які потяги тобі потрібно сісти для запланованої подорожі. Не включено за замовчуванням, оскільки це переважно корисно для великих багатокористувацьких серверів із великою кількістю залізниць. Користувацькі рецепти включено.
   - _**Dragonlib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/dragonlib), [MR](https://modrinth.com/mod/dragonlib)) - Бібліотека, необхідна для роботи Railways Navigator. **ВАЖЛИВО:** Виявлено, що найновіша версія dragonlib перешкоджає завантаженню гри. Повідомлялося, що версії 3.0.21 та 3.0.26 обидві працюють.
+- _**Valkyrien Skies: Clockwork**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/create-clockwork), [MR](https://modrinth.com/mod/create-clockwork)) — Додає можливість створювати повноцінні фізичні транспортні засоби, з якими можна взаємодіяти та які використовують механіки Create. Ти можеш створювати автомобілі, човни, літаки та дирижаблі. Clockwork має власні рецепти, які активуються після встановлення TFG.
+  - _**Valkyrien Skies**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/valkyrien-skies), [MR](https://modrinth.com/mod/valkyrien-skies)) — Фізична бібліотека, необхідна для роботи Clockwork. \*\* ВАЖЛИВО:\*\*, Щоб уникнути аварійного завершення гри під час запуску, необхідно змінити конфігурацію Radium. Докладніше дивись [тут](https://valkyrienskies.org/forum/help-desk/valkyrien-skies-crashes-with-radium-mqueb5dv)
+  - _**Kelvin Lib**_ ([CF](https://www.curseforge.com/minecraft/mc-mods/kelvin-vs)) — Ще одна необхідна залежність.
 
 <!--* ***Immersive vehicles***: ([CF](https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator)) and its official addons with TFG recipe support by @ilikecupcakes
     * ***MTS Official Content Pack*** ([CF](https://www.curseforge.com/minecraft/mc-mods/transport-simulator-official-vehicle-set)) Adds dozens of cars, planes, helicopters and tanks. As well as road signs/lights. Requires the base mod and the official automobile pack for recipe support.
