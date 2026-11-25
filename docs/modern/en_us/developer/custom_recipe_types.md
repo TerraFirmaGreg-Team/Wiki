@@ -761,3 +761,101 @@ Recipe type: `"tfg:gas_burner_fuel"`
   "temperature": 500
 }
 ```
+
+---
+
+### Baking Dish (`tfg:baking_dish`)
+
+> Baking Dishes are hybrid block entity / item containers that hold up to 6 item stacks and 1000 mB of fluid. When baked inside a Fire Box Top Oven, once the dish reaches the recipe's required temperature, the ingredients within the dish are converted into the outputs (up to 6 item outputs and 1 fluid output). Any excess remaining input fluid gets voided on output.
+
+#### KubeJS Syntax
+
+```js
+event.recipes.tfg.baking_dish()
+    // Input methods
+    .itemInputs(...ingredients: (Ingredient | String)[])
+    .itemInput(ingredient: Ingredient | String)
+    .fluidInputs(...fluids: (FluidStackIngredient | String)[])
+    .fluidInput(fluid: FluidStackIngredient | String)
+    .fluidInput(fluid: FluidIngredient | String, amount: number)
+
+    // Output methods
+    .itemOutputs(...outputs: (ItemStackProvider | ItemStack | String)[])
+    .itemOutput(output: ItemStackProvider | ItemStack | String)
+    .fluidOutputs(...fluids: (FluidStack | String)[])
+    .fluidOutput(fluid: FluidStack | String)
+    .fluidOutput(fluid: Fluid | String, amount: number)
+
+    // Recipe conditions
+    .temperature(minTemp: number)
+    .id(recipeId: String)
+```
+
+#### Method & Argument Details
+
+- `.itemInputs(...ingredients)`: Accepts one or more item ingredients (up to 6 slots). Food ingredients automatically enforce a non-rotten check. Defaults to empty.
+  - `.itemInput(ingredient)`: Single ingredient overload for `.itemInputs()`.
+- `.fluidInputs(...fluids)`: Accepts one or more fluid stack ingredients (ex. `'#tfg:clean_water 500'`, `'minecraft:milk 1000'`) although the baking dish only supports 1 fluid up to 1000mb. Defaults to empty.
+  - `.fluidInput(fluid)`: Single fluid overload for `.fluidInputs()`.
+  - `.fluidInput(fluid, amount)`: Accepts a fluid ingredient/tag and an amount in `mB`.
+- `.itemOutputs(...outputs)`: Accepts one or more item outputs (up to 6 slots), either as direct item stacks or `ItemStackProvider` objects from `kubejs_tfc` (ex. `TFC.isp.of('minecraft:bread').copyFood()`). Output food items automatically receive the `tfg:fire_box_baked` food trait. Defaults to empty.
+  - `.itemOutput(output)`: Single item output overload for `.itemOutputs()`.
+- `.fluidOutputs(...fluids)`: Accepts fluid stacks (up to 1 fluid output, 1000 mB max). Defaults to empty.
+  - `.fluidOutput(fluid)`: Single fluid output overload for `.fluidOutputs()`.
+  - `.fluidOutput(fluid, amount)`: Accepts a fluid registry ID or fluid object and an amount in `mB`.
+- `.temperature(minTemp)`: Sets the minimum baking temperature in Celsius required for the Fire Box Top Oven to bake the dish. Defaults to `0`.
+
+#### KubeJS Example
+
+```js
+ServerEvents.recipes(event => {
+    event.recipes.tfg.baking_dish()
+        .id('tfg:baking_dish/casserole')
+        .itemInputs('tfc:food/potato', 'tfc:food/carrot', 'tfc:food/beef')
+        .fluidInputs('minecraft:milk 250')
+        .itemOutputs(
+            TFC.isp.of('tfg:food/baked_casserole').copyFood()
+        )
+        .temperature(300);
+});
+```
+
+#### JSON Example
+
+Recipe type: `"tfg:baking_dish"`
+
+```json
+{
+  "type": "tfg:baking_dish",
+  "item_ingredients": [
+    {
+      "item": "tfc:food/potato"
+    },
+    {
+      "item": "tfc:food/carrot"
+    },
+    {
+      "item": "tfc:food/beef"
+    }
+  ],
+  "fluid_ingredients": [
+    {
+      "ingredient": "minecraft:milk",
+      "amount": 250
+    }
+  ],
+  "item_outputs": [
+    {
+      "stack": {
+        "item": "tfg:food/baked_casserole"
+      },
+      "modifiers": [
+        {
+          "type": "tfc:copy_food"
+        }
+      ]
+    }
+  ],
+  "temperature": 300.0
+}
+```
