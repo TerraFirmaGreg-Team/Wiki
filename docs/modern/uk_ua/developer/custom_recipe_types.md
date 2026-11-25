@@ -3,7 +3,7 @@ title: Власні типи рецептів
 order: 11
 ---
 
-### Мідний горщик (`tfg:copper_pot`)
+## Мідний горщик (`tfg:copper_pot`)
 
 > Мідні горщики мають 6 слотів для вхідних предметів, 3 слоти для вхідних рідин, 3 слоти для вихідних предметів і 3 слоти для вихідних рідин.
 
@@ -386,7 +386,7 @@ ServerEvents.recipes(event => {
 ```
 ---
 
-### Сковорідка (`tfg:skillet`)
+## Сковорідка (`tfg:skillet`)
 
 > Сковорідки не підтримують додаткові компоненти та роботу з рідинами. Вони можуть приймати до 6 вхідних предметів і видавати до 3 вихідних предметів. Сковорідки не призначені для приготування рецептів із нагріванням! Вони призначені для приготування страв, які зазвичай готують на пательні, наприклад омлетів.
 
@@ -497,7 +497,7 @@ ServerEvents.recipes(event => {
 
 ---
 
-### Мідний горщик (`tfg:mixing_bowl`)
+## Миска для змішування (`tfg:mixing_bowl`)
 
 > Миски для змішування подібні до мідних горщиків, але їх не можна нагрівати. Якщо для рецепта потрібен інструмент, клацни правою кнопкою миші по його зоні зіткнення, щоб запустити рецепт (як у випадку з жорном). Миски для змішування мають 3 слоти для вхідних предметів, 2 слоти для вхідних рідин, 2 слоти для вихідних предметів і 2 слоти для вихідних рідин. Миски для змішування підтримують лише механічні змішувачі як додаткові компоненти.
 
@@ -714,7 +714,7 @@ ServerEvents.recipes(event => {
 
 ---
 
-### Паливо для газового пальника (`tfg:gas_burner_fuel`)
+## Паливо для газового пальника (`tfg:gas_burner_fuel`)
 
 #### Синтаксис KubeJS
 
@@ -759,5 +759,103 @@ ServerEvents.recipes(event => {
   },
   "duration": 300,
   "temperature": 500
+}
+```
+
+---
+
+## Форма для випікання (`tfg:baking_dish`)
+
+> Форми для випікання - це гібридні контейнери, що поєднують блок-сутність / предмет і вміщують до 6 стосів предметів і 1000 mB рідини. Під час випікання у верхній частині печі, щойно форма досягає необхідної за рецептом температури, інгредієнти всередині неї перетворюються на готові продукти (до 6 вихідних предметів і 1 вихідної рідини). Уся зайва вхідна рідина, що залишилася, видаляється під час отримання результату.
+
+#### Синтаксис KubeJS
+
+```js
+event.recipes.tfg.baking_dish()
+    // Input methods
+    .itemInputs(...ingredients: (Ingredient | String)[])
+    .itemInput(ingredient: Ingredient | String)
+    .fluidInputs(...fluids: (FluidStackIngredient | String)[])
+    .fluidInput(fluid: FluidStackIngredient | String)
+    .fluidInput(fluid: FluidIngredient | String, amount: number)
+
+    // Output methods
+    .itemOutputs(...outputs: (ItemStackProvider | ItemStack | String)[])
+    .itemOutput(output: ItemStackProvider | ItemStack | String)
+    .fluidOutputs(...fluids: (FluidStack | String)[])
+    .fluidOutput(fluid: FluidStack | String)
+    .fluidOutput(fluid: Fluid | String, amount: number)
+
+    // Recipe conditions
+    .temperature(minTemp: number)
+    .id(recipeId: String)
+```
+
+#### Метод & Аргументи
+
+- `.itemInputs(...ingredients)`: Приймає один або декілька інгредієнтів-предметів (до 6 слотів). Харчові інгредієнти автоматично перевіряється, чи вони не зіпсовані. За замовчуванням порожній.
+  - `.itemInput(ingredient)`: варіант методу `.itemInputs()` для одного інгредієнта.
+- `.fluidInputs(...fluids)`: приймає один або декілька рідких інгредієнтів (наприклад, `#tfg:clean_water 500`, `minecraft:milk 1000`), хоча форма для випікання підтримує лише одну рідину об'ємом до 1000 mB. За замовчуванням порожній.
+  - `.fluidInput(fluid)`: варіант методу `.fluidInputs()` для однієї рідини.
+  - `.fluidInput(fluid, amount)`: приймає інгредієнт рідини/тег, а також її кількість у `mB`.
+- `.itemOutputs(...outputs)`: приймає один або кілька вихідних предметів (до 6 слотів) — безпосередньо у вигляді стосів предметів або як об'єкти `ItemStackProvider` з `kubejs_tfc` (наприклад, `TFC.isp.of('minecraft:bread').copyFood()`). Готові харчові предмети автоматично отримують харчову властивість `tfg:fire_box_baked`. За замовчуванням порожній.
+  - `.itemOutput(output)`: варіант методу `.itemOutputs()` для одного вихідного предмета.
+- `.fluidOutputs(...fluids)`: приймає стоси рідини (до 1 вихідної рідини об'ємом не більше 1000 mB). За замовчуванням порожній.
+  - `.fluidOutput(fluid)`: варіант методу `.fluidOutputs()` для однієї вихідної рідини.
+  - `.fluidOutput(fluid, amount)`: приймає ID рідини з реєстру або об'єкт рідини, а також її кількість у `mB`.
+- `.temperature(minTemp)`: завдає мінімальну температуру випікання в градусах Цельсія, необхідну для випікання страви у верхній частині печі. За замовчуванням `0`.
+
+#### Приклад KubeJS
+
+```js
+ServerEvents.recipes(event => {
+    event.recipes.tfg.baking_dish()
+        .id('tfg:baking_dish/casserole')
+        .itemInputs('tfc:food/potato', 'tfc:food/carrot', 'tfc:food/beef')
+        .fluidInputs('minecraft:milk 250')
+        .itemOutputs(
+            TFC.isp.of('tfg:food/baked_casserole').copyFood()
+        )
+        .temperature(300);
+});
+```
+
+#### Приклад JSON
+
+Тип рецепту: `"tfg:baking_dish"`
+
+```json
+{
+  "type": "tfg:baking_dish",
+  "item_ingredients": [
+    {
+      "item": "tfc:food/potato"
+    },
+    {
+      "item": "tfc:food/carrot"
+    },
+    {
+      "item": "tfc:food/beef"
+    }
+  ],
+  "fluid_ingredients": [
+    {
+      "ingredient": "minecraft:milk",
+      "amount": 250
+    }
+  ],
+  "item_outputs": [
+    {
+      "stack": {
+        "item": "tfg:food/baked_casserole"
+      },
+      "modifiers": [
+        {
+          "type": "tfc:copy_food"
+        }
+      ]
+    }
+  ],
+  "temperature": 300.0
 }
 ```
