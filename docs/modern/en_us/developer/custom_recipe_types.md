@@ -3,7 +3,7 @@ title: Custom Recipe Types
 order: 11
 ---
 
-### Copper Pot (`tfg:copper_pot`)
+## Copper Pot (`tfg:copper_pot`)
 
 > Copper Pots have 6 item in-slots, 3 fluid in-slots, 3 item out-slots, and 3 fluid out-slots.
 
@@ -386,7 +386,7 @@ Recipe with Vacuum Chamber Attachment:
 ```
 ---
 
-### Skillet (`tfg:skillet`)
+## Skillet (`tfg:skillet`)
 
 > Skillets do not have any attachment or fluid support. They can accept 6 item inputs, and 3 item outputs. Skillets do not do heating recipes! They are intended for meal items that are typically made in a pan, like omelettes.
 
@@ -497,7 +497,7 @@ Standard recipe:
 
 ---
 
-### Copper Pot (`tfg:mixing_bowl`)
+## Mixing Bowl (`tfg:mixing_bowl`)
 
 > Mixing bowls are similar to Copper Pots, with the exceptions that they cannot be provided heat and when a tool is required you must r-click the tools collision box to initiate a recipe (like a quern). Mixing bowls have 3 item in-slots, 2 fluid in-slots, 2 item out-slots, and 2 fluid out-slots. Mixing Bowls only accept mixers as attachments.
 
@@ -714,7 +714,7 @@ Recipe with Mechanical Mixer Attachment:
 
 ---
 
-### Gas Burner Fuel (`tfg:gas_burner_fuel`)
+## Gas Burner Fuel (`tfg:gas_burner_fuel`)
 
 #### KubeJS Syntax
 
@@ -764,7 +764,7 @@ Recipe type: `"tfg:gas_burner_fuel"`
 
 ---
 
-### Baking Dish (`tfg:baking_dish`)
+## Baking Dish (`tfg:baking_dish`)
 
 > Baking Dishes are hybrid block entity / item containers that hold up to 6 item stacks and 1000 mB of fluid. When baked inside a Fire Box Top Oven, once the dish reaches the recipe's required temperature, the ingredients within the dish are converted into the outputs (up to 6 item outputs and 1 fluid output). Any excess remaining input fluid gets voided on output.
 
