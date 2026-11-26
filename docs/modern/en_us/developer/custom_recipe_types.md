@@ -18,6 +18,8 @@ event.recipes.tfg.copper_pot()
     .fluidInput(fluid: FluidStackIngredient | String)
     .fluidInput(fluid: FluidIngredient | String, amount: number)
     .catalyst(catalyst: Ingredient | String)
+    .catalyst(catalyst: Ingredient | String, chance: number)
+    .catalystChance(chance: number)
     .tool(tool: Ingredient | String)
     .toolDamage(damage: number)
     .tool(tool: Ingredient | String, damage: number)
@@ -49,7 +51,9 @@ event.recipes.tfg.copper_pot()
 - `.fluidInputs(...fluids)`: Accepts one or more fluid stack ingredients (ex. `'#tfg:clean_water 600'`, `'minecraft:water 1000'`). Defaults to empty.
    - `.fluidInput(fluid)`: Single fluid overload for `.fluidInputs()`.
    - `.fluidInput(fluid, amount)`: Accepts a fluid ingredient/tag/string and an amount in `mB`.
-- `.catalyst(catalyst)`: Accepts an item ingredient for the catalyst slot (ex. `'#tfc:bowls'`). Consumed upon recipe completion. Items placed in this slot must match the `#tfg:appliance_catalysts` tag. Items with this tag cannot go in main input slots. Defaults to empty.
+- `.catalyst(catalyst)`: Accepts an item ingredient for the catalyst slot (ex. `'#tfc:bowls'`). Consumed upon recipe completion by default (100% chance). Items placed in this slot must match the `#tfg:appliance_catalysts` tag. Items with this tag cannot go in main input slots. Defaults to empty.
+    - `.catalyst(catalyst, chance)`: Sets the catalyst ingredient and the consumption chance on recipe completion (from `0.0` to `1.0`, where `1.0` is 100% and `0.0` means non-consumed).
+    - `.catalystChance(chance)`: Sets the consumption chance for the catalyst upon recipe completion (from `0.0` to `1.0`). Defaults to `1.0` (100%). Can be `0` for non-consumption.
 - `.tool(tool)`: Accepts an item ingredient for the tool slot (ex. `'firmalife:spoon'`). Not consumed, but takes durability damage if the item is damageable. Items placed in this slot must match the `#tfg:appliance_tools` tag. Items with this tag cannot go in main input slots. Defaults to empty.
     - Consider tools like GT circuits for preventing recipe conflicts.
     - `.tool(tool, damage)`: Sets the tool ingredient and the durability damage inflicted per recipe completion.
@@ -398,6 +402,8 @@ event.recipes.tfg.skillet()
     .itemInputs(...ingredients: (Ingredient | String)[])
     .itemInput(ingredient: Ingredient | String)
     .catalyst(catalyst: Ingredient | String)
+    .catalyst(catalyst: Ingredient | String, chance: number)
+    .catalystChance(chance: number)
     .tool(tool: Ingredient | String)
     .toolDamage(damage: number)
     .tool(tool: Ingredient | String, damage: number)
@@ -417,7 +423,9 @@ event.recipes.tfg.skillet()
 - `.itemInputs(...ingredients)`: Accepts one or more item ingredients. Multi-stack ingredients can be placed within a single slot or distributed across multiple appliance input slots. Food ingredients automatically enforce a non-rotten check. Defaults to empty.
   - Food items often don't stack, so it's better to keep their stack size as 1. Or keep the total item count < 6.
    - `.itemInput(ingredient)`: Single ingredient overload for `.itemInputs()`.
-- `.catalyst(catalyst)`: Accepts an item ingredient for the catalyst slot (ex. `'#tfc:bowls'`). Consumed upon recipe completion. Items placed in this slot must match the `#tfg:appliance_catalysts` tag. Items with this tag cannot go in main input slots. Defaults to empty.
+- `.catalyst(catalyst)`: Accepts an item ingredient for the catalyst slot (ex. `'#tfc:bowls'`). Consumed upon recipe completion by default (100% chance). Items placed in this slot must match the `#tfg:appliance_catalysts` tag. Items with this tag cannot go in main input slots. Defaults to empty.
+    - `.catalyst(catalyst, chance)`: Sets the catalyst ingredient and the consumption chance on recipe completion (from `0.0` to `1.0`, where `1.0` is 100% and `0.0` means non-consumed).
+    - `.catalystChance(chance)`: Sets the consumption chance for the catalyst upon recipe completion (from `0.0` to `1.0`). Defaults to `1.0` (100%). Can be `0` for non-consumption.
 - `.tool(tool)`: Accepts an item ingredient for the tool slot (ex. `'firmalife:spoon'`). Not consumed, but takes durability damage if the item is damageable. Items placed in this slot must match the `#tfg:appliance_tools` tag. Items with this tag cannot go in main input slots. Defaults to empty.
     - Consider tools like GT circuits for preventing recipe conflicts.
     - `.tool(tool, damage)`: Sets the tool ingredient and the durability damage inflicted per recipe completion.
@@ -512,6 +520,8 @@ event.recipes.tfg.mixing_bowl()
     .fluidInput(fluid: FluidStackIngredient | String)
     .fluidInput(fluid: FluidIngredient | String, amount: number)
     .catalyst(catalyst: Ingredient | String)
+    .catalyst(catalyst: Ingredient | String, chance: number)
+    .catalystChance(chance: number)
     .tool(tool: Ingredient | String)
     .toolDamage(damage: number)
     .tool(tool: Ingredient | String, damage: number)
@@ -539,7 +549,9 @@ event.recipes.tfg.mixing_bowl()
 - `.fluidInputs(...fluids)`: Accepts one or more fluid stack ingredients (ex. `'#tfg:clean_water 600'`, `'minecraft:water 1000'`). Defaults to empty.
    - `.fluidInput(fluid)`: Single fluid overload for `.fluidInputs()`.
    - `.fluidInput(fluid, amount)`: Accepts a fluid ingredient/tag/string and an amount in `mB`.
-- `.catalyst(catalyst)`: Accepts an item ingredient for the catalyst slot (ex. `'#tfc:bowls'`). Consumed upon recipe completion. Items placed in this slot must match the `#tfg:appliance_catalysts` tag. Items with this tag cannot go in main input slots. Defaults to empty.
+- `.catalyst(catalyst)`: Accepts an item ingredient for the catalyst slot (ex. `'#tfc:bowls'`). Consumed upon recipe completion by default (100% chance). Items placed in this slot must match the `#tfg:appliance_catalysts` tag. Items with this tag cannot go in main input slots. Defaults to empty.
+    - `.catalyst(catalyst, chance)`: Sets the catalyst ingredient and the consumption chance on recipe completion (from `0.0` to `1.0`, where `1.0` is 100% and `0.0` means non-consumed).
+    - `.catalystChance(chance)`: Sets the consumption chance for the catalyst upon recipe completion (from `0.0` to `1.0`). Defaults to `1.0` (100%). Can be `0` for non-consumption.
 - `.tool(tool)`: Accepts an item ingredient for the tool slot (ex. `'firmalife:spoon'`). Not consumed, but takes durability damage if the item is damageable. Items placed in this slot must match the `#tfg:appliance_tools` tag. Items with this tag cannot go in main input slots. Defaults to empty.
     - Consider tools like GT circuits for preventing recipe conflicts.
     - `.tool(tool, damage)`: Sets the tool ingredient and the durability damage inflicted per recipe completion.
